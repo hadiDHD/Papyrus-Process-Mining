@@ -1,0 +1,20 @@
+target "Papyrus-Sirius - 2021-12" with source requirements
+//build with simrel commit e014ee7948cbdea3d3eea7591de339b4bc25d0ed
+
+location "http://download.eclipse.org/releases/2021-09" eclipse-2021-09 {
+ org.eclipse.sdk.feature.group 
+}
+
+
+/** Manual dependencies */
+
+//manualUpdate
+location "https://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/master/" Papyrus-2021-12 {
+ org.eclipse.papyrus.sdk.feature.feature.group lazy
+}
+
+//updateFrom("XWT",0)
+
+location xwt "https://download.eclipse.org/xwt/milestones-1.7.0/1.7.0-S/" {
+    org.eclipse.xwt.feature.feature.group lazy
+}

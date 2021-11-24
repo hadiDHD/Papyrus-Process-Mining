@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipse.papyrus.sirius.core.feature_0.7.0.qualifier.jar" id="org.eclipse.papyrus.sirius.core.feature" version="0.7.0.qualifier">
+      <category name="org.eclipse.papyrus.sirius.category"/>
+   </feature>
+   <feature url="features/org.eclipse.papyrus.sirius.core.feature.source_0.7.0.qualifier.jar" id="org.eclipse.papyrus.sirius.core.feature.source" version="0.7.0.qualifier">
+      <category name="org.eclipse.papyrus.sirius.category"/>
+   </feature>
+   <category-def name="org.eclipse.papyrus.sirius.category" label="Papyrus-Sirius">
+      <description>
+         Papyrus-Sirius : Core plugins
+      </description>
+   </category-def>
+</site>
