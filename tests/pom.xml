@@ -17,4 +17,8 @@
 
 	<name>Papyrus-Sirius Tests Plugins</name>
 	<description>Container of the Papyrus-Sirius Tests Plugins</description>
+
+	<modules>
+		<module>org.eclipse.papyrus.sirius.bundles.tests</module>
+	</modules>
 </project>
