@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="org.eclipse.sirius.componentization">
+    <component class="org.eclipse.papyrus.uml.sirius.statemachine.diagram.Activator"
+               id="org.eclipse.papyrus.uml.sirius.statemachine.diagram"
+	       name="papyrus_statemachine">
+    </component>
+  </extension>
+  <extension
+        point="org.eclipse.ui.startup">
+     <startup
+           class="org.eclipse.papyrus.uml.sirius.statemachine.diagram.Startup">
+     </startup>
+  </extension>
+  <extension
+        point="org.eclipse.gmf.runtime.diagram.ui.editpolicyProviders">
+     <editpolicyProvider
+           class="org.eclipse.papyrus.uml.sirius.statemachine.diagram.custom.StateMachineSiriusCreateEditPolicyProvider">
+        <Priority
+              name="High">
+        </Priority>
+     </editpolicyProvider>
+  </extension>
+  <extension
+        point="org.eclipse.sirius.refreshExtensionProvider">
+     <refreshExtensionProvider
+           priority="lowest"
+           providerClass="org.eclipse.papyrus.uml.sirius.statemachine.diagram.StateMachineRefreshExtensionProvider">
+     </refreshExtensionProvider>
+  </extension>
+  <extension
+        point="org.eclipse.sirius.diagram.ui.formatDataManager">
+     <formatDataManagerProvider
+           class="org.eclipse.papyrus.uml.sirius.statemachine.diagram.layout.StateMachineDataManagerProvider"
+           id="org.eclipse.papyrus.uml.sirius.statemachine.diagram.stateFormatDataManager">
+     </formatDataManagerProvider>
+  </extension>
+</plugin>

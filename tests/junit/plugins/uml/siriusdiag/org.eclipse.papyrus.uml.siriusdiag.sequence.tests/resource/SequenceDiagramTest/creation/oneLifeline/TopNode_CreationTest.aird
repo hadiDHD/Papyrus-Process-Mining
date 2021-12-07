@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:sequence="http://www.eclipse.org/sirius/diagram/sequence/2.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0 http://www.eclipse.org/sirius/diagram/sequence/2.0.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_9F2tsEigEeyweoovpFuWdQ" selectedViews="_9GSLgEigEeyweoovpFuWdQ _9HgTgEigEeyweoovpFuWdQ _9HvkEEigEeyweoovpFuWdQ" version="14.3.1.202003261200">
+    <semanticResources>TopNode_CreationTest.uml</semanticResources>
+    <semanticResources>pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml</semanticResources>
+    <semanticResources>pathmap://UML_PROFILES/Ecore.profile.uml</semanticResources>
+    <semanticResources>pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml</semanticResources>
+    <semanticResources>pathmap://UML_PROFILES/Standard.profile.uml</semanticResources>
+    <semanticResources>pathmap://UML_METAMODELS/UML.metamodel.uml</semanticResources>
+    <semanticResources>pathmap://UML_METAMODELS/Ecore.metamodel.uml</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_9GSLgEigEeyweoovpFuWdQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_9HgTgEigEeyweoovpFuWdQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_9H4uAEigEeyweoovpFuWdQ" name="TopNode_Creation_SequenceDiagram" repPath="#_9H4G8EigEeyweoovpFuWdQ" changeId="cc272861-47f5-4ac4-882f-a331ea0e2d51">
+        <description xmi:type="description_1:SequenceDiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']"/>
+        <target xmi:type="uml:Interaction" href="TopNode_CreationTest.uml#_pyg8QCw6EeyvFeHa40zobA"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_9HvkEEigEeyweoovpFuWdQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']"/>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <sequence:SequenceDDiagram uid="_9H4G8EigEeyweoovpFuWdQ">
+    <eAnnotations xmi:type="description:DAnnotation" uid="_9JKgYEigEeyweoovpFuWdQ" source="Papyrus-SiriusDiagram">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9JKgYUigEeyweoovpFuWdQ" key="Papyrus-SiriusDiagram-ImplementationId" value="org.eclipse.papyrus.infra.siriusdiag.sequence"/>
+    </eAnnotations>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_9H6jMEigEeyweoovpFuWdQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_9H6jMUigEeyweoovpFuWdQ" type="Sirius" element="_9H4G8EigEeyweoovpFuWdQ" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_9JG2AEigEeyweoovpFuWdQ" type="2001" element="_9JEZwEigEeyweoovpFuWdQ">
+          <children xmi:type="notation:Node" xmi:id="_9JHdEEigEeyweoovpFuWdQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_9JHdEUigEeyweoovpFuWdQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_9JHdEkigEeyweoovpFuWdQ" type="3001" element="_9JFA0EigEeyweoovpFuWdQ">
+            <children xmi:type="notation:Node" xmi:id="_9JHdFUigEeyweoovpFuWdQ" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_9JHdFkigEeyweoovpFuWdQ" x="-34"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_9JIEI0igEeyweoovpFuWdQ" type="3003" element="_9JFA0UigEeyweoovpFuWdQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_9JIEJEigEeyweoovpFuWdQ" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9JIEJUigEeyweoovpFuWdQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_9JHdE0igEeyweoovpFuWdQ" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9JHdFEigEeyweoovpFuWdQ" y="32" width="10" height="400"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_9JIEIEigEeyweoovpFuWdQ" type="3003" element="_9JEZwUigEeyweoovpFuWdQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_9JIEIUigEeyweoovpFuWdQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9JIEIkigEeyweoovpFuWdQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_9JG2AUigEeyweoovpFuWdQ" fontName="Segoe UI"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9JG2AkigEeyweoovpFuWdQ" x="50" y="50" width="100" height="40"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_9H6jMkigEeyweoovpFuWdQ"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_9JGO8EigEeyweoovpFuWdQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_9JGO8UigEeyweoovpFuWdQ"/>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_9JEZwEigEeyweoovpFuWdQ" name="Lifeline1" width="10" height="4" resizeKind="NSEW">
+      <target xmi:type="uml:Lifeline" href="TopNode_CreationTest.uml#_t2-3QCw6EeyvFeHa40zobA"/>
+      <semanticElements xmi:type="uml:Lifeline" href="TopNode_CreationTest.uml#_t2-3QCw6EeyvFeHa40zobA"/>
+      <graphicalFilters xmi:type="diagram:AbsoluteBoundsFilter" uid="_DRP48EihEeyweoovpFuWdQ" x="50" y="50" height="40" width="100"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_9JFA0EigEeyweoovpFuWdQ" width="1" height="40" resizeKind="NSEW">
+        <target xmi:type="uml:Lifeline" href="TopNode_CreationTest.uml#_t2-3QCw6EeyvFeHa40zobA"/>
+        <semanticElements xmi:type="uml:Lifeline" href="TopNode_CreationTest.uml#_t2-3QCw6EeyvFeHa40zobA"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_9JFA0UigEeyweoovpFuWdQ" showIcon="false" borderSize="1" borderSizeComputationExpression="1" width="1" height="40" color="0,0,0">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ExecutionMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']"/>
+      </ownedBorderedNodes>
+      <ownedStyle xmi:type="diagram:Square" uid="_9JEZwUigEeyweoovpFuWdQ" labelSize="9" labelPosition="node" width="10" height="4" color="255,255,255">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:InstanceRoleMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:SequenceDiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_9H4G8UigEeyweoovpFuWdQ"/>
+    <activatedLayers xmi:type="description_2:Layer" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer"/>
+    <target xmi:type="uml:Interaction" href="TopNode_CreationTest.uml#_pyg8QCw6EeyvFeHa40zobA"/>
+  </sequence:SequenceDDiagram>
+</xmi:XMI>

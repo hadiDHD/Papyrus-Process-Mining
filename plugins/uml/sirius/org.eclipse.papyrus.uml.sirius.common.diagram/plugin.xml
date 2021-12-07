@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+<extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+    <decoratorProvider class="org.eclipse.papyrus.uml.sirius.common.diagram.validation.SiriusValidationDecoratorProvider">
+         <Priority name="Highest"/>
+	         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+	         <context decoratorTargets="PRIMARY_VIEW"/>
+	</decoratorProvider>
+</extension>
+
+   <extension
+         point="org.eclipse.sirius.refreshExtensionProvider">
+      <refreshExtensionProvider
+            providerClass="org.eclipse.papyrus.uml.sirius.common.diagram.refresh.CommonRefreshExtensionProvider">
+      </refreshExtensionProvider>
+   </extension>
+  <extension
+        point="org.eclipse.sirius.diagram.ui.tabbarContributor">
+     <tabbarContributor
+           class="org.eclipse.papyrus.uml.sirius.common.diagram.PapyrusSiriusTabbarContributor">
+     </tabbarContributor>
+  </extension>
+      <extension
+        point="org.eclipse.gmf.runtime.diagram.ui.editpolicyProviders">
+     <editpolicyProvider
+           class="org.eclipse.papyrus.uml.sirius.common.diagram.SiriusEditPolicyProvider">
+        <Priority
+              name="High">
+        </Priority>
+     </editpolicyProvider>
+  </extension>
+  
+  <!--
+    <extension
+        point="org.eclipse.gmf.runtime.diagram.ui.editpolicyProviders">
+     <editpolicyProvider
+           class="org.eclipse.papyrus.uml.sirius.common.diagram.hyperlink.NavigationEditPolicyProvider">
+        <Priority
+              name="High">
+        </Priority>
+     </editpolicyProvider>
+  </extension>
+  -->
+  	<extension
+        point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
+     <editpartProvider
+           class="org.eclipse.papyrus.uml.sirius.common.diagram.hyperlink.SiriusShortcutEditPartProvider">
+        <Priority
+              name="Highest">
+        </Priority>
+     </editpartProvider>
+  </extension>
+  
+     <extension point="org.eclipse.ui.bindings">
+      <?gmfgen generated="true"?>
+      <key
+            commandId="org.eclipse.sirius.diagram.ui.command.deleteFromDiagram"
+            contextId="org.eclipse.sirius.diagram.ui.diagramContext"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M2+DEL">
+      </key>
+       <key
+             commandId="org.eclipse.papyrus.uml.diagram.menu.commands.SelectAllShapesCommand"
+             contextId="org.eclipse.sirius.diagram.ui.diagramContext"
+             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+             sequence="M1+A">
+       </key>
+       <key
+             commandId="org.eclipse.papyrus.uml.diagram.menu.command.grow.top"
+             contextId="org.eclipse.sirius.diagram.ui.diagramContext"
+             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+             sequence="M2+ARROW_UP">
+       </key>
+       <key
+             commandId="org.eclipse.papyrus.uml.diagram.menu.command.grow.bottom"
+             contextId="org.eclipse.sirius.diagram.ui.diagramContext"
+             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+             sequence="M2+ARROW_DOWN">
+       </key>
+       <key
+             commandId="org.eclipse.papyrus.uml.diagram.menu.command.grow.left"
+             contextId="org.eclipse.sirius.diagram.ui.diagramContext"
+             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+             sequence="M2+ARROW_LEFT">
+       </key>
+       <key
+             commandId="org.eclipse.papyrus.uml.diagram.menu.command.grow.right"
+             contextId="org.eclipse.sirius.diagram.ui.diagramContext"
+             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+             sequence="M2+ARROW_RIGHT">
+       </key>
+       <key
+             commandId="org.eclipse.papyrus.uml.sirius.common.diagram.semantic.DeleteCommand"
+             contextId="org.eclipse.sirius.diagram.ui.diagramContext"
+             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+             sequence="DEL">
+       </key>
+   </extension>
+     <extension
+           point="org.eclipse.ui.handlers">
+        <handler
+              class="org.eclipse.papyrus.uml.sirius.common.diagram.handler.DeleteFromModelHandler"
+              commandId="org.eclipse.papyrus.uml.sirius.common.diagram.semantic.DeleteCommand">
+        </handler>
+     </extension>
+     <extension
+           point="org.eclipse.ui.commands">
+        <command
+              id="org.eclipse.papyrus.uml.sirius.common.diagram.semantic.DeleteCommand"
+              name="Delete From Model">
+        </command>
+     </extension>
+</plugin>

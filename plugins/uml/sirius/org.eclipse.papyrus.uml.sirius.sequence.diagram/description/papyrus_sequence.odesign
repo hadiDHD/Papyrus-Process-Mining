@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="ASCII"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/sequence/description/tool/2.0.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_2="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="papyrus" version="12.0.0.2017041100">
+  <ownedViewpoints endUserDocumentation="To work on the fine grained structure and the behaviours of the application." name="SequenceDiagram" modelFileExtension="uml">
+    <ownedRepresentations xsi:type="description_1:SequenceDiagramDescription" dropDescriptions="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='AddHyperlinkView']" documentation="@generated" name="SequenceDiagram" titleExpression="service:getSequenceDiagramName" domainClass="uml::Element" endsOrdering="service:getFragmentsOrderingEnds()" instanceRolesOrdering="feature:lifeline">
+      <metamodel href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+      <metamodel href="http://www.eclipse.org/sirius/diagram/1.1.0#/"/>
+      <metamodel href="http://www.eclipse.org/sirius/1.1.0#/"/>
+      <metamodel href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+      <filters xsi:type="filter:CompositeFilterDescription" name="Hide Observation Point">
+        <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']"/>
+      </filters>
+      <defaultLayer name="Sequence">
+        <nodeMappings xsi:type="description_1:InstanceRoleMapping" name="SD_LifelineRole" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:lifeline" doubleClickDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Open%20Hyperlink']" synchronizationLock="true" documentation="@generated" domainClass="uml.Lifeline">
+          <borderedNodeMappings xsi:type="description_1:ExecutionMapping" name="SD_Lifeline" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="var:self" semanticElements="var:self" synchronizationLock="true" documentation="@generated" domainClass="uml.Lifeline" startingEndFinderExpression="var:self" finishingEndFinderExpression="var:self">
+            <borderedNodeMappings xsi:type="description_1:ExecutionMapping" name="SD_ExecutionSpecificationNode" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:getExecutionSpecifications" semanticElements="service:computeSemanticElements" documentation="@generated" domainClass="ExecutionSpecification" reusedBorderedNodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']" startingEndFinderExpression="aql:self.getStart()" finishingEndFinderExpression="aql:self.getFinish()">
+              <borderedNodeMappings xsi:type="description_1:ObservationPointMapping" name="TimeConstraint" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:getTimeConstraints()" domainClass="TimeConstraint">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" sizeComputationExpression="5" labelPosition="node" resizeKind="EAST_WEST" workspacePath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/stroke.svg">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <forbiddenSides>WEST</forbiddenSides>
+                  <forbiddenSides>EAST</forbiddenSides>
+                </style>
+              </borderedNodeMappings>
+              <borderedNodeMappings xsi:type="description_1:ObservationPointMapping" name="TimeObservation" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:getTimeObservations()" synchronizationLock="true" domainClass="TimeObservation">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" sizeComputationExpression="5" labelPosition="node" resizeKind="EAST_WEST" workspacePath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/stroke.svg">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <forbiddenSides>WEST</forbiddenSides>
+                  <forbiddenSides>EAST</forbiddenSides>
+                </style>
+              </borderedNodeMappings>
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="" resizeKind="NORTH_SOUTH" width="2" height="5" color="//@userColorsPalettes[name='UMLPalette']/@entries[name='Execution%20Color']">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </borderedNodeMappings>
+            <borderedNodeMappings xsi:type="description_1:StateMapping" name="StateInvariant" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:coveredBy" doubleClickDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Open%20Hyperlink']" domainClass="StateInvariant" startingEndFinderExpression="var:self" finishingEndFinderExpression="var:self">
+              <style xsi:type="style:EllipseNodeDescription" labelSize="12" labelPosition="node" color="//@userColorsPalettes[name='UMLPalette']/@entries[name='Execution%20Color']" horizontalDiameterComputationExpression="15" verticalDiameterComputationExpression="7">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </borderedNodeMappings>
+            <borderedNodeMappings xsi:type="description_1:EndOfLifeMapping" name="SD_LifelineEOL" preconditionExpression="service:eolPrecondition" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="var:self" semanticElements="var:self" documentation="@generated" domainClass="uml.Lifeline">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="" sizeComputationExpression="5" workspacePath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/eol.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </borderedNodeMappings>
+            <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="" resizeKind="NSEW" width="1" height="40">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:SquareDescription" labelSize="9" labelExpression="service:computeUmlLabel" labelPosition="node" resizeKind="NSEW" width="10" height="4">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+          <conditionnalStyles predicateExpression="service:isRepresentingProperty">
+            <style xsi:type="style:SquareDescription" labelSize="9" labelExpression="service:computeUmlLabel" labelPosition="node" resizeKind="NSEW" width="10" height="4">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <nodeMappings name="Gate" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:formalGate" doubleClickDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Open%20Hyperlink']" domainClass="Gate">
+          <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="2" height="2" color="//@userColorsPalettes[name='UMLPalette']/@entries[name='Execution%20Color']">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="LostFound" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="aql:self.message->select(message|message.sendEvent = null and message.receiveEvent != null or message.sendEvent != null and message.receiveEvent = null)" synchronizationLock="true" domainClass="Message">
+          <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="" sizeComputationExpression="1" resizeKind="NSEW" strokeSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings xsi:type="description_1:ObservationPointMapping" name="Observation" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:makeUnion()" synchronizationLock="true" domainClass="InteractionFragment">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="" sizeComputationExpression="1" workspacePath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/observation_opaque.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Constraint" preconditionExpression="aql:not self.oclIsTypeOf(uml::InteractionConstraint)" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='ConstraintEdit']" createElements="false" doubleClickDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Open%20Hyperlink']" domainClass="Constraint">
+          <style xsi:type="style:NoteDescription" labelSize="12" labelExpression="service:getConstraintLabel()" sizeComputationExpression="9" labelPosition="node" resizeKind="NSEW" color="//@userColorsPalettes[name='UMLPalette']/@entries[name='ConstrainedColor']">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings xsi:type="description_1:BasicMessageMapping" name="SD_Message" preconditionExpression="aql:self.preConditionMessageBasic()" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:message" semanticElements="service:getSemanticElements" synchronizationLock="true" documentation="@generated" sourceMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Gate'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='StateInvariant'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='InteractionUse'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@borderedNodeMappings[name='GateBorder'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='InteractionUse']/@borderedNodeMappings[name='GateBorder']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Gate'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='StateInvariant'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='InteractionUse'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@borderedNodeMappings[name='GateBorder'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='InteractionUse']/@borderedNodeMappings[name='GateBorder']" targetFinderExpression="service:findOccurrenceSpecificationContextForReceiveEvent" sourceFinderExpression="service:findOccurrenceSpecificationContextForSendEvent" domainClass="Message" useDomainElement="true" reconnections="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@toolSections.0/@subSections[name='edit']/@ownedTools[name='ConnectEvent']" sendingEndFinderExpression="feature:sendEvent" receivingEndFinderExpression="feature:receiveEvent">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelExpression="service:computeUmlLabel">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <conditionnalStyles predicateExpression="service:isSynchCall">
+            <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <centerLabelStyleDescription labelExpression="service:computeUmlLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
+        <edgeMappings name="Basic Message Standard" preconditionExpression="aql:self.preConditionNotMessageBasic()" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:message" semanticElements="service:getSemanticElements" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Gate'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='InteractionUse'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='StateInvariant'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@borderedNodeMappings[name='GateBorder'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='InteractionUse']/@borderedNodeMappings[name='GateBorder']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Gate'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='InteractionUse'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='StateInvariant'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@borderedNodeMappings[name='GateBorder'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='InteractionUse']/@borderedNodeMappings[name='GateBorder']" targetFinderExpression="service:findOccurrenceSpecificationContextForReceiveEvent" sourceFinderExpression="service:findOccurrenceSpecificationContextForSendEvent" domainClass="Message" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelExpression="service:computeUmlLabel">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <conditionnalStyles predicateExpression="service:isSynchCall">
+            <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <centerLabelStyleDescription labelExpression="service:computeUmlLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
+        <edgeMappings xsi:type="description_1:ReturnMessageMapping" name="MessageReply" preconditionExpression="aql:self.messageSort == uml::MessageSort::reply" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:message" semanticElements="service:getSemanticElements" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Gate']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Gate']" targetFinderExpression="service:findOccurrenceSpecificationContextForReceiveEvent" sourceFinderExpression="service:findOccurrenceSpecificationContextForSendEvent" domainClass="Message" useDomainElement="true" sendingEndFinderExpression="feature:sendEvent" receivingEndFinderExpression="feature:receiveEvent" invocationMessageFinderExpression="aql:self.getInvocationMessage()">
+          <style lineStyle="dash" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelExpression="service:computeUmlLabel">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings xsi:type="description_1:CreationMessageMapping" name="CreateMessage" preconditionExpression="aql:self.messageSort == uml::MessageSort::createMessage" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:message" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Gate'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Gate']" targetFinderExpression="service:findOccurrenceSpecificationContextForReceiveEvent" sourceFinderExpression="service:findOccurrenceSpecificationContextForSendEvent" domainClass="Message" useDomainElement="true" sendingEndFinderExpression="feature:sendEvent" receivingEndFinderExpression="feature:receiveEvent">
+          <style lineStyle="dash" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings xsi:type="description_1:DestructionMessageMapping" name="DeleteMessage" preconditionExpression="aql:self.messageSort == uml::MessageSort::deleteMessage" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:message" semanticElements="service:getMessageAssociatedElements" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Gate'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_LifelineEOL']" targetFinderExpression="service:findOccurrenceSpecificationContextForReceiveEvent" sourceFinderExpression="service:findOccurrenceSpecificationContextForSendEvent" domainClass="Message" useDomainElement="true" sendingEndFinderExpression="feature:sendEvent" receivingEndFinderExpression="feature:receiveEvent">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="feature:name">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings xsi:type="description_1:BasicMessageMapping" name="MessageLost" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:message" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='LostFound']" targetFinderExpression="aql:self" sourceFinderExpression="service:findOccurrenceSpecificationContextForSendEvent" domainClass="Message" useDomainElement="true" sendingEndFinderExpression="feature:sendEvent" receivingEndFinderExpression="service:getLostReceiveAnnotation()">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings xsi:type="description_1:BasicMessageMapping" name="MessageFound" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:message" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='LostFound']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" targetFinderExpression="service:findOccurrenceSpecificationContextForReceiveEvent" sourceFinderExpression="var:self" domainClass="Message" useDomainElement="true" sendingEndFinderExpression="feature:receiveEvent" receivingEndFinderExpression="feature:receiveEvent">
+          <style>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="GeneralOrdering" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:eAllContents" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Gate']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Gate']" targetFinderExpression="aql:self.after.execution" sourceFinderExpression="aql:self.before.execution" domainClass="GeneralOrdering" useDomainElement="true">
+          <style sizeComputationExpression="2" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="DurationObservation" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="aql:self.getAllDurationObservation()" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']" targetFinderExpression="aql:self.getTargetObservation()" sourceFinderExpression="aql:self.getSourceObservation()" domainClass="DurationObservation" useDomainElement="true">
+          <style xsi:type="style:BracketEdgeStyleDescription" sourceArrow="InputArrow">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12" labelExpression="feature:name">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Duration Constraint" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:eAllContents" sourceMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']" targetFinderExpression="aql:self.getTargetConstrainedElement()" sourceFinderExpression="aql:self.getSourceConstrainedElement()" domainClass="DurationConstraint" useDomainElement="true">
+          <style xsi:type="style:BracketEdgeStyleDescription" lineStyle="dot" sourceArrow="InputArrow">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Comment Link" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@toolSections.0/@subSections[name='edit']/@ownedTools[name='Rename']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Constraint'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@subContainerMappings[name='SD_Operand'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='CreateMessage'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='DeleteMessage'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='Duration%20Constraint'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='DurationObservation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Gate'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='GeneralOrdering'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='InteractionUse'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='LostFound'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='MessageFound'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='MessageLost'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='MessageReply'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']/@borderedNodeMappings[name='TimeConstraint'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']/@borderedNodeMappings[name='TimeObservation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_LifelineEOL'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='StateInvariant'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='SD_Message']" targetFinderExpression="aql:self.targetFinderExpression()" reconnections="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@toolSections.0/@subSections[name='edit']/@ownedTools[name='Reconnect%20Source%20Link'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@toolSections.0/@subSections[name='edit']/@ownedTools[name='Reconnect%20Target%20Link']">
+          <style lineStyle="dot" targetArrow="NoDecoration">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Constraint Link" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@toolSections.0/@subSections[name='edit']/@ownedTools[name='Rename']" sourceMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Constraint'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@subContainerMappings[name='SD_Operand'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='CreateMessage'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='DeleteMessage'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='Duration%20Constraint'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='DurationObservation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Gate'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='GeneralOrdering'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='InteractionUse'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='LostFound'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='MessageFound'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='MessageLost'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='MessageReply'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']/@borderedNodeMappings[name='TimeConstraint'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']/@borderedNodeMappings[name='TimeObservation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_LifelineEOL'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='StateInvariant'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='SD_Message']" targetFinderExpression="aql:self.targetFinderExpression()" reconnections="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@toolSections.0/@subSections[name='edit']/@ownedTools[name='Reconnect%20Source%20Link'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@toolSections.0/@subSections[name='edit']/@ownedTools[name='Reconnect%20Target%20Link']">
+          <style lineStyle="dot" targetArrow="NoDecoration">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings xsi:type="description_1:CombinedFragmentMapping" name="SD_CombinedFragment" label="Combined Fragment" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:fragment" doubleClickDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Open%20Hyperlink']" synchronizationLock="true" domainClass="uml.CombinedFragment" dropDescriptions="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" startingEndFinderExpression="aql:self.getStart()" finishingEndFinderExpression="aql:self.getFinish()" coveredLifelinesExpression="feature:covered">
+          <borderedNodeMappings name="GateBorder" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:cfragmentGate" doubleClickDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Open%20Hyperlink']" domainClass="Gate">
+            <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="2" height="2" color="//@userColorsPalettes[name='UMLPalette']/@entries[name='Execution%20Color']">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <subContainerMappings xsi:type="description_1:OperandMapping" name="SD_Operand" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:operand" doubleClickDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Open%20Hyperlink']" domainClass="uml.InteractionOperand" dropDescriptions="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" startingEndFinderExpression="aql:self.getStart()" finishingEndFinderExpression="aql:self.getFinish()">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelAlignment="LEFT">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="feature:interactionOperator" labelAlignment="LEFT">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
+          </style>
+        </containerMappings>
+        <containerMappings xsi:type="description_1:InteractionUseMapping" name="InteractionUse" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Open%20Hyperlink']" synchronizationLock="true" domainClass="InteractionUse" dropDescriptions="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" startingEndFinderExpression="var:self" finishingEndFinderExpression="var:self" coveredLifelinesExpression="aql:self.covered">
+          <borderedNodeMappings name="GateBorder" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:actualGate" doubleClickDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Open%20Hyperlink']" domainClass="Gate">
+            <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="2" height="2" color="//@userColorsPalettes[name='UMLPalette']/@entries[name='Execution%20Color']">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelAlignment="LEFT" widthComputationExpression="5" heightComputationExpression="10" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='UMLPalette']/@entries[name='Execution%20Color']">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Tools">
+          <subSections name="edit">
+            <ownedTools xsi:type="tool:InstanceRoleReorderTool" name="REO_Lifeline" mappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']">
+              <predecessorBefore name="predecessorBefore"/>
+              <predecessorAfter name="predecessorAfter"/>
+              <instanceRoleMoved>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:reorderLifeline(predecessorBefore, predecessorAfter)"/>
+              </instanceRoleMoved>
+            </ownedTools>
+            <ownedTools xsi:type="tool_2:DeleteElementDescription" name="DEL_Execution">
+              <element name="element"/>
+              <elementView name="elementView"/>
+              <containerView name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteExecution()"/>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool_2:DeleteElementDescription" name="DEL_Message">
+              <element name="element"/>
+              <elementView name="elementView"/>
+              <containerView name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="service:element.isNotReply"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:delete"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:ReorderTool" name="REO_Fragment" precondition="aql:container.clearRegistry()" mappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='SD_Message'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='StateInvariant'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@subContainerMappings[name='SD_Operand'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='MessageFound'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='MessageLost'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='MessageReply']">
+              <startingEndPredecessorAfter name="startingEndPredecessorAfter"/>
+              <finishingEndPredecessorAfter name="finishingEndPredecessorAfter"/>
+              <onEventMovedOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:reorderFragment(startingEndPredecessorAfter,finishingEndPredecessorAfter)"/>
+              </onEventMovedOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool_2:DeleteElementDescription" name="DEL_Lifeline">
+              <element name="element"/>
+              <elementView name="elementView"/>
+              <containerView name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:delete"/>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool_2:DeleteElementDescription" name="DEL_CombinedFragment">
+              <element name="element"/>
+              <elementView name="elementView"/>
+              <containerView name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteCombinedFragment()"/>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool_2:ReconnectEdgeDescription" name="ConnectEvent" reconnectionKind="RECONNECT_BOTH">
+              <source name="source"/>
+              <target name="target"/>
+              <sourceView name="sourceView"/>
+              <targetView name="targetView"/>
+              <element name="element"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.connectToEvent(edgeView, sourceView, targetView)"/>
+              </initialOperation>
+              <edgeView name="edgeView"/>
+            </ownedTools>
+            <ownedTools xsi:type="tool_2:DeleteElementDescription" name="Comment">
+              <element name="element"/>
+              <elementView name="elementView"/>
+              <containerView name="containerView"/>
+              <initialOperation/>
+            </ownedTools>
+            <ownedTools xsi:type="tool_2:DirectEditLabel" name="ConstraintEdit" inputLabelExpression="service:getBodyFromConstraint()">
+              <mask mask="{0}"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:setBody(arg0)"/>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool_2:ReconnectEdgeDescription" name="Reconnect Source Link" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
+              <source name="source"/>
+              <target name="target"/>
+              <sourceView name="sourceView"/>
+              <targetView name="targetView"/>
+              <element name="element"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsTypeOf(uml::Constraint)">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:target">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="constrainedElement" valueExpression="aql:edgeView.targetNode.target"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="constrainedElement" elementExpression="aql:edgeView.targetNode.target"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsTypeOf(uml::Comment)">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:target">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="annotatedElement" valueExpression="aql:edgeView.targetNode.target"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="annotatedElement" elementExpression="aql:edgeView.targetNode.target"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+              <edgeView name="edgeView"/>
+            </ownedTools>
+            <ownedTools xsi:type="tool_2:ReconnectEdgeDescription" name="Reconnect Target Link" forceRefresh="true">
+              <source name="source"/>
+              <target name="target"/>
+              <sourceView name="sourceView"/>
+              <targetView name="targetView"/>
+              <element name="element"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:edgeView.sourceNode.target">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(uml::Constraint)">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="constrainedElement" valueExpression="aql:target"/>
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="constrainedElement" elementExpression="aql:source"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(uml::Comment)">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="annotatedElement" valueExpression="aql:target"/>
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="annotatedElement" elementExpression="aql:source"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+              <edgeView name="edgeView"/>
+            </ownedTools>
+            <ownedTools xsi:type="tool_2:DirectEditLabel" name="Rename" forceRefresh="true">
+              <mask mask="{0}"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:arg0"/>
+              </initialOperation>
+            </ownedTools>
+          </subSections>
+        </toolSections>
+        <toolSections documentation="Create new elements" name="SD_CreateNodes" label="Nodes" icon="/org.eclipse.gmf.runtime.diagram.ui/icons/group.gif">
+          <ownedTools xsi:type="tool:InstanceRoleCreationTool" name="Lifeline" label="Lifeline" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/LifelineCreation.gif">
+            <variable name="variable"/>
+            <viewVariable name="viewVariable"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainerOrSelf(uml::Interaction)">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Lifeline" referenceName="lifeline">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.reorderNewLifeline(instance,predecessor)"/>
+              </firstModelOperations>
+            </initialOperation>
+            <predecessor name="predecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ExecutionCreationTool" name="Action Execution Specification" label="Action Execution Specification" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']">
+            <variable name="variable"/>
+            <viewVariable name="viewVariable"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainerOrSelf(uml::Interaction)">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ExecutionOccurrenceSpecification" referenceName="fragment" variableName="start">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:self.computeDefaultName()+'start'"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ActionExecutionSpecification" referenceName="fragment">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:self.computeDefaultName()"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ExecutionOccurrenceSpecification" referenceName="fragment" variableName="finish">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:self.computeDefaultName()+'finish'"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:viewVariable.target.applyExecution(instance,start,finish)"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:reorderNewFragments(startingEndPredecessor,finishingEndPredecessor,start,finish,instance)"/>
+              </firstModelOperations>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ExecutionCreationTool" name="Behavior Execution Specification" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']">
+            <variable name="variable"/>
+            <viewVariable name="viewVariable"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.interaction">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ExecutionOccurrenceSpecification" referenceName="fragment" variableName="start">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:self.computeDefaultName()+'start'"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="BehaviorExecutionSpecification" referenceName="fragment">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:self.computeDefaultName()"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ExecutionOccurrenceSpecification" referenceName="fragment" variableName="finish">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:self.computeDefaultName()+'finish'"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:viewVariable.target.applyExecution(instance,start,finish)"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:reorderNewFragments(startingEndPredecessor,finishingEndPredecessor,start,finish,instance)"/>
+              </firstModelOperations>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:CombinedFragmentCreationTool" name="CombinedFragment" forceRefresh="true" containerMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']">
+            <variable name="variable"/>
+            <viewVariable name="viewVariable"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.econtainer()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.CombinedFragment" referenceName="fragment" variableName="fragment">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="covered" valueExpression="var:coveredLifelines"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createEAnnotations"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.InteractionOperand" referenceName="operand" variableName="operand">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="covered" valueExpression="var:coveredLifelines"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createEAnnotations"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:manageOperandFragment(startingEndPredecessor,finishingEndPredecessor)"/>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.InteractionConstraint" referenceName="guard" variableName="guard">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.reorderNewCombinedFragment(startingEndPredecessor,finishingEndPredecessor,fragment)"/>
+              </firstModelOperations>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+            <coveredLifelines name="coveredLifelines"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReorderTool" name="Reorder Executions Fragment" forceRefresh="true" mappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@subContainerMappings[name='SD_Operand']">
+            <startingEndPredecessorAfter name="startingEndPredecessorAfter"/>
+            <finishingEndPredecessorAfter name="finishingEndPredecessorAfter"/>
+            <onEventMovedOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.reorderNewFragments(startingEndPredecessorAfter,finishingEndPredecessorAfter)"/>
+              </firstModelOperations>
+            </onEventMovedOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:InteractionUseCreationTool" name="Interaction Use" forceRefresh="true" containerMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='InteractionUse']">
+            <variable name="variable"/>
+            <viewVariable name="viewVariable"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionUse" referenceName="fragment">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="covered" valueExpression="var:coveredLifelines"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+            <coveredLifelines name="coveredLifelines"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:OperandCreationTool" name="Interaction Operand" containerMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@subContainerMappings[name='SD_Operand']">
+            <variable name="variable"/>
+            <viewVariable name="viewVariable"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InteractionOperand" referenceName="operand" variableName="operand">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="covered" valueExpression="aql:container.covered"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createEAnnotations"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:StateCreationTool" name="State Invariant" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='StateInvariant']">
+            <variable name="variable"/>
+            <viewVariable name="viewVariable"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.interaction">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="StateInvariant" referenceName="fragment">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:self.computeDefaultName()"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:viewVariable.target">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="coveredBy" valueExpression="aql:instance"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:reorderNewFragments(startingEndPredecessor,finishingEndPredecessor,instance)"/>
+              </firstModelOperations>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_2:NodeCreationDescription" name="Gate" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@borderedNodeMappings[name='GateBorder'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Gate'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='InteractionUse']/@borderedNodeMappings[name='GateBorder']" extraMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@subContainerMappings[name='SD_Operand'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:containerView.description.name == 'SequenceDiagram'">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Gate" referenceName="formalGate">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:self.computeDefaultName()"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:containerView.actualMapping.name == 'Combined Fragment'">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Gate" referenceName="cfragmentGate">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:self.computeDefaultName()"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:containerView.actualMapping.name == 'InteractionUse'">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Gate" referenceName="actualGate">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:self.computeDefaultName()"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:containerView.actualMapping.name == 'SD_Operand'">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.eContainer()">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Gate" referenceName="cfragmentGate">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:self.computeDefaultName()"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ObservationPointCreationTool" name="Time Constraint" precondition="aql:container.oclAsType(uml::OccurrenceSpecification)" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']/@borderedNodeMappings[name='TimeConstraint']" extraMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']">
+            <variable name="variable"/>
+            <viewVariable name="viewVariable"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.getEnclosingFragment()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="TimeConstraint" referenceName="ownedRule">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:self.computeDefaultName()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="constrainedElement" valueExpression="aql:variable"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="TimeInterval" referenceName="specification"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ObservationPointCreationTool" name="Time Observation" precondition="aql:container.oclAsType(uml::OccurrenceSpecification)" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']/@borderedNodeMappings[name='TimeObservation']" extraMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']">
+            <variable name="variable"/>
+            <viewVariable name="viewVariable"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.getModel()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="TimeObservation" referenceName="packagedElement">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:self.computeDefaultName()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="event" valueExpression="aql:variable"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_2:NodeCreationDescription" name="Constraint" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/Constraint.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.getStateParent()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Constraint" referenceName="ownedRule">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml::OpaqueExpression" referenceName="specification">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="language" valueExpression="OCL"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="body" valueExpression="true"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="constraintSpec"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_2:DirectEditLabel" name="CommentEdit" forceRefresh="true">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="body" valueExpression="aql:arg0"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="SD_createEdgeGroup" label="Edges" icon="/org.eclipse.gmf.runtime.diagram.ui/icons/group.gif">
+          <ownedTools xsi:type="tool:MessageCreationTool" documentation="Create a new synchronous operation" name="CR_Synchronous_Operation" label="Synchronous Message" precondition="service:preTarget.isValidMessageEnd" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='SD_Message']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/MessageSynchCallCreation.gif" extraSourceMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" connectionStartPrecondition="service:preSource.isValidMessageEnd">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainerOrSelf(uml::Interaction)">
+                <subModelOperations xsi:type="tool_1:Let" variableName="isGateOrOcc" valueExpression="aql: sourceView.checkIsGateSelection(targetView) or sourceView.checkIsOccurenceSpecSelection(targetView)">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:isGateOrOcc">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:target.createSynchronousMessage(source)"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:not (isGateOrOcc)">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:target.createOperationAndSynchMessage(source,startingEndPredecessor,finishingEndPredecessor)"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:MessageCreationTool" documentation="Create a new asynchronous operation" name="CR_Asynchronous_Operation" label="Asynchronous Message" precondition="service:preTarget.isValidMessageEnd" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='SD_Message']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/MessageAsynchCallCreation.gif" extraSourceMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainerOrSelf(uml::Interaction)">
+                <subModelOperations xsi:type="tool_1:Let" variableName="isGateOrOcc" valueExpression="aql: sourceView.checkIsGateSelection(targetView) or sourceView.checkIsOccurenceSpecSelection(targetView)">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:isGateOrOcc">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:target.createASynchronousMessage(source)"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:not (isGateOrOcc)">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:target.createOperationAndAsynchMessage(source,startingEndPredecessor,finishingEndPredecessor)"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:MessageCreationTool" name="Message Create" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='CreateMessage']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']">
+            <sourceVariable name="sourceVariable"/>
+            <targetVariable name="targetVariable"/>
+            <sourceViewVariable name="sourceViewVariable"/>
+            <targetViewVariable name="targetViewVariable"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql: not ( sourceViewVariable.actualMapping.name.equalsIgnoreCase('Observation') and targetViewVariable.actualMapping.name.equalsIgnoreCase('Observation'))">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createMessage(sourceVariable, targetVariable,startingEndPredecessor,finishingEndPredecessor)"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:sourceViewVariable.actualMapping.name.equalsIgnoreCase('Observation')  and targetViewVariable.actualMapping.name.equalsIgnoreCase('Observation')">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:targetVariable.createMessage(sourceVariable)"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:MessageCreationTool" name="Message Delete" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='DeleteMessage']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']">
+            <sourceVariable name="sourceVariable"/>
+            <targetVariable name="targetVariable"/>
+            <sourceViewVariable name="sourceViewVariable"/>
+            <targetViewVariable name="targetViewVariable"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteMessage(sourceVariable, targetVariable,startingEndPredecessor,finishingEndPredecessor)">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:targetVariable">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:targetViewVariable.log()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:MessageCreationTool" name="Message Reply" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='MessageReply']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']">
+            <sourceVariable name="sourceVariable"/>
+            <targetVariable name="targetVariable"/>
+            <sourceViewVariable name="sourceViewVariable"/>
+            <targetViewVariable name="targetViewVariable"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createReplyMessage(sourceVariable, targetVariable, startingEndPredecessor,finishingEndPredecessor)"/>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Message Lost" precondition="aql:element.isLostFoundTargetValid()">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:lostMessage(element)">
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="Adjust message position 2" id="org.eclipse.sirius.business.api.action.moveElement">
+                  <parameters name="referenceOwner" value="aql:self.eContainerOrSelf(uml::Interaction)"/>
+                  <parameters name="referenceName" value="message"/>
+                  <parameters name="element" value="var:self"/>
+                  <parameters name="predecessor" value="aql:self.getPredecessor()"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="Adjust new call message position" action="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Message%20Lost']/@initialOperation/@firstModelOperations/@subModelOperations.0"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Message Found" precondition="aql:element.isLostFoundTargetValid()">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:foundMessage(element)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:MessageCreationTool" name="General Ordering" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='GeneralOrdering']">
+            <sourceVariable name="sourceVariable"/>
+            <targetVariable name="targetVariable"/>
+            <sourceViewVariable name="sourceViewVariable"/>
+            <targetViewVariable name="targetViewVariable"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createGeneralOrdering(sourceVariable, targetVariable)"/>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:MessageCreationTool" name="Duration Constraint" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='Duration%20Constraint']">
+            <sourceVariable name="sourceVariable"/>
+            <targetVariable name="targetVariable"/>
+            <sourceViewVariable name="sourceViewVariable"/>
+            <targetViewVariable name="targetViewVariable"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createDurationConstraint(sourceVariable, targetVariable)"/>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:MessageCreationTool" name="Duration Observation" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='DurationObservation']">
+            <sourceVariable name="sourceVariable"/>
+            <targetVariable name="targetVariable"/>
+            <sourceViewVariable name="sourceViewVariable"/>
+            <targetViewVariable name="targetViewVariable"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createDurationObservation(sourceVariable, targetVariable)"/>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_2:EdgeCreationDescription" name="Comment Link" precondition="aql:true" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='Comment%20Link']" iconPath="/org.eclipse.papyrus.uml.sirius.common.diagram/icons/Link.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsTypeOf(uml::Comment)">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="annotatedElement" valueExpression="aql:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_2:EdgeCreationDescription" name="Constraint Link" precondition="aql:true" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='Constraint%20Link']" iconPath="/org.eclipse.papyrus.uml.sirius.common.diagram/icons/Link.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsTypeOf(uml::Constraint)">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="constrainedElement" valueExpression="aql:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']/@borderedNodeMappings[name='TimeConstraint']/@style //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']/@borderedNodeMappings[name='TimeObservation']/@style" attributeName="forbiddenSides" value="service:getSide()"/>
+          </vsmElementCustomizations>
+        </customization>
+      </defaultLayer>
+      <additionalLayers name="Common" optional="false">
+        <nodeMappings name="Bendpoint" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="aql:diagram.getCommonBendpointsToDraw()" synchronizationLock="true" domainClass="uml.Element">
+          <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="" hideLabelByDefault="true" sizeComputationExpression="aql:self.getBenpointDiameter()">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Hyperlink" preconditionExpression="aql:self.isNotSemanticElement()" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="aql:self.allAvailableViews()" createElements="false" doubleClickDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Hyperlink%20View']" domainClass="EObject">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <toolSections name="Common">
+          <ownedTools xsi:type="tool_2:DoubleClickDescription" name="Open Hyperlink" mappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Comment']/@nodeMappings[name='Comment'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Informations']/@nodeMappings[name='LifelineComment'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@subContainerMappings[name='SD_Operand'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Constraint'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Gate'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='InteractionUse'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='InteractionUse']/@borderedNodeMappings[name='GateBorder'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='StateInvariant'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@borderedNodeMappings[name='GateBorder']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.createOrOpenHyperlink()"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_2:DeleteElementDescription" name="PapyrusDelete">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.deleteElement(elementView)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:PopupMenu" name="Sirius View Deletion">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Delete View">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:DeleteView"/>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+          <ownedTools xsi:type="tool_2:ContainerDropDescription" name="AddHyperlinkView" precondition="aql:element.isNotSemanticElement()" mappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@nodeMappings[name='Hyperlink']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_2:CreateView" mapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@nodeMappings[name='Hyperlink']" containerViewExpression="aql:newContainerView"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_2:DoubleClickDescription" name="Hyperlink View" mappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@nodeMappings[name='Hyperlink']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_2:ContainerDropDescription" name="Constraint from Model" mappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_2:CreateView" mapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" containerViewExpression="aql:newContainerView"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_2:ContainerDropDescription" name="Comment from Model" mappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Comment']/@nodeMappings[name='Comment']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_2:CreateView" mapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Comment']/@nodeMappings[name='Comment']" containerViewExpression="aql:newContainerView"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_2:DirectEditLabel" name="CommentEdit">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="body" valueExpression="aql:arg0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_2:DirectEditLabel" name="ConstraintEdit" inputLabelExpression="service:getBody()">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:setConstraintBody(arg0)"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description:SemanticBasedDecoration"/>
+        </decorationDescriptionsSet>
+      </additionalLayers>
+      <additionalLayers name="Informations" icon="/org.eclipse.sirius.ui/icons/full/others/information.gif">
+        <nodeMappings name="LifelineComment" preconditionExpression="aql:self.clientDependency->size()>0 or self.represents.eContainer()->size() > 0" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Informations']/@toolSections.0/@ownedTools[name='LifelineCommentEditLabel']" semanticCandidatesExpression="feature:lifeline" semanticElements="var:self" doubleClickDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Open%20Hyperlink']" domainClass="uml.Lifeline">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='UMLPalette']/@entries[name='InformationBorder']" showIcon="false" labelExpression="service:computeLifelineCommentLabel" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="16" height="5" color="//@userColorsPalettes[name='UMLPalette']/@entries[name='InformationBackground']">
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="LifelineCommentLink" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticElements="var:self" sourceMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Informations']/@nodeMappings[name='LifelineComment']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']" targetFinderExpression="var:self">
+          <style lineStyle="dot" targetArrow="NoDecoration">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections name="Informations">
+          <ownedTools xsi:type="tool_2:DirectEditLabel" name="LifelineCommentEditLabel">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:arg0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_2:DeleteElementDescription" name="LifelineCommentDelete">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+      <additionalLayers name="Comment" activeByDefault="true">
+        <nodeMappings name="Comment" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='CommentEdit']" createElements="false" doubleClickDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Open%20Hyperlink']" domainClass="uml.Comment">
+          <style xsi:type="style:NoteDescription" labelSize="9" showIcon="false" labelExpression="feature:body" sizeComputationExpression="9" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+          </style>
+        </nodeMappings>
+        <toolSections name="Nodes">
+          <ownedTools xsi:type="tool_2:NodeCreationDescription" documentation="Create a new literal" name="Comment" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Comment']/@nodeMappings[name='Comment']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Comment.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Comment" referenceName="ownedComment">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.sequence.diagram.services.SequenceDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.common.diagram.core.services.AbstractDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.sequence.diagram.services.LifelineService"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.sequence.diagram.services.FragmentsService"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.sequence.diagram.services.GeneralOrderingService"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.sequence.diagram.services.MessageService"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.sequence.diagram.services.ExecutionService"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.sequence.diagram.services.CombinedAndOperandService"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.sequence.diagram.services.CommentService"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.sequence.diagram.services.ConstraintService"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.sequence.diagram.services.TimeObservationConstraintService"/>
+  </ownedViewpoints>
+  <userColorsPalettes name="UMLPalette">
+    <entries xsi:type="description:UserFixedColor" red="235" green="235" blue="235" name="Nested Package Foreground"/>
+    <entries xsi:type="description:UserFixedColor" name="ComponentColor"/>
+    <entries xsi:type="description:InterpolatedColor" name="Component Background Color" colorValueComputationExpression="aql:self.ancestors()->size()">
+      <colorSteps associatedValue="0">
+        <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+      </colorSteps>
+      <colorSteps associatedValue="4">
+        <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+      </colorSteps>
+    </entries>
+    <entries xsi:type="description:UserFixedColor" red="232" green="239" blue="247" name="lighter blue"/>
+    <entries xsi:type="description:UserFixedColor" red="236" green="250" blue="222" name="lighter green"/>
+    <entries xsi:type="description:UserFixedColor" red="245" green="239" blue="244" name="lighter purple"/>
+    <entries xsi:type="description:UserFixedColor" red="254" green="238" blue="214" name="lighter orange"/>
+    <entries xsi:type="description:UserFixedColor" red="255" green="249" blue="218" name="lighter yellow"/>
+    <entries xsi:type="description:UserFixedColor" red="228" green="249" blue="239" name="lagune"/>
+    <entries xsi:type="description:UserFixedColor" red="110" green="132" blue="132" name="dark lagune"/>
+    <entries xsi:type="description:UserFixedColor" red="238" green="249" blue="244" name="light lagune"/>
+    <entries xsi:type="description:UserFixedColor" red="246" green="253" blue="255" name="InformationBackground"/>
+    <entries xsi:type="description:UserFixedColor" red="12" green="92" blue="159" name="InformationBorder"/>
+    <entries xsi:type="description:UserFixedColor" red="230" green="230" blue="230" name="very light gray"/>
+    <entries xsi:type="description:InterpolatedColor" name="Containment Background" colorValueComputationExpression="aql:self.ancestors()->size()">
+      <colorSteps associatedValue="0" associatedColor="//@userColorsPalettes[name='UMLPalette']/@entries[name='light%20lagune']"/>
+      <colorSteps associatedValue="15" associatedColor="//@userColorsPalettes[name='UMLPalette']/@entries[name='dark%20lagune']"/>
+    </entries>
+    <entries xsi:type="description:UserFixedColor" red="250" green="190" blue="190" name="MomentInterval"/>
+    <entries xsi:type="description:UserFixedColor" red="250" green="240" blue="180" name="Role"/>
+    <entries xsi:type="description:UserFixedColor" red="180" green="230" blue="180" name="PlaceThing"/>
+    <entries xsi:type="description:UserFixedColor" red="180" green="200" blue="210" name="Description"/>
+    <entries xsi:type="description:UserFixedColor" red="241" green="243" blue="254" name="QualifierBackground"/>
+    <entries xsi:type="description:UserFixedColor" red="195" green="209" blue="213" name="Execution Color"/>
+    <entries xsi:type="description:UserFixedColor" red="200" green="255" blue="230" name="ConstrainedColor"/>
+  </userColorsPalettes>
+</description:Group>

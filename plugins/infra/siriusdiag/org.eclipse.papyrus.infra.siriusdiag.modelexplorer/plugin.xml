@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+ Copyright (c) 2021 CEA LIST, Artal Technologies
+
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License 2.0
+ which accompanies this distribution, and is available at
+ https://www.eclipse.org/legal/epl-2.0/
+
+ SPDX-License-Identifier: EPL-2.0
+
+ Contributors:
+  Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
+-->
+
+<plugin>
+   <extension
+         point="org.eclipse.papyrus.emf.facet.util.emf.core.modeldeclaration">
+      <modeldeclaration
+            file="resources/SiriusDiagram.custom"></modeldeclaration>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.eclipse.papyrus.infra.siriusdiag.modelexplorer.internal.handlers.RenameSiriusDiagramHandler"
+            commandId="org.eclipse.ui.edit.rename">
+         <activeWhen>
+            <with
+                  variable="selection">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <adapt
+                        type="org.eclipse.emf.ecore.EObject">
+                     <instanceof
+                           value="org.eclipse.sirius.diagram.DSemanticDiagram">
+                     </instanceof>
+                  </adapt>
+               </iterate>
+            </with>
+         </activeWhen>
+      </handler>
+      <handler
+            class="org.eclipse.papyrus.infra.siriusdiag.modelexplorer.internal.handlers.SiriusDiagramQuickFormatHandler"
+            commandId="org.eclipse.papyrus.infra.ui.menu.commands.QuickFormattingUpperCaseCommand">
+         <activeWhen>
+            <with
+                  variable="selection">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <adapt
+                        type="org.eclipse.emf.ecore.EObject">
+                     <instanceof
+                           value="org.eclipse.sirius.diagram.DSemanticDiagram">
+                     </instanceof>
+                  </adapt>
+               </iterate>
+            </with>
+         </activeWhen>
+      </handler>
+      <handler
+            class="org.eclipse.papyrus.infra.siriusdiag.modelexplorer.internal.handlers.SiriusDiagramQuickFormatHandler"
+            commandId="org.eclipse.papyrus.infra.ui.menu.commands.QuickFormattingLowerCaseCommand">
+         <activeWhen>
+            <with
+                  variable="selection">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <adapt
+                        type="org.eclipse.emf.ecore.EObject">
+                     <instanceof
+                           value="org.eclipse.sirius.diagram.DSemanticDiagram">
+                     </instanceof>
+                  </adapt>
+               </iterate>
+            </with>
+         </activeWhen>
+      </handler>
+      <handler
+            class="org.eclipse.papyrus.infra.siriusdiag.modelexplorer.internal.handlers.SiriusDiagramQuickFormatHandler"
+            commandId="org.eclipse.papyrus.infra.ui.menu.commands.QuickFormattingSwitchSpace2UnderscoreCommand">
+         <activeWhen>
+            <with
+                  variable="selection">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <adapt
+                        type="org.eclipse.emf.ecore.EObject">
+                     <instanceof
+                           value="org.eclipse.sirius.diagram.DSemanticDiagram">
+                     </instanceof>
+                  </adapt>
+               </iterate>
+            </with>
+         </activeWhen>
+      </handler>
+      <handler
+            class="org.eclipse.papyrus.infra.siriusdiag.modelexplorer.internal.handlers.SiriusDiagramQuickFormatHandler"
+            commandId="org.eclipse.papyrus.infra.ui.menu.commands.QuickFormattingCapitalizeFirstLetterCommand">
+         <activeWhen>
+            <with
+                  variable="selection">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <adapt
+                        type="org.eclipse.emf.ecore.EObject">
+                     <instanceof
+                           value="org.eclipse.sirius.diagram.DSemanticDiagram">
+                     </instanceof>
+                  </adapt>
+               </iterate>
+            </with>
+         </activeWhen>
+      </handler>
+      <handler
+            class="org.eclipse.papyrus.infra.siriusdiag.modelexplorer.internal.handlers.SiriusDiagramQuickFormatHandler"
+            commandId="org.eclipse.papyrus.infra.ui.menu.commands.QuickFormattingRemoveSpaceCommand">
+         <activeWhen>
+            <with
+                  variable="selection">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <adapt
+                        type="org.eclipse.emf.ecore.EObject">
+                     <instanceof
+                           value="org.eclipse.sirius.diagram.DSemanticDiagram">
+                     </instanceof>
+                  </adapt>
+               </iterate>
+            </with>
+         </activeWhen>
+      </handler>
+   </extension>
+   <extension
+            point="org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.DirectEditor">
+         <DirectEditor
+               contributor="Eclipse Modeling Project"
+               language="Sirius Diagram Direct Editor"
+               objectToEdit="org.eclipse.sirius.diagram.DSemanticDiagram"
+               superType="true">
+            <popupeditor
+                  editorConfiguration="org.eclipse.papyrus.infra.siriusdiag.modelexplorer.internal.directeditor.SiriusDiagramDirectEditorConfiguration">
+            </popupeditor>
+            <Priority
+                  name="Medium">
+            </Priority>
+         </DirectEditor>
+      </extension>
+      <extension
+            point="org.eclipse.core.runtime.preferences">
+         <initializer
+               class="org.eclipse.papyrus.infra.siriusdiag.modelexplorer.internal.directeditor.SiriusDiagramDirectEditorPreferenceInitializer">
+         </initializer>
+      </extension>
+</plugin>

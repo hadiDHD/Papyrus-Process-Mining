@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>org.eclipse.papyrus.uml.sirius</artifactId>
+	<packaging>pom</packaging>
+	<parent>
+	    <groupId>org.eclipse.papyrus</groupId>
+	    <artifactId>org.eclipse.papyrus.uml</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+    </parent>
+	<name>Sirius diagrams for papyrus</name>
+	<modules>
+		<module>org.eclipse.papyrus.uml.sirius.clazz.diagram</module>
+		<module>org.eclipse.papyrus.uml.sirius.common.diagram</module>
+		<module>org.eclipse.papyrus.uml.sirius.diagram.architecture</module>
+		<module>org.eclipse.papyrus.uml.sirius.sequence.diagram</module>
+		<module>org.eclipse.papyrus.uml.sirius.statemachine.diagram</module>
+		<module>org.eclipse.papyrus.uml.sirius.xtext.integration.ui</module>
+	</modules>
+</project>

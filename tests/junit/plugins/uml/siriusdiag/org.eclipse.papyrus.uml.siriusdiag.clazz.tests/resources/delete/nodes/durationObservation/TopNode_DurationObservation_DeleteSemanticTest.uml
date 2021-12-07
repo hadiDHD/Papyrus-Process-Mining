@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_kJBa8CXpEeymndpXmfJKMg" name="TopNode_DurationObservation_DeleteSemanticTest">
+  <packagedElement xmi:type="uml:DurationObservation" xmi:id="_sOBMICXpEeymndpXmfJKMg" name="DurationObservationToDelete" visibility="public"/>
+</uml:Model>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_C2rkUCToEey32P1_fK_1UA" name="Edge_Dependency_DeleteSemanticTest">
+  <packagedElement xmi:type="uml:Class" xmi:id="_J4mu8CToEey32P1_fK_1UA" name="Class1" visibility="public"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_KT0EQCToEey32P1_fK_1UA" name="Class2" visibility="public"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_LCAnACToEey32P1_fK_1UA" name="EdgeToDelete" client="_J4mu8CToEey32P1_fK_1UA" supplier="_KT0EQCToEey32P1_fK_1UA"/>
+</uml:Model>

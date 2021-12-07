@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<h1 id="Papyrus-SiriusDiag_Integration_Introduction">Papyrus-SiriusDiag Integration Introduction</h1>
+		<p>This part of the documentation deals with features provided by the integration to Papyrus. </p>
+		<p>For a better experience, you should activate the Papyrus Perspective before reading this documentation.</p>
+		<h1 id="How_to_create_a_new_Sirius_Diagram_in_my_UML_model">How to create a new Sirius Diagram in my UML model</h1>
+		<p>Once a UML model is created, go into the 
+			<i>Model Explorer</i>, select a UML element from which to start the document, then 
+			<i>Right-Click</i>-&gt;
+			<i>New Class Diagram</i>.
+		</p>
+		<p>
+			<img border="0" src="../../../image/user/9_NewSiriusDiagram.png"/>
+		</p>
+		<p>The corresponding sirius diagram is opened inside Papyrus.</p>
+		<p>Or from the View Explorer, click on the create view, select the root element and finally the view to create.</p>
+		<p>
+			<img border="0" src="../../../image/user/2_NotationView.png"/>
+		</p>
+		<h1 id="How_to_show.2Fhide_Sirius_Diagram_in_the_ModelExplorer">How to show/hide Sirius Diagram in the ModelExplorer</h1>
+		<p>The created DSemanticDiagram are displayed in the ModelExplorer as children of the element .
+			This customization is not loaded by default.</p>
+		<p>Open the 
+			<i>Model Explorer</i> view and use the customize model explorer to load the 
+			<i>Sirius Diagram</i> customization:
+		</p>
+		<p>
+			<img border="0" src="../../../image/user/3_ModelExplorer.png"/>
+		</p>
+		<h1 id="How_to_use_sirius_diagram">How to use sirius diagram</h1>
+		<h2 id="Sirius_diagram">Sirius diagram</h2>
+		<p>To have a global overview of sirius diagram. You can have a look at the sirius diagram documentation.
+			See 
+			<a href="https://www.eclipse.org/sirius/doc/user/diagrams/Diagrams.html">https://www.eclipse.org/sirius/doc/user/diagrams/Diagrams.html</a>
+		</p>
+		<p>While most part is similar to the former GMF diagram. There are some small differences between both.</p>
+		<h3 id="Filters">Filters</h3>
+		<p>While using sirius diagram, you can enable or disable filters on the representation. For exemple filters can show or hide some kind of view, or change the label of elements.
+			This was used to replace Benpoints preference and to customize the displayed label with or without stereotype. </p>
+		<p>
+			<img border="0" src="../../../image/user/4_Filters.png"/>
+		</p>
+		<h3 id="Layers">Layers</h3>
+		<p>Layers can be defined to hide or show several mapping and/or several tools in the palette in a diagram.
+			This functionality is only used for comment at that moment.</p>
+		<p>
+			<img border="0" src="../../../image/user/4_Layer.png"/>
+		</p>
+		<h1 id="Common">Common</h1>
+		<h2 id="Palette_tools">Palette tools</h2>
+		<p>Palette tools is divided in two categories, one for the creation of element represented has nodes and the other for the creation of edge elements.</p>
+		<p>
+			<img border="0" src="../../../image/user/5_Palette.png"/>
+		</p>
+		<h2 id="Drag_and_drop_from_explorer">Drag and drop from explorer</h2>
+		<p>Drag and drop tools have been implemented to allow to create views for existing element that are not represented yet in the diagram.</p>
+		<h2 id="Drag_and_drop_inside_diagram">Drag and drop inside diagram</h2>
+		<p>Drag and drop inside diagram is also available, but depending of the kind of element that is drag and drop, the behavior can be different.</p>
+		<h2 id="Deletion_.28from_diagram_or_model.29">Deletion (from diagram or model)</h2>
+		<p>Deletion of graphical element (only the view, not the semantic element) can be done using the shortcut (SHITF + DEL)</p>
+		<p>Deletion from the model can be done using a simple delete with DEL key.</p>
+		<h2 id="Show_.2F_Hide">Show / Hide</h2>
+		<p>Using the shortcut CTRL + H, you can simply show or hide and element from the diagram.</p>
+		<p>
+			<img border="0" src="../../../image/user/5_ShowHide.png"/>
+		</p>
+		<h2 id="Pin_.2F_Unpin">Pin / Unpin</h2>
+		<p>Pinning an element makes it protected from any action which can modify the position of this element in the diagram, such as arrange all.</p>
+		<h2 id="Hyperlink">Hyperlink</h2>
+		<p>Hyperlink can be created on any diagram elements. Once referenced as default hyperlink, a view can be opened by double click.</p>
+		<p>
+			<img border="0" src="../../../image/user/1_Hyperlink.png"/>
+		</p>
+		<p>
+			<img border="0" src="../../../image/user/1_HyperlinkNavigation.png"/>
+		</p>
+		<p>Shortcuts can be created by drag and dropping representations. Once added in the diagram, the view can be opened by double click.</p>
+		<p>
+			<img border="0" src="../../../image/user/1_HyperlinkShortcut.png"/>
+		</p>
+		<h2 id="Xtext">Xtext</h2>
+		<p>Xtext autocompletion is available when renaming an element using direct edition with F2 shortcut. When using Ctrl + Space key, the auto completion tool propose a list of label to use.</p>
+		<p>
+			<img border="0" src="../../../image/user/10_Xtext.png"/>
+		</p>
+		<h2 id="Sequence_diagram_specificity">Sequence diagram specificity</h2>
+		<p>Sequence diagram have some specificity, like the kind of element that can be represented.
+			See 
+			<a href="https://www.eclipse.org/sirius/doc/user/sequences/Sequence%20Diagrams.html">https://www.eclipse.org/sirius/doc/user/sequences/Sequence%20Diagrams.html</a>
+		</p>
+		<h3 id="Show_Observation_Point">Show Observation Point</h3>
+		<p>To have a better view and simplify the correction of problems in sequence diagrams, it is possible to make observation points visible.</p>
+		<p>
+			<img border="0" src="../../../image/user/8_ObservationPoint.png"/>
+		</p>
+	</body>
+</html>

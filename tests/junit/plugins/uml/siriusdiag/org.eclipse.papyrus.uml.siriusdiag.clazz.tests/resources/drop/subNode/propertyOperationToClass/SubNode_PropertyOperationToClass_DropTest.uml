@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_lOyl0CErEeyGQdCCaLQMiA" name="SubNode_PropertyOperationToClass_DropTest">
+  <packagedElement xmi:type="uml:Class" xmi:id="_1BY74CErEeyJYJ-aK3rxjg" name="Class1" visibility="public">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_B5zYwCEsEeyJYJ-aK3rxjg" name="PropertyToDrop"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_7K-wUCErEeyJYJ-aK3rxjg" name="OperationToDrop"/>
+  </packagedElement>
+</uml:Model>

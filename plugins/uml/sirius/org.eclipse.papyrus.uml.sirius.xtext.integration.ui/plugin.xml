@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
+      <editpartProvider
+            class="org.eclipse.papyrus.uml.sirius.xtext.integration.ui.XtextSiriusEditPartProvider">
+         <Priority
+               name="High">
+         </Priority>
+      </editpartProvider>
+   </extension>
+   <extension
+         point="org.eclipse.gmf.runtime.common.ui.services.parserProviders">
+      <ParserProvider
+            class="org.eclipse.papyrus.uml.sirius.xtext.integration.ui.XTextSiriusParserProvider">
+         <Priority
+               name="Low">
+         </Priority>
+      </ParserProvider>
+   </extension>
+
+</plugin>

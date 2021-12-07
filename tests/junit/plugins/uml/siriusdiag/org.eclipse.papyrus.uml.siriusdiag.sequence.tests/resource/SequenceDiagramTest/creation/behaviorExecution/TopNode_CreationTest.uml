@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_6nxS4CweEeyLSO2caXKSPA" name="TopNode_CreationTest">
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_-O3VYCweEeyLSO2caXKSPA" name="Interaction">
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_Bo_58CwfEeyLSO2caXKSPA" name="Lifeline1"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_B-We4CwfEeyLSO2caXKSPA" name="Lifeline2" coveredBy="_ILWzsCwfEeyLSO2caXKSPA _ILbFICwfEeyLSO2caXKSPA _ILbsMCwfEeyLSO2caXKSPA"/>
+    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_ILWzsCwfEeyLSO2caXKSPA" name="ExecutionOccurrenceSpecification1start" covered="_B-We4CwfEeyLSO2caXKSPA" execution="_ILbFICwfEeyLSO2caXKSPA"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_ILbFICwfEeyLSO2caXKSPA" name="BehaviorExecutionSpecification1" covered="_B-We4CwfEeyLSO2caXKSPA" finish="_ILbsMCwfEeyLSO2caXKSPA" start="_ILWzsCwfEeyLSO2caXKSPA"/>
+    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_ILbsMCwfEeyLSO2caXKSPA" name="ExecutionOccurrenceSpecification2finish" covered="_B-We4CwfEeyLSO2caXKSPA" execution="_ILbFICwfEeyLSO2caXKSPA"/>
+  </packagedElement>
+</uml:Model>

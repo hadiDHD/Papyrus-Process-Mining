@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="papyrus_statemachine" version="12.0.0.2017041100">
+  <ownedViewpoints name="StateMachineDiagram" modelFileExtension="uml">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='StateMachineDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='AddHyperlinkView'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" name="StateMachineDiagram" titleExpression="aql:self.name +' StateMachine Diagram'" domainClass="uml::Element" preconditionExpression="service:getPreCondition()" enablePopupBars="true">
+      <metamodel href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+      <layout xsi:type="description_1:CustomLayoutConfiguration" id="org.eclipse.elk.box" label="ELK Box" description="Algorithm for packing of unconnected boxes, i.e. graphs without edges.">
+        <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.aspectRatio">
+          <targets>PARENT</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.box.packingMode">
+          <targets>PARENT</targets>
+          <value name="SIMPLE"/>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:EnumSetLayoutOption" id="org.eclipse.elk.contentAlignment">
+          <targets>PARENT</targets>
+          <values name="V_TOP"/>
+          <values name="V_CENTER"/>
+          <values name="V_BOTTOM"/>
+          <values name="H_LEFT"/>
+          <values name="H_CENTER"/>
+          <values name="H_RIGHT"/>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:BooleanLayoutOption" id="org.eclipse.elk.expandNodes">
+          <targets>PARENT</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:BooleanLayoutOption" id="org.eclipse.elk.interactive">
+          <targets>PARENT</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:EnumSetLayoutOption" id="org.eclipse.elk.nodeSize.constraints">
+          <targets>NODE</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:EnumSetLayoutOption" id="org.eclipse.elk.nodeSize.options">
+          <targets>NODE</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.spacing.nodeNode">
+          <targets>PARENT</targets>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:IntegerLayoutOption" id="org.eclipse.elk.priority">
+          <targets>NODE</targets>
+          <targets>EDGE</targets>
+        </layoutOptions>
+      </layout>
+      <diagramInitialisation>
+        <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self">
+          <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsTypeOf(uml::Model)">
+            <subModelOperations xsi:type="tool:CreateInstance" typeName="StateMachine" referenceName="packagedElement">
+              <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+            </subModelOperations>
+          </subModelOperations>
+        </firstModelOperations>
+      </diagramInitialisation>
+      <defaultLayer name="State Machine">
+        <nodeMappings name="Comment" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CommentEdit']" createElements="false" domainClass="Comment">
+          <style xsi:type="style:NoteDescription" labelSize="12" labelExpression="feature:body" sizeComputationExpression="9" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Constraint" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ConstraintEdit']" createElements="false" domainClass="Constraint">
+          <style xsi:type="style:NoteDescription" labelSize="12" labelExpression="service:getConstraintLabel()" sizeComputationExpression="9" labelPosition="node" resizeKind="NSEW" color="//@userColorsPalettes[name=null]/@entries[name='ConstrainedColor']">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="Transition" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="feature:eAllContents" semanticElements="aql:self" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='FinalState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@borderedNodeMappings[name='BorderPseudoState']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='FinalState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@borderedNodeMappings[name='BorderPseudoState']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="uml.Transition" useDomainElement="true" reconnections="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Target%20Transition'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Source%20Transition']">
+          <style>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <beginLabelStyleDescription labelSize="10" showIcon="false" labelExpression="aql:self.getValueString(view)">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
+            <centerLabelStyleDescription labelSize="10" showIcon="false" labelExpression="feature:name">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Link" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@borderedNodeMappings[name='BorderPseudoState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='FinalState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='Transition'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" targetFinderExpression="aql:self.targeFinderExpressionForConstraint()" reconnections="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconnect%20Source%20Link'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Reconnect%20Target%20Link']">
+          <style lineStyle="dot" targetArrow="NoDecoration">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="ContextLink" preconditionExpression="service:checkContainerViewContext(sourceView)" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']" targetFinderExpression="aql:self.getContextParent()" reconnections="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Target%20ContextLink'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Source%20ContextLink']">
+          <style lineStyle="dot" targetArrow="NoDecoration">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelExpression="&lt;&lt;context>>">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="StateMachine" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="StateMachine" reusedBorderedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@borderedNodeMappings[name='BorderPseudoState']" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='HorizontalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='VerticalRegions']" childrenPresentation="HorizontalStack">
+          <subContainerMappings name="Region" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="service:getFeatures()" createElements="false" domainClass="uml.Region" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='RegionDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='StateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='PseudostateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ConstraintDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CommentDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='StateRepresentationDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='PseudoStateRepresentationDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ConstraintRepresentationDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CommentRepresentationDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']">
+            <subNodeMappings name="Pseudostate" preconditionExpression="aql:not ((self.kind == uml::PseudostateKind::entryPoint) or ( self.kind == uml::PseudostateKind::exitPoint))" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="feature:subvertex" createElements="false" domainClass="uml.Pseudostate">
+              <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::initial)">
+                <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" sizeComputationExpression="2" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::junction)">
+                <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" sizeComputationExpression="2" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::deepHistory)">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.uml.diagram.common/icons/symbols/deepHistory.svg">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::shallowHistory)">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.uml.diagram.common/icons/symbols/shallowHistory.svg">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::choice)">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Choice.svg">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::terminate)">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Terminate.svg">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::join)">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Join.svg">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::fork)">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Fork.svg">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+            </subNodeMappings>
+            <subNodeMappings name="FinalState" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="feature:subvertex" createElements="false" domainClass="FinalState">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/FinalState.svg">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <subContainerMappings name="State" preconditionExpression="aql:not self.oclIsTypeOf(uml::FinalState)" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="feature:subvertex" createElements="false" domainClass="uml.State" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='RegionDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='PseudostateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='BorderPseudoStateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='HorizontalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='VerticalRegions']" childrenPresentation="VerticalStack">
+              <borderedNodeMappings name="BorderPseudoState" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:eContents" synchronizationLock="true" domainClass="uml.Pseudostate">
+                <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::entryPoint)">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" workspacePath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Entry.svg">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </conditionnalStyles>
+                <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::exitPoint)">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" workspacePath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Exit.svg">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </conditionnalStyles>
+              </borderedNodeMappings>
+              <subContainerMappings name="VerticalRegions" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:getFeatures()" createElements="false" domainClass="uml.Region" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='HorizontalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='VerticalRegions']" childrenPresentation="VerticalStack">
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dot" labelSize="12" showIcon="false" hideLabelByDefault="true" widthComputationExpression="100" heightComputationExpression="100" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='StateMachine_Gray']">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                </style>
+              </subContainerMappings>
+              <subContainerMappings name="HorizontalRegions" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:getFeatures()" createElements="false" domainClass="uml.Region" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='VerticalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='HorizontalRegions']" childrenPresentation="HorizontalStack">
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dot" labelSize="12" showIcon="false" hideLabelByDefault="true" widthComputationExpression="100" heightComputationExpression="100" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='StateMachine_Gray']">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                </style>
+              </subContainerMappings>
+              <subContainerMappings name="Activities" preconditionExpression="aql:not self.doActivity->isEmpty() or not self.entry->isEmpty() or not self.exit->isEmpty()" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="var:self" synchronizationLock="true" domainClass="State" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" childrenPresentation="List">
+                <subNodeMappings name="Entry" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:entry" synchronizationLock="true" domainClass="Element">
+                  <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:'/entry '+ self.getTypeName() +' '+ self.getName()" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subNodeMappings name="DoActivity" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:doActivity" synchronizationLock="true" domainClass="Element">
+                  <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:'/do '+ self.getTypeName() +' '+ self.getName()" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subNodeMappings name="Exit" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:exit" synchronizationLock="true" domainClass="Element">
+                  <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:'/exit '+ self.getTypeName() +' '+ self.getName()" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subNodeMappings name="Defer" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:deferrableTrigger" synchronizationLock="true" domainClass="Element">
+                  <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:self.getTextTrigger(view)" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" arcWidth="12" arcHeight="12" borderSizeComputationExpression="1" showIcon="false" labelExpression="" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='StateMachine_Gray']">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                </style>
+              </subContainerMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" roundedCorner="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='StateMachine_Gray']">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.2"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dot" labelSize="12" showIcon="false" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='StateMachine_Gray']">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.2"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" roundedCorner="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='StateMachine_Gray']">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="StateRoot" preconditionExpression="aql:not self.oclIsTypeOf(uml::FinalState)" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.State" reusedBorderedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@borderedNodeMappings[name='BorderPseudoState']" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='RegionDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='PseudostateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='Activities'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" childrenPresentation="VerticalStack">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" roundedCorner="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='StateMachine_Gray']">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Nodes" icon="/org.eclipse.papyrus.uml.sirius.common.diagram/icons/group.gif">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Region" containerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Region.gif" extraMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='HorizontalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='VerticalRegions']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:container.oclIsTypeOf(uml::StateMachine) or container.oclIsTypeOf(uml::State)">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:container.getStateParent()">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="Region" referenceName="region">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                      <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" containerViewExpression="service:containerView.getStateViewParent()"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:container.oclIsTypeOf(uml::Region)">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:container.getStateParent()">
+                    <subModelOperations xsi:type="tool:Let" variableName="dropLocation" valueExpression="aql:self.getDropLocation(containerView)"/>
+                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:dropLocation == 'T'">
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.setChildRepresentation('V')"/>
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="Region" referenceName="region">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                        <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" containerViewExpression="var:containerView"/>
+                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
+                          <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" containerViewExpression="var:containerView" variableName="createdView2"/>
+                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.moveChildrenView(createdView2)">
+                            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:applyLayoutData(containerView)"/>
+                          </subModelOperations>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:dropLocation == 'R'">
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.setChildRepresentation('H')"/>
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="Region" referenceName="region">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
+                          <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" containerViewExpression="aql:containerView" variableName="createdView2"/>
+                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.moveChildrenView(createdView2)">
+                            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:applyLayoutData(containerView)"/>
+                          </subModelOperations>
+                        </subModelOperations>
+                        <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" containerViewExpression="aql:containerView"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:dropLocation == 'B'">
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.setChildRepresentation('V')"/>
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="Region" referenceName="region">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
+                          <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" containerViewExpression="aql:containerView" variableName="createdView2"/>
+                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.moveChildrenView(createdView2)">
+                            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:applyLayoutData(containerView)"/>
+                          </subModelOperations>
+                        </subModelOperations>
+                        <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" containerViewExpression="aql:containerView"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:dropLocation == 'L'">
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.setChildRepresentation('H')"/>
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="Region" referenceName="region">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                        <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" containerViewExpression="aql:containerView"/>
+                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
+                          <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" containerViewExpression="aql:containerView" variableName="createdView2"/>
+                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.moveChildrenView(createdView2)">
+                            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:applyLayoutData(containerView)"/>
+                          </subModelOperations>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="State" containerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/State.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="State" referenceName="subvertex">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']" containerViewExpression="aql:containerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Initial" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_initial.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Pseudostate" referenceName="subvertex">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="aql:uml::PseudostateKind::initial"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" containerViewExpression="aql:containerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="FinalState" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='FinalState']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/FinalState.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="FinalState" referenceName="subvertex">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="ShallowHistory" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_shallowHistory.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Pseudostate" referenceName="subvertex">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="aql:uml::PseudostateKind::shallowHistory"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" containerViewExpression="aql:containerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="DeepHistory" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_deepHistory.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Pseudostate" referenceName="subvertex">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="aql:uml::PseudostateKind::deepHistory"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" containerViewExpression="aql:containerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Fork" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_fork.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Pseudostate" referenceName="subvertex">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="aql:uml::PseudostateKind::fork"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" containerViewExpression="aql:containerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Join" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_join.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Pseudostate" referenceName="subvertex">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="aql:uml::PseudostateKind::join"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" containerViewExpression="aql:containerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Choice" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_choice.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Pseudostate" referenceName="subvertex">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="aql:uml::PseudostateKind::choice"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" containerViewExpression="aql:containerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Junction" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_junction.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Pseudostate" referenceName="subvertex">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="aql:uml::PseudostateKind::junction"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" containerViewExpression="aql:containerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="EntryPoint" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@borderedNodeMappings[name='BorderPseudoState']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_entryPoint.gif" extraMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:container.oclIsTypeOf(uml::State)">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="Pseudostate" referenceName="connectionPoint">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="aql:uml::PseudostateKind::entryPoint"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                    <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" containerViewExpression="aql:containerView"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:container.oclIsTypeOf(uml::Region)">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:getStateParent()">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="Pseudostate" referenceName="connectionPoint">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="aql:uml::PseudostateKind::entryPoint"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                      <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" containerViewExpression="aql:containerView"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="ExitPoint" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@borderedNodeMappings[name='BorderPseudoState']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_exitPoint.gif" extraMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:container.oclIsTypeOf(uml::State)">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="Pseudostate" referenceName="connectionPoint">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="aql:uml::PseudostateKind::exitPoint"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                    <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" containerViewExpression="aql:containerView"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:container.oclIsTypeOf(uml::Region)">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:getStateParent()">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="Pseudostate" referenceName="connectionPoint">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="aql:uml::PseudostateKind::exitPoint"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                      <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" containerViewExpression="service:getStateViewParent()"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Terminate" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_terminate.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Pseudostate" referenceName="subvertex">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="aql:uml::PseudostateKind::terminate"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" containerViewExpression="aql:containerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Comment" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment']" iconPath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Comment.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Comment" referenceName="ownedComment"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Constraint" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" iconPath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Constraint.gif" extraMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container.getStateParent()">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Constraint" referenceName="ownedRule">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instance">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::OpaqueExpression" referenceName="specification">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="language" valueExpression="OCL"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="body" valueExpression="true"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="constraintSpec"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="BorderPseudoStateDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@borderedNodeMappings[name='BorderPseudoState']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.dndBorderPseudoState(newSemanticContainer)"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::State)">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.dndBorderPseudoState(newSemanticContainer)"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="RegionDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:newSemanticContainer.getStateParent()">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:newContainerView.setChildRepresentation('H')"/>
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element">
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:newSemanticContainer">
+                        <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" containerViewExpression="aql:newContainerView" variableName="createdView2"/>
+                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:newContainerView.moveChildrenView(createdView2)">
+                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.applyLayoutData(newContainerView)"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" containerViewExpression="aql:newContainerView"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::State) or newSemanticContainer.oclIsTypeOf(uml::StateMachine)">
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" containerViewExpression="aql:newContainerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="StateDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']" containerViewExpression="aql:newContainerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="StateRepresentationDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:newSemanticContainer" featureName="subvertex"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="PseudostateDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']" containerViewExpression="aql:newContainerView"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::State) or newSemanticContainer.oclIsTypeOf(uml::StateMachine)">
+                  <subModelOperations xsi:type="tool_1:CreateView" containerViewExpression="aql:newContainerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="PseudoStateRepresentationDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subNodeMappings[name='Pseudostate']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:newSemanticContainer" featureName="subvertex"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DirectEditLabel" name="Rename" forceRefresh="true">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:arg0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Delete Region">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:elementView">
+                <subModelOperations xsi:type="tool:Let" variableName="isRegion" valueExpression="aql:containerView.target.oclIsTypeOf(uml::Region)"/>
+                <subModelOperations xsi:type="tool:Switch">
+                  <cases conditionExpression="aql:isRegion">
+                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:containerView.target != element">
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.getOtherRegion(element).moveChildrenView(containerView)">
+                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:applyLayoutData(containerView)"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool:For" expression="aql:containerView.getChildrenView()">
+                        <subModelOperations xsi:type="tool:DeleteView"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.setChildRepresentation('F')"/>
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element">
+                        <subModelOperations xsi:type="tool:RemoveElement"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:containerView.target == element">
+                      <subModelOperations xsi:type="tool:Let" variableName="otherElement" valueExpression="aql:containerView.getOtherRegion(element)">
+                        <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" containerViewExpression="aql:containerView.eContainer()">
+                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:otherElement.target">
+                            <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" containerViewExpression="aql:containerView.eContainer()"/>
+                            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:otherElement.moveChildrenView(createdView)">
+                              <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:applyLayoutData(createdView)"/>
+                            </subModelOperations>
+                          </subModelOperations>
+                        </subModelOperations>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView">
+                        <subModelOperations xsi:type="tool:DeleteView"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element">
+                        <subModelOperations xsi:type="tool:RemoveElement"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </cases>
+                  <cases conditionExpression="aql:not (isRegion)">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.setChildRepresentation('V')">
+                      <subModelOperations xsi:type="tool:DeleteView"/>
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element">
+                        <subModelOperations xsi:type="tool:RemoveElement"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </cases>
+                  <default/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DirectEditLabel" name="CommentEdit" forceRefresh="true">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="body" valueExpression="aql:arg0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DirectEditLabel" name="ConstraintEdit" inputLabelExpression="service:getBodyFromConstraint()">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:setBody(arg0)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="ConstraintDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" containerViewExpression="aql:newContainerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="ConstraintRepresentationDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:newSemanticContainer" featureName="ownedRule"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="CommentDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment']" containerViewExpression="aql:newContainerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="CommentRepresentationDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:newSemanticContainer" featureName="ownedComment"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Delete Comment">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:elementView">
+                <subModelOperations xsi:type="tool:DeleteView"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element">
+                  <subModelOperations xsi:type="tool:RemoveElement"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="StateMachineDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Model)">
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']" containerViewExpression="aql:newContainerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Edges" icon="/org.eclipse.papyrus.uml.sirius.common.diagram/icons/group.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Transition" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='Transition']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Transition_local.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:self.getRegionParent()">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Transition" referenceName="transition">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="aql:source"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="aql:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Link" precondition="aql:true" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='Link']" iconPath="/org.eclipse.papyrus.uml.sirius.common.diagram/icons/Link.gif" extraTargetMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:source.oclIsTypeOf(uml::Comment)">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:target.oclIsTypeOf(uml::Region)">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="annotatedElement" valueExpression="aql:target.getStateParent()"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:not target.oclIsTypeOf(uml::Region)">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="annotatedElement" valueExpression="aql:target"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:source.oclIsTypeOf(uml::Constraint)">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="constrainedElement" valueExpression="aql:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="ContextLink" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='ContextLink']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Association.gif" extraTargetMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source">
+                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:target.getStateParent()" featureName="ownedRule"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconnect Source Link" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:source.oclIsTypeOf(uml::Constraint)">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:target">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="constrainedElement" valueExpression="aql:edgeView.targetNode.target"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:Unset" featureName="constrainedElement" elementExpression="aql:edgeView.targetNode.target"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:source.oclIsTypeOf(uml::Comment)">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:target">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="annotatedElement" valueExpression="aql:edgeView.targetNode.target"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:Unset" featureName="annotatedElement" elementExpression="aql:edgeView.targetNode.target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconnect Target Link" forceRefresh="true">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:edgeView.sourceNode.target">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsTypeOf(uml::Constraint)">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="constrainedElement" valueExpression="aql:target"/>
+                  <subModelOperations xsi:type="tool:Unset" featureName="constrainedElement" elementExpression="aql:source"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsTypeOf(uml::Comment)">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="annotatedElement" valueExpression="aql:target"/>
+                  <subModelOperations xsi:type="tool:Unset" featureName="annotatedElement" elementExpression="aql:source"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Target ContextLink" forceRefresh="true">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element">
+                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:target" featureName="ownedRule"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Source ContextLink" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source">
+                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:sourceView.getContextParentView().target" featureName="ownedRule"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:target">
+                  <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:edgeView.targetNode.target" featureName="ownedRule"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Target Transition" forceRefresh="true">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:edgeView.target">
+                <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="aql:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Source Transition" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:edgeView.target">
+                <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="aql:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+        </toolSections>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='VerticalRegions']/@style //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='HorizontalRegions']/@style" attributeName="widthComputationExpression" value="service:getWidth(view, containerView)"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='VerticalRegions']/@style //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='HorizontalRegions']/@style" attributeName="heightComputationExpression" value="service:getHeight(view, containerView)"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@style" attributeName="borderSizeComputationExpression" value="service:computeBorderLineSize(view)"/>
+          </vsmElementCustomizations>
+        </customization>
+      </defaultLayer>
+      <additionalLayers name="Common" optional="false">
+        <nodeMappings name="Bendpoint" semanticCandidatesExpression="aql:diagram.getCommonBendpointsToDraw()" synchronizationLock="true" domainClass="uml.Element">
+          <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="" hideLabelByDefault="true" sizeComputationExpression="aql:self.getBenpointDiameter()">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Hyperlink" preconditionExpression="aql:self.isNotSemanticElement()" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="aql:self.allAvailableViews()" createElements="false" doubleClickDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Hyperlink%20View']" domainClass="EObject">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <toolSections name="Common">
+          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="Open Hyperlink">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:elementView.createOrOpenHyperlink()"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="PapyrusDelete">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.deleteElement(elementView)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:PopupMenu" name="Sirius View Deletion">
+            <menuItemDescription xsi:type="tool:OperationAction" name="Delete View">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:DeleteView"/>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="AddHyperlinkView" precondition="aql:element.isNotSemanticElement()" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@nodeMappings[name='Hyperlink']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@nodeMappings[name='Hyperlink']" containerViewExpression="aql:newContainerView"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="Hyperlink View" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@nodeMappings[name='Hyperlink']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="Constraint from Model" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" containerViewExpression="aql:newContainerView"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="Comment from Model" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment']" containerViewExpression="aql:newContainerView"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DirectEditLabel" name="CommentEdit">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="body" valueExpression="aql:arg0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DirectEditLabel" name="ConstraintEdit" inputLabelExpression="service:getBody()">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:setConstraintBody(arg0)"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.statemachine.diagram.StateMachineServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.common.diagram.core.services.AbstractDiagramServices"/>
+  </ownedViewpoints>
+  <userColorsPalettes>
+    <entries xsi:type="description:UserFixedColor" red="239" green="239" blue="239" name="StateMachine_Gray_Min"/>
+    <entries xsi:type="description:UserFixedColor" red="195" green="209" blue="213" name="StateMachine_Gray"/>
+    <entries xsi:type="description:UserFixedColor" red="200" green="255" blue="230" name="ConstrainedColor"/>
+  </userColorsPalettes>
+</description:Group>
