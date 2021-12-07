@@ -1,14 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>org.eclipse.papyrus.infra.siriusdiag</artifactId>
-	<packaging>pom</packaging>
+
 	<parent>
-	    <groupId>org.eclipse.papyrus</groupId>
-	    <artifactId>org.eclipse.papyrus.infra</artifactId>
-	    <version>0.0.1-SNAPSHOT</version>
-    </parent>
+		<groupId>org.eclipse.papyrus.sirius.plugins-infra</groupId>
+		<artifactId>org.eclipse.papyrus.sirius.plugins.infra</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<groupId>org.eclipse.papyrus.plugins.infra-siriusdiag</groupId>
+	<artifactId>org.eclipse.papyrus.plugins.infra.siriusdiag</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<packaging>pom</packaging>
+
 	<name>Papyrus Diagram Infrastructure</name>
 	<description>Common language-agnostic frameworks for sirius based diagram editors.</description>
 

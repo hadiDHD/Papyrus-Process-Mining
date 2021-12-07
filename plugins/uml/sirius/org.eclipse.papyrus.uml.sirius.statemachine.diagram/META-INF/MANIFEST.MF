@@ -5,9 +5,9 @@ Bundle-SymbolicName: org.eclipse.papyrus.uml.sirius.statemachine.diagram;singlet
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.eclipse.papyrus.uml.sirius.statemachine.diagram.Activator
 Bundle-Localization: plugin
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.eclipse.core.resources,
+Require-Bundle: org.eclipse.ui;bundle-version="[3.200.0,4.0.0)",
+ org.eclipse.core.runtime;bundle-version="[3.24.0,4.0.0)",
+ org.eclipse.core.resources;bundle-version="[3.16.0,4.0.0)",
  org.eclipse.sirius,
  org.eclipse.sirius.common.acceleo.aql,
  org.eclipse.uml2.uml;bundle-version="[5.5.0,6.0.0)",
@@ -15,9 +15,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.diagram;bundle-version="[6.4.2,7.0.0)",
  org.eclipse.gmf.runtime.diagram.ui;bundle-version="[1.9.0,2.0.0)",
  org.eclipse.papyrus.infra.emf.gmf;bundle-version="[2.1.0,3.0.0)",
- org.eclipse.papyrus.infra.gmfdiag.common;bundle-version="[4.1.0,5.0.0)",
+ org.eclipse.papyrus.infra.gmfdiag.common;bundle-version="[4.2.0,5.0.0)",
  org.eclipse.sirius.diagram.ui;bundle-version="[6.4.2,7.0.0)",
- org.eclipse.papyrus.uml.diagram.statemachine;bundle-version="[4.1.0,5.0.0)",
+ org.eclipse.papyrus.uml.diagram.statemachine;bundle-version="[5.0.0,6.0.0)",
  org.eclipse.sirius.ext.base;bundle-version="[6.4.2,7.0.0)",
  org.eclipse.sirius.common.ui;bundle-version="[6.4.2,7.0.0)",
  org.eclipse.sirius.common;bundle-version="[6.4.2,7.0.0)",
@@ -25,7 +25,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.uml.tools.utils;bundle-version="[4.1.0,5.0.0)",
  org.eclipse.papyrus.uml.internationalization.utils;bundle-version="[2.0.0,3.0.0)",
  org.eclipse.papyrus.editor;bundle-version="[3.0.0,4.0.0)",
- org.eclipse.papyrus.infra.ui;bundle-version="[3.1.100,4.0.0)"
+ org.eclipse.papyrus.infra.ui;bundle-version="[3.4.0,4.0.0)"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-Vendor: %providerName

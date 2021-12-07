@@ -20,5 +20,8 @@
 
 	<modules>
 		<module>core</module>
+		<module>doc</module>
+		<module>infra</module>
+		<module>uml</module>
 	</modules>
 </project>

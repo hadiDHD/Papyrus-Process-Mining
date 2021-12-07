@@ -1,20 +1,53 @@
 target "Papyrus-Sirius - 2021-12" with source requirements
-//build with simrel commit e014ee7948cbdea3d3eea7591de339b4bc25d0ed
-
-location "http://download.eclipse.org/releases/2021-09" eclipse-2021-09 {
- org.eclipse.sdk.feature.group 
-}
-
+// build with simrel commit e014ee7948cbdea3d3eea7591de339b4bc25d0ed
 
 /** Manual dependencies */
+// manualUpdate
+location "https://ci.eclipse.org/papyrus/job/Papyrus-SiriusIntegration-RequiredChanges-bug-577691/lastSuccessfulBuild/artifact/repository" Papyrus-2021-12-patched {
+	org.eclipse.papyrus.sdk.feature.feature.group lazy
+}
+// manualUpdate
+location "https://ci.eclipse.org/papyrus/job/Papyrus-SiriusIntegration-RequiredChanges-bug-577691-toolsmiths/lastSuccessfulBuild/artifact/repository" Papyrus-Toolsmiths-2021-12-patched {
+	org.eclipse.papyrus.junit.feature.feature.group lazy
+}
+
+// manualUpdate
+location release-2021-12 "http://download.eclipse.org/releases/2021-12" {
+	org.eclipse.emf.workspace.feature.group
+	org.eclipse.swtbot.feature.group
+	org.eclipse.xwt.feature.feature.group
+}
 
 //manualUpdate
-location "https://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/master/" Papyrus-2021-12 {
- org.eclipse.papyrus.sdk.feature.feature.group lazy
+location acceleo "https://download.eclipse.org/acceleo/updates/releases/3.7/R202102190929" {
+	org.eclipse.acceleo.feature.group
+	org.eclipse.acceleo.runtime.feature.group
 }
 
-//updateFrom("XWT",0)
-
-location xwt "https://download.eclipse.org/xwt/milestones-1.7.0/1.7.0-S/" {
-    org.eclipse.xwt.feature.feature.group lazy
+// updateFrom("Eclipse",0)
+location platform "https://download.eclipse.org/eclipse/updates/4.22/R-4.22-202111241800/" {
+	org.eclipse.sdk.feature.group
 }
+
+// updateFrom("Sirius for SimRel 2021-09",0)
+location sirius "https://download.eclipse.org/sirius/updates/releases/6.5.1/2020-09" {
+	org.eclipse.sirius.aql.feature.group
+	org.eclipse.sirius.doc.feature.feature.group
+	org.eclipse.sirius.interpreter.feature.feature.group
+	org.eclipse.sirius.properties.feature.feature.group
+	org.eclipse.sirius.runtime.acceleo.feature.group
+	org.eclipse.sirius.runtime.feature.group
+	org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group
+	org.eclipse.sirius.runtime.ide.ui.feature.group
+	org.eclipse.sirius.runtime.ide.xtext.feature.group
+	org.eclipse.sirius.runtime.ocl.feature.group
+	org.eclipse.sirius.specifier.feature.group
+	org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group
+	org.eclipse.sirius.specifier.ide.ui.aql.feature.group
+	org.eclipse.sirius.specifier.ide.ui.feature.group
+	org.eclipse.sirius.specifier.properties.feature.feature.group
+	org.eclipse.sirius.tests.feature.group
+	org.eclipse.sirius.tests.support.feature.group
+}
+
+

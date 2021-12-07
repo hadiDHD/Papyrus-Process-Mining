@@ -5,21 +5,20 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.eclipse.papyrus-sirius</groupId>
-		<artifactId>org.eclipse.papyrus.sirius</artifactId>
+		<groupId>org.eclipse.papyrus.sirius-plugins</groupId>
+		<artifactId>org.eclipse.papyrus.sirius.plugins</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<groupId>org.eclipse.papyrus.sirius-tests</groupId>
-	<artifactId>org.eclipse.papyrus.sirius.tests</artifactId>
+	<groupId>org.eclipse.papyrus.sirius.plugins-uml</groupId>
+	<artifactId>org.eclipse.papyrus.sirius.plugins.uml</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>Papyrus-Sirius Tests Plugins</name>
-	<description>Container of the Papyrus-Sirius Tests Plugins</description>
+	<name>Papyrus-Sirius Plugins</name>
+	<description>Container of the Papyrus-Sirius UML Plugins</description>
 
 	<modules>
-		<module>junit</module>
-		<module>org.eclipse.papyrus.sirius.bundles.tests</module>
+		<module>sirius</module>
 	</modules>
 </project>

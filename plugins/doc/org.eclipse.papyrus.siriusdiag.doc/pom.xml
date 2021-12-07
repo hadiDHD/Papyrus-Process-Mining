@@ -5,8 +5,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>org.eclipse.papyrus.plugins-doc</artifactId>
-		<groupId>org.eclipse.papyrus</groupId>
+		<groupId>org.eclipse.papyrus.sirius.plugins-doc</groupId>
+		<artifactId>org.eclipse.papyrus.sirius.plugins.doc</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
@@ -20,15 +20,15 @@
 				<groupId>org.eclipse.mylyn.docs</groupId>
 				<artifactId>org.eclipse.mylyn.wikitext.maven</artifactId>
 				<configuration>
-					<sourceFolder>resource</sourceFolder>
-					<outputFolder>${project.build.directory}/generated-eclipse-help</outputFolder>
+					<sourceFolder>src/site/mediawiki</sourceFolder>
+					<outputFolder>${project.build.directory}/site/generated-eclipse-help</outputFolder>
 					<!-- copyrightNotice>${help.copyrightNotice}</copyrightNotice> <title>${help.documentTitle}</title -->
 					<multipleOutputFiles>false</multipleOutputFiles>
 					<navigationImages>true</navigationImages>
 					<formatOutput>true</formatOutput>
 					<htmlFilenameFormat>$1.html</htmlFilenameFormat>
 					<xmlFilenameFormat>$1-toc.xml</xmlFilenameFormat>
-					<helpPrefix>target/generated-eclipse-help</helpPrefix>
+					<helpPrefix>target/site/generated-eclipse-help</helpPrefix>
 					<!-- stylesheetUrls> <param>styles/main.css</param> </stylesheetUrls -->
 				</configuration>
 				<executions>

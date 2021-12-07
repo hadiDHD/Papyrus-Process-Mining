@@ -144,19 +144,14 @@
 					<version>${tycho-version}</version>
 				</plugin>
 				<plugin>
-					<groupId>org.eclipse.tycho.extras</groupId>
-					<artifactId>tycho-pack200a-plugin</artifactId>
-					<version>${tychoExtrasVersion}</version>
-				</plugin>
-				<plugin>
-					<groupId>org.eclipse.tycho.extras</groupId>
-					<artifactId>tycho-pack200b-plugin</artifactId>
-					<version>${tychoExtrasVersion}</version>
-				</plugin>
-				<plugin>
 					<groupId>org.eclipse.cbi.maven.plugins</groupId>
 					<artifactId>eclipse-jarsigner-plugin</artifactId>
 					<version>${jarSignerVersion}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.mylyn.docs</groupId>
+					<artifactId>org.eclipse.mylyn.wikitext.maven</artifactId>
+					<version>${mylyn.wikitext.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -310,23 +305,15 @@
 
 	<profiles>
 		<profile>
-			<id>packAndSign</id> <!-- Stable release profile. Takes +30min. Eclipse servers only -->
-			<!-- Pack200 -->
+			<id>sign</id>
+			<activation>
+				<property>
+					<name>SIGN</name>
+					<value>true</value>
+				</property>
+			</activation>
 			<build>
 				<plugins>
-					<plugin>
-						<groupId>org.eclipse.tycho.extras</groupId>
-						<artifactId>tycho-pack200a-plugin</artifactId>
-						<version>${tychoExtrasVersion}</version>
-						<executions>
-							<execution>
-								<id>pack200-normalize</id>
-								<goals>
-									<goal>normalize</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
 					<plugin>
 						<groupId>org.eclipse.cbi.maven.plugins</groupId>
 						<artifactId>eclipse-jarsigner-plugin</artifactId>
@@ -341,19 +328,6 @@
 						</executions>
 					</plugin>
 					<plugin>
-						<groupId>org.eclipse.tycho.extras</groupId>
-						<artifactId>tycho-pack200b-plugin</artifactId>
-						<version>${tychoExtrasVersion}</version>
-						<executions>
-							<execution>
-								<id>pack200-pack</id>
-								<goals>
-									<goal>pack</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
 						<groupId>org.eclipse.tycho</groupId>
 						<artifactId>tycho-p2-plugin</artifactId>
 						<version>${tycho-version}</version>
@@ -372,59 +346,38 @@
 					</plugin>
 				</plugins>
 			</build>
-			<activation>
-				<property>
-					<name>SIGN</name>
-					<value>true</value>
-				</property>
-			</activation>
 		</profile>
 
-
+		<!-- Nightly profile. Artifacts can be consumed, but are not signed -->
 		<profile>
-			<id>pack</id> <!-- Nightly profile. Artifacts can be consumed, but are not signed -->
-			<build>
-				<plugins>
-					<!-- Pack200 -->
-					<plugin>
-						<groupId>org.eclipse.tycho.extras</groupId>
-						<artifactId>tycho-pack200b-plugin</artifactId>
-						<version>${tychoExtrasVersion}</version>
-						<executions>
-							<execution>
-								<id>pack200-pack</id>
-								<goals>
-									<goal>pack</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.eclipse.tycho</groupId>
-						<artifactId>tycho-p2-plugin</artifactId>
-						<version>${tycho-version}</version>
-						<executions>
-							<execution>
-								<id>attach-p2-metadata</id>
-								<phase>package</phase>
-								<goals>
-									<goal>p2-metadata</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<defaultP2Metadata>false</defaultP2Metadata>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
+			<id>p2</id>
 			<activation>
 				<property>
 					<name>SIGN</name>
 					<value>false</value>
 				</property>
 			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-p2-plugin</artifactId>
+						<version>${tycho-version}</version>
+						<executions>
+							<execution>
+								<id>attach-p2-metadata</id>
+								<phase>package</phase>
+								<goals>
+									<goal>p2-metadata</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<defaultP2Metadata>false</defaultP2Metadata>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
 		</profile>
-
 	</profiles>
 </project>
