@@ -1,37 +1,9 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <toc label="Papyrus-SiriusDiag">
-  <topic href="src/site/mediawiki/siriusdiag-devDoc.html" label="Sirius Diagram Developer Documentation">
+  <topic label="Sirius Diagram Developer Documentation">
        <anchor id="Papyrus-SiriusDiag-DevDocAnchor"/>
-       <topic href="src/site/mediawiki/siriusdiag-devDoc.html#Architecture_of_Papyrus-SiriusDiag" label="Architecture of Papyrus - Sirius Diagram">
-       </topic>
-       <topic href="src/site/mediawiki/siriusdiag-devDoc.html#Sirius_viewpoint" label="Sirius viewpoint">
-       </topic>
-       <topic href="src/site/mediawiki/siriusdiag-devDoc.html#Adding_a_new_diagram_to_the_architecture_file" label="Adding a new diagram to the architecture file">
-       </topic>
-       <topic href="src/site/mediawiki/siriusdiag-devDoc.html#Sirius_session_management" label="Sirius session management">
-       </topic>
-       <topic href="src/site/mediawiki/siriusdiag-devDoc.html#Common_diagram" label="Common diagram">
-       </topic>
-       <topic href="src/site/mediawiki/siriusdiag-devDoc.html#Class_Diagram" label="Class diagram">
-       </topic>
-       <topic href="src/site/mediawiki/siriusdiag-devDoc.html#State_Machine_Diagram" label="State Machine diagram">
-       </topic>
-       <topic href="src/site/mediawiki/siriusdiag-devDoc.html#Sequence_Diagram" label="Sequence diagram">
-       </topic>
-       <topic href="src/site/mediawiki/siriusdiag-devDoc.html#Xtext_integration" label="Xtext integration">
-       </topic>
-       <topic href="src/site/mediawiki/siriusdiag-devDoc.html#Test_coverage" label="Test coverage">
-       </topic>
   </topic>
   <topic href="src/site/mediawiki/siriusdiag-userDoc.html" label="Sirius Diagram User Documentation">
      <anchor id="Papyrus-SiriusDiag-UserDocAnchor"/>
-     <topic href="src/site/mediawiki/siriusdiag-userDoc.html#Papyrus-SiriusDiag_Integration_Introduction" label="Papyrus Sirius Diagram Integration Introduction">
-     </topic>
-     <topic href="src/site/mediawiki/siriusdiag-userDoc.html#How_to_create_a_new_Sirius_Diagram_in_my_UML_model" label="How to create a new Sirius Diagram in my UML model">
-     </topic>
-     <topic href="src/site/mediawiki/siriusdiag-userDoc.html#How_to_use_sirius_diagram" label="How to use sirius diagram">
-     </topic>
-     <topic href="src/site/mediawiki/siriusdiag-userDoc.html#Common" label="Common">
-     </topic>
   </topic>
 </toc>

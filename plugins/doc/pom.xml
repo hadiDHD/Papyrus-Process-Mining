@@ -21,4 +21,64 @@
 	<modules>
 		<module>org.eclipse.papyrus.siriusdiag.doc</module>
 	</modules>
+
+
+	<properties>
+		<!-- https://repo.maven.apache.org/maven2/ -->
+		<mojo.buildhelper.version>3.0.0</mojo.buildhelper.version>
+		<mylyn.wikitext.version>3.0.29</mylyn.wikitext.version>
+
+		<!-- <target.platform>org.eclipse.papyrus.main.${target.suffix}.target</target.platform> -->
+	</properties>
+
+	<build>
+		<pluginManagement>
+			<!-- redistributed plugins -->
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>${mojo.buildhelper.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.mylyn.docs</groupId>
+					<artifactId>org.eclipse.mylyn.wikitext.maven</artifactId>
+					<version>${mylyn.wikitext.version}</version>
+				</plugin>
+
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.eclipse.mylyn.docs
+										</groupId>
+										<artifactId>
+											org.eclipse.mylyn.wikitext.maven
+										</artifactId>
+										<versionRange>
+											[2.4.0-SNAPSHOT,)
+										</versionRange>
+										<goals>
+											<goal>eclipse-help</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 </project>

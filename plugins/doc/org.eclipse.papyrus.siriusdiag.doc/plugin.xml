@@ -5,8 +5,28 @@
          point="org.eclipse.help.toc">
       <toc
             category="org.eclipse.papyrus-siriusdiag"
-            file="src/site/mediawiki/siriusdiag-main-toc.xml"
+            file="target/site/generated-eclipse-help/siriusdiag-main-toc.xml"
             primary="true">
+      </toc>
+      <toc
+            category="org.eclipse.papyrus-siriusdiag"
+            file="target/site/generated-eclipse-help/siriusdiag-devDoc-main-toc.xml"
+            primary="false">
+      </toc>
+      <toc
+            category="org.eclipse.papyrus-siriusdiag"
+            file="target/site/generated-eclipse-help/siriusdiag-devDoc-toc.xml"
+            primary="false">
+      </toc>
+      <toc
+            category="org.eclipse.papyrus-siriusdiag"
+            file="target/site/generated-eclipse-help/siriusdiag-userDoc-main-toc.xml"
+            primary="false">
+      </toc>
+      <toc
+            category="org.eclipse.papyrus-siriusdiag"
+            file="target/site/generated-eclipse-help/siriusdiag-userDoc-toc.xml"
+            primary="false">
       </toc>
       </extension>
 

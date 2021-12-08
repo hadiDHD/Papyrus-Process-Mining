@@ -31,7 +31,6 @@
 		<jacoco.version>0.8.2</jacoco.version>
 		<testConfig>CI_TESTS_CONFIG</testConfig>
 		<test.argLine>-Xms512m -Xmx2048m -XX:SoftRefLRUPolicyMSPerMB=100</test.argLine>
-		<mylyn.wikitext.version>3.0.29</mylyn.wikitext.version>
 
 		<targetPlatform.groupID>org.eclipse.papyrus.sirius.releng-main</targetPlatform.groupID>
 		<targetPlatform.artifactID>org.eclipse.papyrus.sirius.releng.main.targetplatform</targetPlatform.artifactID>
@@ -147,11 +146,6 @@
 					<groupId>org.eclipse.cbi.maven.plugins</groupId>
 					<artifactId>eclipse-jarsigner-plugin</artifactId>
 					<version>${jarSignerVersion}</version>
-				</plugin>
-				<plugin>
-					<groupId>org.eclipse.mylyn.docs</groupId>
-					<artifactId>org.eclipse.mylyn.wikitext.maven</artifactId>
-					<version>${mylyn.wikitext.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
