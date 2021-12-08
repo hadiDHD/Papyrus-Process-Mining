@@ -33,7 +33,27 @@
 
 							<requirement>
 								<type>eclipse-feature</type>
+								<id>org.eclipse.papyrus.infra.siriusdiag.feature</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+							<requirement>
+								<type>eclipse-feature</type>
 								<id>org.eclipse.papyrus.sirius.core.feature</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+							<requirement>
+								<type>eclipse-feature</type>
+								<id>org.eclipse.papyrus.tests.uml.siriusdiag.feature</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+							<requirement>
+								<type>eclipse-feature</type>
+								<id>org.eclipse.papyrus.toolsmiths.sirius.feature</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+							<requirement>
+								<type>eclipse-feature</type>
+								<id>org.eclipse.papyrus.uml.siriusdiag.feature</id>
 								<versionRange>0.0.0</versionRange>
 							</requirement>
 						</extraRequirements>

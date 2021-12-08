@@ -21,4 +21,33 @@
 	<modules>
 		<module>uml</module>
 	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- By default, don't do tests -->
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tycho-version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<dependency-resolution>
+						<extraRequirements>
+							<!-- required to find all sirius plugins to check them -->
+
+							<requirement>
+								<type>eclipse-feature</type>
+								<id>org.eclipse.papyrus.uml.siriusdiag.feature</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+						</extraRequirements>
+					</dependency-resolution>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
