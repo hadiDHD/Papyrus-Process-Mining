@@ -38,7 +38,6 @@ import org.junit.runner.RunWith;
  */
 @PluginResource("resources/creation/edges/link/Edge_Link_CreationTest.di") // the resource to import for the test in the workspace
 @SuppressWarnings("nls")
-@RunWith(ClassificationRunner.class)
 public class Edge_Link_CreationTest extends AbstractPapyrusTest {
 
 	private static final String DIAGRAM_NAME = "Edge_Link_ClassDiagram";

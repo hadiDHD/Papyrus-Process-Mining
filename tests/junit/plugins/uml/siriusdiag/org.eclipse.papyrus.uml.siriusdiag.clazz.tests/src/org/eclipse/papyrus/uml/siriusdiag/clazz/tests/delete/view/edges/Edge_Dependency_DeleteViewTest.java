@@ -41,7 +41,6 @@ import org.junit.runner.RunWith;
  */
 @PluginResource("resources/delete/edges/dependency/Edge_Dependency_DeleteSemanticTest.di")
 @SuppressWarnings("nls")
-@RunWith(ClassificationRunner.class)
 public class Edge_Dependency_DeleteViewTest extends AbstractPapyrusTest {
 
 	private static final String VIEW_TO_DELETE_ELEMENT_NAME = "EdgeToDelete";

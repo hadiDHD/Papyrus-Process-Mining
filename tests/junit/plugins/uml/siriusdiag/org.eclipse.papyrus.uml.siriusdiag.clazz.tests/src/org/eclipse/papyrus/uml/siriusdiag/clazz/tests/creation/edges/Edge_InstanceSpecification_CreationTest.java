@@ -33,7 +33,6 @@ import org.junit.runner.RunWith;
  */
 @PluginResource("resources/creation/edges/instanceSpecification/Edge_InstanceSpecification_CreationTest.di") // the resource to import for the test in the workspace
 @SuppressWarnings("nls")
-@RunWith(ClassificationRunner.class)
 public class Edge_InstanceSpecification_CreationTest extends AbstractPapyrusTest {
 
 	private static final String DIAGRAM_NAME = "Edge_InstanceSpecification_ClassDiagram";

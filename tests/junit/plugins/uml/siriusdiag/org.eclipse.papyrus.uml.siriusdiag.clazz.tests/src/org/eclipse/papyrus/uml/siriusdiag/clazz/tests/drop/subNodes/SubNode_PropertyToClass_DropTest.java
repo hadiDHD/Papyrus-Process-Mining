@@ -39,7 +39,6 @@ import org.junit.runner.RunWith;
  */
 @PluginResource("resources/drop/subNode/propertyOperationToClass/SubNode_PropertyOperationToClass_DropTest.di")
 @SuppressWarnings({ "nls", "restriction" })
-@RunWith(ClassificationRunner.class)
 public class SubNode_PropertyToClass_DropTest extends AbstractPapyrusTest {
 
 	private static final String DIAGRAM_NAME = "SubNode_PropertyOperationToClass_ClassDiagram";

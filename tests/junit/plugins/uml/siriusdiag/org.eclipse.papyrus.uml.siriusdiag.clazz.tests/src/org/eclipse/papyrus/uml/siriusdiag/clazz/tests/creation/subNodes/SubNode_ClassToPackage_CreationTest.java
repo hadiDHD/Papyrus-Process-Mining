@@ -37,7 +37,6 @@ import org.junit.runner.RunWith;
  */
 @PluginResource("resources/creation/subNodes/packageSubNodes/SubNode_Package_CreationTest.di") // the resource to import for the test in the workspace
 @SuppressWarnings("nls")
-@RunWith(ClassificationRunner.class)
 public class SubNode_ClassToPackage_CreationTest extends AbstractPapyrusTest {
 
 	private static final String DIAGRAM_NAME = "SubNode_Package_ClassDiagram";

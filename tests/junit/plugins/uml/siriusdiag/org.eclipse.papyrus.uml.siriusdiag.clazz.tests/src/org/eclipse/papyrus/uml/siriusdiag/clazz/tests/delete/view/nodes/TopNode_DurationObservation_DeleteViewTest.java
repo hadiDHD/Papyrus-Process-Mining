@@ -41,7 +41,6 @@ import org.junit.runner.RunWith;
  */
 @PluginResource("resources/delete/nodes/durationObservation/TopNode_DurationObservation_DeleteSemanticTest.di")
 @SuppressWarnings("nls")
-@RunWith(ClassificationRunner.class)
 public class TopNode_DurationObservation_DeleteViewTest extends AbstractPapyrusTest {
 
 	private static final String ELEMENT_TO_DESTROY_NAME = "DurationObservationToDelete";

@@ -40,7 +40,6 @@ import org.junit.runner.RunWith;
  */
 @PluginResource("resources/drop/subNode/classToPackage/SubNode_ClassToPackage_DropTest.di")
 @SuppressWarnings("nls")
-@RunWith(ClassificationRunner.class)
 public class SubNode_ClassToPackage_DropTest extends AbstractPapyrusTest {
 
 	private static final String DIAGRAM_NAME = "SubNode_ClassToPackage_ClassDiagram";

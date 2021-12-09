@@ -42,7 +42,6 @@ import org.junit.runner.RunWith;
  */
 @PluginResource("resources/delete/nodes/dataType/TopNode_DataType_DeleteSemanticTest.di")
 @SuppressWarnings("nls")
-@RunWith(ClassificationRunner.class)
 public class TopNode_DataType_DeleteViewTest extends AbstractPapyrusTest {
 
 	private static final String VIEW_TO_DELETE_ELEMENT_NAME = "DataTypeToDelete";

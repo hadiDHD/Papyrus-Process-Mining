@@ -36,7 +36,6 @@ import org.junit.runner.RunWith;
  */
 @PluginResource("resources/delete/edges/informationFlow/Edge_InformationFlow_DeleteSemanticTest.di")
 @SuppressWarnings("nls")
-@RunWith(ClassificationRunner.class)
 public class Edge_InformationFlow_DeleteSemanticTest extends AbstractPapyrusTest {
 
 	private static final String EDGE_SOURCE_NAME = "EdgeSource";

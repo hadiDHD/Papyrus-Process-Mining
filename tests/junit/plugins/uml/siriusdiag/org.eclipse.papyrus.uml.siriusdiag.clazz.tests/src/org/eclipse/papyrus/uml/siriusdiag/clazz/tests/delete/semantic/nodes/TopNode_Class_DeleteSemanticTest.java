@@ -35,7 +35,6 @@ import org.junit.runner.RunWith;
  */
 @PluginResource("resources/delete/nodes/class/TopNode_Class_DeleteSemanticTest.di")
 @SuppressWarnings("nls")
-@RunWith(ClassificationRunner.class)
 public class TopNode_Class_DeleteSemanticTest extends AbstractPapyrusTest {
 
 	private static final String ELEMENT_TO_DESTROY_NAME = "ClassToDelete";

@@ -37,7 +37,6 @@ import org.junit.runner.RunWith;
  */
 @PluginResource("resources/creation/subNodes/classSubNodes/SubNode_PropertyOperation_CreationTest.di") // the resource to import for the test in the workspace
 @SuppressWarnings({ "nls", "restriction" })
-@RunWith(ClassificationRunner.class)
 public class SubNode_Property_CreationTest extends AbstractPapyrusTest {
 
 	private static final String DIAGRAM_NAME = "SubNode_PropertyOperation_ClassDiagram";

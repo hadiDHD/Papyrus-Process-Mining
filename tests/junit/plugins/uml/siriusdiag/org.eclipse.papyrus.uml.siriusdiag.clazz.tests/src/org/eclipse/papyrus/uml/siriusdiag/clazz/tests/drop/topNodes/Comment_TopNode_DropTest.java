@@ -35,7 +35,6 @@ import org.junit.runner.RunWith;
  */
 @PluginResource("resources/drop/topNode/TopNode_DropTest.di")
 @SuppressWarnings("nls")
-@RunWith(ClassificationRunner.class)
 public class Comment_TopNode_DropTest extends AbstractPapyrusTest {
 
 	private static final String CLASS_DIAGRAM_NAME = "TopNode_Drop_ClassDiagram";
