@@ -9,7 +9,7 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and others
+ *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
  *****************************************************************************/
 package org.eclipse.papyrus.uml.sirius.sequence.diagram.services;
 
@@ -46,8 +46,6 @@ import org.eclipse.uml2.uml.StateInvariant;
 /**
  * The Class ReorderService.
  *
- * @author Yann Binot (Artal Technologies) <yann.binot@artal.fr>
- * @author Aurélien Didier (Artal Technologies)
  */
 public class ReorderService {
 

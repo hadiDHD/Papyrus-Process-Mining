@@ -9,7 +9,7 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and others
+ *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
  *****************************************************************************/
 package org.eclipse.papyrus.uml.sirius.common.diagram.hyperlink;
 
@@ -22,9 +22,7 @@ import org.eclipse.sirius.diagram.ui.internal.edit.policies.AbstractCreateEditPo
 import org.eclipse.uml2.uml.Element;
 
 /**
- * The Class MyCreateEditPolicyProvider.
- *
- * @author Aurélien Didier (Artal Technologies)
+ * The Class NavigationEditPolicyProvider.
  */
 @SuppressWarnings("restriction")
 public class NavigationEditPolicyProvider extends AbstractCreateEditPolicyProvider {

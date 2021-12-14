@@ -9,8 +9,7 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *  Vincent Lorenzo (CEA LIST) <vincent.lorenzo@cea.fr> - Initial API and implementation
- *
+ *  Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
  *****************************************************************************/
 package org.eclipse.papyrus.infra.siriusdiag.ui.internal.adapter;
 

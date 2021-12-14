@@ -9,7 +9,7 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and others
+ *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
  *****************************************************************************/
 package org.eclipse.papyrus.uml.sirius.common.diagram.services;
 import org.eclipse.emf.common.command.Command;
@@ -64,8 +64,8 @@ public abstract class AbstractSemanticEditionService {
 	protected final IElementType getElementType(final String elementTypeId) {
 		IElementType elementType = ElementTypeRegistry.getInstance().getType(elementTypeId);
 		if (elementType == null) { // initialize Papyrus element type when we are in a pure Sirius context
-			// si on initialise ça dans un context Sirius, la création depuis la palette d'un diagramme de Classe papyrus ne marche plus!!!
-			// mais ça marche presque parfaitement en Sirius natif...
+			// si on initialise ï¿½a dans un context Sirius, la crï¿½ation depuis la palette d'un diagramme de Classe papyrus ne marche plus!!!
+			// mais ï¿½a marche presque parfaitement en Sirius natif...
 			// System.out.println("loading elementtypesetconfiguration");
 			// ElementTypeSetConfigurationRegistry.getInstance();
 			// elementType = ElementTypeRegistry.getInstance().getType(elementTypeId);

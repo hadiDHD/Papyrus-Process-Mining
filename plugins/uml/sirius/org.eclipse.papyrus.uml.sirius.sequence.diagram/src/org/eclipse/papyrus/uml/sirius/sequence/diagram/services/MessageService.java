@@ -9,7 +9,7 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and others
+ *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
  *****************************************************************************/
 package org.eclipse.papyrus.uml.sirius.sequence.diagram.services;
 
@@ -1012,7 +1012,7 @@ public class MessageService {
 			EObject eContainer = object.eContainer();
 			String name = ((Message) object).getName();
 			if (eContainer instanceof Interaction) {
-				// TODO, il faut trouver une autre solution pour trouver le message d'invokation que par le nom. Car celui ci pourrait etre changé par l'utilisateur apres coup.
+				// TODO, il faut trouver une autre solution pour trouver le message d'invokation que par le nom. Car celui ci pourrait etre changï¿½ par l'utilisateur apres coup.
 				String invokationName = name.replace("_reply", "");
 				return ((Interaction) eContainer).getMessage(invokationName);
 			}

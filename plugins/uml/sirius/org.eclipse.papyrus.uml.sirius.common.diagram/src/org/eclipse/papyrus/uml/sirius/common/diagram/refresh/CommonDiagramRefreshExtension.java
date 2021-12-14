@@ -9,7 +9,7 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and others
+ *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
  *****************************************************************************/
 package org.eclipse.papyrus.uml.sirius.common.diagram.refresh;
 
@@ -120,7 +120,7 @@ public class CommonDiagramRefreshExtension implements IRefreshExtension {
 		Diagram gmfDiagram = SiriusGMFHelper.getGmfDiagram(diagram);
 		EList<Edge> edges = gmfDiagram.getEdges();
 		for (Edge edge : edges) {
-			// recupérer la figure
+			//get the figure
 			GraphicalEditPart currentEditPart = GMFHelper.getGraphicalEditPart(edge).get();
 			IFigure currentEdgeFigure = ((IGraphicalEditPart) currentEditPart).getFigure();
 			if (currentEdgeFigure instanceof AbstractPointListShape) {
