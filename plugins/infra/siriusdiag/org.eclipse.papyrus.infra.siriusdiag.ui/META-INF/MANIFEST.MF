@@ -43,10 +43,13 @@ Require-Bundle: org.eclipse.ui;bundle-version="[3.119.0,4.0.0)",
  org.eclipse.uml2.uml;bundle-version="[5.5.0,6.0.0)",
  org.eclipse.papyrus.infra.emf.gmf;bundle-version="[2.1.0,3.0.0)",
  org.eclipse.papyrus.infra.siriusdiag.sirius;bundle-version="[0.7.0,1.0.0)",
- org.eclipse.papyrus.infra.core.sashwindows.di;bundle-version="[2.0.0,3.0.0)"
+ org.eclipse.papyrus.infra.core.sashwindows.di;bundle-version="[2.0.0,3.0.0)",
+ org.eclipse.papyrus.infra.services.decoration;bundle-version="[3.0.0,4.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: org.eclipse.papyrus.infra.siriusdiag.ui
 Bundle-ActivationPolicy: lazy
-Export-Package: org.eclipse.papyrus.infra.siriusdiag.ui.internal.sessions;x-friends:="org.eclipse.papyrus.siriusdiag.junit.utils",
+Export-Package: org.eclipse.papyrus.infra.siriusdiag.ui.internal.decorations;x-friends:="org.eclipse.papyrus.uml.sirius.common.diagram",
+ org.eclipse.papyrus.infra.siriusdiag.ui.internal.sessions;x-friends:="org.eclipse.papyrus.siriusdiag.junit.utils",
  org.eclipse.papyrus.infra.siriusdiag.ui.internal.viewpoint,
- org.eclipse.papyrus.infra.siriusdiag.ui.modelresource
+ org.eclipse.papyrus.infra.siriusdiag.ui.modelresource,
+ org.eclipse.papyrus.infra.siriusdiag.ui.utils

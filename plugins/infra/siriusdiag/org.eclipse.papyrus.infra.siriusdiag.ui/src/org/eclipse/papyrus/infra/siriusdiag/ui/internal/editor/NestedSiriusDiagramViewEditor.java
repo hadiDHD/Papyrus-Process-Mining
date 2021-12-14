@@ -61,7 +61,6 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.papyrus.infra.core.resource.ModelSet;
-import org.eclipse.papyrus.infra.core.sashwindows.di.util.DiResourceImpl;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.emf.utils.ServiceUtilsForEObject;
@@ -74,7 +73,6 @@ import org.eclipse.papyrus.infra.widgets.util.IRevealSemanticElement;
 import org.eclipse.papyrus.infra.widgets.util.NavigationTarget;
 import org.eclipse.papyrus.uml.tools.model.UmlModel;
 import org.eclipse.sirius.business.api.dialect.command.RefreshRepresentationsCommand;
-import org.eclipse.sirius.business.api.query.FileQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.internal.session.SessionTransientAttachment;
@@ -222,6 +220,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 */
 	@Override
 	protected void configureDiagramEditDomain() {
+		// TODO this method should probably do nothing in order to reuse papyrus stack and domain
 
 		DiagramEditDomain editDomain = new DiagramEditDomain(this);
 		editDomain.setActionManager(createActionManager());
@@ -749,6 +748,14 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 					.getAction(GEFActionConstants.DIRECT_EDIT));
 		}
 		return keyHandler;
+	}
+
+	/**
+	 * @return
+	 *         the {@link ServicesRegistry} used by this editor
+	 */
+	public ServicesRegistry getServicesRegistry() {
+		return this.servicesRegistry;
 	}
 
 
