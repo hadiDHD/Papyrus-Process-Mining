@@ -10,7 +10,7 @@
     <semanticResources>pathmap://UML_METAMODELS/Ecore.metamodel.uml</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_pJG-8DcnEey1v5ZgfkSlPg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pKjJYDcnEey1v5ZgfkSlPg" name="Edge_InformationFlow_ClassDiagram" repPath="#_pKh7QDcnEey1v5ZgfkSlPg" changeId="61f8fa15-90d8-4480-b3a4-cba8e696db03">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pKjJYDcnEey1v5ZgfkSlPg" name="Edge_InformationFlow_Delete_ClassDiagram" repPath="#_pKh7QDcnEey1v5ZgfkSlPg" changeId="61f8fa15-90d8-4480-b3a4-cba8e696db03">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']"/>
         <target xmi:type="uml:Model" href="Edge_InformationFlow_DeleteSemanticTest.uml#_Wv3d0CdwEey4evd-scEcsg"/>
       </ownedRepresentationDescriptors>

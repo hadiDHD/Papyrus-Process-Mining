@@ -22,7 +22,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.papyrus.junit.framework.classification.ClassificationRunner;
 import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
@@ -35,7 +34,6 @@ import org.eclipse.uml2.uml.NamedElement;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 /**
  * Delete Class from diagram test
@@ -54,7 +52,7 @@ public class TopNode_DataType_DeleteViewTest extends AbstractPapyrusTest {
 	@SuppressWarnings("restriction")
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
-	public void Delete_Class_View() {
+	public void Delete_DataType_View() {
 
 		// setup
 		Assert.assertTrue(fixture.getModel() instanceof Model);
