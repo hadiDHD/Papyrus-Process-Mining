@@ -68,30 +68,6 @@
              sequence="M1+A">
        </key>
        <key
-             commandId="org.eclipse.papyrus.uml.diagram.menu.command.grow.top"
-             contextId="org.eclipse.sirius.diagram.ui.diagramContext"
-             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-             sequence="M2+ARROW_UP">
-       </key>
-       <key
-             commandId="org.eclipse.papyrus.uml.diagram.menu.command.grow.bottom"
-             contextId="org.eclipse.sirius.diagram.ui.diagramContext"
-             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-             sequence="M2+ARROW_DOWN">
-       </key>
-       <key
-             commandId="org.eclipse.papyrus.uml.diagram.menu.command.grow.left"
-             contextId="org.eclipse.sirius.diagram.ui.diagramContext"
-             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-             sequence="M2+ARROW_LEFT">
-       </key>
-       <key
-             commandId="org.eclipse.papyrus.uml.diagram.menu.command.grow.right"
-             contextId="org.eclipse.sirius.diagram.ui.diagramContext"
-             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-             sequence="M2+ARROW_RIGHT">
-       </key>
-       <key
              commandId="org.eclipse.papyrus.uml.sirius.common.diagram.semantic.DeleteCommand"
              contextId="org.eclipse.sirius.diagram.ui.diagramContext"
              schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
