@@ -28,8 +28,8 @@ For more information about viewpoint description, you can have a look at the sir
 https://www.eclipse.org/sirius/doc/specifier/general/Specifying_Viewpoints.html
 
 Note that each viewpoint shall reuse:
-* The common layer which is a mandatory layer defining the common concept of all diagrams (Hyperlink and Benpoint).
-* The common tool, for navigation, deletion, etc.
+* The common layer which is a mandatory layer defining the common concept of all diagrams (Bendpoint for example).
+* The common tool, for deletion, etc.
 * Common and specific java services. 
 
 = Adding a new diagram to the architecture file =
@@ -82,10 +82,6 @@ For new services using session, it is recommanded to use the SessionService prov
 
 Benpoints mapping is used to draw a Benpoint node at the intersection of edges when the Benpoints filter is activated.
 
-=== Hyperlink ===
-
-Hyperlink node is used to add a node in the diagram that allows to navigate to other representation.
-
 === Refresh provider ===
 
 In some sirius diagrams, for several purpose (region management, bendpoints and sequence diagram reorder), the post refresh behavior of sirius diagrams have been overriden.
@@ -107,8 +103,6 @@ To override this behavior, we have used the following extension point org.eclips
 * TooltipServices helps to provide a tooltip for each tools of the palette.
 
 * DeleteFromModelHandler handles the deletion of semantic element.
-
-* Hyperlink and Shortcut services handles navigation, creation of hyperlink and shortcut.
 
 = Class Diagram =
 

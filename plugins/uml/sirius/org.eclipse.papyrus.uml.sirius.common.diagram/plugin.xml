@@ -32,27 +32,6 @@
      </editpolicyProvider>
   </extension>
   
-  <!--
-    <extension
-        point="org.eclipse.gmf.runtime.diagram.ui.editpolicyProviders">
-     <editpolicyProvider
-           class="org.eclipse.papyrus.uml.sirius.common.diagram.hyperlink.NavigationEditPolicyProvider">
-        <Priority
-              name="High">
-        </Priority>
-     </editpolicyProvider>
-  </extension>
-  -->
-  	<extension
-        point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
-     <editpartProvider
-           class="org.eclipse.papyrus.uml.sirius.common.diagram.hyperlink.SiriusShortcutEditPartProvider">
-        <Priority
-              name="Highest">
-        </Priority>
-     </editpartProvider>
-  </extension>
-  
      <extension point="org.eclipse.ui.bindings">
       <?gmfgen generated="true"?>
       <key

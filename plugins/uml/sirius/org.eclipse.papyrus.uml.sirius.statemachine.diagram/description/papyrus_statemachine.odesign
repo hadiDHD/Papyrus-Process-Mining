@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="papyrus_statemachine" version="12.0.0.2017041100">
   <ownedViewpoints name="StateMachineDiagram" modelFileExtension="uml">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='StateMachineDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='AddHyperlinkView'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" name="StateMachineDiagram" titleExpression="aql:self.name +' StateMachine Diagram'" domainClass="uml::Element" preconditionExpression="service:getPreCondition()" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='StateMachineDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" name="StateMachineDiagram" titleExpression="aql:self.name +' StateMachine Diagram'" domainClass="uml::Element" preconditionExpression="service:getPreCondition()" enablePopupBars="true">
       <metamodel href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
       <layout xsi:type="description_1:CustomLayoutConfiguration" id="org.eclipse.elk.box" label="ELK Box" description="Algorithm for packing of unconnected boxes, i.e. graphs without edges.">
         <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.aspectRatio">
@@ -921,21 +921,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="Hyperlink" preconditionExpression="aql:self.isNotSemanticElement()" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="aql:self.allAvailableViews()" createElements="false" doubleClickDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Hyperlink%20View']" domainClass="EObject">
-          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-          </style>
-        </nodeMappings>
         <toolSections name="Common">
-          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="Open Hyperlink">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:elementView.createOrOpenHyperlink()"/>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:DeleteElementDescription" name="PapyrusDelete">
             <element name="element"/>
             <elementView name="elementView"/>
@@ -951,22 +937,6 @@
                 <firstModelOperations xsi:type="tool:DeleteView"/>
               </initialOperation>
             </menuItemDescription>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="AddHyperlinkView" precondition="aql:element.isNotSemanticElement()" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@nodeMappings[name='Hyperlink']" dragSource="PROJECT_EXPLORER">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@nodeMappings[name='Hyperlink']" containerViewExpression="aql:newContainerView"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="Hyperlink View" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@nodeMappings[name='Hyperlink']">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <initialOperation/>
           </ownedTools>
           <ownedTools xsi:type="tool_1:ContainerDropDescription" name="Constraint from Model" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>

@@ -79,18 +79,6 @@ Using the shortcut CTRL + H, you can simply show or hide and element from the di
 
 Pinning an element makes it protected from any action which can modify the position of this element in the diagram, such as arrange all.
 
-== Hyperlink ==
-
-Hyperlink can be created on any diagram elements. Once referenced as default hyperlink, a view can be opened by double click.
-
-[[File:../../../image/user/1_Hyperlink.png]]
-
-[[File:../../../image/user/1_HyperlinkNavigation.png]]
-
-Shortcuts can be created by drag and dropping representations. Once added in the diagram, the view can be opened by double click.
-
-[[File:../../../image/user/1_HyperlinkShortcut.png]]
-
 == Xtext ==
 
 Xtext autocompletion is available when renaming an element using direct edition with F2 shortcut. When using Ctrl + Space key, the auto completion tool propose a list of label to use.
