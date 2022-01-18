@@ -72,15 +72,6 @@
             startKind="startup">
       </serviceFactory>
    </extension>
-    <extension
-         point="org.eclipse.papyrus.infra.core.service">
-      <serviceFactory
-            classname="org.eclipse.papyrus.infra.siriusdiag.ui.internal.adapter.SemanticServiceFactory"
-            id="org.eclipse.papyrus.infra.emf.utils.ISemanticService"
-            priority="1"
-            startKind="startup">
-      </serviceFactory>
-   </extension>
    <extension
          point="org.eclipse.sirius.sessionFactory">
       <sessionFactory
