@@ -2,14 +2,22 @@ target "Papyrus-Sirius - 2021-12" with source requirements
 // build with simrel commit e014ee7948cbdea3d3eea7591de339b4bc25d0ed
 
 /** Manual dependencies */
-// manualUpdate
-location "https://ci.eclipse.org/papyrus/job/Papyrus-SiriusIntegration-RequiredChanges-bug-577691/lastSuccessfulBuild/artifact/repository" Papyrus-2021-12-patched {
-	org.eclipse.papyrus.sdk.feature.feature.group lazy
+//// manualUpdate
+//location "https://ci.eclipse.org/papyrus/job/Papyrus-SiriusIntegration-RequiredChanges-bug-577691/lastSuccessfulBuild/artifact/repository" Papyrus-2021-12-patched {
+//	org.eclipse.papyrus.sdk.feature.feature.group lazy
+//}
+//// manualUpdate
+//location "https://ci.eclipse.org/papyrus/job/Papyrus-SiriusIntegration-RequiredChanges-bug-577691-toolsmiths/lastSuccessfulBuild/artifact/repository" Papyrus-Toolsmiths-2021-12-patched {
+//	org.eclipse.papyrus.junit.feature.feature.group lazy
+//}
+
+location "https://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/master/" Papyrus-nightly {
+ org.eclipse.papyrus.junit.feature.feature.group lazy
+ org.eclipse.papyrus.junit.framework lazy 
+ org.eclipse.papyrus.sdk.feature.feature.group lazy
+ org.eclipse.papyrus.toolsmiths.feature.feature.group lazy
 }
-// manualUpdate
-location "https://ci.eclipse.org/papyrus/job/Papyrus-SiriusIntegration-RequiredChanges-bug-577691-toolsmiths/lastSuccessfulBuild/artifact/repository" Papyrus-Toolsmiths-2021-12-patched {
-	org.eclipse.papyrus.junit.feature.feature.group lazy
-}
+
 
 // manualUpdate
 location release-2021-12 "http://download.eclipse.org/releases/2021-12" {
