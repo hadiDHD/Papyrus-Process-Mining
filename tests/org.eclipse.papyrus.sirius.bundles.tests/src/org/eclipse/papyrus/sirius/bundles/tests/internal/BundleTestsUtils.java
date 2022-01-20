@@ -400,7 +400,10 @@ public class BundleTestsUtils {
 	public static void checkAutomaticBundleName(List<Bundle> bundles) {
 		StringBuilder builder = new StringBuilder();
 		for (Bundle current : bundles) {
-			final String bundleSymbolicName = current.getHeaders().get(BUNDLE_SYMBOLIC_NAME);
+			String bundleSymbolicName = current.getHeaders().get(BUNDLE_SYMBOLIC_NAME);
+			if (bundleSymbolicName.contains(";")) {//$NON-NLS-1$ // probably followed by singleton=true
+				bundleSymbolicName = bundleSymbolicName.substring(0, bundleSymbolicName.indexOf(";"));//$NON-NLS-1$
+			}
 			final String value = current.getHeaders().get(AUTOMATIC_MODULE_NAME);
 			if (null == value) {
 				builder.append(NLS.bind("The plugin {0} don't declare the property Automatic-Module-Name.\n", bundleSymbolicName)); //$NON-NLS-1$

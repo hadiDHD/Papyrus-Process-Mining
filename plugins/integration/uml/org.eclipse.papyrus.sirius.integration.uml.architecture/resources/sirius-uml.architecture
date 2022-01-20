@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture:ArchitectureDomain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:architecture="http://www.eclipse.org/papyrus/infra/core/architecture" xmlns:custom="http://www.eclipse.org/papyrus/emf/facet/custom/0.2.incubation/custom" xmlns:customizationconfiguration="http://www.eclipse.org/papyrus/emf/facet/architecture/configuration" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:elementtypesconfigurations="http://www.eclipse.org/papyrus/infra/elementtypesconfigurations/1.2" xmi:id="_pNW38LaHEeiKuPQLywy7Og" id="org.eclipse.papyrus.softwareEngineering" name="Software Engineering" description="The domain of developing software systems" icon="platform:/plugin/org.eclipse.papyrus.uml.architecture/icons/domain.gif">
+  <contexts xmi:type="architecture:ArchitectureDescriptionLanguage" xmi:id="_-tAb0Lp2EeiViqj5DY8SRQ" id="org.eclipse.papyrus.infra.services.edit.TypeContext" name="UML" creationCommandClass="org.eclipse.papyrus.uml.diagram.common.commands.CreateUMLModelCommand">
+    <viewpoints xmi:type="architecture:ArchitectureViewpoint" xmi:id="_1tp4cOEIEeiLVapXeWCJtQ" id="org.eclipse.papyrus.uml.analysis" name="Software Analysis" icon="platform:/plugin/org.eclipse.papyrus.uml.architecture/icons/viewpoint.gif"/>
+    <viewpoints xmi:type="architecture:ArchitectureViewpoint" xmi:id="_dmWHgLp3EeiViqj5DY8SRQ" id="org.eclipse.papyrus.uml.design" name="Software Design" description="" icon="platform:/plugin/org.eclipse.papyrus.uml.architecture/icons/viewpoint.gif"/>
+    <metamodel xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+    <treeViewerConfigurations xmi:type="customizationconfiguration:EMFFacetTreeViewerConfiguration" xmi:id="_CumAsCmwEeugfKShn9DTcQ">
+      <customizationReferences xmi:type="customizationconfiguration:CustomizationReference" xmi:id="_DLqXMCmwEeugfKShn9DTcQ">
+        <referencedCustomization xmi:type="custom:Customization" href="platform:/plugin/org.eclipse.papyrus.infra.siriusdiag.modelexplorer/resources/SiriusDiagram.custom#/"/>
+        <applicationRule xmi:type="customizationconfiguration:AbsoluteOrder" xmi:id="_QVkzwCmwEeugfKShn9DTcQ" order="10"/>
+      </customizationReferences>
+    </treeViewerConfigurations>
+  </contexts>
+</architecture:ArchitectureDomain>

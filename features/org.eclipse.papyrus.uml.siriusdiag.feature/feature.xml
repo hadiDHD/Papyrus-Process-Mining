@@ -24,6 +24,13 @@
          version="0.0.0"/>
 
    <plugin
+         id="org.eclipse.papyrus.sirius.integration.uml.architecture"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
          id="org.eclipse.papyrus.uml.sirius.clazz.diagram"
          download-size="0"
          install-size="0"
