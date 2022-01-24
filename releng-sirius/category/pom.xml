@@ -41,6 +41,10 @@
 						<configuration>
 							<!-- do not generate the pesky web folder and index.html -->
 							<skipWebContentGeneration>true</skipWebContentGeneration>
+							<associateSites>
+								<!-- Sirius Update site -->
+								<site>https://download.eclipse.org/sirius/updates/releases/6.5.1/2020-09</site>
+							</associateSites>
 						</configuration>
 					</execution>
 				</executions>

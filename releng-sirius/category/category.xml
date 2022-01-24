@@ -28,4 +28,5 @@
          Papyrus-Sirius : Toolsmiths plugins
       </description>
    </category-def>
+   <repository-reference location="https://download.eclipse.org/sirius/updates/releases/6.5.1/2020-09" enabled="true" />
 </site>
