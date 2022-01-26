@@ -1,0 +1,2 @@
+Copy these files into the folder .settings of your new plugin project.
+(warning, the .settings folder is hidden by default in the workspace)

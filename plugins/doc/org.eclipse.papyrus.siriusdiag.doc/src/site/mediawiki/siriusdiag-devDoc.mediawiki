@@ -1,3 +1,34 @@
+=Papyrus-Sirius Developer Guides=
+Basically, the developement rules are the same than for Papyrus.
+==Java Code Style==
+The recommendation are almost the same than for Papyrus. We reuse its Code Style configurations for '''Clean Up''' and '''Formatter'''.
+Concerning the '''Code Templates''', we did these changes: 
+* Comment > Files : we register the Papyrus default file header
+* Comment > Types : we removed the @{user} 
+* Comment > Modules : we removed the @{user} 
+* Code > Constructor, we removed the todo
+
+These 3 templates files are stored into the git org.eclipse.papyrus-sirius, into the folder '''releng-sirius/templates'''.
+
+==Plug-in Preferences==
+We provide pre-configured preferences files to copy in the .settings folder (it is a hidden folder by default) in each new plugin. There are 6 files to copy: 
+* org.eclipse.core.resources.prefs
+* org.eclipse.core.runtime.prefs
+* org.eclipse.jdt.core.prefs
+* org.eclipse.jdt.ui.prefs
+* org.eclipse.pde.api.tools.prefs
+* org.eclipse.pde.prefs
+These preferences files can be copied from '''releng-sirius/preferences''' into the '''.setting''' folder of your new plugin.
+
+==Eclipse.ini==
+Add your user name as vmargs argument like that in order to get a nice file header for the new creted file: 
+
+
+''-vmargs''
+
+''-Duser.name=John Doe (Company) <john.doe@company.com>''
+
+
 = Architecture of Papyrus-SiriusDiag =
 This framework has been developed to be used only when a sirius diagram is opened.
 
