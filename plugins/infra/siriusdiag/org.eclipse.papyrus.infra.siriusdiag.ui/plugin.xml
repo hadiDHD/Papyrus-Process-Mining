@@ -7,7 +7,7 @@
             allPopups="false"
             locationURI="popup:org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup?after=org.eclipse.papyrus.views.modelexplorer.popupmenu.creatediagram">
          <menu
-               icon="icons/new_document.png"
+               icon="icons/new_PapyrusSiriusDiagram.png"
                id="org.eclipse.papyrus.infra.siriusdiag.ui.popupmenu.createsiriusdiagram"
                label="New Sirius Diagram"
                tooltip="The Sirius Diagram Menu">
@@ -30,7 +30,7 @@
       <editorDiagram
             actionBarContributorId="org.eclipse.papyrus.infra.siriusdiag.ui.actionBarContributor"
             factoryClass="org.eclipse.papyrus.infra.siriusdiag.ui.internal.editor.SiriusDiagramEditorFactory"
-            icon="icons/new_document.png"
+            icon="icons/new_PapyrusSiriusDiagram.png"
             order="0">
       </editorDiagram>
       <actionBarContributor
