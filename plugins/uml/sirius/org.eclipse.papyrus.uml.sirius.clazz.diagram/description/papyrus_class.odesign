@@ -971,13 +971,6 @@
               </initialOperation>
             </tools>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Association Branch" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Association_none.gif">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
-            <initialOperation/>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Containment Link" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_ContainmentLink']" iconPath="/org.eclipse.papyrus.uml.diagram.clazz/icons/obj16/ContainmentConnection.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
@@ -1002,13 +995,6 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createDependencyLink(sourceView, source, target)"/>
             </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Dependency Branch">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
-            <initialOperation/>
           </ownedTools>
           <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Element Import" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_ElementImport']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/ElementImport.gif">
             <sourceVariable name="source"/>
