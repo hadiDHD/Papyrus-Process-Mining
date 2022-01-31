@@ -22,7 +22,6 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -31,7 +30,6 @@ import org.eclipse.papyrus.infra.architecture.representation.impl.PapyrusReprese
 import org.eclipse.papyrus.infra.siriusdiag.representation.RepresentationPackage;
 import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
 import org.eclipse.papyrus.infra.siriusdiag.representation.util.RepresentationValidator;
-import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.description.DiagramDescription;
 
 /**
@@ -44,7 +42,6 @@ import org.eclipse.sirius.diagram.description.DiagramDescription;
  * <ul>
  * <li>{@link org.eclipse.papyrus.infra.siriusdiag.representation.impl.SiriusDiagramPrototypeImpl#getDiagramDescription <em>Diagram Description</em>}</li>
  * <li>{@link org.eclipse.papyrus.infra.siriusdiag.representation.impl.SiriusDiagramPrototypeImpl#getCreationCommandClass <em>Creation Command Class</em>}</li>
- * <li>{@link org.eclipse.papyrus.infra.siriusdiag.representation.impl.SiriusDiagramPrototypeImpl#getSession <em>Session</em>}</li>
  * </ul>
  *
  * @generated
@@ -82,17 +79,6 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	 * @ordered
 	 */
 	protected String creationCommandClass = CREATION_COMMAND_CLASS_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getSession() <em>Session</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
-	 * @see #getSession()
-	 * @generated
-	 * @ordered
-	 */
-	protected Session session;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,51 +179,6 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	 * @generated
 	 */
 	@Override
-	public Session getSession() {
-		if (session != null && ((EObject) session).eIsProxy()) {
-			InternalEObject oldSession = (InternalEObject) session;
-			session = (Session) eResolveProxy(oldSession);
-			if (session != oldSession) {
-				if (eNotificationRequired()) {
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__SESSION, oldSession, session));
-				}
-			}
-		}
-		return session;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	public Session basicGetSession() {
-		return session;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	@Override
-	public void setSession(Session newSession) {
-		Session oldSession = session;
-		session = newSession;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__SESSION, oldSession, session));
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	@Override
 	public boolean isValidClass(DiagnosticChain chain, Map<Object, Object> context) {
 		// TODO: implement this method
 		// -> specify the condition that violates the invariant
@@ -272,11 +213,6 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 			return basicGetDiagramDescription();
 		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS:
 			return getCreationCommandClass();
-		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__SESSION:
-			if (resolve) {
-				return getSession();
-			}
-			return basicGetSession();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -295,9 +231,6 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 			return;
 		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS:
 			setCreationCommandClass((String) newValue);
-			return;
-		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__SESSION:
-			setSession((Session) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -318,9 +251,6 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS:
 			setCreationCommandClass(CREATION_COMMAND_CLASS_EDEFAULT);
 			return;
-		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__SESSION:
-			setSession((Session) null);
-			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -338,8 +268,6 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 			return diagramDescription != null;
 		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS:
 			return CREATION_COMMAND_CLASS_EDEFAULT == null ? creationCommandClass != null : !CREATION_COMMAND_CLASS_EDEFAULT.equals(creationCommandClass);
-		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__SESSION:
-			return session != null;
 		}
 		return super.eIsSet(featureID);
 	}

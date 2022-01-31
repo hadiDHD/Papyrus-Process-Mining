@@ -228,16 +228,6 @@ public interface RepresentationPackage extends EPackage {
 	int SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS = org.eclipse.papyrus.infra.architecture.representation.RepresentationPackage.PAPYRUS_REPRESENTATION_KIND_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Session</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
-	 * @generated
-	 * @ordered
-	 */
-	int SIRIUS_DIAGRAM_PROTOTYPE__SESSION = org.eclipse.papyrus.infra.architecture.representation.RepresentationPackage.PAPYRUS_REPRESENTATION_KIND_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Sirius Diagram Prototype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -245,7 +235,7 @@ public interface RepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIRIUS_DIAGRAM_PROTOTYPE_FEATURE_COUNT = org.eclipse.papyrus.infra.architecture.representation.RepresentationPackage.PAPYRUS_REPRESENTATION_KIND_FEATURE_COUNT + 3;
+	int SIRIUS_DIAGRAM_PROTOTYPE_FEATURE_COUNT = org.eclipse.papyrus.infra.architecture.representation.RepresentationPackage.PAPYRUS_REPRESENTATION_KIND_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Valid Class</em>' operation.
@@ -266,38 +256,6 @@ public interface RepresentationPackage extends EPackage {
 	 * @ordered
 	 */
 	int SIRIUS_DIAGRAM_PROTOTYPE_OPERATION_COUNT = org.eclipse.papyrus.infra.architecture.representation.RepresentationPackage.PAPYRUS_REPRESENTATION_KIND_OPERATION_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.sirius.business.api.session.Session <em>Session</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
-	 * @see org.eclipse.sirius.business.api.session.Session
-	 * @see org.eclipse.papyrus.infra.siriusdiag.representation.impl.RepresentationPackageImpl#getSession()
-	 * @generated
-	 */
-	int SESSION = 1;
-
-	/**
-	 * The number of structural features of the '<em>Session</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
-	 * @generated
-	 * @ordered
-	 */
-	int SESSION_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Session</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
-	 * @generated
-	 * @ordered
-	 */
-	int SESSION_OPERATION_COUNT = 0;
-
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype <em>Sirius Diagram Prototype</em>}'.
@@ -335,18 +293,6 @@ public interface RepresentationPackage extends EPackage {
 	EAttribute getSiriusDiagramPrototype_CreationCommandClass();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getSession <em>Session</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
-	 * @return the meta object for the reference '<em>Session</em>'.
-	 * @see org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getSession()
-	 * @see #getSiriusDiagramPrototype()
-	 * @generated
-	 */
-	EReference getSiriusDiagramPrototype_Session();
-
-	/**
 	 * Returns the meta object for the '{@link org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#isValidClass(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Is Valid Class</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -356,18 +302,6 @@ public interface RepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSiriusDiagramPrototype__IsValidClass__DiagnosticChain_Map();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.sirius.business.api.session.Session <em>Session</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
-	 * @return the meta object for class '<em>Session</em>'.
-	 * @see org.eclipse.sirius.business.api.session.Session
-	 * @model instanceClass="org.eclipse.sirius.business.api.session.Session"
-	 * @generated
-	 */
-	EClass getSession();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -424,15 +358,6 @@ public interface RepresentationPackage extends EPackage {
 		EAttribute SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS = eINSTANCE.getSiriusDiagramPrototype_CreationCommandClass();
 
 		/**
-		 * The meta object literal for the '<em><b>Session</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 *
-		 * @generated
-		 */
-		EReference SIRIUS_DIAGRAM_PROTOTYPE__SESSION = eINSTANCE.getSiriusDiagramPrototype_Session();
-
-		/**
 		 * The meta object literal for the '<em><b>Is Valid Class</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -440,17 +365,6 @@ public interface RepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SIRIUS_DIAGRAM_PROTOTYPE___IS_VALID_CLASS__DIAGNOSTICCHAIN_MAP = eINSTANCE.getSiriusDiagramPrototype__IsValidClass__DiagnosticChain_Map();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.sirius.business.api.session.Session <em>Session</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 *
-		 * @see org.eclipse.sirius.business.api.session.Session
-		 * @see org.eclipse.papyrus.infra.siriusdiag.representation.impl.RepresentationPackageImpl#getSession()
-		 * @generated
-		 */
-		EClass SESSION = eINSTANCE.getSession();
 
 	}
 

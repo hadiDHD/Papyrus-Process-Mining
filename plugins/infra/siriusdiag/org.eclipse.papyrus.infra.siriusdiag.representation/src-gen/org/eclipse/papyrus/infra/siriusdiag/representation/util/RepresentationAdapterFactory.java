@@ -22,7 +22,6 @@ import org.eclipse.papyrus.infra.core.architecture.ADElement;
 import org.eclipse.papyrus.infra.core.architecture.RepresentationKind;
 import org.eclipse.papyrus.infra.siriusdiag.representation.RepresentationPackage;
 import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
-import org.eclipse.sirius.business.api.session.Session;
 
 /**
  * <!-- begin-user-doc -->
@@ -90,11 +89,6 @@ public class RepresentationAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseSession(Session object) {
-			return createSessionAdapter();
-		}
-
-		@Override
 		public Adapter caseADElement(ADElement object) {
 			return createADElementAdapter();
 		}
@@ -143,21 +137,6 @@ public class RepresentationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSiriusDiagramPrototypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.business.api.session.Session <em>Session</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 *
-	 * @return the new adapter.
-	 * @see org.eclipse.sirius.business.api.session.Session
-	 * @generated
-	 */
-	public Adapter createSessionAdapter() {
 		return null;
 	}
 

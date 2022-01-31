@@ -17,7 +17,6 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.papyrus.infra.architecture.representation.PapyrusRepresentationKind;
-import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.description.DiagramDescription;
 
 /**
@@ -35,7 +34,6 @@ import org.eclipse.sirius.diagram.description.DiagramDescription;
  * <ul>
  * <li>{@link org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getDiagramDescription <em>Diagram Description</em>}</li>
  * <li>{@link org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getCreationCommandClass <em>Creation Command Class</em>}</li>
- * <li>{@link org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getSession <em>Session</em>}</li>
  * </ul>
  *
  * @see org.eclipse.papyrus.infra.siriusdiag.representation.RepresentationPackage#getSiriusDiagramPrototype()
@@ -98,34 +96,6 @@ public interface SiriusDiagramPrototype extends PapyrusRepresentationKind {
 	 * @generated
 	 */
 	void setCreationCommandClass(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Session</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This feature allows to reference the Sirius Session associated to this prototype at runtime.
-	 * <!-- end-model-doc -->
-	 *
-	 * @return the value of the '<em>Session</em>' reference.
-	 * @see #setSession(Session)
-	 * @see org.eclipse.papyrus.infra.siriusdiag.representation.RepresentationPackage#getSiriusDiagramPrototype_Session()
-	 * @model type="org.eclipse.papyrus.infra.siriusdiag.representation.Session"
-	 * @generated
-	 */
-	Session getSession();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getSession <em>Session</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *                  the new value of the '<em>Session</em>' reference.
-	 * @see #getSession()
-	 * @generated
-	 */
-	void setSession(Session value);
 
 	/**
 	 * <!-- begin-user-doc -->

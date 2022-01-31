@@ -29,7 +29,6 @@ import org.eclipse.papyrus.infra.siriusdiag.representation.RepresentationPackage
 import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
 import org.eclipse.papyrus.infra.siriusdiag.representation.util.RepresentationValidator;
 import org.eclipse.papyrus.infra.types.ElementTypesConfigurationsPackage;
-import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DiagramPackage;
 import org.eclipse.sirius.diagram.description.DescriptionPackage;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
@@ -49,14 +48,6 @@ public class RepresentationPackageImpl extends EPackageImpl implements Represent
 	 * @generated
 	 */
 	private EClass siriusDiagramPrototypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	private EClass sessionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -184,30 +175,8 @@ public class RepresentationPackageImpl extends EPackageImpl implements Represent
 	 * @generated
 	 */
 	@Override
-	public EReference getSiriusDiagramPrototype_Session() {
-		return (EReference) siriusDiagramPrototypeEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	@Override
 	public EOperation getSiriusDiagramPrototype__IsValidClass__DiagnosticChain_Map() {
 		return siriusDiagramPrototypeEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	@Override
-	public EClass getSession() {
-		return sessionEClass;
 	}
 
 	/**
@@ -247,10 +216,7 @@ public class RepresentationPackageImpl extends EPackageImpl implements Represent
 		siriusDiagramPrototypeEClass = createEClass(SIRIUS_DIAGRAM_PROTOTYPE);
 		createEReference(siriusDiagramPrototypeEClass, SIRIUS_DIAGRAM_PROTOTYPE__DIAGRAM_DESCRIPTION);
 		createEAttribute(siriusDiagramPrototypeEClass, SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS);
-		createEReference(siriusDiagramPrototypeEClass, SIRIUS_DIAGRAM_PROTOTYPE__SESSION);
 		createEOperation(siriusDiagramPrototypeEClass, SIRIUS_DIAGRAM_PROTOTYPE___IS_VALID_CLASS__DIAGNOSTICCHAIN_MAP);
-
-		sessionEClass = createEClass(SESSION);
 	}
 
 	/**
@@ -299,8 +265,6 @@ public class RepresentationPackageImpl extends EPackageImpl implements Represent
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSiriusDiagramPrototype_CreationCommandClass(), theEcorePackage.getEString(), "creationCommandClass", null, 1, 1, SiriusDiagramPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, //$NON-NLS-1$
 				IS_ORDERED);
-		initEReference(getSiriusDiagramPrototype_Session(), this.getSession(), null, "session", null, 0, 1, SiriusDiagramPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, //$NON-NLS-1$
-				IS_ORDERED);
 
 		EOperation op = initEOperation(getSiriusDiagramPrototype__IsValidClass__DiagnosticChain_Map(), theEcorePackage.getEBoolean(), "isValidClass", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
@@ -310,8 +274,6 @@ public class RepresentationPackageImpl extends EPackageImpl implements Represent
 		g2 = createEGenericType(theEcorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-
-		initEClass(sessionEClass, Session.class, "Session", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);

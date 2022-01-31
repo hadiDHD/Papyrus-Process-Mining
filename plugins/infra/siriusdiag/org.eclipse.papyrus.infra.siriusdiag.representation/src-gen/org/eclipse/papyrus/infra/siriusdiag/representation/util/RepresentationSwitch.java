@@ -21,7 +21,6 @@ import org.eclipse.papyrus.infra.core.architecture.ADElement;
 import org.eclipse.papyrus.infra.core.architecture.RepresentationKind;
 import org.eclipse.papyrus.infra.siriusdiag.representation.RepresentationPackage;
 import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
-import org.eclipse.sirius.business.api.session.Session;
 
 /**
  * <!-- begin-user-doc -->
@@ -103,14 +102,6 @@ public class RepresentationSwitch<T> extends Switch<T> {
 			}
 			return result;
 		}
-		case RepresentationPackage.SESSION: {
-			Session session = (Session) theEObject;
-			T result = caseSession(session);
-			if (result == null) {
-				result = defaultCase(theEObject);
-			}
-			return result;
-		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -130,23 +121,6 @@ public class RepresentationSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSiriusDiagramPrototype(SiriusDiagramPrototype object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Session</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 *
-	 * @param object
-	 *                   the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Session</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSession(Session object) {
 		return null;
 	}
 

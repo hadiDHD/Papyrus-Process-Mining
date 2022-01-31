@@ -17,12 +17,10 @@
     <genClasses ecoreClass="SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/diagramDescription"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/creationCommandClass"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/session"/>
       <genOperations ecoreOperation="SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/isValidClass">
         <genParameters ecoreParameter="SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/isValidClass/chain"/>
         <genParameters ecoreParameter="SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/isValidClass/context"/>
       </genOperations>
     </genClasses>
-    <genClasses image="false" ecoreClass="SiriusDiagramRepresentation.ecore#//Session"/>
   </genPackages>
 </genmodel:GenModel>

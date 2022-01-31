@@ -17,12 +17,10 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.papyrus.infra.siriusdiag.representation.RepresentationPackage;
 import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
-import org.eclipse.sirius.business.api.session.Session;
 
 /**
  * <!-- begin-user-doc -->
@@ -115,8 +113,6 @@ public class RepresentationValidator extends EObjectValidator {
 		switch (classifierID) {
 		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE:
 			return validateSiriusDiagramPrototype((SiriusDiagramPrototype) value, diagnostics, context);
-		case RepresentationPackage.SESSION:
-			return validateSession((Session) value, diagnostics, context);
 		default:
 			return true;
 		}
@@ -169,16 +165,6 @@ public class RepresentationValidator extends EObjectValidator {
 	 */
 	public boolean validateSiriusDiagramPrototype_isValidClass(SiriusDiagramPrototype siriusDiagramPrototype, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return siriusDiagramPrototype.isValidClass(diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	public boolean validateSession(Session session, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint((EObject) session, diagnostics, context);
 	}
 
 	/**
