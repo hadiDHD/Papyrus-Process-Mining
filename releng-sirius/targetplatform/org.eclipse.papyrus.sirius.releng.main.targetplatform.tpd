@@ -18,6 +18,15 @@ location "https://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/mast
  org.eclipse.papyrus.toolsmiths.feature.feature.group lazy
 }
 
+// manualUpdate
+location orbit "https://download.eclipse.org/tools/orbit/downloads/drops/R20211213173813/repository/" {
+	// update batik to be in adequation with latest gmf runtime https://www.eclipse.org/lists/mdt-papyrus.dev/msg04486.html 
+	org.apache.batik.anim [1.14.0,1.15.0)
+	org.apache.batik.dom [1.14.0,1.15.0)
+	org.apache.batik.dom.svg [1.14.0,1.15.0)
+	org.apache.batik.xml [1.14.0,1.15.0)
+}
+
 
 // manualUpdate
 location release-2021-12 "http://download.eclipse.org/releases/2021-12" {
