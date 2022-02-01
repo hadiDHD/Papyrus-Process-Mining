@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Papyrus-Sirius - 2021-12" sequenceNumber="1643639492">
+<target name="Papyrus-Sirius - 2021-12" sequenceNumber="1642585381">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.papyrus.junit.feature.feature.group" version="0.0.0"/>
@@ -9,13 +9,6 @@
       <unit id="org.eclipse.papyrus.sdk.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.papyrus.toolsmiths.feature.feature.group" version="0.0.0"/>
       <repository id="Papyrus-nightly" location="https://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/master/"/>
-    </location>
-    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.apache.batik.anim" version="1.14.0.v20210324-0332"/>
-      <unit id="org.apache.batik.dom" version="1.14.0.v20210324-0332"/>
-      <unit id="org.apache.batik.dom.svg" version="1.14.0.v20210324-0332"/>
-      <unit id="org.apache.batik.xml" version="1.14.0.v20210324-0332"/>
-      <repository id="orbit" location="https://download.eclipse.org/tools/orbit/downloads/drops/R20211213173813/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.emf.workspace.feature.group" version="1.12.0.201805140824"/>
