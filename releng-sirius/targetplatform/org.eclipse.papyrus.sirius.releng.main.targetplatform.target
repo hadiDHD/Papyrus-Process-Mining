@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Papyrus-Sirius - 2021-12" sequenceNumber="1642585381">
+<target name="Papyrus-Sirius - 2021-12" sequenceNumber="1643708942">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.papyrus.junit.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.papyrus.junit.framework" version="0.0.0"/>
       <unit id="org.eclipse.papyrus.sdk.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.papyrus.toolsmiths.feature.feature.group" version="0.0.0"/>
-      <repository id="Papyrus-nightly" location="https://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/master/"/>
+      <repository id="Papyrus-M1-2022-03" location="https://download.eclipse.org/modeling/mdt/papyrus/updates/milestones/6.1/M1/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.emf.workspace.feature.group" version="1.12.0.201805140824"/>

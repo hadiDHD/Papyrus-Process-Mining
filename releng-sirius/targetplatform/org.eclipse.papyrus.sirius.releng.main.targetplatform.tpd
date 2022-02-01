@@ -11,12 +11,20 @@ target "Papyrus-Sirius - 2021-12" with source requirements
 //	org.eclipse.papyrus.junit.feature.feature.group lazy
 //}
 
-location "https://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/master/" Papyrus-nightly {
+
+location "https://download.eclipse.org/modeling/mdt/papyrus/updates/milestones/6.1/M1/" Papyrus-M1-2022-03{
  org.eclipse.papyrus.junit.feature.feature.group lazy
  org.eclipse.papyrus.junit.framework lazy 
  org.eclipse.papyrus.sdk.feature.feature.group lazy
  org.eclipse.papyrus.toolsmiths.feature.feature.group lazy
 }
+
+//location "https://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/master/" Papyrus-nightly {
+// org.eclipse.papyrus.junit.feature.feature.group lazy
+// org.eclipse.papyrus.junit.framework lazy 
+// org.eclipse.papyrus.sdk.feature.feature.group lazy
+// org.eclipse.papyrus.toolsmiths.feature.feature.group lazy
+//}
 
 
 // manualUpdate
