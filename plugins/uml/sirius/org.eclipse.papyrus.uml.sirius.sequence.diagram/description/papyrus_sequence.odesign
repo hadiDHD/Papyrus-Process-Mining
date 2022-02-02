@@ -85,7 +85,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="Constraint" preconditionExpression="aql:not self.oclIsTypeOf(uml::InteractionConstraint)" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='ConstraintEdit']" createElements="false" domainClass="Constraint">
-          <style xsi:type="style:NoteDescription" labelSize="12" labelExpression="service:getConstraintLabel()" sizeComputationExpression="9" labelPosition="node" resizeKind="NSEW" color="//@userColorsPalettes[name='UMLPalette']/@entries[name='ConstrainedColor']">
+          <style xsi:type="style:NoteDescription" labelSize="9" labelExpression="service:getConstraintLabel()" sizeComputationExpression="9" labelPosition="node" resizeKind="NSEW" color="//@userColorsPalettes[name='UMLPalette']/@entries[name='ConstraintColor']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -871,10 +871,9 @@
       </additionalLayers>
       <additionalLayers name="Comment" activeByDefault="true">
         <nodeMappings name="Comment" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='CommentEdit']" createElements="false" domainClass="uml.Comment">
-          <style xsi:type="style:NoteDescription" labelSize="9" showIcon="false" labelExpression="feature:body" sizeComputationExpression="9" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:NoteDescription" labelSize="9" showIcon="false" labelExpression="feature:body" sizeComputationExpression="9" labelPosition="node" resizeKind="NSEW" color="//@userColorsPalettes[name='UMLPalette']/@entries[name='CommentColor']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
           </style>
         </nodeMappings>
         <toolSections name="Nodes">
@@ -921,6 +920,7 @@
     <entries xsi:type="description:UserFixedColor" red="254" green="238" blue="214" name="lighter orange"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="249" blue="218" name="lighter yellow"/>
     <entries xsi:type="description:UserFixedColor" red="228" green="249" blue="239" name="lagune"/>
+    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="204" name="CommentColor"/>
     <entries xsi:type="description:UserFixedColor" red="110" green="132" blue="132" name="dark lagune"/>
     <entries xsi:type="description:UserFixedColor" red="238" green="249" blue="244" name="light lagune"/>
     <entries xsi:type="description:UserFixedColor" red="246" green="253" blue="255" name="InformationBackground"/>
@@ -936,6 +936,6 @@
     <entries xsi:type="description:UserFixedColor" red="180" green="200" blue="210" name="Description"/>
     <entries xsi:type="description:UserFixedColor" red="241" green="243" blue="254" name="QualifierBackground"/>
     <entries xsi:type="description:UserFixedColor" red="195" green="209" blue="213" name="Execution Color"/>
-    <entries xsi:type="description:UserFixedColor" red="200" green="255" blue="230" name="ConstrainedColor"/>
+    <entries xsi:type="description:UserFixedColor" red="200" green="255" blue="230" name="ConstraintColor"/>
   </userColorsPalettes>
 </description:Group>
