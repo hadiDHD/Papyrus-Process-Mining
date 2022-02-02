@@ -21,7 +21,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="CD_InformationItem" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Element%20Name']" semanticCandidatesExpression="aql:self.packagedElement" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.InformationItem">
-          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:buildLabel" iconPath="/org.eclipse.papyrus.uml.sirius.clazz.diagram/icons/InformationItem.gif" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="16" height="5" color="//@userColorsPalettes[name=null]/@entries[name='CustomGris']">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:buildLabel" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/InformationItem.gif" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="16" height="5" color="//@userColorsPalettes[name=null]/@entries[name='CustomGris']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -509,7 +509,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(uml::DurationObservation)">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel()" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/DurationObservation.gif" labelAlignment="LEFT" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='CustomGris']">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel()" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/DurationObservation.gif" labelAlignment="LEFT" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='CustomGris']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -517,8 +517,8 @@
             </style>
           </conditionnalStyles>
         </containerMappings>
-        <toolSections name="Nodes">
-          <ownedTools xsi:type="tool:ToolDescription" name="Class" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/Class.gif">
+        <toolSections name="Nodes" icon="/org.eclipse.gmf.runtime.diagram.ui/icons/group.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="Class" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Class.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -553,7 +553,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" documentation="Create a new class" name="Component" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']" iconPath="/org.eclipse.papyrus.uml.icons/resource/gif/Component.gif">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" documentation="Create a new class" name="Component" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Component.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -565,7 +565,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="Data Type" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/DataType.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="Data Type" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/DataType.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -600,7 +600,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="Enumeration" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/Enumeration.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="Enumeration" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Enumeration.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -635,7 +635,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="Interface" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/Interface.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="Interface" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Interface.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -670,7 +670,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" documentation="Create a new class" name="Instance Specification" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_InstanceSpecification']" iconPath="/org.eclipse.papyrus.uml.profile/resources/icons/InstanceSpecification.gif" extraMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_InstanceSpecification']">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" documentation="Create a new class" name="Instance Specification" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_InstanceSpecification']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/InstanceSpecification.gif" extraMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_InstanceSpecification']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -684,7 +684,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new time observation" name="Information Item" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_InformationItem']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/TimeObservation.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new InformationItem" name="Information Item" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_InformationItem']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/InformationItem.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -696,7 +696,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="PrimitiveType" iconPath="/org.eclipse.papyrus.uml.profile/resources/icons/PrimitiveType.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="PrimitiveType" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/PrimitiveType.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -731,7 +731,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" documentation="Create a new class" name="Model" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Model']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Model.gif">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" documentation="Create a new class" name="Model" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Model']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Model.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -742,7 +742,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="Signal" iconPath="/org.eclipse.papyrus.uml.sirius.clazz.diagram/icons/Signal.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="Signal" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Signal.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -777,7 +777,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" documentation="Create a new class" name="Package" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Package']" iconPath="/org.eclipse.papyrus.uml.profile/resources/icons/Package.gif">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" documentation="Create a new class" name="Package" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Package']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Package.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -789,7 +789,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Time Observation" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Observation']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/TimeObservation.gif">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Time Observation" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Observation']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/TimeObservation.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -801,7 +801,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Duration Observation" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Observation']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/DurationObservation.gif">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Duration Observation" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Observation']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/DurationObservation.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -813,7 +813,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new literal" name="Constraint" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_Constraint']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Comment.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new literal" name="Constraint" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_Constraint']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Constraint.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -831,7 +831,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new literal" name="EnumerationLiteral" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration']/@subNodeMappings[name='CD_EnumerationLiteral']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/EnumerationLiteral.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new literal" name="EnumerationLiteral" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration']/@subNodeMappings[name='CD_EnumerationLiteral']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/EnumerationLiteral.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -845,7 +845,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new operation" name="Operation" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Operation']/@subNodeMappings[name='CD_ClassOperation'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_Operation']/@subNodeMappings[name='CD_InterfaceOperation']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/Operation.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new operation" name="Operation" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Operation']/@subNodeMappings[name='CD_ClassOperation'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_Operation']/@subNodeMappings[name='CD_InterfaceOperation']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Operation.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -857,7 +857,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new property" name="Property" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Attribute']/@subNodeMappings[name='CD_ClassProperty'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_Attribute']/@subNodeMappings[name='CD_InterfaceProperty']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Property.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new property" name="Property" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Attribute']/@subNodeMappings[name='CD_ClassProperty'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_Attribute']/@subNodeMappings[name='CD_InterfaceProperty']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Property.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -874,7 +874,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Redefinable Template Signature" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@borderedNodeMappings[name='CD_RedefinableTemplateSignature']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/RedefinableTemplateSignature.gif" extraMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Attribute'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Operation'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassDataTypes'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_Attribute'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_InterfaceDataTypes'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_Operation']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Redefinable Template Signature" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@borderedNodeMappings[name='CD_RedefinableTemplateSignature']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/RedefinableTemplateSignature.gif" extraMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Attribute'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Operation'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassDataTypes'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_Attribute'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_InterfaceDataTypes'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_Operation']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -885,17 +885,17 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="Classifier Template Parameter" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/ClassifierTemplateParameter.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="Classifier Template Parameter" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/ClassifierTemplateParameter.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation/>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="Operation Template Parameter" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/OperationTemplateParameter.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="Operation Template Parameter" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/OperationTemplateParameter.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new operation" name="Reception" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Operation']/@subNodeMappings[name='CD_Reception']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/Operation.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new operation" name="Reception" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Operation']/@subNodeMappings[name='CD_Reception']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Reception.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -906,7 +906,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new operation" name="Slot" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_InstanceSpecification']/@subNodeMappings[name='CD_Slot']" iconPath="/org.eclipse.papyrus.uml.icons/resource/gif/Slot.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new operation" name="Slot" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_InstanceSpecification']/@subNodeMappings[name='CD_Slot']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Slot.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -915,24 +915,24 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="Template Parameter">
+          <ownedTools xsi:type="tool:ToolDescription" name="Template Parameter" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/TemplateParameter.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation/>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="Template Signature" iconPath="/org.eclipse.papyrus.uml.icons/resource/gif/TemplateSignature.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="Template Signature" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/TemplateSignature.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation/>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="Connectable Element Template Parameter" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/ConnectableElementTemplateParameter.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="Connectable Element Template Parameter" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/ConnectableElementTemplateParameter.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation/>
           </ownedTools>
         </toolSections>
-        <toolSections name="Edges">
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Abstraction" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Abstraction']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Abstraction.gif">
+        <toolSections name="Edges" icon="/org.eclipse.gmf.runtime.diagram.ui/icons/group.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Abstraction" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Abstraction']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Abstraction.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -942,7 +942,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:ToolGroup" name="Associations">
-            <tools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new association" name="Association (Directed)" precondition="service:isValidAssociation(preSource, preTarget)" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" extraTargetMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" connectionStartPrecondition="service:isValidAssociation(preSource)">
+            <tools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new association" name="Association (Directed)" precondition="service:isValidAssociation(preSource, preTarget)" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" iconPath="/org.eclipse.papyrus.uml.service.types/icons/Association_none_directed.gif" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" extraTargetMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" connectionStartPrecondition="service:isValidAssociation(preSource)">
               <sourceVariable name="source"/>
               <targetVariable name="target"/>
               <sourceViewVariable name="sourceView"/>
@@ -960,7 +960,7 @@
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.createAssociation(source, target, sourceView, targetView,0)"/>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new composition" name="Composite Association (Directed)" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Association_composite.gif" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation']">
+            <tools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new composition" name="Composite Association (Directed)" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Association_composite.gif" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation']">
               <sourceVariable name="source"/>
               <targetVariable name="target"/>
               <sourceViewVariable name="sourceView"/>
@@ -969,7 +969,7 @@
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.createAssociation(source, target, sourceView, targetView, 2)"/>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new aggregation" name="Shared Association (Directed)" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Association_shared.gif" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation']">
+            <tools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new aggregation" name="Shared Association (Directed)" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Association_shared.gif" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation']">
               <sourceVariable name="source"/>
               <targetVariable name="target"/>
               <sourceViewVariable name="sourceView"/>
@@ -979,7 +979,7 @@
               </initialOperation>
             </tools>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Containment Link" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_ContainmentLink']" iconPath="/org.eclipse.papyrus.uml.diagram.clazz/icons/obj16/ContainmentConnection.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Containment Link" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_ContainmentLink']" iconPath="/org.eclipse.papyrus.uml.sirius.clazz.diagram/icons/obj16/ContainmentConnection.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -988,7 +988,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createContainmentLink( source, target)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Context Link" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Association_none.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Context Link" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Association_none.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1004,7 +1004,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createDependencyLink(sourceView, source, target)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Element Import" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_ElementImport']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/ElementImport.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Element Import" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_ElementImport']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/ElementImport.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1013,7 +1013,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createElementImportLink(sourceView, source, target)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new generalization" name="Generalization" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Generalization']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Generalization.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new generalization" name="Generalization" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Generalization']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Generalization.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1022,7 +1022,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createGeneralizationLink(sourceView, source, target)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Generalization Set" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_GeneralizationSet']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/GeneralizationSet.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Generalization Set" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_GeneralizationSet']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/GeneralizationSet.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1031,7 +1031,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createGeneralizationSetLink(sourceView, source, target)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Information Flow" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_InformationFlow']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/InformationFlow.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Information Flow" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_InformationFlow']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/InformationFlow.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1040,7 +1040,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createInformationFlowLink(sourceView, source, target)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Instance Specification" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_InstanceSpecification']" iconPath="/org.eclipse.papyrus.uml.diagram.clazz/icons/obj16/InstanceLink.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Instance Specification" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_InstanceSpecification']" iconPath="/org.eclipse.papyrus.uml.sirius.clazz.diagram/icons/obj16/InstanceLink.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1051,7 +1051,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Interface Realization" precondition="aql:true" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_InterfaceRealization']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/InterfaceRealization.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Interface Realization" precondition="aql:true" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_InterfaceRealization']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/InterfaceRealization.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1066,7 +1066,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Link" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Link']" iconPath="/org.eclipse.papyrus.uml.diagram.clazz/icons/obj16/Link.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Link" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Link']" iconPath="/org.eclipse.papyrus.uml.sirius.clazz.diagram/icons/obj16/Link.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1075,7 +1075,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createLink(sourceView, source, target)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Package Import" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_PackageImport']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/PackageImport.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Package Import" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_PackageImport']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/PackageImport.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1084,7 +1084,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createPackageImportLink(sourceView, source, target)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Package Merge" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_PackageMerge']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/PackageMerge.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Package Merge" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_PackageMerge']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/PackageMerge.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1093,7 +1093,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createPackageMergeLink(sourceView, source, target)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Profile Application" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_ProfileApplication']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/ProfileApplication.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Profile Application" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_ProfileApplication']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/ProfileApplication.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1102,7 +1102,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createProfileApplicationLink(source)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Realization" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Realization']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Realization.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Realization" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Realization']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Realization.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1111,7 +1111,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createRealizationLink(sourceView, source, target)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Substitution" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Substitution']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Substitution.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Substitution" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Substitution']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Substitution.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1120,7 +1120,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createSubstitutionLink(sourceView, source, target)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Template Binding" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/TemplateBinding.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Template Binding" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/TemplateBinding.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1131,7 +1131,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Usage" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Usage']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Usage.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Usage" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Usage']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Usage.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1947,7 +1947,7 @@
           </ownedTools>
         </toolSections>
         <decorationDescriptionsSet>
-          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Observation symbol" position="CENTER" imageExpression="service:GetSymbolPath()" mappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Observation']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Observation symbol" position="CENTER" imageExpression="service:getSymbolPath()" mappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Observation']"/>
         </decorationDescriptionsSet>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:targetIsNavigable">
@@ -2061,7 +2061,7 @@
           </style>
         </nodeMappings>
         <toolSections name="Nodes">
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new literal" name="Comment" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Comment']/@nodeMappings[name='CD_Comment']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Comment.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new literal" name="Comment" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Comment']/@nodeMappings[name='CD_Comment']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Comment.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>

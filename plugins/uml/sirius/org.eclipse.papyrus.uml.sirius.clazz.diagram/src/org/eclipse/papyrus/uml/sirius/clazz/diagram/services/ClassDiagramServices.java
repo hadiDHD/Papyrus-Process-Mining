@@ -127,12 +127,10 @@ public class ClassDiagramServices {
 	public static final String CLASS_DIAGRAM_PACKAGE_NAME = "/org.eclipse.papyrus.uml.sirius.clazz.diagram";
 
 	/** TimeObseravtion element symbol path */
-	public static final String TIME_OBSERVATION_SYMBOL_PATH = CLASS_DIAGRAM_PACKAGE_NAME
-			+ "/icons/symbols/timeObservation.png";
+	public static final String TIME_OBSERVATION_SYMBOL_PATH = CLASS_DIAGRAM_PACKAGE_NAME + "/icons/symbols/TimeObservation.png";
 
 	/** DurationObseravtion element symbol path */
-	public static final String DURATION_OBSERVATION_SYMBOL_PATH = CLASS_DIAGRAM_PACKAGE_NAME
-			+ "/icons/symbols/durationObservation.png";
+	public static final String DURATION_OBSERVATION_SYMBOL_PATH = CLASS_DIAGRAM_PACKAGE_NAME + "/icons/symbols/DurationObservation.png";
 
 	/** INSTANCE_END for instance specification eAnnotation */
 	protected static final String INSTANCE_END = "InstanceEnd";
@@ -967,7 +965,7 @@ public class ClassDiagramServices {
 	 * @return the path of symbol to use
 	 */
 
-	public String GetSymbolPath(Element elem) {
+	public String getSymbolPath(Element elem) {
 		if (elem instanceof TimeObservation) {
 			return TIME_OBSERVATION_SYMBOL_PATH;
 		}
