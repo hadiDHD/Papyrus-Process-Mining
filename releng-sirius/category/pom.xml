@@ -43,7 +43,11 @@
 							<skipWebContentGeneration>true</skipWebContentGeneration>
 							<associateSites>
 								<!-- Sirius Update site -->
-								<site>https://download.eclipse.org/sirius/updates/releases/6.5.1/2020-09</site>
+								<site>https://download.eclipse.org/sirius/updates/milestones/7.0.0M3/2021-06/</site>
+								<!-- GMF Runtime Update site-->
+								<site>https://download.eclipse.org/modeling/gmp/gmf-runtime/updates/milestones/S202202011016/</site>
+								<!-- Orbit Update site-->
+								<site>https://download.eclipse.org/tools/orbit/downloads/drops/R20211213173813/repository/</site>
 							</associateSites>
 						</configuration>
 					</execution>

@@ -15,7 +15,7 @@ package org.eclipse.papyrus.uml.sirius.sequence.diagram.services;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.LabelServices;
-import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeSpec;
+import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeSpec;
 import org.eclipse.uml2.uml.ExecutionSpecification;
 import org.eclipse.uml2.uml.GeneralOrdering;
 import org.eclipse.uml2.uml.InteractionFragment;

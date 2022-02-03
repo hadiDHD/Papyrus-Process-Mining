@@ -40,8 +40,6 @@ import org.eclipse.sirius.diagram.EdgeTarget;
 import org.eclipse.sirius.diagram.business.api.componentization.DiagramMappingsManager;
 import org.eclipse.sirius.diagram.business.api.componentization.DiagramMappingsManagerRegistry;
 import org.eclipse.sirius.diagram.business.internal.helper.decoration.DecorationHelperInternal;
-import org.eclipse.sirius.diagram.business.internal.metamodel.helper.MappingHelper;
-import org.eclipse.sirius.diagram.business.internal.metamodel.operations.DDiagramSpecOperations;
 import org.eclipse.sirius.diagram.business.internal.sync.DDiagramElementSynchronizer;
 import org.eclipse.sirius.diagram.business.internal.sync.DDiagramSynchronizer;
 import org.eclipse.sirius.diagram.business.internal.sync.DEdgeCandidate;
@@ -55,8 +53,10 @@ import org.eclipse.sirius.diagram.description.IEdgeMapping;
 import org.eclipse.sirius.diagram.description.MappingBasedDecoration;
 import org.eclipse.sirius.diagram.description.NodeMapping;
 import org.eclipse.sirius.diagram.description.filter.FilterDescription;
+import org.eclipse.sirius.diagram.model.business.internal.helper.MappingHelper;
+import org.eclipse.sirius.diagram.model.business.internal.operations.DDiagramSpecOperations;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
-import org.eclipse.sirius.viewpoint.SiriusPlugin;
+import org.eclipse.sirius.tools.api.SiriusPlugin;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.SemanticBasedDecoration;
 
@@ -166,7 +166,7 @@ public class DiagramServices {
 	}
 
 	public EdgeMapping getEdgeMapping(final DiagramDescription description, String mappingName) {
-		for (final EdgeMapping edgeMapping : description.getAllEdgeMappings()) {
+		for (final EdgeMapping edgeMapping : description.getEdgeMappings()) {
 			if (edgeMapping.getName().equals(mappingName)) {
 				return edgeMapping;
 			}

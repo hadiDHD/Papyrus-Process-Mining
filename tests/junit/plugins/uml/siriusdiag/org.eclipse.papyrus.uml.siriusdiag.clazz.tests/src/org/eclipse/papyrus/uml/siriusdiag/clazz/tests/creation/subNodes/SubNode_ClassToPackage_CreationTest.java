@@ -26,7 +26,7 @@ import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixtur
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DNodeContainer;
-import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeContainerSpec;
+import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeContainerSpec;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;

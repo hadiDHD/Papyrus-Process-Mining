@@ -27,7 +27,7 @@ import org.eclipse.papyrus.infra.siriusdiag.ui.internal.sessions.services.IPapyr
 import org.eclipse.sirius.business.api.session.DefaultLocalSessionCreationOperation;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.factory.SessionFactory;
-import org.eclipse.sirius.viewpoint.Messages;
+import org.eclipse.sirius.tools.api.Messages;
 
 /**
  * A common operation to create a session and open it.
@@ -43,12 +43,12 @@ public class PapyrusLocalSessionCreationOperation extends DefaultLocalSessionCre
 	 * Constructor.
 	 *
 	 * @param sessionResourceURI
-	 *                                       the {@link URI} of the Resource {@link Session} model
+	 *            the {@link URI} of the Resource {@link Session} model
 	 * @param monitor
-	 *                                       {@link IProgressMonitor} to show progression of
-	 *                                       {@link Session} creation
+	 *            {@link IProgressMonitor} to show progression of
+	 *            {@link Session} creation
 	 * @param transactionalEditingDomain
-	 *                                       the editing domain to use
+	 *            the editing domain to use
 	 */
 	public PapyrusLocalSessionCreationOperation(final URI sessionResourceURI, final IProgressMonitor monitor, final TransactionalEditingDomain transactionalEditingDomain) {
 		super(sessionResourceURI, monitor);

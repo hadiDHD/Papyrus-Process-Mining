@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.LabelServices;
 import org.eclipse.papyrus.uml.sirius.sequence.diagram.utils.ReorderSequenceRegistry;
-import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeSpec;
+import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeSpec;
 import org.eclipse.sirius.diagram.sequence.ordering.EventEnd;
 import org.eclipse.sirius.diagram.sequence.ordering.SingleEventEnd;
 import org.eclipse.uml2.uml.CombinedFragment;
