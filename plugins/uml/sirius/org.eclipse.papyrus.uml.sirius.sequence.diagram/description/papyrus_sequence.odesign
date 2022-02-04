@@ -81,7 +81,7 @@
           </style>
         </nodeMappings>
         <nodeMappings xsi:type="description_1:ObservationPointMapping" name="TimeConstraint" semanticCandidatesExpression="aql:self.getTimeConstraints().constrainedElement" semanticElements="aql:self.getTimeConstraint()" synchronizationLock="true" domainClass="EObject">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.getTimeConstraint().name" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/TimeConstraint.gif" sizeComputationExpression="5" resizeKind="EAST_WEST" workspacePath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/stroke.svg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.getTimeConstraint().name" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/TimeConstraint.gif" sizeComputationExpression="5" resizeKind="EAST_WEST" workspacePath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/stroke.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <forbiddenSides>WEST</forbiddenSides>
@@ -89,7 +89,7 @@
           </style>
         </nodeMappings>
         <nodeMappings xsi:type="description_1:ObservationPointMapping" name="TimeObservation" semanticCandidatesExpression="aql:self.getTimeObservations().event" semanticElements="aql:self.getTimeObservation()" synchronizationLock="true" domainClass="EObject">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.getTimeObservation().name" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/TimeObservation.gif" sizeComputationExpression="5" resizeKind="EAST_WEST" workspacePath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/stroke.svg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.getTimeObservation().name" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/TimeObservation.gif" sizeComputationExpression="5" resizeKind="EAST_WEST" workspacePath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/stroke.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <forbiddenSides>WEST</forbiddenSides>
@@ -420,7 +420,7 @@
           </subSections>
         </toolSections>
         <toolSections documentation="Create new elements" name="SD_CreateNodes" label="Nodes" icon="/org.eclipse.gmf.runtime.diagram.ui/icons/group.gif">
-          <ownedTools xsi:type="tool:InstanceRoleCreationTool" name="Lifeline" label="Lifeline" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/LifelineCreation.gif">
+          <ownedTools xsi:type="tool:InstanceRoleCreationTool" name="Lifeline" label="Lifeline" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Lifeline.gif">
             <variable name="variable"/>
             <viewVariable name="viewVariable"/>
             <initialOperation>
@@ -433,7 +433,7 @@
             </initialOperation>
             <predecessor name="predecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:ExecutionCreationTool" name="Action Execution Specification" label="Action Execution Specification" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/ActionExecutionSpecification.gif">
+          <ownedTools xsi:type="tool:ExecutionCreationTool" name="Action Execution Specification" label="Action Execution Specification" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/ActionExecutionSpecification.gif">
             <variable name="variable"/>
             <viewVariable name="viewVariable"/>
             <initialOperation>
@@ -454,7 +454,7 @@
             <startingEndPredecessor name="startingEndPredecessor"/>
             <finishingEndPredecessor name="finishingEndPredecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:ExecutionCreationTool" name="Behavior Execution Specification" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/BehaviorExecutionSpecification.gif">
+          <ownedTools xsi:type="tool:ExecutionCreationTool" name="Behavior Execution Specification" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/BehaviorExecutionSpecification.gif">
             <variable name="variable"/>
             <viewVariable name="viewVariable"/>
             <initialOperation>
@@ -593,7 +593,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ObservationPointCreationTool" name="Time Constraint" precondition="aql:not(self.oclIsTypeOf(uml::Interaction))" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='TimeConstraint']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/TimeConstraint.gif" extraMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']">
+          <ownedTools xsi:type="tool:ObservationPointCreationTool" name="Time Constraint" precondition="aql:not(self.oclIsTypeOf(uml::Interaction))" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='TimeConstraint']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/TimeConstraint.gif" extraMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']">
             <variable name="variable"/>
             <viewVariable name="viewVariable"/>
             <initialOperation>
@@ -608,7 +608,7 @@
             <startingEndPredecessor name="startingEndPredecessor"/>
             <finishingEndPredecessor name="finishingEndPredecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:ObservationPointCreationTool" name="Time Observation" precondition="aql:not(self.oclIsTypeOf(uml::Interaction))" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='TimeObservation']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/TimeObservation.gif" extraMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']">
+          <ownedTools xsi:type="tool:ObservationPointCreationTool" name="Time Observation" precondition="aql:not(self.oclIsTypeOf(uml::Interaction))" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='TimeObservation']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/TimeObservation.gif" extraMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']">
             <variable name="variable"/>
             <viewVariable name="viewVariable"/>
             <initialOperation>
@@ -622,7 +622,7 @@
             <startingEndPredecessor name="startingEndPredecessor"/>
             <finishingEndPredecessor name="finishingEndPredecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_2:NodeCreationDescription" name="Constraint" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/Constraint.gif">
+          <ownedTools xsi:type="tool_2:NodeCreationDescription" name="Constraint" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Constraint.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -674,7 +674,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="SD_createEdgeGroup" label="Edges" icon="/org.eclipse.gmf.runtime.diagram.ui/icons/group.gif">
-          <ownedTools xsi:type="tool:MessageCreationTool" documentation="Create a new synchronous operation" name="CR_Synchronous_Operation" label="Synchronous Message" precondition="service:preTarget.isValidMessageEnd" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='SD_Message']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/MessageSynchCallCreation.gif" extraSourceMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" connectionStartPrecondition="service:preSource.isValidMessageEnd">
+          <ownedTools xsi:type="tool:MessageCreationTool" documentation="Create a new synchronous operation" name="CR_Synchronous_Operation" label="Synchronous Message" precondition="service:preTarget.isValidMessageEnd" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='SD_Message']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Message_synchCall.gif" extraSourceMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" connectionStartPrecondition="service:preSource.isValidMessageEnd">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -694,7 +694,7 @@
             <startingEndPredecessor name="startingEndPredecessor"/>
             <finishingEndPredecessor name="finishingEndPredecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:MessageCreationTool" documentation="Create a new asynchronous operation" name="CR_Asynchronous_Operation" label="Asynchronous Message" precondition="service:preTarget.isValidMessageEnd" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='SD_Message']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/MessageAsynchCallCreation.gif" extraSourceMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']">
+          <ownedTools xsi:type="tool:MessageCreationTool" documentation="Create a new asynchronous operation" name="CR_Asynchronous_Operation" label="Asynchronous Message" precondition="service:preTarget.isValidMessageEnd" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='SD_Message']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Message_asynchCall.gif" extraSourceMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -761,7 +761,7 @@
             <startingEndPredecessor name="startingEndPredecessor"/>
             <finishingEndPredecessor name="finishingEndPredecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ToolDescription" name="Message Lost" precondition="aql:element.isLostFoundTargetValid()" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/Message.gif">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Message Lost" precondition="aql:element.isLostFoundTargetValid()" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Message.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -781,7 +781,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ToolDescription" name="Message Found" precondition="aql:element.isLostFoundTargetValid()" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/Message.gif">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Message Found" precondition="aql:element.isLostFoundTargetValid()" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Message.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -834,7 +834,7 @@
             <startingEndPredecessor name="startingEndPredecessor"/>
             <finishingEndPredecessor name="finishingEndPredecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_2:EdgeCreationDescription" name="Comment Link" precondition="aql:true" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='Comment%20Link']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/Comment.gif">
+          <ownedTools xsi:type="tool_2:EdgeCreationDescription" name="Comment Link" precondition="aql:true" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='Comment%20Link']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Comment.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -847,7 +847,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_2:EdgeCreationDescription" name="Constraint Link" precondition="aql:true" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='Constraint%20Link']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/Constraint.gif">
+          <ownedTools xsi:type="tool_2:EdgeCreationDescription" name="Constraint Link" precondition="aql:true" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='Constraint%20Link']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Constraint.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>

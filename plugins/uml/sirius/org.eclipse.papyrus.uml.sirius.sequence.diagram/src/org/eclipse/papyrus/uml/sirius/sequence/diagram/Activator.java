@@ -20,6 +20,7 @@ import org.eclipse.core.runtime.Plugin;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.osgi.framework.BundleContext;
+import org.eclipse.uml2.uml.edit.UMLEditPlugin;
 
 public class Activator extends Plugin {
     /** The plug-in ID. */
@@ -35,6 +36,9 @@ public class Activator extends Plugin {
      */
     public Activator() {
         plugin = this;
+     // to force the java dependency
+     // we need these plugins because the odesign references icons from this plugin
+     		UMLEditPlugin.getPlugin();
     }
 
     /**
