@@ -31,7 +31,7 @@ import org.eclipse.sirius.diagram.model.business.internal.spec.DEdgeSpec;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEditPart;
 import org.eclipse.uml2.uml.Generalization;
 import org.eclipse.uml2.uml.Model;
-import org.eclipse.uml2.uml.internal.impl.ClassImpl;
+import org.eclipse.uml2.uml.Class;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -59,7 +59,7 @@ public class Edge_Generalization_DeleteViewTest extends AbstractPapyrusTest {
 		// setup
 		Assert.assertTrue(fixture.getModel() instanceof Model);
 		Model rootModel = (Model) fixture.getModel();
-		ClassImpl edgeSource = (ClassImpl) rootModel.getMember(EDGE_SOURCE_NAME);
+		Class edgeSource = (Class) rootModel.getMember(EDGE_SOURCE_NAME);
 		Generalization edgeToBeDeleted = edgeSource.getGeneralizations().get(0);
 		Assert.assertNotNull("We can't find the edge to destroy", edgeToBeDeleted);
 
@@ -82,7 +82,7 @@ public class Edge_Generalization_DeleteViewTest extends AbstractPapyrusTest {
 			if (current instanceof EditPart) {
 				final Object model = ((EditPart) current).getModel();
 				siriusNewRepresentation = ((View) model).getElement();
-				edgeSource = (ClassImpl) rootModel.getMember(EDGE_SOURCE_NAME);
+				edgeSource = (Class) rootModel.getMember(EDGE_SOURCE_NAME);
 				if (model instanceof View && ((DEdgeSpec) siriusNewRepresentation).getTarget() == edgeSource.getGeneralizations().get(0)) {
 					toSelect = (EditPart) current;
 					break;
@@ -101,7 +101,7 @@ public class Edge_Generalization_DeleteViewTest extends AbstractPapyrusTest {
 		fixture.flushDisplayEvents();
 
 		// the semantic element has not been destroyed
-		edgeSource = (ClassImpl) rootModel.getMember(EDGE_SOURCE_NAME);
+		edgeSource = (Class) rootModel.getMember(EDGE_SOURCE_NAME);
 		Assert.assertEquals("The UML model must not contain the destroyed edge", 1, edgeSource.getGeneralizations().size());
 		// the view element has been destroyed
 		Assert.assertEquals("The class diagram must not contain the view of the edge after delete from diagram", 0, classDiagram.getEdges().size());
@@ -110,14 +110,14 @@ public class Edge_Generalization_DeleteViewTest extends AbstractPapyrusTest {
 		fixture.getEditingDomain().getCommandStack().undo();
 		fixture.flushDisplayEvents();
 		// the graphical element has been reset
-		edgeSource = (ClassImpl) rootModel.getMember(EDGE_SOURCE_NAME);
+		edgeSource = (Class) rootModel.getMember(EDGE_SOURCE_NAME);
 		Assert.assertEquals("The UML model must contain the destroyed edge after undoing the destruction", 1, edgeSource.getGeneralizations().size());
 		Assert.assertEquals("The class diagram must contain the view of the edge after undoing the destruction", 1, classDiagram.getEdges().size());
 
 		// redo
 		fixture.getEditingDomain().getCommandStack().redo();
 		fixture.flushDisplayEvents();
-		edgeSource = (ClassImpl) rootModel.getMember(EDGE_SOURCE_NAME);
+		edgeSource = (Class) rootModel.getMember(EDGE_SOURCE_NAME);
 		Assert.assertEquals("The UML model must not contain the destroyed element after redoing the destruction", 1, edgeSource.getGeneralizations().size());
 		Assert.assertEquals("The class diagram must not contain the view of the edge after redoing the destruction", 0, classDiagram.getEdges().size());
 	}

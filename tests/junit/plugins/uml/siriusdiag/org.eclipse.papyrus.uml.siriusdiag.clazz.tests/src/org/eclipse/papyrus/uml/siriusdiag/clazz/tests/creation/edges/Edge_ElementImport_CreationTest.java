@@ -28,7 +28,7 @@ import org.eclipse.sirius.diagram.EdgeTarget;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DEdgeSpec;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.ElementImport;
-import org.eclipse.uml2.uml.internal.impl.ClassImpl;
+import org.eclipse.uml2.uml.Class;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -78,8 +78,8 @@ public class Edge_ElementImport_CreationTest extends AbstractPapyrusTest {
 		EObject semanticElement = ((DEdgeSpec) siriusNewRepresentation).getSemanticElements().iterator().next();
 		Assert.assertTrue("The created element must be a UML ElementImport", semanticElement instanceof org.eclipse.uml2.uml.ElementImport);
 		Assert.assertEquals("The root model does not contain any additional element after the creation of an ElementImport edge", nbElement, fixture.getModel().getOwnedElements().size());
-		ClassImpl importedElem = (ClassImpl) ((ElementImport) ((DEdgeSpec) siriusNewRepresentation).getTarget()).getImportedElement();
-		Classifier targetElem = (ClassImpl) ((DNodeContainer) ((DEdgeSpec) siriusNewRepresentation).getTargetNode()).getTarget();
+		Class importedElem = (Class) ((ElementImport) ((DEdgeSpec) siriusNewRepresentation).getTarget()).getImportedElement();
+		Classifier targetElem = (Class) ((DNodeContainer) ((DEdgeSpec) siriusNewRepresentation).getTargetNode()).getTarget();
 		Assert.assertEquals("The target element is added to the liste of NestedClassifeirs of the source element", importedElem, targetElem);
 
 		// undo
@@ -100,8 +100,8 @@ public class Edge_ElementImport_CreationTest extends AbstractPapyrusTest {
 		semanticElement = ((DEdgeSpec) siriusNewRepresentation).getSemanticElements().iterator().next();
 		Assert.assertTrue("The created element must be a UML ElementImport", semanticElement instanceof org.eclipse.uml2.uml.ElementImport);
 		Assert.assertEquals("The root model does not contain any additional element after the creation of an ElementImport edge", nbElement, fixture.getModel().getOwnedElements().size());
-		importedElem = (ClassImpl) ((ElementImport) ((DEdgeSpec) siriusNewRepresentation).getTarget()).getImportedElement();
-		targetElem = (ClassImpl) ((DNodeContainer) ((DEdgeSpec) siriusNewRepresentation).getTargetNode()).getTarget();
+		importedElem = (Class) ((ElementImport) ((DEdgeSpec) siriusNewRepresentation).getTarget()).getImportedElement();
+		targetElem = (Class) ((DNodeContainer) ((DEdgeSpec) siriusNewRepresentation).getTargetNode()).getTarget();
 		Assert.assertEquals("The target element is added to the liste of NestedClassifeirs of the source element", importedElem, targetElem);
 	}
 }

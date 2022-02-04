@@ -26,7 +26,7 @@ import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeContainerSpec;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeListElementSpec;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeListSpec;
-import org.eclipse.uml2.uml.internal.impl.ClassImpl;
+import org.eclipse.uml2.uml.Class;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -73,7 +73,7 @@ public class SubNode_Operation_CreationTest extends AbstractPapyrusTest {
 		Assert.assertTrue("The created sirus node must be a DNode", siriusNewRepresentation instanceof DNodeListElementSpec);
 		EObject semanticElement = ((DNodeListElementSpec) siriusNewRepresentation).getSemanticElements().iterator().next();
 		Assert.assertTrue("The created element must be a UML Operation", semanticElement instanceof org.eclipse.uml2.uml.Operation);
-		ClassImpl classElem = (ClassImpl) classRepresentation.getTarget();
+		Class classElem = (Class) classRepresentation.getTarget();
 		Assert.assertEquals("The Class must contains one additional Operation after the creation", 1, classElem.getOwnedOperations().size());
 
 		// undo

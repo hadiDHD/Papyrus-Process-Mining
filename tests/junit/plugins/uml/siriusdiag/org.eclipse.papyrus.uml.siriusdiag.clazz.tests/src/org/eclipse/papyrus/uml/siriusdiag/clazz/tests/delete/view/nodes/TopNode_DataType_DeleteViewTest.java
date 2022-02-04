@@ -26,9 +26,9 @@ import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusT
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
-import org.eclipse.sirius.diagram.DNodeContainer;
-import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeContainerSpec;
-import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerEditPart;
+import org.eclipse.sirius.diagram.DNode;
+import org.eclipse.sirius.diagram.DNodeList;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListEditPart;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
 import org.junit.Assert;
@@ -67,8 +67,8 @@ public class TopNode_DataType_DeleteViewTest extends AbstractPapyrusTest {
 		Object elementToBeDeleted = classDiagram.getChildren().get(0);
 		Assert.assertTrue(elementToBeDeleted instanceof View);
 		EObject siriusNewRepresentation = ((View) elementToBeDeleted).getElement();
-		Assert.assertTrue(siriusNewRepresentation instanceof DNodeContainer);
-		Assert.assertEquals("The found view doesn't represent the element to destroy", element, ((DNodeContainer) siriusNewRepresentation).getTarget());
+		Assert.assertTrue(siriusNewRepresentation instanceof DNodeList);
+		Assert.assertEquals("The found view doesn't represent the element to destroy", element, ((DNodeList) siriusNewRepresentation).getTarget());
 
 		EditPart toSelect = null;
 		final List<?> childEP = fixture.getActiveDiagram().getChildren();
@@ -78,7 +78,7 @@ public class TopNode_DataType_DeleteViewTest extends AbstractPapyrusTest {
 			if (current instanceof EditPart) {
 				final Object model = ((EditPart) current).getModel();
 				siriusNewRepresentation = ((View) model).getElement();
-				if (model instanceof View && ((DNodeContainerSpec) siriusNewRepresentation).getTarget() == rootModel.getMember(VIEW_TO_DELETE_ELEMENT_NAME)) {
+				if (model instanceof View && ((DNodeList) siriusNewRepresentation).getTarget() == rootModel.getMember(VIEW_TO_DELETE_ELEMENT_NAME)) {
 					toSelect = (EditPart) current;
 				}
 			}
@@ -89,9 +89,9 @@ public class TopNode_DataType_DeleteViewTest extends AbstractPapyrusTest {
 		fixture.flushDisplayEvents();
 
 		StructuredSelection selecetdElement = (StructuredSelection) fixture.getActiveDiagramEditor().getSite().getSelectionProvider().getSelection();
-		DNodeContainerEditPart selectedContainer = (DNodeContainerEditPart) selecetdElement.getFirstElement();
+		DNodeListEditPart selectedContainer = (DNodeListEditPart) selecetdElement.getFirstElement();
 		EObject elemToDelete = ((View) selectedContainer.getModel()).getElement();
-		fixture.applyGraphicalDeletionTool((DNodeContainer) elemToDelete);
+		fixture.applyGraphicalDeletionTool((DNodeList) elemToDelete);
 		fixture.flushDisplayEvents();
 
 		// the semantic element has not been destroyed

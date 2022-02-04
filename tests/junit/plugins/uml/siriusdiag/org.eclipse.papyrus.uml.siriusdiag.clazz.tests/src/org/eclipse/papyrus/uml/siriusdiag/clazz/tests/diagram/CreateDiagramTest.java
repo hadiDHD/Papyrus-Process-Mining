@@ -20,8 +20,8 @@ import org.junit.Test;
 @SuppressWarnings("nls")
 public class CreateDiagramTest extends AbstractDiagramCreationTests {
 
-	String IMPLEMENTATION_ID = "PapyrusUMLClassDiagram";
-	String ID = "org.eclipse.papyrus.uml.siriusdiag.class";
+	String IMPLEMENTATION_ID = "Sirius";
+	String ID = "org.eclipse.papyrus.infra.siriusdiag.class";
 
 	@Test
 	public void createClassDiagramTest() throws Exception {

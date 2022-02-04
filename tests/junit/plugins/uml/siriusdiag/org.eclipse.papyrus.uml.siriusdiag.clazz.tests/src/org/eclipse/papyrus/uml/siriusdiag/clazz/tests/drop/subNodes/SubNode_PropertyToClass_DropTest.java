@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.junit.framework.classification.ClassificationRunner;
 import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
@@ -28,11 +27,10 @@ import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeListElementS
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeListSpec;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
-import org.eclipse.uml2.uml.internal.impl.ClassImpl;
+import org.eclipse.uml2.uml.Class;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 /**
  * adapted from org.eclipse.papyrus.uml.diagram.clazz.test.canonical.TestClassDiagramTopNode
@@ -60,19 +58,19 @@ public class SubNode_PropertyToClass_DropTest extends AbstractPapyrusTest {
 		Object classElement = diagram.getChildren().get(0);
 		DNodeContainerSpec classRepresentation = (DNodeContainerSpec) ((View) classElement).getElement();
 		DNodeListSpec propertyContainer = (DNodeListSpec) classRepresentation.getOwnedDiagramElements().get(1);
-		NamedElement elementToBeDropped = ((ClassImpl) classRepresentation.getTarget()).getOwnedAttributes().get(0);
+		NamedElement elementToBeDropped = ((Class) classRepresentation.getTarget()).getOwnedAttributes().get(0);
 		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();
 		fixture.applyContainerDropDescriptionTool(diagramRespresentation, "Attributes or Operations from Model", propertyContainer, elementToBeDropped);
 		fixture.flushDisplayEvents();
 
 		classElement = diagram.getChildren().get(0);
 		classRepresentation = (DNodeContainerSpec) ((View) classElement).getElement();
-		DNodeListSpec element = (DNodeListSpec) classRepresentation.getOwnedDiagramElements().get(0);
+		DNodeListSpec element = (DNodeListSpec) classRepresentation.getOwnedDiagramElements().get(1);
 		Object siriusNewRepresentation = element.getOwnedElements().get(0);
 		Assert.assertTrue("The created sirus node must be a DNode", siriusNewRepresentation instanceof DNodeListElementSpec);
 		EObject semanticElement = ((DNodeListElementSpec) siriusNewRepresentation).getSemanticElements().iterator().next();
 		Assert.assertTrue("The created element must be a UML Property", semanticElement instanceof org.eclipse.uml2.uml.Property);
-		ClassImpl classElem = (ClassImpl) classRepresentation.getTarget();
+		Class classElem = (Class) classRepresentation.getTarget();
 		Assert.assertEquals("The Class must contains one additional Attribut after the creation", 1, classElem.getOwnedAttributes().size());
 
 		// undo
@@ -88,7 +86,7 @@ public class SubNode_PropertyToClass_DropTest extends AbstractPapyrusTest {
 		Assert.assertTrue("The created sirus node must be a DNode", siriusNewRepresentation instanceof DNodeListElementSpec);
 		semanticElement = ((DNodeListElementSpec) siriusNewRepresentation).getSemanticElements().iterator().next();
 		Assert.assertTrue("The created element must be a UML Property", semanticElement instanceof org.eclipse.uml2.uml.Property);
-		classElem = (ClassImpl) classRepresentation.getTarget();
+		classElem = (Class) classRepresentation.getTarget();
 		Assert.assertEquals("The Class must contains one additional Attribut after the Drop action", 1, classElem.getOwnedAttributes().size());
 
 	}

@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.junit.framework.classification.ClassificationRunner;
 import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
@@ -27,11 +26,10 @@ import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.EdgeTarget;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DEdgeSpec;
 import org.eclipse.uml2.uml.Classifier;
-import org.eclipse.uml2.uml.internal.impl.ClassImpl;
+import org.eclipse.uml2.uml.Class;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 /**
  * adapted from org.eclipse.papyrus.uml.diagram.clazz.test.canonical.TestClassDiagramTopNode
@@ -74,8 +72,8 @@ public class Edge_Containment_CreationTest extends AbstractPapyrusTest {
 		Assert.assertTrue("The created edge must be a View", createdEdge instanceof View);
 		EObject siriusNewRepresentation = ((View) createdEdge).getElement();
 		Assert.assertTrue("The created sirus edge must be an DEdge", siriusNewRepresentation instanceof DEdgeSpec);
-		Classifier sourceNestedClassifier = ((ClassImpl) ((DEdgeSpec) siriusNewRepresentation).getTarget()).getNestedClassifiers().get(0);
-		Classifier targetElem = (ClassImpl) ((DNodeContainer) ((DEdgeSpec) siriusNewRepresentation).getTargetNode()).getTarget();
+		Classifier sourceNestedClassifier = ((Class) ((DEdgeSpec) siriusNewRepresentation).getTarget()).getNestedClassifiers().get(0);
+		Classifier targetElem = (Class) ((DNodeContainer) ((DEdgeSpec) siriusNewRepresentation).getTargetNode()).getTarget();
 		Assert.assertEquals("The target element is added to the liste of NestedClassifeirs of the source element", sourceNestedClassifier, targetElem);
 		Assert.assertEquals("The root model contain one less element after the creation of a Containment edge", nbElement - 1, fixture.getModel().getOwnedElements().size());
 
@@ -94,8 +92,8 @@ public class Edge_Containment_CreationTest extends AbstractPapyrusTest {
 		Assert.assertTrue("The created edge must be a View", createdEdge instanceof View);
 		siriusNewRepresentation = ((View) createdEdge).getElement();
 		Assert.assertTrue("The created sirus edge must be an DEdge", siriusNewRepresentation instanceof DEdgeSpec);
-		sourceNestedClassifier = ((ClassImpl) ((DEdgeSpec) siriusNewRepresentation).getTarget()).getNestedClassifiers().get(0);
-		targetElem = (ClassImpl) ((DNodeContainer) ((DEdgeSpec) siriusNewRepresentation).getTargetNode()).getTarget();
+		sourceNestedClassifier = ((Class) ((DEdgeSpec) siriusNewRepresentation).getTarget()).getNestedClassifiers().get(0);
+		targetElem = (Class) ((DNodeContainer) ((DEdgeSpec) siriusNewRepresentation).getTargetNode()).getTarget();
 		Assert.assertEquals("The target element is added to the liste of NestedClassifeirs of the source element", sourceNestedClassifier, targetElem);
 		Assert.assertEquals("The root model contain one less element after the creation of a Containment edge", nbElement - 1, fixture.getModel().getOwnedElements().size());
 	}

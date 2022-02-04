@@ -17,18 +17,17 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.junit.framework.classification.ClassificationRunner;
 import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
-import org.eclipse.sirius.diagram.DNodeContainer;
+import org.eclipse.sirius.diagram.DDiagramElement;
+import org.eclipse.sirius.diagram.DNodeList;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 /**
  * Delete Class from model test
@@ -61,10 +60,10 @@ public class TopNode_DataType_DeleteSemanticTest extends AbstractPapyrusTest {
 		Object elementToBeDeleted = classDiagram.getChildren().get(0);
 		Assert.assertTrue(elementToBeDeleted instanceof View);
 		EObject siriusNewRepresentation = ((View) elementToBeDeleted).getElement();
-		Assert.assertTrue(siriusNewRepresentation instanceof DNodeContainer);
-		Assert.assertEquals("The found view doesn't represent the element to destroy", element, ((DNodeContainer) siriusNewRepresentation).getTarget());
+		Assert.assertTrue(siriusNewRepresentation instanceof DNodeList);
+		Assert.assertEquals("The found view doesn't represent the element to destroy", element, ((DNodeList) siriusNewRepresentation).getTarget());
 
-		fixture.applySemanticDeletionTool((DNodeContainer) siriusNewRepresentation);
+		fixture.applySemanticDeletionTool((DDiagramElement) siriusNewRepresentation);
 		fixture.flushDisplayEvents();
 
 		// the semantic element has been destroyed
