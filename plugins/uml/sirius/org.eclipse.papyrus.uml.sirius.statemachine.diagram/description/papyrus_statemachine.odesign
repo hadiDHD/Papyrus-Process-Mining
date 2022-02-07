@@ -240,7 +240,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <toolSections name="Nodes" icon="/org.eclipse.papyrus.uml.sirius.common.diagram/icons/group.gif">
+        <toolSections name="Nodes" icon="/org.eclipse.gmf.runtime.diagram.ui/icons/group.gif">
           <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Region" containerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Region.gif" extraMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='HorizontalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='VerticalRegions']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -489,7 +489,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Comment" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment']" iconPath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Comment.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Comment" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Comment.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -498,7 +498,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Constraint" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" iconPath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Constraint.gif" extraMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Constraint" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Constraint.gif" extraMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -756,7 +756,7 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <toolSections name="Edges" icon="/org.eclipse.papyrus.uml.sirius.common.diagram/icons/group.gif">
+        <toolSections name="Edges" icon="/org.eclipse.gmf.runtime.diagram.ui/icons/group.gif">
           <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Transition" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='Transition']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Transition_local.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
@@ -772,7 +772,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Link" precondition="aql:true" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='Link']" iconPath="/org.eclipse.papyrus.uml.sirius.common.diagram/icons/Link.gif" extraTargetMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Link" precondition="aql:true" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='Link']" iconPath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Link.gif" extraTargetMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
