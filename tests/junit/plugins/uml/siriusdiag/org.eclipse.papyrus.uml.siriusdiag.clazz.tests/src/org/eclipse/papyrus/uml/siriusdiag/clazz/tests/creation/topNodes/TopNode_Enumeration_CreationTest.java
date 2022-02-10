@@ -53,11 +53,10 @@ public class TopNode_Enumeration_CreationTest extends AbstractPapyrusTest {
 		DiagramEditPart diagramEditpart = fixture.getActiveDiagram();
 		Assert.assertNotNull("The diagram edit part has not been found", diagramEditpart);
 		Diagram diagram = diagramEditpart.getDiagramView();
-		System.err.println(DIAGRAM_NAME + " ==? " + diagram.getName());
 		Assert.assertEquals("The diagram must be empty before creating the top node", 0, diagram.getChildren().size());
 
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();
-		fixture.applyContainerCreationTool("Enumeration", diagramRespresentation, diagramRespresentation);
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
+		fixture.applyContainerCreationTool("Enumeration", diagramRepresentation, diagramRepresentation);
 		fixture.flushDisplayEvents();// it is required ?
 
 		Assert.assertEquals("The diagram must contain one element after creating a top node", 1, diagram.getChildren().size());

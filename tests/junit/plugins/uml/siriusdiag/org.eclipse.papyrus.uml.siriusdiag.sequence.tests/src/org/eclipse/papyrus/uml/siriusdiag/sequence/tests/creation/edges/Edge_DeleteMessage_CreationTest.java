@@ -80,7 +80,7 @@ public class Edge_DeleteMessage_CreationTest {
 		Assert.assertEquals("The diagram does not contain any edge", 0, nbEdges);		
 
         // Create a DeleteMessage between the two lifelines
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
 		List<View> lifeLines = SequenceDiagramTestsTool.getView(fixture, Lifeline.viewpointElementPredicate());
 		Assert.assertEquals("The diagram must contain two Lifelines", 2, lifeLines.size());
 		Lifeline firstLifeLine = ISequenceElementAccessor.getLifeline(lifeLines.get(0)).get();
@@ -92,7 +92,7 @@ public class Edge_DeleteMessage_CreationTest {
 		IGraphicalEditPart secondLifelineEditPart = (IGraphicalEditPart)  fixture.findEditPart(secondLifelineDRep);
 		Point messageAbsoluteStartConnectionPoint = firstLifelineEditPart.getFigure().getBounds().getTopLeft().translate(0, 15);
 		Point messageAbsoluteEndConnectionPoint = secondLifelineEditPart.getFigure().getBounds().getTopLeft().translate(0, 15);		
-		fixture.applyEdgeCreationToolFromPalette("Message Delete", diagramRespresentation, firstLifelineDRep, secondLifelineDRep, messageAbsoluteStartConnectionPoint, messageAbsoluteEndConnectionPoint);
+		fixture.applyEdgeCreationToolFromPalette("Message Delete", diagramRepresentation, firstLifelineDRep, secondLifelineDRep, messageAbsoluteStartConnectionPoint, messageAbsoluteEndConnectionPoint);
 		fixture.flushDisplayEvents();
 		
 		Assert.assertEquals("The diagram must contain one edge after the creation of a Message", nbEdges + 1 , diagram.getEdges().size());		

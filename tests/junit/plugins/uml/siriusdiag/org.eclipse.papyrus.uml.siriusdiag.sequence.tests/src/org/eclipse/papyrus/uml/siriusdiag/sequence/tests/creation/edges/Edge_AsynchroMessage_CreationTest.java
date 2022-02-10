@@ -78,8 +78,8 @@ public class Edge_AsynchroMessage_CreationTest {
 		Assert.assertEquals("The root model contains one interaction element", 1, fixture.getModel().getOwnedElements().size());
 
 		// Create a first lifeline 
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();
-		fixture.applyNodeCreationToolFromPalette("Lifeline", diagramRespresentation, diagramRespresentation, new Point(100, 100), null);
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
+		fixture.applyNodeCreationToolFromPalette("Lifeline", diagramRepresentation, diagramRepresentation, new Point(100, 100), null);
 		fixture.flushDisplayEvents();
 		
 		// lifeline is created and it is a GMF view notation.node
@@ -95,7 +95,7 @@ public class Edge_AsynchroMessage_CreationTest {
 		Assert.assertEquals("The root does not contain any additional element after the creation of a Lifeline", nbElement, fixture.getModel().getOwnedElements().size());
 		
 		// create a second lifeline to be able to create message 
-		fixture.applyNodeCreationToolFromPalette("Lifeline", diagramRespresentation, diagramRespresentation, new Point(400, 100), null);
+		fixture.applyNodeCreationToolFromPalette("Lifeline", diagramRepresentation, diagramRepresentation, new Point(400, 100), null);
 		fixture.flushDisplayEvents();
 		
 		// A second lifeline is created and it is a GMF view notation.node
@@ -121,7 +121,7 @@ public class Edge_AsynchroMessage_CreationTest {
 		IGraphicalEditPart secondLifelineEditPart = (IGraphicalEditPart)  fixture.findEditPart(secondLifelineDRep);
 		Point messageAbsoluteStartConnectionPoint = firstLifelineEditPart.getFigure().getBounds().getTop().translate(0, 15);
 		Point messageAbsoluteEndConnectionPoint = secondLifelineEditPart.getFigure().getBounds().getTop().translate(0, 15);		
-		fixture.applyEdgeCreationToolFromPalette("CR_Asynchronous_Operation", diagramRespresentation, firstLifelineDRep, secondLifelineDRep, messageAbsoluteStartConnectionPoint, messageAbsoluteEndConnectionPoint);
+		fixture.applyEdgeCreationToolFromPalette("CR_Asynchronous_Operation", diagramRepresentation, firstLifelineDRep, secondLifelineDRep, messageAbsoluteStartConnectionPoint, messageAbsoluteEndConnectionPoint);
 		fixture.flushDisplayEvents();
 		
 		Assert.assertEquals("The diagram does not contain any additional element after creating of an Asynchronous message", nbDiagramChild, diagram.getChildren().size());	

@@ -54,14 +54,13 @@ public class SubNode_Property_CreationTest extends AbstractPapyrusTest {
 		DiagramEditPart diagramEditpart = fixture.getActiveDiagram();
 		Assert.assertNotNull("The diagram edit part has not been found", diagramEditpart);
 		Diagram diagram = diagramEditpart.getDiagramView();
-		System.err.println(DIAGRAM_NAME + " ==? " + diagram.getName());
 		Assert.assertEquals("The root model must have only one Class element before creating the sub node", 1, diagram.getChildren().size());
 
 		Object classElement = diagram.getChildren().get(0);
 		DNodeContainerSpec classRepresentation = (DNodeContainerSpec) ((View) classElement).getElement();
 		EObject subNodeContainer = classRepresentation.getOwnedDiagramElements().get(1);
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();
-		fixture.applyContainerCreationTool("Property", diagramRespresentation, subNodeContainer);
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
+		fixture.applyContainerCreationTool("Property", diagramRepresentation, subNodeContainer);
 		fixture.flushDisplayEvents();
 
 		Assert.assertEquals("The diagram children size does not change on adding a sub node", 1, diagram.getChildren().size());

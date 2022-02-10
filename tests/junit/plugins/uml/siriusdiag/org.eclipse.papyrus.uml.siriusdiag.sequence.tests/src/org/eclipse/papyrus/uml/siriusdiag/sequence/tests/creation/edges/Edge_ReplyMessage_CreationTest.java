@@ -79,7 +79,7 @@ public class Edge_ReplyMessage_CreationTest {
 		Assert.assertEquals("The diagram does not contain any edge", 0, diagram.getEdges().size());		
 
         // Create a ReplyMessage between the two lifelines
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
 		List<View> lifeLines = SequenceDiagramTestsTool.getView(fixture, Lifeline.viewpointElementPredicate());
 		Assert.assertEquals("The diagram must contain two Lifelines before creating a ReplyMessage", 2, lifeLines.size());
 		Lifeline firstLifeLine = ISequenceElementAccessor.getLifeline(lifeLines.get(0)).get();
@@ -91,7 +91,7 @@ public class Edge_ReplyMessage_CreationTest {
 		IGraphicalEditPart secondLifelineEditPart = (IGraphicalEditPart)  fixture.findEditPart(secondLifelineDRep);
 		Point messageAbsoluteStartConnectionPoint = firstLifelineEditPart.getFigure().getBounds().getTopLeft().translate(0, 15);
 		Point messageAbsoluteEndConnectionPoint = secondLifelineEditPart.getFigure().getBounds().getTopLeft().translate(0, 15);		
-		fixture.applyEdgeCreationToolFromPalette("Message Reply", diagramRespresentation, firstLifelineDRep, secondLifelineDRep, messageAbsoluteStartConnectionPoint, messageAbsoluteEndConnectionPoint);
+		fixture.applyEdgeCreationToolFromPalette("Message Reply", diagramRepresentation, firstLifelineDRep, secondLifelineDRep, messageAbsoluteStartConnectionPoint, messageAbsoluteEndConnectionPoint);
 		fixture.flushDisplayEvents();
 		
 		Assert.assertEquals("The diagram must contain one edge after the creation of a Message", nbEdges + 1 , diagram.getEdges().size());		

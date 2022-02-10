@@ -75,7 +75,7 @@ public class Node_ActionExecution_CreationTest {
 		Assert.assertEquals("The interaction element does not contain any fragment", 0, fragmentsSize);
 
 		// Compute the execution position 
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();		
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();		
 		List<View> lifeLines = SequenceDiagramTestsTool.getView(fixture, Lifeline.viewpointElementPredicate());
 		Assert.assertEquals("The diagram must contain one lifeline", 1, lifeLines.size());
 		Lifeline lifeLine = ISequenceElementAccessor.getLifeline(lifeLines.get(0)).get();
@@ -84,7 +84,7 @@ public class Node_ActionExecution_CreationTest {
     	Point executionPosition = lifelineEditPart.getFigure().getBounds().getTop().translate(0, 15);
 		
 		// Create the execution on the lifeline
-		fixture.applyNodeCreationToolFromPalette("Action Execution Specification", diagramRespresentation, lifelineDRep, executionPosition, null);
+		fixture.applyNodeCreationToolFromPalette("Action Execution Specification", diagramRepresentation, lifelineDRep, executionPosition, null);
 		fixture.flushDisplayEvents();	
 		
 		Assert.assertEquals("The diagram contains two additional elements after creating an ActionExecution node", nbDiagramChild + 2, diagram.getChildren().size());

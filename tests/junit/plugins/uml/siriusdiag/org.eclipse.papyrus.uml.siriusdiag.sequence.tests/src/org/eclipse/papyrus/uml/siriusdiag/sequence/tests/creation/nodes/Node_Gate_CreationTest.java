@@ -68,7 +68,7 @@ public class Node_Gate_CreationTest {
 		Assert.assertEquals("The root model contains one interaction element", 1, fixture.getModel().getOwnedElements().size());
 
 		// Compute the Gate position 
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();		
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();		
 		List<View> lifeLines = SequenceDiagramTestsTool.getView(fixture, Lifeline.viewpointElementPredicate());
 		Assert.assertEquals("The diagram must contain one lifeline", 1, lifeLines.size());
 		Lifeline lifeLine = ISequenceElementAccessor.getLifeline(lifeLines.get(0)).get();
@@ -77,7 +77,7 @@ public class Node_Gate_CreationTest {
     	Point gatePosition = lifelineEditPart.getFigure().getBounds().getTop().translate(0, 15);
 		
 		// Create the Gate
-		fixture.applyNodeCreationToolFromPalette("Gate", diagramRespresentation, diagramRespresentation, gatePosition, new Dimension (100, 50));
+		fixture.applyNodeCreationToolFromPalette("Gate", diagramRepresentation, diagramRepresentation, gatePosition, new Dimension (100, 50));
 		fixture.flushDisplayEvents();	
 		
 		Assert.assertEquals("The diagram contains one additional element after the creation of a Gate node", nbDiagramChild + 1 , diagram.getChildren().size());

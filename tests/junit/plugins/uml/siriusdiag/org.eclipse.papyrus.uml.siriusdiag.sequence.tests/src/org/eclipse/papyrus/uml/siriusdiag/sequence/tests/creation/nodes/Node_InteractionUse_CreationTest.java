@@ -66,7 +66,7 @@ public class Node_InteractionUse_CreationTest {
 		Assert.assertEquals("The root model contains one interaction element", 1, fixture.getModel().getOwnedElements().size());
 
 		// Compute the InteractionUse position 
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();		
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();		
 		List<View> lifeLines = SequenceDiagramTestsTool.getView(fixture, Lifeline.viewpointElementPredicate());
 		Assert.assertEquals("The diagram must contain one lifeline", 1, lifeLines.size());
 		Lifeline lifeLine = ISequenceElementAccessor.getLifeline(lifeLines.get(0)).get();
@@ -75,7 +75,7 @@ public class Node_InteractionUse_CreationTest {
     	Point interactionUsePosition = lifelineEditPart.getFigure().getBounds().getTop().translate(5, 15);
 		
 		// Create the InteractionUse
-		fixture.applyNodeCreationToolFromPalette("Interaction Use", diagramRespresentation, diagramRespresentation, interactionUsePosition, null);
+		fixture.applyNodeCreationToolFromPalette("Interaction Use", diagramRepresentation, diagramRepresentation, interactionUsePosition, null);
 		fixture.flushDisplayEvents();	
 		
 		Assert.assertEquals("The diagram contains one additional element the creation of an InteractionUse", nbDiagramChild + 1 , diagram.getChildren().size());

@@ -57,13 +57,12 @@ public class SubNode_ClassToPackage_CreationTest extends AbstractPapyrusTest {
 		DiagramEditPart diagramEditpart = fixture.getActiveDiagram();
 		Assert.assertNotNull("The diagram edit part has not been found", diagramEditpart);
 		Diagram diagram = diagramEditpart.getDiagramView();
-		System.err.println(DIAGRAM_NAME + " ==? " + diagram.getName());
 		Assert.assertEquals("The diagram must have one Package element creating the sub node", 1, diagram.getChildren().size());
 
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
 		Object packageElement = diagram.getChildren().get(0);
 		EObject packageRepresentation = ((View) packageElement).getElement();
-		fixture.applyGenericTool("Class", diagramRespresentation, packageRepresentation);
+		fixture.applyGenericTool("Class", diagramRepresentation, packageRepresentation);
 		fixture.flushDisplayEvents();
 
 		EList<DDiagramElement> packageSubNodes = ((DNodeContainerSpec) packageRepresentation).getOwnedDiagramElements();

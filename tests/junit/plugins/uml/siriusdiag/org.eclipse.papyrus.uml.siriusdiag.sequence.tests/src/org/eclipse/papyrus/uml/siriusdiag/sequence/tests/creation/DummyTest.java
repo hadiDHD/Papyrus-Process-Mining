@@ -67,15 +67,15 @@ public class DummyTest {
 		Assert.assertEquals("The diagram must be empty before creating the top node", 0, diagram.getChildren().size());
 
 		// Create a lifeline from odesign tool -/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign -  (id) 
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
 		// we need the sirius diagram representation
-		fixture.applyNodeCreationToolFromPalette("Lifeline", diagramRespresentation, diagramRespresentation, new Point(100, 100), null);
+		fixture.applyNodeCreationToolFromPalette("Lifeline", diagramRepresentation, diagramRepresentation, new Point(100, 100), null);
 		fixture.flushDisplayEvents();// it is required ?
 		// lifeline is created and it is a GMF view notation.node
 		Assert.assertEquals("The diagram must contain one element after creating a top node", 1, diagram.getChildren().size());
 
 		// create a second lifeline to be able to create message 
-		fixture.applyNodeCreationToolFromPalette("Lifeline", diagramRespresentation, diagramRespresentation, new Point(400, 100), null);
+		fixture.applyNodeCreationToolFromPalette("Lifeline", diagramRepresentation, diagramRepresentation, new Point(400, 100), null);
 		fixture.flushDisplayEvents();// it is required ?
 		// A second lifeline is created and it is a GMF view notation.node
 		// - But we can navigate via Sequence digram API if necessary
@@ -95,7 +95,7 @@ public class DummyTest {
 		IGraphicalEditPart lifelineBEditPart = (IGraphicalEditPart)  fixture.findEditPart(lifeline2DRep);
 		Point messageAbsoluteStartConnectionPoint = lifelineAEditPart.getFigure().getBounds().getTop().translate(0, 15);
 		Point messageAbsoluteEndConnectionPoint = lifelineBEditPart.getFigure().getBounds().getTop().translate(0, 15);
-		fixture.applyEdgeCreationToolFromPalette("CR_Synchronous_Operation", diagramRespresentation, lifeline1DRep, lifeline2DRep, messageAbsoluteStartConnectionPoint, messageAbsoluteEndConnectionPoint);
+		fixture.applyEdgeCreationToolFromPalette("CR_Synchronous_Operation", diagramRepresentation, lifeline1DRep, lifeline2DRep, messageAbsoluteStartConnectionPoint, messageAbsoluteEndConnectionPoint);
 		fixture.flushDisplayEvents();// it is required ?
 
 		
@@ -108,7 +108,7 @@ public class DummyTest {
 		// Execution position
 		Rectangle endOfExecution = createdEvent.getProperLogicalBounds();
 		Point point = endOfExecution.getBottomLeft().getCopy().translate(5, 0);
-		fixture.applyNodeCreationToolFromPalette("Behavior Execution Specification", diagramRespresentation, lifeline2DRep, point, null);
+		fixture.applyNodeCreationToolFromPalette("Behavior Execution Specification", diagramRepresentation, lifeline2DRep, point, null);
 		fixture.flushDisplayEvents();// it is required ?
 		// ==> quick get
 		ISequenceEvent execution2 = lifeLine2.getSubEvents().stream().filter(e -> (e instanceof Execution) && !e.equals(createdEvent)).findFirst().get();
@@ -119,7 +119,7 @@ public class DummyTest {
 		
         // Create a message between a lifeline and an execution
 		final var execution2Rep = (EdgeTarget) execution2.getNotationView().getElement();
-		fixture.applyEdgeCreationToolFromPalette("CR_Asynchronous_Operation", diagramRespresentation, lifeline1DRep, execution2Rep, execution2messageStartPoint, execution2Bounds.getCenter());
+		fixture.applyEdgeCreationToolFromPalette("CR_Asynchronous_Operation", diagramRepresentation, lifeline1DRep, execution2Rep, execution2messageStartPoint, execution2Bounds.getCenter());
 		fixture.flushDisplayEvents();// it is required ?
 
 		
@@ -127,7 +127,7 @@ public class DummyTest {
 		Point combinedFStart = lifeLine1.getProperLogicalBounds().getTopLeft();
 		Point combinedEnd = endOfExecution.getBottomRight();
 		Dimension cfSize = new Dimension(combinedEnd.x - combinedFStart.x , combinedEnd.y - combinedFStart.y);
-		fixture.applyNodeCreationToolFromPalette("CombinedFragment", diagramRespresentation, diagramRespresentation, combinedFStart, cfSize);
+		fixture.applyNodeCreationToolFromPalette("CombinedFragment", diagramRepresentation, diagramRepresentation, combinedFStart, cfSize);
 		fixture.flushDisplayEvents();// it is required ?
 
 		fixture.save();

@@ -67,7 +67,7 @@ public class Node_Comment_CreationTest {
 		Assert.assertEquals("The interaction element does not contain any Comment element", 0, interactionElem.getOwnedComments().size());
 		
 		// Compute the Comment position 
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();		
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();		
 		List<View> lifeLines = SequenceDiagramTestsTool.getView(fixture, Lifeline.viewpointElementPredicate());
 		Assert.assertEquals("The diagram must contain one lifeline", 1, lifeLines.size());
 		Lifeline lifeLine = ISequenceElementAccessor.getLifeline(lifeLines.get(0)).get();
@@ -76,7 +76,7 @@ public class Node_Comment_CreationTest {
     	Point commentPosition = lifelineEditPart.getFigure().getBounds().getTop().translate(75, 115);
 		
 		// Create the Comment 
-		fixture.applyNodeCreationToolFromPalette("Comment", diagramRespresentation, diagramRespresentation, commentPosition, new Dimension(80,50));
+		fixture.applyNodeCreationToolFromPalette("Comment", diagramRepresentation, diagramRepresentation, commentPosition, new Dimension(80,50));
 		fixture.flushDisplayEvents();	
 		
 		Assert.assertEquals("The diagram contains one additional element after creating a top node", nbDiagramChild + 1, diagram.getChildren().size());

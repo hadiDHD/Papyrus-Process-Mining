@@ -75,7 +75,7 @@ public class Node_InteractionOperand_CreationTest {
 		Assert.assertEquals("The combinedFragment conatins only one InteractionOperand by default before the creation of an InteractionOperand node", operandsSize, operands.size());
 		
 		// get the position of the InteractinOperand to be created
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();		
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();		
 		Object interactionOperandContainer =  diagram.getChildren().get(1);
 		org.eclipse.sirius.diagram.sequence.business.internal.elements.CombinedFragment cf = ISequenceElementAccessor.getCombinedFragment((View) interactionOperandContainer).get();
 		EdgeTarget cfDRep = (EdgeTarget)cf.getNotationNode().getElement();
@@ -83,7 +83,7 @@ public class Node_InteractionOperand_CreationTest {
     	Point interOperandPosition = cfEditPart.getFigure().getBounds().getTop().translate(0, 15);
 
 		// create the first InteractionOperand fragment
-		fixture.applyNodeCreationToolFromPalette("Interaction Operand", diagramRespresentation, cfDRep, interOperandPosition, null);
+		fixture.applyNodeCreationToolFromPalette("Interaction Operand", diagramRepresentation, cfDRep, interOperandPosition, null);
 		fixture.flushDisplayEvents();
 		
 		Assert.assertEquals("The diagram does not contain any additional element after creating an InteractionOperand sub node", nbDiagramChild, diagram.getChildren().size());
@@ -124,7 +124,7 @@ public class Node_InteractionOperand_CreationTest {
 		operandsSize = operands.size();
 
 		// create the second InteractionOperand fragment
-		fixture.applyNodeCreationToolFromPalette("Interaction Operand", diagramRespresentation, cfDRep, interOperandPosition, null);
+		fixture.applyNodeCreationToolFromPalette("Interaction Operand", diagramRepresentation, cfDRep, interOperandPosition, null);
 		fixture.flushDisplayEvents();
 		
 		Assert.assertEquals("The diagram does not contain any additional element after creating a second InteractionOperand node", nbDiagramChild, diagram.getChildren().size());

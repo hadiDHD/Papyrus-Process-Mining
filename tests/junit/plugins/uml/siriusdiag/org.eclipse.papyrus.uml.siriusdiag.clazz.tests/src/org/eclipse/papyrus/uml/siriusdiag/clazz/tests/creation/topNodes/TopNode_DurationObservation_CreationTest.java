@@ -53,11 +53,10 @@ public class TopNode_DurationObservation_CreationTest extends AbstractPapyrusTes
 		DiagramEditPart diagramEditpart = fixture.getActiveDiagram();
 		Assert.assertNotNull("The diagram edit part has not been found", diagramEditpart);
 		Diagram diagram = diagramEditpart.getDiagramView();
-		System.err.println(DIAGRAM_NAME + " ==? " + diagram.getName());
 		Assert.assertEquals("The diagram must be empty before creating the top node", 0, diagram.getChildren().size());
 
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();
-		fixture.applyContainerCreationTool("Duration Observation", diagramRespresentation, diagramRespresentation);
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
+		fixture.applyContainerCreationTool("Duration Observation", diagramRepresentation, diagramRepresentation);
 		fixture.flushDisplayEvents();// it is required ?
 
 		Assert.assertEquals("The diagram must contain one element after creating a top node", 1, diagram.getChildren().size());

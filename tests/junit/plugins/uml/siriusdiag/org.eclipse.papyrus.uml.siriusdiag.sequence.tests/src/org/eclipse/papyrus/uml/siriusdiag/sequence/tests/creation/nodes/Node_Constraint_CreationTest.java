@@ -67,7 +67,7 @@ public class Node_Constraint_CreationTest {
 		Assert.assertEquals("The interaction element does not contain any Constraint element", 0, interactionElem.getOwnedRules().size());
 
 		// Compute the Constraint position 
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();		
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();		
 		List<View> lifeLines = SequenceDiagramTestsTool.getView(fixture, Lifeline.viewpointElementPredicate());
 		Assert.assertEquals("The diagram must contain one lifeline", 1, lifeLines.size());
 		Lifeline lifeLine = ISequenceElementAccessor.getLifeline(lifeLines.get(0)).get();
@@ -76,7 +76,7 @@ public class Node_Constraint_CreationTest {
     	Point constraintPosition = lifelineEditPart.getFigure().getBounds().getTop().translate(5, 15);
 		
 		// Create the Constraint 
-		fixture.applyNodeCreationToolFromPalette("Constraint", diagramRespresentation, diagramRespresentation, constraintPosition, new Dimension(150,80));
+		fixture.applyNodeCreationToolFromPalette("Constraint", diagramRepresentation, diagramRepresentation, constraintPosition, new Dimension(150,80));
 		fixture.flushDisplayEvents();	
 		
 		Assert.assertEquals("The diagram contains one additional element after creating a top node", nbDiagramChild + 1, diagram.getChildren().size());

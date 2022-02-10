@@ -80,14 +80,14 @@ public class Node_CombinedFragment_CreationTest {
 		Assert.assertEquals("The interaction element does not conatin any fragment before the creation of the CombinedFragment", 0, fragmentsSize);
 
 		// get the position/size of the CombinedFragment to be created
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();		
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();		
 		List<View> lifeLines = SequenceDiagramTestsTool.getView(fixture, Lifeline.viewpointElementPredicate());
 		Lifeline lifeLine = ISequenceElementAccessor.getLifeline(lifeLines.get(0)).get();
 		EdgeTarget lifelineDRep = (EdgeTarget)lifeLine.getNotationNode().getElement();
 		Point cfStartPosition = lifeLine.getProperLogicalBounds().getTopLeft().translate(0,15);
 		
 		// create the combined fragment
-		fixture.applyNodeCreationToolFromPalette("CombinedFragment", diagramRespresentation, diagramRespresentation, cfStartPosition, new Dimension(120,80));
+		fixture.applyNodeCreationToolFromPalette("CombinedFragment", diagramRepresentation, diagramRepresentation, cfStartPosition, new Dimension(120,80));
 		fixture.flushDisplayEvents();
 		
 		Assert.assertEquals("The diagram contains one additional element after creating a CombinedFragment node", nbDiagramChild + 1, diagram.getChildren().size());

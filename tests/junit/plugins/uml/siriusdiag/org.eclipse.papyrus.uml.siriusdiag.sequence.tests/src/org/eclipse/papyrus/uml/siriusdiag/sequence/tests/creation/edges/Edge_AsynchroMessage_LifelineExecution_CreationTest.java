@@ -90,7 +90,7 @@ public class Edge_AsynchroMessage_LifelineExecution_CreationTest {
 		Assert.assertEquals("The interaction element does not contain any fragment", 0, fragmentsSize);
 
 		// Compute the execution position 
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();		
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();		
 		List<View> lifeLines = SequenceDiagramTestsTool.getView(fixture, Lifeline.viewpointElementPredicate());
 		Assert.assertEquals("The diagram must contain two lifelines", 2, lifeLines.size());
 		Lifeline firstLifeLine = ISequenceElementAccessor.getLifeline(lifeLines.get(0)).get();
@@ -101,7 +101,7 @@ public class Edge_AsynchroMessage_LifelineExecution_CreationTest {
     	Point executionPosition = firstLifelineEditPart.getFigure().getBounds().getTop().translate(0, 15);
 		
 		// 1. Create the execution on the second lifeline
-		fixture.applyNodeCreationToolFromPalette("Behavior Execution Specification", diagramRespresentation, secondLifelineDRep, executionPosition, null);
+		fixture.applyNodeCreationToolFromPalette("Behavior Execution Specification", diagramRepresentation, secondLifelineDRep, executionPosition, null);
 		fixture.flushDisplayEvents();	
 		
 		Assert.assertEquals("The diagram contains two additional elements after creating a BehaviorExecution node", nbDiagramChild + 2, diagram.getChildren().size());
@@ -147,7 +147,7 @@ public class Edge_AsynchroMessage_LifelineExecution_CreationTest {
 		
         // Create the message
 		EdgeTarget executionRep = (EdgeTarget) execution.getNotationView().getElement();
-		fixture.applyEdgeCreationToolFromPalette("CR_Asynchronous_Operation", diagramRespresentation, firstLifelineDRep, executionRep, executionMessageStartPoint, executionBounds.getCenter());
+		fixture.applyEdgeCreationToolFromPalette("CR_Asynchronous_Operation", diagramRepresentation, firstLifelineDRep, executionRep, executionMessageStartPoint, executionBounds.getCenter());
 		fixture.flushDisplayEvents();
 		
 		Assert.assertEquals("The diagram must contain one additional edge", nbEdges + 1, diagram.getEdges().size());		

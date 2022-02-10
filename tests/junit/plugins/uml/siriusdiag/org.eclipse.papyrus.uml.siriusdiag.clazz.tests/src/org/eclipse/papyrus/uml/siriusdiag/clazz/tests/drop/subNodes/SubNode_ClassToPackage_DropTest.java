@@ -66,9 +66,9 @@ public class SubNode_ClassToPackage_DropTest extends AbstractPapyrusTest {
 
 		Assert.assertEquals("The diagram must contain the parent Package elment", 1, diagram.getChildren().size());
 
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
 
-		fixture.applyContainerDropDescriptionTool(diagramRespresentation, "Class from Model", container, elementToBeDropped);
+		fixture.applyContainerDropDescriptionTool(diagramRepresentation, "Class from Model", container, elementToBeDropped);
 		fixture.flushDisplayEvents();
 
 		packageElement = diagram.getChildren().get(0);

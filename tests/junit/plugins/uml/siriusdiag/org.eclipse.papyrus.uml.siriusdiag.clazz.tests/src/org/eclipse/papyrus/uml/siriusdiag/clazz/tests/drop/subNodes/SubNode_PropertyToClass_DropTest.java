@@ -59,8 +59,8 @@ public class SubNode_PropertyToClass_DropTest extends AbstractPapyrusTest {
 		DNodeContainerSpec classRepresentation = (DNodeContainerSpec) ((View) classElement).getElement();
 		DNodeListSpec propertyContainer = (DNodeListSpec) classRepresentation.getOwnedDiagramElements().get(1);
 		NamedElement elementToBeDropped = ((Class) classRepresentation.getTarget()).getOwnedAttributes().get(0);
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();
-		fixture.applyContainerDropDescriptionTool(diagramRespresentation, "Attributes or Operations from Model", propertyContainer, elementToBeDropped);
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
+		fixture.applyContainerDropDescriptionTool(diagramRepresentation, "Attributes or Operations from Model", propertyContainer, elementToBeDropped);
 		fixture.flushDisplayEvents();
 
 		classElement = diagram.getChildren().get(0);

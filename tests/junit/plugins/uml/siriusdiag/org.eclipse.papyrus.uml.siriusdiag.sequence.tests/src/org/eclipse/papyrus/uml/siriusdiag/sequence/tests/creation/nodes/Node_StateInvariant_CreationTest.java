@@ -66,7 +66,7 @@ public class Node_StateInvariant_CreationTest {
 		Assert.assertEquals("The root model contains one interaction element", 1, fixture.getModel().getOwnedElements().size());
 
 		// Compute the StateInvariant position 
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();		
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();		
 		List<View> lifeLines = SequenceDiagramTestsTool.getView(fixture, Lifeline.viewpointElementPredicate());
 		Assert.assertEquals("The diagram must contain one Lifeline", 1, lifeLines.size());
 		Lifeline lifeLine = ISequenceElementAccessor.getLifeline(lifeLines.get(0)).get();
@@ -75,7 +75,7 @@ public class Node_StateInvariant_CreationTest {
     	Point statePosition = lifelineEditPart.getFigure().getBounds().getTop().translate(0, 15);
 		
 		// Create the StateInvariant on the lifeline
-		fixture.applyNodeCreationToolFromPalette("State Invariant", diagramRespresentation, lifelineDRep, statePosition, null);
+		fixture.applyNodeCreationToolFromPalette("State Invariant", diagramRepresentation, lifelineDRep, statePosition, null);
 		fixture.flushDisplayEvents();	
 		
 		Assert.assertEquals("The diagram does not contain any additional element after the creation of a StateInvariant node", nbDiagramChild , diagram.getChildren().size());

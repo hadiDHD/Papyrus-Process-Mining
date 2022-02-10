@@ -56,10 +56,9 @@ public class Edge_GeneralizationSet_CreationTest extends AbstractPapyrusTest {
 		int nbElement = diagram.getChildren().size();
 		int nbEdge = diagram.getEdges().size();
 
-		System.err.println(DIAGRAM_NAME + " ==? " + diagram.getName());
 		Assert.assertEquals("The diagram must have at least two Generalization edges before creating the GeneralizationSet edge", nbEdge, diagram.getEdges().size());
 
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
 
 		// get the source of the GeneralizationSet edge (source = one of the Generalization edge)
 		EdgeTarget edgeSource = (EdgeTarget) ((View) diagram.getEdges().get(0)).getElement();
@@ -67,7 +66,7 @@ public class Edge_GeneralizationSet_CreationTest extends AbstractPapyrusTest {
 		// get the target of the GeneralizationSet edge (target = the other Generalization edge)
 		EdgeTarget edgeTarget = (EdgeTarget) ((View) diagram.getEdges().get(1)).getElement();
 
-		fixture.applyEdgeCreationTool("Generalization Set", diagramRespresentation, edgeSource, edgeTarget);
+		fixture.applyEdgeCreationTool("Generalization Set", diagramRepresentation, edgeSource, edgeTarget);
 		fixture.flushDisplayEvents();
 
 		Assert.assertEquals("The diagram must contain one additional edge after creating an Edge", nbEdge + 1, diagram.getEdges().size());

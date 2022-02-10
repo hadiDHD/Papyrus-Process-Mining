@@ -70,7 +70,7 @@ public class Edge_DurationConstraint_CreationTest {
 		Assert.assertEquals("The root element contains only the interaction element", nbElement, fixture.getModel().getOwnedElements().size());		
 
         // Create a DurationConstraint between the two Action executions
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
 		List<View> actionExecutions = SequenceDiagramTestsTool.getView(fixture, Execution.viewpointElementPredicate());
 		Execution firstExecution = ISequenceElementAccessor.getExecution(actionExecutions.get(0)).get();
 		Execution secondExecution = ISequenceElementAccessor.getExecution(actionExecutions.get(1)).get();
@@ -81,7 +81,7 @@ public class Edge_DurationConstraint_CreationTest {
 		IGraphicalEditPart secondExecutionEditPart = (IGraphicalEditPart)  fixture.findEditPart(secondExecutionDRep);
 		Point startConnectionPoint = firstExecutionEditPart.getFigure().getBounds().getTop().translate(0, 15);
 		Point endConnectionPoint = secondExecutionEditPart.getFigure().getBounds().getTop().translate(0, 15);		
-		fixture.applyEdgeCreationToolFromPalette("Duration Constraint", diagramRespresentation, firstExecutionDRep, secondExecutionDRep, startConnectionPoint, endConnectionPoint);
+		fixture.applyEdgeCreationToolFromPalette("Duration Constraint", diagramRepresentation, firstExecutionDRep, secondExecutionDRep, startConnectionPoint, endConnectionPoint);
 		fixture.flushDisplayEvents();
 		
 		Assert.assertEquals("The diagram must contain one edge after creating a DurationConstraint", nbEdges + 1, diagram.getEdges().size());	

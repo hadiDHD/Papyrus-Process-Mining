@@ -75,7 +75,7 @@ public class Edge_MessageFound_CreationTest {
 		Assert.assertEquals("The diagram does not contain any edge", 0, diagram.getEdges().size());		
 
         // Create a MessageFound
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
 		List<View> lifeLines = SequenceDiagramTestsTool.getView(fixture, Lifeline.viewpointElementPredicate());
 		Assert.assertEquals("The diagram must contain one Lifeline before creating a MessageFound", 1, lifeLines.size());
 		Lifeline lifeLine = ISequenceElementAccessor.getLifeline(lifeLines.get(0)).get();
@@ -84,7 +84,7 @@ public class Edge_MessageFound_CreationTest {
 		IGraphicalEditPart lifelineEditPart = (IGraphicalEditPart) fixture.findEditPart(lifeLineDRep);
 		Point messageAbsoluteStartConnectionPoint = lifelineEditPart.getFigure().getBounds().getBottomLeft().translate(0, 15);
 
-		fixture.applyNodeCreationToolFromPalette("Message Found", diagramRespresentation, lifeLineDRep, messageAbsoluteStartConnectionPoint, null);
+		fixture.applyNodeCreationToolFromPalette("Message Found", diagramRepresentation, lifeLineDRep, messageAbsoluteStartConnectionPoint, null);
 		fixture.flushDisplayEvents();
 		
 		Assert.assertEquals("The diagram must contain one additional edge after the creation of a MessageFound", nbEdges + 1 , diagram.getEdges().size());		

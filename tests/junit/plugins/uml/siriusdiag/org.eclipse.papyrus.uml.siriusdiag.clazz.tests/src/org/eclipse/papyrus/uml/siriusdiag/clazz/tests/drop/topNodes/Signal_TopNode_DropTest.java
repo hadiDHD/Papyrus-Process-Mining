@@ -57,8 +57,8 @@ public class Signal_TopNode_DropTest extends AbstractPapyrusTest {
 		Diagram diagram = diagramEditpart.getDiagramView();
 		Assert.assertEquals("The diagram must not yet have children", 0, diagram.getChildren().size());
 
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();
-		fixture.applyContainerDropDescriptionTool(diagramRespresentation, "Signal from Model", diagramRespresentation, elementToBeDropped);
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
+		fixture.applyContainerDropDescriptionTool(diagramRepresentation, "Signal from Model", diagramRepresentation, elementToBeDropped);
 		fixture.flushDisplayEvents();
 
 		Assert.assertEquals("The diagram must have one child after the Drop action", 1, diagram.getChildren().size());

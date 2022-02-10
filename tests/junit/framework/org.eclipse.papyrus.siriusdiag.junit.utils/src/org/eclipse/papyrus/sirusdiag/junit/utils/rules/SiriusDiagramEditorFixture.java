@@ -2532,7 +2532,7 @@ public class SiriusDiagramEditorFixture extends AbstractModelFixture<Transaction
 
 	/**
 	 * @param string
-	 * @param diagramRespresentation
+	 * @param diagramRepresentation
 	 * @param element
 	 * @param element2
 	 * @param absoluteEndPoint

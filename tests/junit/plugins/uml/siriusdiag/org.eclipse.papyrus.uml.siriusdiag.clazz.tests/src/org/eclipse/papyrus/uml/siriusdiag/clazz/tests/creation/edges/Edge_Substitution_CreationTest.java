@@ -56,14 +56,13 @@ public class Edge_Substitution_CreationTest extends AbstractPapyrusTest {
 		int nbElement = diagram.getChildren().size();
 		int nbEdge = diagram.getEdges().size();
 
-		System.err.println(DIAGRAM_NAME + " ==? " + diagram.getName());
 		Assert.assertEquals("The diagram must have the source and the target elements of the edge before creating it", nbElement, diagram.getChildren().size());
 		Assert.assertEquals("The diagram have no edge before creating an Edge", nbEdge, diagram.getEdges().size());
 
-		DDiagram diagramRespresentation = (DDiagram) diagram.getElement();
+		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
 		EdgeTarget edgeSource = (EdgeTarget) ((View) diagram.getChildren().get(0)).getElement();
 		EdgeTarget edgeTarget = (EdgeTarget) ((View) diagram.getChildren().get(1)).getElement();
-		fixture.applyEdgeCreationTool("Substitution", diagramRespresentation, edgeSource, edgeTarget);
+		fixture.applyEdgeCreationTool("Substitution", diagramRepresentation, edgeSource, edgeTarget);
 		fixture.flushDisplayEvents();
 
 		Assert.assertEquals("The diagram must contain one additional edge after creating an Edge", nbEdge + 1, diagram.getEdges().size());
