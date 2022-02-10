@@ -121,27 +121,27 @@
         <semanticElements xmi:type="uml:Interface" href="Edge_InformationFlow_DeleteSemanticTest.uml#_u0i-0CdwEey4evd-scEcsg"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" uid="_wbluETcnEey1v5ZgfkSlPg"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_wblHAzcnEey1v5ZgfkSlPg" labelSize="9" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,209,213">
-          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_Operation']/@style"/>
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_InterfaceOperationsCompartment']/@style"/>
         </ownedStyle>
-        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_Operation']"/>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_InterfaceOperationsCompartment']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_wbluEjcnEey1v5ZgfkSlPg" name="EdgeTarget">
         <target xmi:type="uml:Interface" href="Edge_InformationFlow_DeleteSemanticTest.uml#_u0i-0CdwEey4evd-scEcsg"/>
         <semanticElements xmi:type="uml:Interface" href="Edge_InformationFlow_DeleteSemanticTest.uml#_u0i-0CdwEey4evd-scEcsg"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" uid="_wbmVIDcnEey1v5ZgfkSlPg"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_wbluEzcnEey1v5ZgfkSlPg" labelSize="9" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,209,213">
-          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_Attribute']/@style"/>
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_InterfaceAttributesCompartment']/@style"/>
         </ownedStyle>
-        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_Attribute']"/>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_InterfaceAttributesCompartment']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_wbmVITcnEey1v5ZgfkSlPg" name="EdgeTarget">
         <target xmi:type="uml:Interface" href="Edge_InformationFlow_DeleteSemanticTest.uml#_u0i-0CdwEey4evd-scEcsg"/>
         <semanticElements xmi:type="uml:Interface" href="Edge_InformationFlow_DeleteSemanticTest.uml#_u0i-0CdwEey4evd-scEcsg"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" uid="_wbmVJDcnEey1v5ZgfkSlPg"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_wbmVIjcnEey1v5ZgfkSlPg" labelSize="9" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,209,213">
-          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_InterfaceDataTypes']/@style"/>
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_InterfaceNestedClassifiersCompartment']/@style"/>
         </ownedStyle>
-        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_InterfaceDataTypes']"/>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@subContainerMappings[name='CD_InterfaceNestedClassifiersCompartment']"/>
       </ownedDiagramElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_wcNZIDcnEey1v5ZgfkSlPg" sourceNode="_rGyzoDcnEey1v5ZgfkSlPg" targetNode="_wbg1kDcnEey1v5ZgfkSlPg">
