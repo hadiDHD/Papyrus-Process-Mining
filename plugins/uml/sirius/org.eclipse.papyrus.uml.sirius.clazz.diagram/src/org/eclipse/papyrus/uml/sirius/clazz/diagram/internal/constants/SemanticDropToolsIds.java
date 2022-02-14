@@ -25,4 +25,8 @@ public class SemanticDropToolsIds {
 	public static final String DROP_DATATYPE_TOOL = "SemanticDataTypeDrop"; //$NON-NLS-1$
 	
 	public static final String DROP_ENUMERATION_TOOL = "SemanticEnumerationDrop"; //$NON-NLS-1$
+	
+	public static final String DROP_PRIMITIVETYPE_TOOL = "SemanticPrimitiveTypeDrop"; //$NON-NLS-1$
+	
+	
 }
