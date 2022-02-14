@@ -30,14 +30,16 @@ public class MappingTypes {
 
 	public static final String CLASS_NODE_NESTED_CLASSIFIERS_COMPARTMENT_TYPE = "CD_ClassNestedClassifiersCompartment"; //$NON-NLS-1$
 
+	public static final String DATATYPE_LABEL_NODE_TYPE = "CD_DataTypeLabelNode"; //$NON-NLS-1$
+	
+	public static final String DATATYPE_NODE_TYPE = "CD_DataType"; //$NON-NLS-1$
+	
 	public static final String ENUMERATION_LABEL_NODE_TYPE = "CD_EnumerationLabelNode"; //$NON-NLS-1$
 
 	public static final String ENUMERATION_NODE_TYPE = "CD_Enumeration"; //$NON-NLS-1$
 	
 	// TODO remove me after created a common type for operation in class, in interface, ...
 	public static final String CLASS_NODE_OWNED_OPERATION_TYPE = "CD_ClassOperation"; //$NON-NLS-1$
-
-
 
 	public static final String INTERFACE_NODE_TYPE = "CD_Interface"; //$NON-NLS-1$
 

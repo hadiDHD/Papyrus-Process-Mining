@@ -20,6 +20,7 @@ import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.CreationToolsIds;
 import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.MappingTypes;
 import org.eclipse.sirius.diagram.DDiagramElement;
+import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.Operation;
 import org.junit.Assert;
@@ -44,6 +45,15 @@ public class ClassSubNodes_CreationTest extends AbstractSubNodeListElementCreati
 	protected org.eclipse.uml2.uml.Class getSemanticOwner() {
 		return (org.eclipse.uml2.uml.Class) this.root.getMember(SEMANTIC_ONWER_NAME);
 	}
+
+	@Test
+	@ActiveDiagram(DIAGRAM_NAME)
+	public void createDataTypeLabelNodeTest() {
+		final DDiagramElement createdElement = createClassSubNode(MappingTypes.CLASS_NODE_NESTED_CLASSIFIERS_COMPARTMENT_TYPE, CreationToolsIds.CREATE_DATATYPE_TOOL, MappingTypes.DATATYPE_LABEL_NODE_TYPE);
+		final EObject semantic = createdElement.getSemanticElements().get(0);
+		Assert.assertTrue(NLS.bind("The created element must be a DataType instead of a {0}.", semantic.eClass().getName()),semantic instanceof DataType); //$NON-NLS-1$
+		Assert.assertTrue("The created element is not owned by the expected feature", this.semanticOwner.getNestedClassifiers().contains(semantic)); //$NON-NLS-1$
+	}
 	
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME)
@@ -53,7 +63,7 @@ public class ClassSubNodes_CreationTest extends AbstractSubNodeListElementCreati
 		Assert.assertTrue(NLS.bind("The created element must be an Enumeration instead of a {0}.", semantic.eClass().getName()),semantic instanceof Enumeration); //$NON-NLS-1$
 		Assert.assertTrue("The created element is not owned by the expected feature", this.semanticOwner.getNestedClassifiers().contains(semantic)); //$NON-NLS-1$
 	}
-
+	
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME)
 	public void createOperationLabelNodeTest() {
@@ -62,6 +72,5 @@ public class ClassSubNodes_CreationTest extends AbstractSubNodeListElementCreati
 		Assert.assertTrue(NLS.bind("The created element must be an Operation instead of a {0}.", semantic.eClass().getName()),semantic instanceof Operation); //$NON-NLS-1$
 		Assert.assertTrue("The created element is not owned by the expected feature", this.semanticOwner.getOwnedOperations().contains(semantic)); //$NON-NLS-1$
 	}
-
 }
 
