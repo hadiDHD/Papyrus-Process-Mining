@@ -48,4 +48,6 @@ public class MappingTypes {
 	public static final String INTERFACE_NODE_OPERATIONS_COMPARTMENT_TYPE = "CD_InterfaceOperationsCompartment"; //$NON-NLS-1$
 
 	public static final String INTERFACE_NODE_NESTED_CLASSIFIERS_COMPARTMENT_TYPE = "CD_InterfaceNestedClassifiersCompartment"; //$NON-NLS-1$
+	
+	public static final String PRIMITIVETYPE_LABEL_NODE_TYPE = "CD_PrimitiveTypeLabelNode";  //$NON-NLS-1$
 }

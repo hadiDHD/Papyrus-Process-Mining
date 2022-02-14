@@ -23,6 +23,7 @@ import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.Operation;
+import org.eclipse.uml2.uml.PrimitiveType;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -45,6 +46,15 @@ public class ClassSubNodes_CreationTest extends AbstractSubNodeListElementCreati
 	protected org.eclipse.uml2.uml.Class getSemanticOwner() {
 		return (org.eclipse.uml2.uml.Class) this.root.getMember(SEMANTIC_ONWER_NAME);
 	}
+	
+	@Test
+	@ActiveDiagram(DIAGRAM_NAME)
+	public void createOperationLabelNodeTest() {
+		final DDiagramElement createdElement = createClassSubNode(MappingTypes.CLASS_NODE_OPERATIONS_COMPARTMENT_TYPE, CreationToolsIds.CREATE_OPERATION_TOOL, MappingTypes.CLASS_NODE_OWNED_OPERATION_TYPE);
+		final EObject semantic = createdElement.getSemanticElements().get(0);
+		Assert.assertTrue(NLS.bind("The created element must be an Operation instead of a {0}.", semantic.eClass().getName()),semantic instanceof Operation); //$NON-NLS-1$
+		Assert.assertTrue("The created element is not owned by the expected feature", this.semanticOwner.getOwnedOperations().contains(semantic)); //$NON-NLS-1$
+	}
 
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME)
@@ -66,11 +76,12 @@ public class ClassSubNodes_CreationTest extends AbstractSubNodeListElementCreati
 	
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME)
-	public void createOperationLabelNodeTest() {
-		final DDiagramElement createdElement = createClassSubNode(MappingTypes.CLASS_NODE_OPERATIONS_COMPARTMENT_TYPE, CreationToolsIds.CREATE_OPERATION_TOOL, MappingTypes.CLASS_NODE_OWNED_OPERATION_TYPE);
+	public void createPrimitiveTypeLabelNodeTest() {
+		final DDiagramElement createdElement = createClassSubNode(MappingTypes.CLASS_NODE_NESTED_CLASSIFIERS_COMPARTMENT_TYPE, CreationToolsIds.CREATE_PRIMITIVETYPE_TOOL, MappingTypes.PRIMITIVETYPE_LABEL_NODE_TYPE);
 		final EObject semantic = createdElement.getSemanticElements().get(0);
-		Assert.assertTrue(NLS.bind("The created element must be an Operation instead of a {0}.", semantic.eClass().getName()),semantic instanceof Operation); //$NON-NLS-1$
-		Assert.assertTrue("The created element is not owned by the expected feature", this.semanticOwner.getOwnedOperations().contains(semantic)); //$NON-NLS-1$
+		Assert.assertTrue(NLS.bind("The created element must be an PrimitiveType instead of a {0}.", semantic.eClass().getName()),semantic instanceof PrimitiveType); //$NON-NLS-1$
+		Assert.assertTrue("The created element is not owned by the expected feature", this.semanticOwner.getNestedClassifiers().contains(semantic)); //$NON-NLS-1$
 	}
+	
 }
 
