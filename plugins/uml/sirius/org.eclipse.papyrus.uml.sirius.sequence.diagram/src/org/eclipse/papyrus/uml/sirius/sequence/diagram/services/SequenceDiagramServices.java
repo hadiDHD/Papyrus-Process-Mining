@@ -24,6 +24,7 @@ import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.AbstractDiagr
 import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.LabelServices;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.description.style.Side;
+import org.eclipse.sirius.diagram.sequence.SequenceDDiagram;
 import org.eclipse.sirius.diagram.sequence.ordering.EventEnd;
 import org.eclipse.sirius.diagram.sequence.ordering.SingleEventEnd;
 import org.eclipse.sirius.diagram.ui.business.api.view.SiriusGMFHelper;
@@ -890,6 +891,17 @@ public class SequenceDiagramServices extends AbstractDiagramServices {
 		reorderService.reorderNewCombinedFragment(object, startingEndPredecessor, finishingEndPredecessor, instance);
 	}
 
+	/**
+	 * Choose the context of combined fragment creation.
+	 *
+	 * @param context
+	 *            the context
+	 */
+	public EObject chooseContext(EObject context) {
+		if (context instanceof SequenceDDiagram)
+			return ((SequenceDDiagram) context).getTarget();
+		return context;
+	}
 
 	/**
 	 * Reorder lifeline horizontally.

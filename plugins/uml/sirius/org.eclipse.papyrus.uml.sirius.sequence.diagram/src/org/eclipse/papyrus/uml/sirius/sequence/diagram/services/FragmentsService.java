@@ -497,7 +497,9 @@ public class FragmentsService {
 		fragmentToUpdate.clear();
 		for (EObject interactionFragment : fragments) {
 			if (interactionFragment instanceof InteractionFragment) {
-				fragmentToUpdate.add((InteractionFragment) interactionFragment);
+				if (enclosingFragment.eContainer() != interactionFragment) {
+					fragmentToUpdate.add((InteractionFragment) interactionFragment);
+				}
 			}
 		}
 	}

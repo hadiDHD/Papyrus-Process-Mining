@@ -202,7 +202,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings xsi:type="description_1:CombinedFragmentMapping" name="SD_CombinedFragment" label="Combined Fragment" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:fragment" synchronizationLock="true" domainClass="uml.CombinedFragment" dropDescriptions="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" startingEndFinderExpression="aql:self.getStart()" finishingEndFinderExpression="aql:self.getFinish()" coveredLifelinesExpression="feature:covered">
+        <containerMappings xsi:type="description_1:CombinedFragmentMapping" name="SD_CombinedFragment" label="Combined Fragment" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="aql:self.eAllContents()->filter(uml::CombinedFragment)" synchronizationLock="true" domainClass="uml.CombinedFragment" dropDescriptions="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" startingEndFinderExpression="aql:self.getStart()" finishingEndFinderExpression="aql:self.getFinish()" coveredLifelinesExpression="feature:covered">
           <borderedNodeMappings name="GateBorder" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:cfragmentGate" domainClass="Gate">
             <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="2" height="2" color="//@userColorsPalettes[name='UMLPalette']/@entries[name='Execution%20Color']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -429,26 +429,28 @@
             <startingEndPredecessor name="startingEndPredecessor"/>
             <finishingEndPredecessor name="finishingEndPredecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:CombinedFragmentCreationTool" name="CombinedFragment" forceRefresh="true" containerMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']">
+          <ownedTools xsi:type="tool:CombinedFragmentCreationTool" name="CombinedFragment" forceRefresh="true" containerMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@subContainerMappings[name='SD_Operand']">
             <variable name="variable"/>
             <viewVariable name="viewVariable"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.econtainer()">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.CombinedFragment" referenceName="fragment" variableName="fragment">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="covered" valueExpression="var:coveredLifelines"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createEAnnotations"/>
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.InteractionOperand" referenceName="operand" variableName="operand">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:viewVariable">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:chooseContext">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.CombinedFragment" referenceName="fragment" variableName="fragment">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="covered" valueExpression="var:coveredLifelines"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createEAnnotations"/>
-                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:manageOperandFragment(startingEndPredecessor,finishingEndPredecessor)"/>
-                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.InteractionConstraint" referenceName="guard" variableName="guard">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.InteractionOperand" referenceName="operand" variableName="operand">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="covered" valueExpression="var:coveredLifelines"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createEAnnotations"/>
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:manageOperandFragment(startingEndPredecessor,finishingEndPredecessor)"/>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.InteractionConstraint" referenceName="guard" variableName="guard">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                      </subModelOperations>
                     </subModelOperations>
                   </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.reorderNewCombinedFragment(startingEndPredecessor,finishingEndPredecessor,fragment)"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.reorderNewCombinedFragment(startingEndPredecessor,finishingEndPredecessor,fragment)"/>
               </firstModelOperations>
             </initialOperation>
             <startingEndPredecessor name="startingEndPredecessor"/>

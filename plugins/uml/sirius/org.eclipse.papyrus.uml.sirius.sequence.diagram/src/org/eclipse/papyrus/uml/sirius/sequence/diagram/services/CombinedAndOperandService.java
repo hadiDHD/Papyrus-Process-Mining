@@ -23,10 +23,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.sirius.diagram.sequence.ordering.EventEnd;
 import org.eclipse.uml2.uml.CombinedFragment;
-import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Interaction;
 import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.InteractionOperand;
+import org.eclipse.uml2.uml.Lifeline;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.OccurrenceSpecification;
 
@@ -140,26 +140,33 @@ public class CombinedAndOperandService {
 	/**
 	 * Manage operand fragment.
 	 *
-	 * @param context
-	 *            the context
-	 * @param startingEndPredecessor
-	 *            the starting end predecessor
-	 * @param finishingEndPredecessor
-	 *            the finishing end predecessor
+	 * @param context                 the context
+	 * @param startingEndPredecessor  the starting end predecessor
+	 * @param finishingEndPredecessor the finishing end predecessor
 	 */
-	public void manageOperandFragment(EObject context, EventEnd startingEndPredecessor, EventEnd finishingEndPredecessor) {
-		Element startingEndPredecessorSemanticEnd = null;
+	public void manageOperandFragment(EObject context, EventEnd startingEndPredecessor,
+			EventEnd finishingEndPredecessor) {
+		EObject startingEndPredecessorSemanticEnd = null;
 		if (startingEndPredecessor != null) {
-			startingEndPredecessorSemanticEnd = (Element) startingEndPredecessor.getSemanticEnd();
+			startingEndPredecessorSemanticEnd = (EObject) startingEndPredecessor.getSemanticEnd();
 		}
-		Element finishingEndPredecessorSemanticEnd = null;
+		EObject finishingEndPredecessorSemanticEnd = null;
 		if (finishingEndPredecessor != null) {
-			finishingEndPredecessorSemanticEnd = (Element) finishingEndPredecessor.getSemanticEnd();
+			finishingEndPredecessorSemanticEnd = (EObject) finishingEndPredecessor.getSemanticEnd();
 		}
 		if (context instanceof InteractionOperand) {
-			Interaction interaction = ((OccurrenceSpecification) finishingEndPredecessorSemanticEnd).getEnclosingInteraction();
-			List<EObject> fragments = FragmentsService.getInstance().getFragmentsAndAnnotation(interaction);
-			int fromIndex = startingEndPredecessorSemanticEnd != null ? fragments.indexOf(startingEndPredecessorSemanticEnd) + 1 : 0;
+			InteractionFragment interactionFragment = null;
+			if (finishingEndPredecessorSemanticEnd instanceof OccurrenceSpecification) {
+				interactionFragment = ((OccurrenceSpecification) finishingEndPredecessorSemanticEnd).getEnclosingInteraction();
+			} else {
+				if (finishingEndPredecessorSemanticEnd instanceof EAnnotation) {
+					interactionFragment  = (InteractionOperand) context;
+				}
+			}
+			List<EObject> fragments = FragmentsService.getInstance().getFragmentsAndAnnotation(interactionFragment);
+			int fromIndex = startingEndPredecessorSemanticEnd != null
+					? fragments.indexOf(startingEndPredecessorSemanticEnd) + 1
+					: 0;
 			int toIndex = fragments.indexOf(finishingEndPredecessorSemanticEnd);
 			List<EObject> subList = new ArrayList<>(fragments.subList(fromIndex, toIndex + 1));
 			fragments.removeAll(subList);
@@ -169,8 +176,6 @@ public class CombinedAndOperandService {
 				}
 			}
 		}
-
 	}
-
 
 }
