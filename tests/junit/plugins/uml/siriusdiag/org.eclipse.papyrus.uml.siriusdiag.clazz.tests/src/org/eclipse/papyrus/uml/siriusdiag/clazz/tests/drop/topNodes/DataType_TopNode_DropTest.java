@@ -13,67 +13,29 @@
  *****************************************************************************/
 package org.eclipse.papyrus.uml.siriusdiag.clazz.tests.drop.topNodes;
 
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
-import org.eclipse.gmf.runtime.notation.Diagram;
-import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
-import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
-import org.eclipse.sirius.diagram.DDiagram;
-import org.eclipse.sirius.diagram.DNodeList;
-import org.eclipse.uml2.uml.Model;
+import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.MappingTypes;
+import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.SemanticDropToolsIds;
+import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.NamedElement;
 import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.Test;
 
 /**
- * Drop Class test
+ * DataType Class test
  */
 @PluginResource("resources/drop/topNode/TopNode_DropTest.di")
-@SuppressWarnings("nls")
-public class DataType_TopNode_DropTest extends AbstractPapyrusTest {
+public class DataType_TopNode_DropTest extends AbstractTopNodeDropTest {
 
-	private static final String CLASS_DIAGRAM_NAME = "TopNode_Drop_ClassDiagram";
+	private static final String CLASS_DIAGRAM_NAME = "TopNode_Drop_ClassDiagram"; //$NON-NLS-1$
 
-	@Rule
-	public final SiriusDiagramEditorFixture fixture = new SiriusDiagramEditorFixture(/* Collections.singletonList("aird") */);
 
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
-	public void DataType_DropTest() {
-
-		Assert.assertTrue(fixture.getModel() instanceof Model);
-		Model rootModel = (Model) fixture.getModel();
-		NamedElement elementToBeDropped = rootModel.getMember("DataTypeToDrop");
-		Assert.assertTrue("The element to be dropped is an instance of UML DataType", elementToBeDropped instanceof org.eclipse.uml2.uml.DataType);
-
-		DiagramEditPart diagramEditpart = fixture.getActiveDiagram();
-		Diagram diagram = diagramEditpart.getDiagramView();
-		Assert.assertEquals("The diagram must not yet have children", 0, diagram.getChildren().size());
-
-		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
-		fixture.applyContainerDropDescriptionTool(diagramRepresentation, "Class DataType from Model", diagramRepresentation, elementToBeDropped);
-		fixture.flushDisplayEvents();
-
-		Assert.assertEquals("The diagram must have one child after the Drop action", 1, diagram.getChildren().size());
-
-		// undo
-		fixture.getEditingDomain().getCommandStack().undo();
-		fixture.flushDisplayEvents();
-		Assert.assertEquals("The diagram does not contain any children after undoing the Drop action", 0, diagram.getChildren().size());
-
-		// redo
-		fixture.getEditingDomain().getCommandStack().redo();
-		fixture.flushDisplayEvents();
-		Assert.assertEquals("The diagram contains one child after redoing the Drop action", 1, diagram.getChildren().size());
-		Object element = diagram.getChildren().get(1);
-		Assert.assertTrue("The created element must be a View", element instanceof View);
-		EObject siriusNewRepresentation = ((View) element).getElement();
-		Assert.assertTrue("The created sirus node must be a DNodeList", siriusNewRepresentation instanceof DNodeList);
-		EObject semanticElement = ((DNodeList) siriusNewRepresentation).getSemanticElements().iterator().next();
-		Assert.assertTrue("The created element must be a UML DataType", semanticElement instanceof org.eclipse.uml2.uml.DataType);
+	public void dataType_DropTest() {
+		final NamedElement elementToBeDropped = this.root.getMember("DataTypeToDrop"); //$NON-NLS-1$
+		Assert.assertTrue("The element to be dropped must be an instance of DataType", elementToBeDropped instanceof DataType);//$NON-NLS-1$
+		dropDNodeListElement(elementToBeDropped, SemanticDropToolsIds.DROP_DATATYPE_TOOL, MappingTypes.DATATYPE_NODE_TYPE);
 	}
 }
