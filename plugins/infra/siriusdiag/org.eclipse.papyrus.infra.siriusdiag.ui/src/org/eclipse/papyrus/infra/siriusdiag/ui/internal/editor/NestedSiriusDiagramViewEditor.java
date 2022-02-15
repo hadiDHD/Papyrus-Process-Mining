@@ -57,7 +57,9 @@ import org.eclipse.gmf.runtime.diagram.ui.internal.actions.ToggleRouterAction;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditDomain;
+import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.papyrus.infra.core.resource.ModelSet;
@@ -68,6 +70,7 @@ import org.eclipse.papyrus.infra.internationalization.common.editor.IInternation
 import org.eclipse.papyrus.infra.siriusdiag.sirius.ISiriusSessionService;
 import org.eclipse.papyrus.infra.siriusdiag.ui.Activator;
 import org.eclipse.papyrus.infra.siriusdiag.ui.internal.sessions.SessionPrinter;
+import org.eclipse.papyrus.infra.ui.editor.IMultiDiagramEditor;
 import org.eclipse.papyrus.infra.ui.lifecycleevents.ISaveAndDirtyService;
 import org.eclipse.papyrus.infra.widgets.util.IRevealSemanticElement;
 import org.eclipse.papyrus.infra.widgets.util.NavigationTarget;
@@ -80,6 +83,7 @@ import org.eclipse.sirius.common.tools.api.util.EclipseUtil;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramCommandStack;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramEditorImpl;
+import org.eclipse.sirius.diagram.ui.tools.internal.editor.tabbar.Tabbar;
 import org.eclipse.sirius.tools.api.SiriusPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUI;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
@@ -195,6 +199,43 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		initDomainAndStack();
 	}
 
+	/**
+	 * @see org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramEditorImpl#selectionChanged(org.eclipse.ui.IWorkbenchPart, org.eclipse.jface.viewers.ISelection)
+	 *
+	 * @param part
+	 * @param selection
+	 */
+	@Override
+	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
+		if (getSite().getPage().getActiveEditor() instanceof IMultiDiagramEditor) {
+			IMultiDiagramEditor editor = (IMultiDiagramEditor) getSite().getPage().getActiveEditor();
+			// If not the active editor, ignore selection changed.
+			IEditorPart activeEditor = editor.getActiveEditor();
+			
+			if (this.equals(activeEditor)) {
+				super.selectionChanged(activeEditor, selection);
+				updateActions(getSelectionActions());
+				rebuildStatusLine();
+				
+			} else {
+				super.selectionChanged(part, selection);
+			}
+		} else {
+			super.selectionChanged(part, selection);
+		}
+	}
+
+	/**
+	 * @see org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramEditorImpl#createTabbar(org.eclipse.swt.widgets.Composite, org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart)
+	 *
+	 * @param parentComposite
+	 * @param part
+	 * @return
+	 */
+	@Override
+	protected Tabbar createTabbar(Composite parentComposite, IDiagramWorkbenchPart part) {
+		return new PapyrusTabbar(parentComposite, this);
+	}
 
 	/**
 	 * this method is in charge to init the Editing Domain and the CommandStack
@@ -301,7 +342,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 */
 	@Override
 	public void init(IEditorSite site, IEditorInput input) {// throws PartInitException {
-
+		setSite(site);
 		// Session is closed when we reopen eclipse
 		try {
 			TransactionalEditingDomain ted = this.session.getTransactionalEditingDomain();

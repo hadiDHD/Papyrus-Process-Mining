@@ -17,8 +17,10 @@ package org.eclipse.papyrus.infra.siriusdiag.ui.internal.editor;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramActionBarContributor;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.papyrus.infra.ui.editor.IMultiDiagramEditor;
 import org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditor;
 import org.eclipse.ui.IActionBars;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchPage;
 
@@ -34,7 +36,7 @@ public class CustomSiriusDiagramActionBarContributor extends DiagramActionBarCon
 
 	@Override
 	protected String getEditorId() {
-		return "org.eclipse.papyrus.SiriusDiagramEditorID";
+		return "org.eclipse.papyrus.SiriusDiagramEditorID"; //$NON-NLS-1$
 	}
 
 	@Override
@@ -50,6 +52,22 @@ public class CustomSiriusDiagramActionBarContributor extends DiagramActionBarCon
 		IMenuManager fileMenu = bars.getMenuManager().findMenuUsingPath(IWorkbenchActionConstants.M_FILE);
 		if (null != fileMenu) {
 			fileMenu.remove("pageSetupAction"); //$NON-NLS-1$
+		}
+	}
+	
+	/**
+	 * @see org.eclipse.gef.ui.actions.ActionBarContributor#setActiveEditor(org.eclipse.ui.IEditorPart)
+	 *
+	 * @param editor
+	 */
+
+	@Override
+	public void setActiveEditor(IEditorPart editor) {
+		if (editor instanceof IMultiDiagramEditor && ((IMultiDiagramEditor) editor).getActiveEditor()!=null) {
+			final IEditorPart ep = ((IMultiDiagramEditor) editor).getActiveEditor();
+			super.setActiveEditor(ep);
+		} else {
+			super.setActiveEditor(editor);
 		}
 	}
 }

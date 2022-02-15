@@ -28,13 +28,13 @@
    <extension
          point="org.eclipse.papyrus.infra.ui.papyrusDiagram">
       <editorDiagram
-            actionBarContributorId="org.eclipse.papyrus.infra.siriusdiag.ui.actionBarContributor"
+            actionBarContributorId="org.eclipse.papyrus.infra.siriusdiag.ui.internal.editor.CustomSiriusDiagramActionBarContributor"
             factoryClass="org.eclipse.papyrus.infra.siriusdiag.ui.internal.editor.SiriusDiagramEditorFactory"
             icon="icons/new_PapyrusSiriusDiagram.png"
             order="0">
       </editorDiagram>
       <actionBarContributor
-            id="org.eclipse.papyrus.infra.siriusdiag.ui.actionBarContributor"
+            id="org.eclipse.papyrus.infra.siriusdiag.ui.internal.editor.CustomSiriusDiagramActionBarContributor"
             implementingClass="org.eclipse.papyrus.infra.siriusdiag.ui.internal.editor.CustomSiriusDiagramActionBarContributor">
       </actionBarContributor>
    </extension>
