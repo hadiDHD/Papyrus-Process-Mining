@@ -309,7 +309,7 @@
               </initialOperation>
               <edgeView name="edgeView"/>
             </ownedTools>
-            <ownedTools xsi:type="tool_2:DeleteElementDescription" name="Comment">
+            <ownedTools xsi:type="tool_2:DeleteElementDescription" name="DEL_Comment">
               <element name="element"/>
               <elementView name="elementView"/>
               <containerView name="containerView"/>

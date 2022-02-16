@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:sequence="http://www.eclipse.org/sirius/diagram/sequence/2.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0 http://www.eclipse.org/sirius/diagram/sequence/2.0.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_9F2tsEigEeyweoovpFuWdQ" selectedViews="_9GSLgEigEeyweoovpFuWdQ _9HgTgEigEeyweoovpFuWdQ _9HvkEEigEeyweoovpFuWdQ" version="14.3.1.202003261200">
+  <viewpoint:DAnalysis uid="_9F2tsEigEeyweoovpFuWdQ" selectedViews="_9GSLgEigEeyweoovpFuWdQ _9HgTgEigEeyweoovpFuWdQ _9HvkEEigEeyweoovpFuWdQ" version="15.0.0.202201261500">
     <semanticResources>TopNode_CreationTest.uml</semanticResources>
     <semanticResources>pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml</semanticResources>
     <semanticResources>pathmap://UML_PROFILES/Ecore.profile.uml</semanticResources>
@@ -13,7 +13,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_9HgTgEigEeyweoovpFuWdQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_9H4uAEigEeyweoovpFuWdQ" name="TopNode_Creation_SequenceDiagram" repPath="#_9H4G8EigEeyweoovpFuWdQ" changeId="cc272861-47f5-4ac4-882f-a331ea0e2d51">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_9H4uAEigEeyweoovpFuWdQ" name="TopNode_Creation_SequenceDiagram" repPath="#_9H4G8EigEeyweoovpFuWdQ" changeId="26f8087c-97da-44f5-b5b8-1ec550f8a36b">
         <description xmi:type="description_1:SequenceDiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']"/>
         <target xmi:type="uml:Interaction" href="TopNode_CreationTest.uml#_pyg8QCw6EeyvFeHa40zobA"/>
       </ownedRepresentationDescriptors>
@@ -76,6 +76,8 @@
     <description xmi:type="description_1:SequenceDiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_9H4G8UigEeyweoovpFuWdQ"/>
     <activatedLayers xmi:type="description_2:Layer" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']"/>
+    <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Comment']"/>
     <target xmi:type="uml:Interaction" href="TopNode_CreationTest.uml#_pyg8QCw6EeyvFeHa40zobA"/>
   </sequence:SequenceDDiagram>
 </xmi:XMI>

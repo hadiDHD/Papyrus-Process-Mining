@@ -15,11 +15,11 @@ package org.eclipse.papyrus.uml.siriusdiag.sequence.tests.creation.nodes;
 
 import java.util.List;
 
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
@@ -71,11 +71,10 @@ public class Node_InteractionUse_CreationTest {
 		Assert.assertEquals("The diagram must contain one lifeline", 1, lifeLines.size());
 		Lifeline lifeLine = ISequenceElementAccessor.getLifeline(lifeLines.get(0)).get();
 		EdgeTarget lifelineDRep = (EdgeTarget)lifeLine.getNotationNode().getElement();
-		IGraphicalEditPart lifelineEditPart = (IGraphicalEditPart) fixture.findEditPart(lifelineDRep);
-    	Point interactionUsePosition = lifelineEditPart.getFigure().getBounds().getTop().translate(5, 15);
+    	Point interactionUsePosition = lifeLine.getProperLogicalBounds().getTopLeft().translate(0,15);
 		
 		// Create the InteractionUse
-		fixture.applyNodeCreationToolFromPalette("Interaction Use", diagramRepresentation, diagramRepresentation, interactionUsePosition, null);
+		fixture.applyNodeCreationToolFromPalette("Interaction Use", diagramRepresentation, diagramRepresentation, interactionUsePosition, new Dimension(120,80));
 		fixture.flushDisplayEvents();	
 		
 		Assert.assertEquals("The diagram contains one additional element the creation of an InteractionUse", nbDiagramChild + 1 , diagram.getChildren().size());

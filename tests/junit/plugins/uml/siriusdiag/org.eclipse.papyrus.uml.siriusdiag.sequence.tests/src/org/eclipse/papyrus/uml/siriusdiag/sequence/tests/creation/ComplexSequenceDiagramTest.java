@@ -45,8 +45,8 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
 @SuppressWarnings("restriction")
-@PluginResource("resource/SequenceDiagramTest/creation/TopNode_CreationTest.di") // the resource to import for the test in the workspace
-public class DummyTest {
+@PluginResource("resource/SequenceDiagramTest/creation/empty/TopNode_CreationTest.di") // the resource to import for the test in the workspace
+public class ComplexSequenceDiagramTest {
 
 	private static final String DIAGRAM_NAME = "TopNode_Creation_SequenceDiagram";
 
@@ -56,7 +56,7 @@ public class DummyTest {
 
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME) // open the diagram
-	public void dummyTest() {
+	public void complexTest() {
 
 		// Get diagram edit part as for all diagram
 		final DiagramEditPart diagramEditpart = fixture.getActiveDiagram();
