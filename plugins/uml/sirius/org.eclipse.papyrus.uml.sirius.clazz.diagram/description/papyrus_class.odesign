@@ -973,6 +973,17 @@
               </initialOperation>
             </tools>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="AssociationClass" label="Association Class" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createAssociationClassLink(sourceView, source, target)">
+                <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass']" containerViewExpression="aql:sourceView.getParentDiagram()"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
           <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Containment Link" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_ContainmentLink']" iconPath="/org.eclipse.papyrus.uml.sirius.clazz.diagram/icons/obj16/ContainmentConnection.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>

@@ -22,6 +22,8 @@ public class CreationToolsIds {
 		//to prevent instantiation
 	}
 	
+	public static final String CREATE_ASSOCIATION_CLASS_TOOL = "AssociationClass"; //$NON-NLS-1$
+	
 	public static final String CREATE_DATATYPE_TOOL = "DataType"; //$NON-NLS-1$
 	
 	public static final String CREATE_ENUMERATION_TOOL = "Enumeration"; //$NON-NLS-1$
