@@ -258,7 +258,7 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="properties" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" showIcon="false" labelExpression="attributes" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -286,7 +286,7 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="operation" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" showIcon="false" labelExpression="operations" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -314,7 +314,7 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="NestedClassifiers" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" showIcon="false" labelExpression="nested classifiers" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -363,7 +363,7 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" showIcon="false" labelExpression="attributes" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -377,7 +377,7 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" showIcon="false" labelExpression="operations" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -385,7 +385,7 @@
             </style>
           </subContainerMappings>
           <subContainerMappings name="CD_InterfaceNestedClassifiersCompartment" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.Interface" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='PrimitiveType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Interface%20Primitive%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticEnumerationDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticDataTypeDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='GraphicalEnumerationDrop']" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_DataTypeLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_EnumerationLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_PrimitiveTypeLabelNode']" childrenPresentation="List">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" showIcon="false" labelExpression="nested classifiers" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
