@@ -14,15 +14,14 @@
 package org.eclipse.papyrus.uml.sirius.diagram.architecture.internal.utils;
 
 /**
- * Constants used by UML Docx template
+ * Constants used by Papyrus Sirius Diagram
  */
 public final class Sirius_Diagram_Constants {
 
 	private Sirius_Diagram_Constants() {
-		// to prevent instanciation
+		// to prevent instantiation
 	}
 
-	public static final String UML_SIRIUS_DIAGRAM_TYPE = "UMLSiriusDiagramType"; //$NON-NLS-1$
+	public static final String SIRIUS_CLASS_DIAGRAM_TYPE = "org.eclipse.papyrus.infra.siriusdiag.class"; //$NON-NLS-1$
 
-	public static final String EMPTY_UML_SIRIUS_DIAGRAM_TYPE = "EmptyUMLSiriusDiagramType"; //$NON-NLS-1$
 }

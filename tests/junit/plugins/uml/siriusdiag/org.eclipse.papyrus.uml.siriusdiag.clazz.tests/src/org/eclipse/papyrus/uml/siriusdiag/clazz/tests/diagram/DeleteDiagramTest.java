@@ -17,5 +17,5 @@ package org.eclipse.papyrus.uml.siriusdiag.clazz.tests.diagram;
  *
  */
 public class DeleteDiagramTest {
-	// to be done
+	//TODO  to be done
 }

@@ -27,5 +27,5 @@ public class SiriusConstants {
 	/**
 	 * the Sirius file extension (*.aird)
 	 */
-	public static final String SIRIUS_DIAGRAM_MODEL_FILE_EXTENSION = "aird"; // $NON-NLS-1$
+	public static final String SIRIUS_DIAGRAM_MODEL_FILE_EXTENSION = "aird"; //$NON-NLS-1$
 }

@@ -90,14 +90,14 @@ public class CreatePapyrusSiriusClassDiagramEditorCommand extends AbstractCreate
 		if (prototype instanceof SiriusDiagramViewPrototype) {
 			final PapyrusRepresentationKind representation = prototype.getRepresentationKind();
 			Assert.isTrue(representation instanceof SiriusDiagramPrototype, "The representation associated to the SiriusDiagramViewPrototype must be an instanceof SiriusDiagramPrototype."); //$NON-NLS-1$
-			SiriusDiagramPrototype docProto = (SiriusDiagramPrototype) representation;
+			SiriusDiagramPrototype siriusDiagramPrototype = (SiriusDiagramPrototype) representation;
 
 			final String diagramName = (name == null || name.isEmpty()) ? askName(prototype, semanticContext) : name;
 			if (null == diagramName) {
 				return null; // the creation is cancelled
 			}
 
-			return super.execute(docProto, diagramName, graphicalContext, semanticContext, openAfterCreation, docProto.getImplementationID());
+			return super.execute(siriusDiagramPrototype, diagramName, semanticContext, graphicalContext, openAfterCreation, siriusDiagramPrototype.getImplementationID());
 		}
 		return null;
 	};

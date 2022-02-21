@@ -14,18 +14,15 @@
 package org.eclipse.papyrus.uml.siriusdiag.clazz.tests.diagram;
 
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
+import org.eclipse.papyrus.uml.sirius.diagram.architecture.internal.utils.Sirius_Diagram_Constants;
 import org.junit.Test;
 
 @PluginResource("resources/createDiagram/createDiagram.di")
-@SuppressWarnings("nls")
 public class CreateDiagramTest extends AbstractDiagramCreationTests {
-
-	String IMPLEMENTATION_ID = "Sirius";
-	String ID = "org.eclipse.papyrus.infra.siriusdiag.class";
 
 	@Test
 	public void createClassDiagramTest() throws Exception {
-		checkDocumentCreation(ID, IMPLEMENTATION_ID);
+		checkDiagramCreationFromSiriusDiagramPrototype(this.rootModel, "newName", Sirius_Diagram_Constants.SIRIUS_CLASS_DIAGRAM_TYPE); //$NON-NLS-1$
 	}
 
 }
