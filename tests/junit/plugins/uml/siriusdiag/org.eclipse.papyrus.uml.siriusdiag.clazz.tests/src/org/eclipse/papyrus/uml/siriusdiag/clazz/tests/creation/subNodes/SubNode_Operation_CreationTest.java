@@ -22,6 +22,7 @@ import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusT
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
+import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.CreationToolsIds;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeContainerSpec;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeListElementSpec;
@@ -60,7 +61,7 @@ public class SubNode_Operation_CreationTest extends AbstractPapyrusTest {
 		DNodeContainerSpec classRepresentation = (DNodeContainerSpec) ((View) classElement).getElement();
 		EObject subNodeContainer = classRepresentation.getOwnedDiagramElements().get(0);
 		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
-		fixture.applyContainerCreationTool("Operation", diagramRepresentation, subNodeContainer);
+		fixture.applyContainerCreationTool(CreationToolsIds.CREATE_OPERATION_TOOL, diagramRepresentation, subNodeContainer);
 		fixture.flushDisplayEvents();
 
 		Assert.assertEquals("The diagram children size does not change on adding a sub node", 1, diagram.getChildren().size());

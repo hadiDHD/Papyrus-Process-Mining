@@ -28,9 +28,13 @@ public class CreationToolsIds {
 	
 	public static final String CREATE_ENUMERATION_TOOL = "Enumeration"; //$NON-NLS-1$
 	
-	public static final String CREATE_OPERATION_TOOL = "Operation"; //$NON-NLS-1$
-	
 	public static final String CREATE_PRIMITIVETYPE_TOOL = "PrimitiveType"; //$NON-NLS-1$
+	
+	public static final String CREATE_PROPERTY_TOOL = "CreatePropertyTool"; //$NON-NLS-1$
+	
+	public static final String CREATE_OPERATION_TOOL = "CreateOperationTool"; //$NON-NLS-1$
+	
+
 
 
 }

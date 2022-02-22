@@ -35,7 +35,7 @@ public class PrimitiveType_TopNode_DropTest extends AbstractTopNodeDropTest {
 	public void primitiveType_DropTest() {
 		final NamedElement elementToBeDropped = this.root.getMember("PrimitiveTypeToDrop"); //$NON-NLS-1$
 		Assert.assertTrue("The element to be dropped must be an instance of PrimitiveType", elementToBeDropped instanceof PrimitiveType);//$NON-NLS-1$
-		dropDNodeListElement(elementToBeDropped, SemanticDropToolsIds.DROP_PRIMITIVETYPE_TOOL, MappingTypes.PRIMITIVETYPE_NODE_TYPE);
+		dropDNodeContainer(elementToBeDropped, SemanticDropToolsIds.DROP_PRIMITIVETYPE_TOOL, MappingTypes.PRIMITIVETYPE_NODE_TYPE);
 
 	}
 }

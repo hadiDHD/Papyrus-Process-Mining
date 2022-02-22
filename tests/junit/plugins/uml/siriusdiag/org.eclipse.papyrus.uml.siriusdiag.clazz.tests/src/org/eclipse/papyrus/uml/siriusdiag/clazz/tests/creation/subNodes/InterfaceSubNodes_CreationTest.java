@@ -37,6 +37,7 @@ import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PrimitiveType;
+import org.eclipse.uml2.uml.Property;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -65,8 +66,17 @@ public class InterfaceSubNodes_CreationTest extends AbstractSubNodeListElementCr
 	
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME)
+	public void createPropertyLabelNodeTest() {
+		final DDiagramElement createdElement = createSubNode(MappingTypes.INTERFACE_NODE_ATTRIBUTES_COMPARTMENT_TYPE, CreationToolsIds.CREATE_PROPERTY_TOOL, MappingTypes.INTERFACE_NODE_OWNED_PROPERTY_TYPE);
+		final EObject semantic = createdElement.getSemanticElements().get(0);
+		Assert.assertTrue(NLS.bind("The created element must be an Property instead of a {0}.", semantic.eClass().getName()),semantic instanceof Property); //$NON-NLS-1$
+		Assert.assertTrue("The created element is not owned by the expected feature", this.semanticOwner.getOwnedAttributes().contains(semantic)); //$NON-NLS-1$
+	}
+	
+	@Test
+	@ActiveDiagram(DIAGRAM_NAME)
 	public void createDataTypeLabelNodeTest() {
-		final DDiagramElement createdElement = createClassSubNode(MappingTypes.INTERFACE_NODE_NESTED_CLASSIFIERS_COMPARTMENT_TYPE, CreationToolsIds.CREATE_DATATYPE_TOOL, MappingTypes.DATATYPE_LABEL_NODE_TYPE);
+		final DDiagramElement createdElement = createSubNode(MappingTypes.INTERFACE_NODE_NESTED_CLASSIFIERS_COMPARTMENT_TYPE, CreationToolsIds.CREATE_DATATYPE_TOOL, MappingTypes.DATATYPE_LABEL_NODE_TYPE);
 		final EObject semantic = createdElement.getSemanticElements().get(0);
 		Assert.assertTrue(NLS.bind("The created element must be a DataType instead of a {0}.", semantic.eClass().getName()),semantic instanceof DataType); //$NON-NLS-1$
 		Assert.assertTrue("The created element is not owned by the expected feature", this.semanticOwner.getNestedClassifiers().contains(semantic)); //$NON-NLS-1$
@@ -75,7 +85,7 @@ public class InterfaceSubNodes_CreationTest extends AbstractSubNodeListElementCr
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME)
 	public void createEnumerationLabelNodeTest() {
-		final DDiagramElement createdElement = createClassSubNode(MappingTypes.INTERFACE_NODE_NESTED_CLASSIFIERS_COMPARTMENT_TYPE, CreationToolsIds.CREATE_ENUMERATION_TOOL, MappingTypes.ENUMERATION_LABEL_NODE_TYPE);
+		final DDiagramElement createdElement = createSubNode(MappingTypes.INTERFACE_NODE_NESTED_CLASSIFIERS_COMPARTMENT_TYPE, CreationToolsIds.CREATE_ENUMERATION_TOOL, MappingTypes.ENUMERATION_LABEL_NODE_TYPE);
 		final EObject semantic = createdElement.getSemanticElements().get(0);
 		Assert.assertTrue(NLS.bind("The created element must be an Enumeration instead of a {0}.", semantic.eClass().getName()),semantic instanceof Enumeration); //$NON-NLS-1$
 		Assert.assertTrue("The created element is not owned by the expected feature", semanticOwner.getNestedClassifiers().contains(semantic)); //$NON-NLS-1$
@@ -84,11 +94,12 @@ public class InterfaceSubNodes_CreationTest extends AbstractSubNodeListElementCr
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME)
 	public void createPrimitiveTypeLabelNodeTest() {
-		final DDiagramElement createdElement = createClassSubNode(MappingTypes.INTERFACE_NODE_NESTED_CLASSIFIERS_COMPARTMENT_TYPE, CreationToolsIds.CREATE_PRIMITIVETYPE_TOOL, MappingTypes.PRIMITIVETYPE_LABEL_NODE_TYPE);
+		final DDiagramElement createdElement = createSubNode(MappingTypes.INTERFACE_NODE_NESTED_CLASSIFIERS_COMPARTMENT_TYPE, CreationToolsIds.CREATE_PRIMITIVETYPE_TOOL, MappingTypes.PRIMITIVETYPE_LABEL_NODE_TYPE);
 		final EObject semantic = createdElement.getSemanticElements().get(0);
 		Assert.assertTrue(NLS.bind("The created element must be a PrimitiveType instead of a {0}.", semantic.eClass().getName()),semantic instanceof PrimitiveType); //$NON-NLS-1$
 		Assert.assertTrue("The created element is not owned by the expected feature", this.semanticOwner.getNestedClassifiers().contains(semantic)); //$NON-NLS-1$
 	}
+	
 
 }
 

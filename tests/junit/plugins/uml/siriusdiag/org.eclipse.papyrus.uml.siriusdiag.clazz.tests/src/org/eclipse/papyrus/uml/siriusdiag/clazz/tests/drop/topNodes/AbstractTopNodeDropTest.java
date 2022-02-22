@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
+import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DNodeList;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Package;
@@ -71,7 +72,7 @@ public abstract class AbstractTopNodeDropTest {
 		fixture.flushDisplayEvents();
 
 		Assert.assertEquals("The diagram must have one child after the Drop action.", 1, diagram.getChildren().size()); //$NON-NLS-1$
-		Assert.assertEquals("The diagram representation must have one child after the Drop action.", 1, diagramRepresentation.getDiagramElements().size());//$NON-NLS-1$
+		Assert.assertEquals("The diagram representation must have one child after the Drop action.", 1, diagramRepresentation.getOwnedRepresentationElements().size());//$NON-NLS-1$
 		final DDiagramElement elementRepresentation = diagramRepresentation.getDiagramElements().get(0);
 		Assert.assertEquals("The mapping type of the created representation is not the expected one.", elementMappingType, elementRepresentation.getMapping().getName());//$NON-NLS-1$
 		Assert.assertTrue("The created sirus node must be a DNodeList", elementRepresentation instanceof DNodeList);//$NON-NLS-1$
@@ -88,7 +89,47 @@ public abstract class AbstractTopNodeDropTest {
 		fixture.getEditingDomain().getCommandStack().redo();
 		fixture.flushDisplayEvents();
 		Assert.assertEquals("The diagram must have one child after redoing of the Drop action.", 1, diagram.getChildren().size()); //$NON-NLS-1$
-		Assert.assertEquals("The diagram representation must have one child after redoing of the Drop action.", 1, diagramRepresentation.getDiagramElements().size());//$NON-NLS-1$
+		Assert.assertEquals("The diagram representation must have one child after redoing of the Drop action.", 1, diagramRepresentation.getOwnedDiagramElements().size());//$NON-NLS-1$
+	}
+	
+	/**
+	 * 
+	 * @param elementToBeDropped
+	 *            the element to drop
+	 * @param dropToolId
+	 *            the id of the drop tool to use
+	 * @param elementMappingType
+	 *            the expected mapping type of the created view
+	 */
+	protected void dropDNodeContainer(final Element elementToBeDropped, final String dropToolId, final String elementMappingType) {
+		final DiagramEditPart diagramEditpart = fixture.getActiveDiagram();
+		final Diagram diagram = diagramEditpart.getDiagramView();
+		Assert.assertEquals("The diagram must not yet have children.", 0, diagram.getChildren().size()); //$NON-NLS-1$
+
+		final DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
+		Assert.assertEquals("The diagram representation must not yet have children.", 0, diagramRepresentation.getDiagramElements().size());//$NON-NLS-1$
+		fixture.applyContainerDropDescriptionTool(diagramRepresentation, dropToolId, diagramRepresentation, elementToBeDropped);
+		fixture.flushDisplayEvents();
+
+		Assert.assertEquals("The diagram must have one child after the Drop action.", 1, diagram.getChildren().size()); //$NON-NLS-1$
+		Assert.assertEquals("The diagram representation must have one child after the Drop action.", 1, diagramRepresentation.getOwnedRepresentationElements().size());//$NON-NLS-1$
+		final DDiagramElement elementRepresentation = diagramRepresentation.getDiagramElements().get(0);
+		Assert.assertEquals("The mapping type of the created representation is not the expected one.", elementMappingType, elementRepresentation.getMapping().getName());//$NON-NLS-1$
+		Assert.assertTrue("The created sirus node must be a DNodeContainer", elementRepresentation instanceof DNodeContainer);//$NON-NLS-1$
+		Assert.assertEquals("Only one semantic element must be associated to the representation.", 1, ((DNodeContainer) elementRepresentation).getSemanticElements().size());//$NON-NLS-1$
+		Assert.assertTrue("The semantic element associated to the view must be the dropped element.", elementToBeDropped == ((DNodeContainer) elementRepresentation).getSemanticElements().get(0));//$NON-NLS-1$
+
+		// undo
+		fixture.getEditingDomain().getCommandStack().undo();
+		fixture.flushDisplayEvents();
+		Assert.assertEquals("The diagram must contain any children after undoig the Drop action", 0, diagram.getChildren().size()); //$NON-NLS-1$
+		Assert.assertEquals("The diagram representation must contain any children after undoig the Drop action", 0, diagramRepresentation.getDiagramElements().size()); //$NON-NLS-1$
+
+		// redo
+		fixture.getEditingDomain().getCommandStack().redo();
+		fixture.flushDisplayEvents();
+		Assert.assertEquals("The diagram must have one child after redoing of the Drop action.", 1, diagram.getChildren().size()); //$NON-NLS-1$
+		Assert.assertEquals("The diagram representation must have one child after redoing of the Drop action.", 1, diagramRepresentation.getOwnedDiagramElements().size());//$NON-NLS-1$
 	}
 
 	/**

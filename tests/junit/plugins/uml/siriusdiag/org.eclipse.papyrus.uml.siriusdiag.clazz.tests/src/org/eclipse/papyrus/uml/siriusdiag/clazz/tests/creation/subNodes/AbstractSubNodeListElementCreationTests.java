@@ -70,7 +70,7 @@ public abstract class AbstractSubNodeListElementCreationTests<T extends Element>
 	 * @return
 	 *         the created NodeListElement
 	 */
-	protected final DNodeListElement createClassSubNode(final String compartmentMappingType, final String creationToolId, final String expectedMappingType) {
+	protected final DNodeListElement createSubNode(final String compartmentMappingType, final String creationToolId, final String expectedMappingType) {
 		// check container is the uml Class,
 		// check owned element is empty
 		final Diagram diagram = getClassDiagram();

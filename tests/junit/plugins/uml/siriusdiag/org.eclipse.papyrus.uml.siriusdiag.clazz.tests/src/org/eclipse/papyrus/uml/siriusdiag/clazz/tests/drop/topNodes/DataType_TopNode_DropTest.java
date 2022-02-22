@@ -36,6 +36,6 @@ public class DataType_TopNode_DropTest extends AbstractTopNodeDropTest {
 	public void dataType_DropTest() {
 		final NamedElement elementToBeDropped = this.root.getMember("DataTypeToDrop"); //$NON-NLS-1$
 		Assert.assertTrue("The element to be dropped must be an instance of DataType", elementToBeDropped instanceof DataType);//$NON-NLS-1$
-		dropDNodeListElement(elementToBeDropped, SemanticDropToolsIds.DROP_DATATYPE_TOOL, MappingTypes.DATATYPE_NODE_TYPE);
+		dropDNodeContainer(elementToBeDropped, SemanticDropToolsIds.DROP_DATATYPE_TOOL, MappingTypes.DATATYPE_NODE_TYPE);
 	}
 }
