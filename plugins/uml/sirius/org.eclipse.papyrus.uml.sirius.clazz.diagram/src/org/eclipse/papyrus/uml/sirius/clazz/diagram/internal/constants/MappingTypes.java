@@ -42,9 +42,6 @@ public class MappingTypes {
 
 	public static final String ENUMERATION_NODE_TYPE = "CD_Enumeration"; //$NON-NLS-1$
 
-	// TODO remove me after created a common type for operation in class, in interface, ...
-	public static final String CLASS_NODE_OWNED_OPERATION_TYPE = "CD_ClassOperation"; //$NON-NLS-1$
-
 	// TODO remove me after created a common type for property in class, in interface, ...
 	public static final String CLASS_NODE_OWNED_PROPERTY_TYPE = "CD_ClassProperty"; //$NON-NLS-1$
 

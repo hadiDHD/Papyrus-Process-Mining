@@ -75,6 +75,15 @@ public class InterfaceSubNodes_CreationTest extends AbstractSubNodeListElementCr
 	
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME)
+	public void createOperationLabelNodeTest() {
+		final DDiagramElement createdElement = createSubNodeInDNodeContainer(MappingTypes.INTERFACE_NODE_OPERATIONS_COMPARTMENT_TYPE, CreationToolsIds.CREATE_OPERATION_TOOL, MappingTypes.OPERATION_LABEL_NODE_TYPE);
+		final EObject semantic = createdElement.getSemanticElements().get(0);
+		Assert.assertTrue(NLS.bind("The created element must be an Operation instead of a {0}.", semantic.eClass().getName()),semantic instanceof Operation); //$NON-NLS-1$
+		Assert.assertTrue("The created element is not owned by the expected feature", this.semanticOwner.getOwnedOperations().contains(semantic)); //$NON-NLS-1$
+	}
+	
+	@Test
+	@ActiveDiagram(DIAGRAM_NAME)
 	public void createDataTypeLabelNodeTest() {
 		final DDiagramElement createdElement = createSubNodeInDNodeContainer(MappingTypes.INTERFACE_NODE_NESTED_CLASSIFIERS_COMPARTMENT_TYPE, CreationToolsIds.CREATE_DATATYPE_TOOL, MappingTypes.DATATYPE_LABEL_NODE_TYPE);
 		final EObject semantic = createdElement.getSemanticElements().get(0);
