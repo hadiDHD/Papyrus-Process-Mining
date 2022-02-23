@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_Bk0IsEkXEeyHOvMI38kLoA" selectedViews="_BlMjMEkXEeyHOvMI38kLoA _BldB4EkXEeyHOvMI38kLoA _BlxyAEkXEeyHOvMI38kLoA" version="14.3.1.202003261200">
+  <viewpoint:DAnalysis uid="_Bk0IsEkXEeyHOvMI38kLoA" selectedViews="_BldB4EkXEeyHOvMI38kLoA _BlxyAEkXEeyHOvMI38kLoA _BlMjMEkXEeyHOvMI38kLoA" version="15.0.0.202201261500">
     <semanticResources>TopNode_DurationObservation_DeleteSemanticTest.uml</semanticResources>
     <semanticResources>pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml</semanticResources>
     <semanticResources>pathmap://UML_PROFILES/Ecore.profile.uml</semanticResources>
@@ -16,7 +16,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_BlxyAEkXEeyHOvMI38kLoA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_BmuNMEkXEeyHOvMI38kLoA" name="TopNode_DurationObservation_ClassDiagram" repPath="#_BmsYAEkXEeyHOvMI38kLoA" changeId="7deecd1d-c18e-402d-b59f-ee4aac643775">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_BmuNMEkXEeyHOvMI38kLoA" name="TopNode_DurationObservation_ClassDiagram" repPath="#_BmsYAEkXEeyHOvMI38kLoA" changeId="67c7477e-588d-480b-84dc-8ce9278eb1c5">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']"/>
         <target xmi:type="uml:Model" href="TopNode_DurationObservation_DeleteSemanticTest.uml#_kJBa8CXpEeymndpXmfJKMg"/>
       </ownedRepresentationDescriptors>
@@ -49,7 +49,7 @@
       <decorations xmi:type="viewpoint:Decoration" uid="_CGhHkEkXEeyHOvMI38kLoA">
         <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='Observation%20symbol']"/>
       </decorations>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_CGddMEkXEeyHOvMI38kLoA" labelSize="9" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/DurationObservation.gif" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" foregroundColor="195,209,213">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_CGddMEkXEeyHOvMI38kLoA" labelSize="9" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/DurationObservation.gif" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Observation']/@conditionnalStyles.1/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Observation']"/>

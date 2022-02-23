@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_u5DNIEkWEeyHOvMI38kLoA" selectedViews="_u8PEAEkWEeyHOvMI38kLoA _u8h-8EkWEeyHOvMI38kLoA _u85yYEkWEeyHOvMI38kLoA" version="14.3.1.202003261200">
+  <viewpoint:DAnalysis uid="_u5DNIEkWEeyHOvMI38kLoA" selectedViews="_u8h-8EkWEeyHOvMI38kLoA _u85yYEkWEeyHOvMI38kLoA _u8PEAEkWEeyHOvMI38kLoA" version="15.0.0.202201261500">
     <semanticResources>TopNode_Comment_DeleteSemanticTest.uml</semanticResources>
     <semanticResources>pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml</semanticResources>
     <semanticResources>pathmap://UML_PROFILES/Ecore.profile.uml</semanticResources>
@@ -16,7 +16,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_u85yYEkWEeyHOvMI38kLoA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_u9538EkWEeyHOvMI38kLoA" name="TopNode_Comment_DeleteSemanticTest" repPath="#_u920oEkWEeyHOvMI38kLoA" changeId="9f45896f-af9c-479b-8620-3641978e1b1a">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_u9538EkWEeyHOvMI38kLoA" name="TopNode_Comment_DeleteSemanticTest" repPath="#_u920oEkWEeyHOvMI38kLoA" changeId="db7a9b4c-561c-4128-9670-b66e482d71ea">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']"/>
         <target xmi:type="uml:Model" href="TopNode_Comment_DeleteSemanticTest.uml#_vi8B4CXbEeyLU97FU6FH_g"/>
       </ownedRepresentationDescriptors>
@@ -37,7 +37,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wSQbwkkWEeyHOvMI38kLoA"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_wR098UkWEeyHOvMI38kLoA" fontName="Segoe UI"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wR098kkWEeyHOvMI38kLoA" x="162" y="156" width="181" height="109"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wR098kkWEeyHOvMI38kLoA" x="162" y="156" width="90" height="90"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_u-RrYkkWEeyHOvMI38kLoA"/>
       </data>
@@ -45,7 +45,7 @@
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_vAwXoEkWEeyHOvMI38kLoA" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_vAwXoUkWEeyHOvMI38kLoA"/>
     </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_wOmDwEkWEeyHOvMI38kLoA" width="3" height="3" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_wOmDwEkWEeyHOvMI38kLoA" width="9" height="9" resizeKind="NSEW">
       <target xmi:type="uml:Comment" href="TopNode_Comment_DeleteSemanticTest.uml#_xXqfUDcoEey1v5ZgfkSlPg"/>
       <semanticElements xmi:type="uml:Comment" href="TopNode_Comment_DeleteSemanticTest.uml#_xXqfUDcoEey1v5ZgfkSlPg"/>
       <ownedStyle xmi:type="diagram:Note" uid="_wOn48EkWEeyHOvMI38kLoA" labelSize="9" showIcon="false" labelPosition="node" color="255,255,204">

@@ -10,7 +10,7 @@
     <semanticResources>pathmap://UML_METAMODELS/Ecore.metamodel.uml</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_CEtrcDcpEey1v5ZgfkSlPg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_263RgInPEey4m6SbQ_ztBA" name="TopNode_DataType_Delete_ClassDiagram" repPath="#_2601QInPEey4m6SbQ_ztBA" changeId="538b262b-036f-4f40-a347-8f3586ed2e24">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_263RgInPEey4m6SbQ_ztBA" name="TopNode_DataType_Delete_ClassDiagram" repPath="#_2601QInPEey4m6SbQ_ztBA" changeId="5701fdc3-9843-401f-bc63-516be540ed36">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']"/>
         <target xmi:type="uml:Model" href="TopNode_DataType_DeleteSemanticTest.uml#_sl9OMCXtEeyXf_EQF3l5Mg"/>
       </ownedRepresentationDescriptors>
@@ -63,7 +63,7 @@
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_2-P8sInPEey4m6SbQ_ztBA" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_2-P8sYnPEey4m6SbQ_ztBA"/>
     </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_wlg3IJSSEey0Fs3SyLtufw" name="&lt;&lt;DataType>>&#xD;&#xA;DataTypeToDelete" tooltipText="TopNode_DataType_DeleteSemanticTest::DataTypeToDelete" width="10" height="10" childrenPresentation="VerticalStack">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_wlg3IJSSEey0Fs3SyLtufw" name="«DataType»&#xD;&#xA;DataTypeToDelete" tooltipText="TopNode_DataType_DeleteSemanticTest::DataTypeToDelete" width="10" height="10" childrenPresentation="VerticalStack">
       <target xmi:type="uml:DataType" href="TopNode_DataType_DeleteSemanticTest.uml#_3iYkgInPEey4m6SbQ_ztBA"/>
       <semanticElements xmi:type="uml:DataType" href="TopNode_DataType_DeleteSemanticTest.uml#_3iYkgInPEey4m6SbQ_ztBA"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_wlg3IZSSEey0Fs3SyLtufw" labelSize="9" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">

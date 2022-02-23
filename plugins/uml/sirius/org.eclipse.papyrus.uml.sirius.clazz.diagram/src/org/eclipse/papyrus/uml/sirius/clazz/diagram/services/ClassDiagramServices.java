@@ -48,6 +48,7 @@ import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.DirectEditLab
 import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.DisplayLabelSwitch;
 import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.EditLabelSwitch;
 import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.ElementServices;
+import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.ILabelConstants;
 import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.LabelServices;
 import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.NodeInverseRefsServices;
 import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.OperationServices;
@@ -86,6 +87,7 @@ import org.eclipse.uml2.uml.Feature;
 import org.eclipse.uml2.uml.Generalization;
 import org.eclipse.uml2.uml.GeneralizationSet;
 import org.eclipse.uml2.uml.InformationFlow;
+import org.eclipse.uml2.uml.InformationItem;
 import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.InterfaceRealization;
@@ -155,12 +157,6 @@ public class ClassDiagramServices {
 
 	/** underscore separator */
 	private static final String UNDERSCORE = "_";
-
-	/** ITEM_LABEL_PREFIX_START_TAG */
-	private static final String ITEM_LABEL_PREFIX_START_TAG = "<<";
-
-	/** ITEM_LABEL_PREFIX_END_TAG */
-	private static final String ITEM_LABEL_PREFIX_END_TAG = ">>";
 
 	/** InstanceSpecification edge */
 	private InstanceSpecification _instanceSpec;
@@ -895,20 +891,20 @@ public class ClassDiagramServices {
 
 				List<Stereotype> appliedStereoTypes = constraint.getAppliedStereotypes();
 				if (!appliedStereoTypes.isEmpty()) {
-					constLabel.append("<<");
+					constLabel.append(ILabelConstants.ST_LEFT);
 				}
 				for (int i = 0; i < constraint.getAppliedStereotypes().size(); i++) {
 					Stereotype stereoType = appliedStereoTypes.get(i);
 					constLabel.append(stereoType.getName());
 					if (i + 1 == appliedStereoTypes.size()) {
-						constLabel.append(">>");
+						constLabel.append(ILabelConstants.ST_RIGHT);
 					} else {
-						constLabel.append(",");
+						constLabel.append(","); //$NON-NLS-1$
 					}
 				}
 				constLabel.append(constraint.getName());
-				constLabel.append(System.getProperty("line.separator"));
-				constLabel.append("{{" + lang + "} " + body + "}");
+				constLabel.append(ILabelConstants.NL);
+				constLabel.append("{{" + lang + "} " + body + "}"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
 		}
 
@@ -935,21 +931,29 @@ public class ClassDiagramServices {
 	 * Compute label for InformationItem
 	 * 
 	 * @param elem
-	 *            the current InformationItem element
-	 * @return the label of InformationItem element
+	 *            the current element
+	 * @return the label of element
 	 */
-	public String buildLabel(Element elem) {
+	public String buildLabel(Element element) {
 		StringBuilder labelBuilder = new StringBuilder();
-		String name = LabelServices.INSTANCE.computeUmlLabel(elem);
-		String prefix = elem.getClass().getSimpleName();
-		int endIndex = prefix.indexOf("Impl");
-		if (endIndex != -1) {
-			prefix = ITEM_LABEL_PREFIX_START_TAG + prefix.substring(0, endIndex) + ITEM_LABEL_PREFIX_END_TAG;
+		String name = LabelServices.INSTANCE.computeUmlLabel(element);
+		String prefix;
+		if (element instanceof InformationItem) {
+			prefix = "Information"; //$NON-NLS-1$
+		} else if (element instanceof PrimitiveType) {
+			prefix = "Primitive"; //$NON-NLS-1$
+		} else {
+			prefix = element.getClass().getSimpleName();
+			int endIndex = prefix.indexOf("Impl"); //$NON-NLS-1$
+			if (endIndex != -1) {
+				prefix = prefix.substring(0, endIndex);
+			}
 		}
+		prefix = ILabelConstants.ST_LEFT + prefix + ILabelConstants.ST_RIGHT;
 
 		if (!name.startsWith(prefix)) {
 			labelBuilder.append(prefix);
-			labelBuilder.append(System.getProperty("line.separator"));
+			labelBuilder.append(ILabelConstants.NL);
 			labelBuilder.append(name);
 			return labelBuilder.toString();
 		}

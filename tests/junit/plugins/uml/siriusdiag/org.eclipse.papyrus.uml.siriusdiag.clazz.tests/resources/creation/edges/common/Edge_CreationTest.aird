@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_7UXikDc0Eey6QLfFGXOJpw" selectedViews="_7VrxMDc0Eey6QLfFGXOJpw _7XERQDc0Eey6QLfFGXOJpw _7VMB8Dc0Eey6QLfFGXOJpw" version="15.0.0.202201261500">
+  <viewpoint:DAnalysis uid="_7UXikDc0Eey6QLfFGXOJpw" selectedViews="_7VMB8Dc0Eey6QLfFGXOJpw _7VrxMDc0Eey6QLfFGXOJpw _7XERQDc0Eey6QLfFGXOJpw" version="15.0.0.202201261500">
     <semanticResources>Edge_CreationTest.uml</semanticResources>
     <semanticResources>pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml</semanticResources>
     <semanticResources>pathmap://UML_PROFILES/Ecore.profile.uml</semanticResources>
@@ -13,7 +13,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_7VrxMDc0Eey6QLfFGXOJpw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_m7lm0InOEey4m6SbQ_ztBA" name="Edge_ClassDiagram" repPath="#_m7ijgInOEey4m6SbQ_ztBA" changeId="5221251c-3406-4fa1-b33d-55d8b6267994">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_m7lm0InOEey4m6SbQ_ztBA" name="Edge_ClassDiagram" repPath="#_m7ijgInOEey4m6SbQ_ztBA" changeId="5a9e1eb8-8d7e-48ed-979b-867c66e88d3e">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']"/>
         <target xmi:type="uml:Model" href="Edge_CreationTest.uml#_vWvSEBX6EeysipnJgzA6vQ"/>
       </ownedRepresentationDescriptors>
@@ -119,29 +119,29 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']"/>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_oajfMInOEey4m6SbQ_ztBA" name="properties">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_oajfMInOEey4m6SbQ_ztBA" name="attributes">
         <target xmi:type="uml:Class" href="Edge_CreationTest.uml#_0ao-4BX8EeytXPImM8tXMA"/>
         <semanticElements xmi:type="uml:Class" href="Edge_CreationTest.uml#_0ao-4BX8EeytXPImM8tXMA"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" uid="_oakGQInOEey4m6SbQ_ztBA"/>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_oajfMYnOEey4m6SbQ_ztBA" labelSize="9" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_oajfMYnOEey4m6SbQ_ztBA" labelSize="9" showIcon="false" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassAttributesCompartment']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassAttributesCompartment']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_oaktUInOEey4m6SbQ_ztBA" name="operation">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_oaktUInOEey4m6SbQ_ztBA" name="operations">
         <target xmi:type="uml:Class" href="Edge_CreationTest.uml#_0ao-4BX8EeytXPImM8tXMA"/>
         <semanticElements xmi:type="uml:Class" href="Edge_CreationTest.uml#_0ao-4BX8EeytXPImM8tXMA"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" uid="_oaktU4nOEey4m6SbQ_ztBA"/>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_oaktUYnOEey4m6SbQ_ztBA" labelSize="9" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_oaktUYnOEey4m6SbQ_ztBA" labelSize="9" showIcon="false" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassOperationsCompartment']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassOperationsCompartment']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_oalUYInOEey4m6SbQ_ztBA" name="NestedClassifiers">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_oalUYInOEey4m6SbQ_ztBA" name="nested classifiers">
         <target xmi:type="uml:Class" href="Edge_CreationTest.uml#_0ao-4BX8EeytXPImM8tXMA"/>
         <semanticElements xmi:type="uml:Class" href="Edge_CreationTest.uml#_0ao-4BX8EeytXPImM8tXMA"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" uid="_oal7conOEey4m6SbQ_ztBA"/>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_oal7cInOEey4m6SbQ_ztBA" labelSize="9" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_oal7cInOEey4m6SbQ_ztBA" labelSize="9" showIcon="false" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassNestedClassifiersCompartment']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassNestedClassifiersCompartment']"/>
@@ -157,29 +157,29 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']"/>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_ornaAonOEey4m6SbQ_ztBA" name="properties">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_ornaAonOEey4m6SbQ_ztBA" name="attributes">
         <target xmi:type="uml:Class" href="Edge_CreationTest.uml#_1FItYBX8EeytXPImM8tXMA"/>
         <semanticElements xmi:type="uml:Class" href="Edge_CreationTest.uml#_1FItYBX8EeytXPImM8tXMA"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" uid="_oroBEYnOEey4m6SbQ_ztBA"/>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ornaA4nOEey4m6SbQ_ztBA" labelSize="9" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ornaA4nOEey4m6SbQ_ztBA" labelSize="9" showIcon="false" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassAttributesCompartment']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassAttributesCompartment']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_oroBEonOEey4m6SbQ_ztBA" name="operation">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_oroBEonOEey4m6SbQ_ztBA" name="operations">
         <target xmi:type="uml:Class" href="Edge_CreationTest.uml#_1FItYBX8EeytXPImM8tXMA"/>
         <semanticElements xmi:type="uml:Class" href="Edge_CreationTest.uml#_1FItYBX8EeytXPImM8tXMA"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" uid="_orooIYnOEey4m6SbQ_ztBA"/>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_oroBE4nOEey4m6SbQ_ztBA" labelSize="9" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_oroBE4nOEey4m6SbQ_ztBA" labelSize="9" showIcon="false" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassOperationsCompartment']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassOperationsCompartment']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_orooIonOEey4m6SbQ_ztBA" name="NestedClassifiers">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_orooIonOEey4m6SbQ_ztBA" name="nested classifiers">
         <target xmi:type="uml:Class" href="Edge_CreationTest.uml#_1FItYBX8EeytXPImM8tXMA"/>
         <semanticElements xmi:type="uml:Class" href="Edge_CreationTest.uml#_1FItYBX8EeytXPImM8tXMA"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" uid="_orpPMonOEey4m6SbQ_ztBA"/>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_orpPMInOEey4m6SbQ_ztBA" labelSize="9" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_orpPMInOEey4m6SbQ_ztBA" labelSize="9" showIcon="false" borderSize="1" borderSizeComputationExpression="1" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassNestedClassifiersCompartment']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassNestedClassifiersCompartment']"/>

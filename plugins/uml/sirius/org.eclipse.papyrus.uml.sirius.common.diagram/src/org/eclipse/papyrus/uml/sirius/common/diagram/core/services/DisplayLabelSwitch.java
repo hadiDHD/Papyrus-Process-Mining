@@ -134,7 +134,7 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 			}
 
 			final StringBuffer stereotypeLabel = new StringBuffer();
-			stereotypeLabel.append(OPEN_QUOTE_MARK);
+			stereotypeLabel.append(ILabelConstants.ST_LEFT);
 			for (;;) {
 				final Stereotype appliedStereotype = it.next();
 
@@ -145,7 +145,7 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 					break;
 				}
 			}
-			stereotypeLabel.append(CLOSE_QUOTE_MARK);
+			stereotypeLabel.append(ILabelConstants.ST_RIGHT);
 			if (element instanceof Feature) {
 				stereotypeLabel.append(" "); //$NON-NLS-1$
 			} else {
@@ -163,7 +163,7 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 	 */
 	@Override
 	public String caseActivity(Activity object) {
-		return OPEN_QUOTE_MARK + "Activity" + CLOSE_QUOTE_MARK + caseBehavior(object); //$NON-NLS-1$
+		return ILabelConstants.ST_LEFT + "Activity" + ILabelConstants.ST_RIGHT + caseBehavior(object); //$NON-NLS-1$
 	}
 
 
@@ -213,9 +213,9 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 	@Override
 	public String caseDataStoreNode(DataStoreNode object) {
 		final StringBuffer buffer = new StringBuffer();
-		buffer.append(OPEN_QUOTE_MARK);
+		buffer.append(ILabelConstants.ST_LEFT);
 		buffer.append("Datastore"); //$NON-NLS-1$
-		buffer.append(CLOSE_QUOTE_MARK);
+		buffer.append(ILabelConstants.ST_RIGHT);
 		buffer.append(NL);
 		buffer.append(caseNamedElement(object));
 		return buffer.toString();
@@ -234,7 +234,7 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 	 */
 	@Override
 	public String caseDeployment(org.eclipse.uml2.uml.Deployment object) {
-		return computeStereotypes(object) + "<<deploy>>";
+		return computeStereotypes(object) + ILabelConstants.ST_LEFT + "deploy"+ ILabelConstants.ST_RIGHT;
 	}
 
 	/**
@@ -250,7 +250,7 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 	 */
 	@Override
 	public String caseElementImport(ElementImport object) {
-		return computeStereotypes(object) + "<<import>>";
+		return computeStereotypes(object) + ILabelConstants.ST_LEFT + "import"+ ILabelConstants.ST_RIGHT; 
 	}
 
 	/**
@@ -289,7 +289,7 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 	 */
 	@Override
 	public String casePackageMerge(PackageMerge object) {
-		return computeStereotypes(object) + "<<merge>>";
+		return computeStereotypes(object) + ILabelConstants.ST_LEFT + "merge" + ILabelConstants.ST_RIGHT;
 	}
 	
 	/**
@@ -306,7 +306,7 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 	 */
 	@Override
 	public String caseSubstitution(Substitution object) {
-		return computeStereotypes(object) + "<<substitue>>";
+		return computeStereotypes(object) + ILabelConstants.ST_LEFT + "substitue>>" + ILabelConstants.ST_RIGHT; //$NON-NLS-1$
 	}
 
 	/**
@@ -640,7 +640,7 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 	 */
 	@Override
 	public String caseStateMachine(StateMachine object) {
-		return computeStereotypes(object) + OPEN_QUOTE_MARK + "StateMachine" + CLOSE_QUOTE_MARK + caseBehavior(object); //$NON-NLS-1$
+		return computeStereotypes(object) + ILabelConstants.ST_LEFT + "StateMachine" + ILabelConstants.ST_RIGHT + caseBehavior(object); //$NON-NLS-1$
 	}
 
 	/**
@@ -778,7 +778,7 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 	 */
 	@Override
 	public String caseUsage(org.eclipse.uml2.uml.Usage object) {
-		return computeStereotypes(object) + "<<use>>"; //$NON-NLS-1$
+		return computeStereotypes(object) + ILabelConstants.ST_LEFT + "use" + ILabelConstants.ST_RIGHT; //$NON-NLS-1$
 	}
 	
 	/**

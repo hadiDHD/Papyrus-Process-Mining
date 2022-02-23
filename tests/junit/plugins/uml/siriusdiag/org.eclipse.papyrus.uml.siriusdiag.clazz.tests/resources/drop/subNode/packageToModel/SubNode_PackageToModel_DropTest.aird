@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_uDVgcDcrEeySVJ5jrKIH0A" selectedViews="_uR1PcDcrEeySVJ5jrKIH0A _uTus4DcrEeySVJ5jrKIH0A _uUHucDcrEeySVJ5jrKIH0A" version="14.3.1.202003261200">
+  <viewpoint:DAnalysis uid="_uDVgcDcrEeySVJ5jrKIH0A" selectedViews="_uUHucDcrEeySVJ5jrKIH0A _uR1PcDcrEeySVJ5jrKIH0A _uTus4DcrEeySVJ5jrKIH0A" version="15.0.0.202201261500">
     <semanticResources>SubNode_PackageToModel_DropTest.uml</semanticResources>
     <semanticResources>pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml</semanticResources>
     <semanticResources>pathmap://UML_PROFILES/Ecore.profile.uml</semanticResources>
@@ -10,7 +10,7 @@
     <semanticResources>pathmap://UML_METAMODELS/Ecore.metamodel.uml</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_uR1PcDcrEeySVJ5jrKIH0A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_uWRqkDcrEeySVJ5jrKIH0A" name="SubNode_PackageToModel_ClassDiagram" repPath="#_uVwtMDcrEeySVJ5jrKIH0A" changeId="08a10170-f6b0-4406-9715-86f605b2ffac">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_uWRqkDcrEeySVJ5jrKIH0A" name="SubNode_PackageToModel_ClassDiagram" repPath="#_uVwtMDcrEeySVJ5jrKIH0A" changeId="74859a84-28d3-428a-bbf9-f137fe924af1">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']"/>
         <target xmi:type="uml:Model" href="SubNode_PackageToModel_DropTest.uml#_rGoZQCA2EeyRYJqxsi2jow"/>
       </ownedRepresentationDescriptors>
@@ -43,10 +43,10 @@
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_uagqUDcrEeySVJ5jrKIH0A" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_uahRYDcrEeySVJ5jrKIH0A"/>
     </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_6SzuADcrEeySVJ5jrKIH0A" name="Model1" tooltipText="Model1" width="8" height="8">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_6SzuADcrEeySVJ5jrKIH0A" name="Model1" tooltipText="Model1" width="10" height="10">
       <target xmi:type="uml:Model" href="SubNode_PackageToModel_DropTest.uml#_6SryMDcrEeySVJ5jrKIH0A"/>
       <semanticElements xmi:type="uml:Model" href="SubNode_PackageToModel_DropTest.uml#_6SryMDcrEeySVJ5jrKIH0A"/>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_6S7p0DcrEeySVJ5jrKIH0A" labelSize="9" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" foregroundColor="195,209,213">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_6S7p0DcrEeySVJ5jrKIH0A" labelSize="9" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Model']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Model']"/>

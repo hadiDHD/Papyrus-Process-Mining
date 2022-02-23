@@ -27,12 +27,12 @@ public interface ILabelConstants {
 	/**
 	 * Open quote mark.
 	 */
-	public static final String OPEN_QUOTE_MARK = "\u00AB"; //$NON-NLS-1$
+	public static final String ST_LEFT = "\u00AB"; //$NON-NLS-1$
 
 	/**
 	 * Close quote mark.
 	 */
-	public static final String CLOSE_QUOTE_MARK = "\u00BB"; //$NON-NLS-1$
+	public static final String ST_RIGHT = "\u00BB"; //$NON-NLS-1$
 
 	/**
 	 * Receiver element name suffix.
@@ -58,4 +58,5 @@ public interface ILabelConstants {
 	 * The guard suffix constant.
 	 */
 	public static final String GUARD_SUFFIX = "_guard"; //$NON-NLS-1$
+	
 }

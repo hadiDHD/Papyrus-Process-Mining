@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_aM-yUDcxEeySVJ5jrKIH0A" selectedViews="_aNvAQDcxEeySVJ5jrKIH0A _aOrbcDcxEeySVJ5jrKIH0A _aO3osDcxEeySVJ5jrKIH0A" version="14.3.1.202003261200">
+  <viewpoint:DAnalysis uid="_aM-yUDcxEeySVJ5jrKIH0A" selectedViews="_aO3osDcxEeySVJ5jrKIH0A _aNvAQDcxEeySVJ5jrKIH0A _aOrbcDcxEeySVJ5jrKIH0A" version="15.0.0.202201261500">
     <semanticResources>Edge_Link_CreationTest.uml</semanticResources>
     <semanticResources>pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml</semanticResources>
     <semanticResources>pathmap://UML_PROFILES/Ecore.profile.uml</semanticResources>
@@ -10,7 +10,7 @@
     <semanticResources>pathmap://UML_METAMODELS/Ecore.metamodel.uml</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_aNvAQDcxEeySVJ5jrKIH0A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_aPCn0DcxEeySVJ5jrKIH0A" name="Edge_Link_ClassDiagram" repPath="#_aPBZsDcxEeySVJ5jrKIH0A" changeId="f213da04-e844-4430-bbac-75d50263497c">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_aPCn0DcxEeySVJ5jrKIH0A" name="Edge_Link_ClassDiagram" repPath="#_aPBZsDcxEeySVJ5jrKIH0A" changeId="53cdf981-5656-4b63-b941-4251c59ca234">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']"/>
         <target xmi:type="uml:Model" href="Edge_Link_CreationTest.uml#_jxEMEBqzEeyiteqTlxjDlg"/>
       </ownedRepresentationDescriptors>
@@ -37,7 +37,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jZXpYjcxEeySVJ5jrKIH0A"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_jZUmETcxEeySVJ5jrKIH0A" fontName="Segoe UI"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jZUmEjcxEeySVJ5jrKIH0A" x="108" y="222" width="127" height="91"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jZUmEjcxEeySVJ5jrKIH0A" x="108" y="222" width="90" height="90"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_jr9OMDcxEeySVJ5jrKIH0A" type="2001" element="_jqWEoDcxEeySVJ5jrKIH0A">
           <children xmi:type="notation:Node" xmi:id="_jr9OMzcxEeySVJ5jrKIH0A" type="5002">
@@ -48,7 +48,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jr9ONzcxEeySVJ5jrKIH0A"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_jr9OMTcxEeySVJ5jrKIH0A" fontName="Segoe UI"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jr9OMjcxEeySVJ5jrKIH0A" x="306" y="225" width="115" height="85"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jr9OMjcxEeySVJ5jrKIH0A" x="306" y="225" width="90" height="90"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_aPEdAjcxEeySVJ5jrKIH0A"/>
       </data>
@@ -56,7 +56,7 @@
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_aQJbEDcxEeySVJ5jrKIH0A" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_aQJbETcxEeySVJ5jrKIH0A"/>
     </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_jXqZMDcxEeySVJ5jrKIH0A" name="Constraint1&#xD;&#xA;{{OCL} true}" width="3" height="3" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_jXqZMDcxEeySVJ5jrKIH0A" name="Constraint1&#xD;&#xA;{{OCL} true}" width="9" height="9" resizeKind="NSEW">
       <target xmi:type="uml:Constraint" href="Edge_Link_CreationTest.uml#_yPbTEBqzEeyiteqTlxjDlg"/>
       <semanticElements xmi:type="uml:Constraint" href="Edge_Link_CreationTest.uml#_yPbTEBqzEeyiteqTlxjDlg"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -67,7 +67,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_Constraint']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_jqWEoDcxEeySVJ5jrKIH0A" name="Constraint2&#xD;&#xA;{{OCL} true}" width="3" height="3" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_jqWEoDcxEeySVJ5jrKIH0A" name="Constraint2&#xD;&#xA;{{OCL} true}" width="9" height="9" resizeKind="NSEW">
       <target xmi:type="uml:Constraint" href="Edge_Link_CreationTest.uml#_zM62EBqzEeyiteqTlxjDlg"/>
       <semanticElements xmi:type="uml:Constraint" href="Edge_Link_CreationTest.uml#_zM62EBqzEeyiteqTlxjDlg"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>

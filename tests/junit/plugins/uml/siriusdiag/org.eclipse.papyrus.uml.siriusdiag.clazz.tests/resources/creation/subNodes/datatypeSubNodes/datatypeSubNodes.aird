@@ -10,7 +10,7 @@
     <semanticResources>pathmap://UML_METAMODELS/Ecore.metamodel.uml</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="__j5CYJPLEeyIXLbp7yFc_w">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="__mK6UJPLEeyIXLbp7yFc_w" name="DataTypeSubNodesDiagram" repPath="#__mJsMJPLEeyIXLbp7yFc_w" changeId="5fa39fa8-4408-491c-a636-5f89322404ac">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="__mK6UJPLEeyIXLbp7yFc_w" name="DataTypeSubNodesDiagram" repPath="#__mJsMJPLEeyIXLbp7yFc_w" changeId="b988b631-62d7-4e1b-9d0a-ee37a80b1469">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']"/>
         <target xmi:type="uml:Model" href="datatypeSubNodes.uml#__ii-kJPLEeyIXLbp7yFc_w"/>
       </ownedRepresentationDescriptors>
@@ -63,7 +63,7 @@
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="__nwOsJPLEeyIXLbp7yFc_w" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="__nwOsZPLEeyIXLbp7yFc_w"/>
     </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_Yks7wJSNEey0Fs3SyLtufw" name="&lt;&lt;DataType>>&#xD;&#xA;DataType1" tooltipText="datatypeSubNodes::DataType1" width="10" height="10" childrenPresentation="VerticalStack">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_Yks7wJSNEey0Fs3SyLtufw" name="«DataType»&#xD;&#xA;DataType1" tooltipText="datatypeSubNodes::DataType1" width="10" height="10" childrenPresentation="VerticalStack">
       <target xmi:type="uml:DataType" href="datatypeSubNodes.uml#_BUDYcJPMEeyIXLbp7yFc_w"/>
       <semanticElements xmi:type="uml:DataType" href="datatypeSubNodes.uml#_BUDYcJPMEeyIXLbp7yFc_w"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_YkzpcJSNEey0Fs3SyLtufw" labelSize="9" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">

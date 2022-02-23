@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_HqGF8DcxEeySVJ5jrKIH0A" selectedViews="_Hq7MYDcxEeySVJ5jrKIH0A _Hsf5sDcxEeySVJ5jrKIH0A _HsvxUDcxEeySVJ5jrKIH0A" version="14.3.1.202003261200">
+  <viewpoint:DAnalysis uid="_HqGF8DcxEeySVJ5jrKIH0A" selectedViews="_HsvxUDcxEeySVJ5jrKIH0A _Hq7MYDcxEeySVJ5jrKIH0A _Hsf5sDcxEeySVJ5jrKIH0A" version="15.0.0.202201261500">
     <semanticResources>Edge_PackageImportMerge_CreationTest.uml</semanticResources>
     <semanticResources>pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml</semanticResources>
     <semanticResources>pathmap://UML_PROFILES/Ecore.profile.uml</semanticResources>
@@ -10,7 +10,7 @@
     <semanticResources>pathmap://UML_METAMODELS/Ecore.metamodel.uml</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_Hq7MYDcxEeySVJ5jrKIH0A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Hs7XgDcxEeySVJ5jrKIH0A" name="Edge_PackageImportMerge_ClassDiagram" repPath="#_Hs5iUDcxEeySVJ5jrKIH0A" changeId="de82709a-f7cf-4031-87e9-7706ea469c88">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Hs7XgDcxEeySVJ5jrKIH0A" name="Edge_PackageImportMerge_ClassDiagram" repPath="#_Hs5iUDcxEeySVJ5jrKIH0A" changeId="a2fe24ea-be60-4293-93e0-08e7033c21f2">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']"/>
         <target xmi:type="uml:Model" href="Edge_PackageImportMerge_CreationTest.uml#_VIVVcBohEeywE9VzG78DQQ"/>
       </ownedRepresentationDescriptors>
@@ -52,7 +52,7 @@
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_HuCx0DcxEeySVJ5jrKIH0A" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_HuCx0TcxEeySVJ5jrKIH0A"/>
     </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_KS57QDcxEeySVJ5jrKIH0A" name="Package1" tooltipText="Edge_PackageImportMerge_CreationTest::Package1" width="8" height="8">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_KS57QDcxEeySVJ5jrKIH0A" name="Package1" tooltipText="Edge_PackageImportMerge_CreationTest::Package1" width="10" height="10">
       <target xmi:type="uml:Package" href="Edge_PackageImportMerge_CreationTest.uml#_KS4tIDcxEeySVJ5jrKIH0A"/>
       <semanticElements xmi:type="uml:Package" href="Edge_PackageImportMerge_CreationTest.uml#_KS4tIDcxEeySVJ5jrKIH0A"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_KS57QTcxEeySVJ5jrKIH0A" labelSize="9" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255">
@@ -60,7 +60,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Package']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_KbczQDcxEeySVJ5jrKIH0A" name="Package2" tooltipText="Edge_PackageImportMerge_CreationTest::Package2" width="8" height="8">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_KbczQDcxEeySVJ5jrKIH0A" name="Package2" tooltipText="Edge_PackageImportMerge_CreationTest::Package2" width="10" height="10">
       <target xmi:type="uml:Package" href="Edge_PackageImportMerge_CreationTest.uml#_KbblIDcxEeySVJ5jrKIH0A"/>
       <semanticElements xmi:type="uml:Package" href="Edge_PackageImportMerge_CreationTest.uml#_KbblIDcxEeySVJ5jrKIH0A"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_KbdaUDcxEeySVJ5jrKIH0A" labelSize="9" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" foregroundColor="255,255,255">
