@@ -69,4 +69,6 @@ public class MappingTypes {
 	public static final String PRIMITIVETYPE_LABEL_NODE_TYPE = "CD_PrimitiveTypeLabelNode"; //$NON-NLS-1$
 
 	public static final String PROPERTY_LABEL_NODE_TYPE = "CD_PropertyLabelNode"; //$NON-NLS-1$
+	
+	public static final String SIGNAL_NODE_TYPE = "CD_Signal"; //$NON-NLS-1$
 }

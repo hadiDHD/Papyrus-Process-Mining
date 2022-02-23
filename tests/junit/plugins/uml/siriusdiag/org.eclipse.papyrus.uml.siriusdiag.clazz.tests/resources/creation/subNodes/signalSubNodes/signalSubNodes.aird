@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_yxS5oJPLEeyIXLbp7yFc_w" selectedViews="_yyXQoJPLEeyIXLbp7yFc_w _yz0pMJPLEeyIXLbp7yFc_w _y0WNoJPLEeyIXLbp7yFc_w" version="15.0.0.202201261500">
+    <semanticResources>signalSubNodes.uml</semanticResources>
+    <semanticResources>pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml</semanticResources>
+    <semanticResources>pathmap://UML_PROFILES/Ecore.profile.uml</semanticResources>
+    <semanticResources>pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml</semanticResources>
+    <semanticResources>pathmap://UML_PROFILES/Standard.profile.uml</semanticResources>
+    <semanticResources>pathmap://UML_METAMODELS/UML.metamodel.uml</semanticResources>
+    <semanticResources>pathmap://UML_METAMODELS/Ecore.metamodel.uml</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_yyXQoJPLEeyIXLbp7yFc_w">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_y01V0JPLEeyIXLbp7yFc_w" name="SignalSubNodesDiagram" repPath="#_y00HsJPLEeyIXLbp7yFc_w" changeId="ec228002-6e4e-4be5-806a-dc841242bae2">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']"/>
+        <target xmi:type="uml:Model" href="signalSubNodes.uml#_yw7GMJPLEeyIXLbp7yFc_w"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_yz0pMJPLEeyIXLbp7yFc_w">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_y0WNoJPLEeyIXLbp7yFc_w">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_y00HsJPLEeyIXLbp7yFc_w">
+    <eAnnotations xmi:type="description:DAnnotation" uid="_y2gw0pPLEeyIXLbp7yFc_w" source="Papyrus-SiriusDiagram">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y2gw05PLEeyIXLbp7yFc_w" key="Papyrus-SiriusDiagram-ImplementationId" value="org.eclipse.papyrus.infra.siriusdiag.class"/>
+    </eAnnotations>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_y1L7IJPLEeyIXLbp7yFc_w" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_y1L7IZPLEeyIXLbp7yFc_w" type="Sirius" element="_y00HsJPLEeyIXLbp7yFc_w" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_26Q6IJPLEeyIXLbp7yFc_w" type="2003" element="_24Fv4JPLEeyIXLbp7yFc_w">
+          <children xmi:type="notation:Node" xmi:id="_26Q6I5PLEeyIXLbp7yFc_w" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_26Q6JJPLEeyIXLbp7yFc_w" type="7004">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_26Q6JZPLEeyIXLbp7yFc_w"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_26Q6JpPLEeyIXLbp7yFc_w"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_26Q6IZPLEeyIXLbp7yFc_w" fontName="Segoe UI"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_26Q6IpPLEeyIXLbp7yFc_w" x="330" y="200" width="100" height="100"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_y1L7IpPLEeyIXLbp7yFc_w"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_y2gw0JPLEeyIXLbp7yFc_w" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_y2gw0ZPLEeyIXLbp7yFc_w"/>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_24Fv4JPLEeyIXLbp7yFc_w" name="&lt;&lt;Signal>>&#xD;&#xA;Signal1" tooltipText="signalSubNodes::Signal1" width="10" height="10">
+      <target xmi:type="uml:Signal" href="signalSubNodes.uml#_24D6sJPLEeyIXLbp7yFc_w"/>
+      <semanticElements xmi:type="uml:Signal" href="signalSubNodes.uml#_24D6sJPLEeyIXLbp7yFc_w"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_24Fv4ZPLEeyIXLbp7yFc_w" labelSize="9" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" foregroundColor="195,215,221">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Signal']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Signal']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_y00HsZPLEeyIXLbp7yFc_w"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Comment']"/>
+    <target xmi:type="uml:Model" href="signalSubNodes.uml#_yw7GMJPLEeyIXLbp7yFc_w"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>
