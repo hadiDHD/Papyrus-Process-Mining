@@ -67,7 +67,7 @@ public class InterfaceSubNodes_CreationTest extends AbstractSubNodeListElementCr
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME)
 	public void createPropertyLabelNodeTest() {
-		final DDiagramElement createdElement = createSubNodeInDNodeContainer(MappingTypes.INTERFACE_NODE_ATTRIBUTES_COMPARTMENT_TYPE, CreationToolsIds.CREATE_PROPERTY_TOOL, MappingTypes.INTERFACE_NODE_OWNED_PROPERTY_TYPE);
+		final DDiagramElement createdElement = createSubNodeInDNodeContainer(MappingTypes.INTERFACE_NODE_ATTRIBUTES_COMPARTMENT_TYPE, CreationToolsIds.CREATE_PROPERTY_TOOL, MappingTypes.PROPERTY_LABEL_NODE_TYPE);
 		final EObject semantic = createdElement.getSemanticElements().get(0);
 		Assert.assertTrue(NLS.bind("The created element must be an Property instead of a {0}.", semantic.eClass().getName()),semantic instanceof Property); //$NON-NLS-1$
 		Assert.assertTrue("The created element is not owned by the expected feature", this.semanticOwner.getOwnedAttributes().contains(semantic)); //$NON-NLS-1$

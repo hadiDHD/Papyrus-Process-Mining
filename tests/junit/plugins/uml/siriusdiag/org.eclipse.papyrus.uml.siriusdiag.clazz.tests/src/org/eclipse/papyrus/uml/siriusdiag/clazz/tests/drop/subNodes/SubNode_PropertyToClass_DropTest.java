@@ -21,6 +21,7 @@ import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusT
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
+import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.SemanticDropToolsIds;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeContainerSpec;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeListElementSpec;
@@ -60,7 +61,7 @@ public class SubNode_PropertyToClass_DropTest extends AbstractPapyrusTest {
 		DNodeListSpec propertyContainer = (DNodeListSpec) classRepresentation.getOwnedDiagramElements().get(1);
 		NamedElement elementToBeDropped = ((Class) classRepresentation.getTarget()).getOwnedAttributes().get(0);
 		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
-		fixture.applyContainerDropDescriptionTool(diagramRepresentation, "Attributes or Operations from Model", propertyContainer, elementToBeDropped);
+		fixture.applyContainerDropDescriptionTool(diagramRepresentation, SemanticDropToolsIds.DROP_PROPERTY_TOOL, propertyContainer, elementToBeDropped);
 		fixture.flushDisplayEvents();
 
 		classElement = diagram.getChildren().get(0);
