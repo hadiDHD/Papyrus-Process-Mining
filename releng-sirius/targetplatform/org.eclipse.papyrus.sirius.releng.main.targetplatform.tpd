@@ -10,27 +10,18 @@ location orbit "https://download.eclipse.org/tools/orbit/downloads/drops/R202112
 	org.apache.batik.xml [1.14.0,1.15.0)
 }
 
-//manual update
 //updateFrom("GMF Runtime 1.14.1 for SimRel 2022-03",0)
-
-location gmfRuntime "https://download.eclipse.org/modeling/gmp/gmf-runtime/updates/milestones/S202202011016/" {
+location gmfRuntime "https://download.eclipse.org/modeling/gmp/gmf-runtime/updates/releases/R202202190902" {
 	org.eclipse.gmf.runtime.sdk.feature.group
 }
 
 //manualUpdate
-location "https://download.eclipse.org/modeling/mdt/papyrus/updates/milestones/6.1/M2/" Papyrus-M2-2022-03{
+location "https://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/master/" Papyrus-nightly {
  org.eclipse.papyrus.junit.feature.feature.group lazy
  org.eclipse.papyrus.junit.framework lazy 
  org.eclipse.papyrus.sdk.feature.feature.group lazy
  org.eclipse.papyrus.toolsmiths.feature.feature.group lazy
 }
-
-//location "https://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/master/" Papyrus-nightly {
-// org.eclipse.papyrus.junit.feature.feature.group lazy
-// org.eclipse.papyrus.junit.framework lazy 
-// org.eclipse.papyrus.sdk.feature.feature.group lazy
-// org.eclipse.papyrus.toolsmiths.feature.feature.group lazy
-//}
 
 
 // manualUpdate
@@ -40,7 +31,7 @@ location release-2021-12 "http://download.eclipse.org/releases/2021-12" {
 	org.eclipse.xwt.feature.feature.group
 }
 
-//manualUpdate
+// updateFrom("M2T ACCELEO",0)
 location acceleo "https://download.eclipse.org/acceleo/updates/releases/3.7/R202102190929" {
 	org.eclipse.acceleo.feature.group
 	org.eclipse.acceleo.runtime.feature.group
@@ -52,7 +43,7 @@ location platform "https://download.eclipse.org/eclipse/updates/4.22/R-4.22-2021
 }
 
 // updateFrom("Sirius",0)
-location sirius "https://download.eclipse.org/sirius/updates/milestones/7.0.0M3/2021-06/" {
+location sirius "https://download.eclipse.org/sirius/updates/milestones/7.0.0rc2/2021-06/" {
 	org.eclipse.sirius.aql.feature.group
 	org.eclipse.sirius.doc.feature.feature.group
 	org.eclipse.sirius.interpreter.feature.feature.group
