@@ -19,22 +19,28 @@ package org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants;
 public class CreationToolsIds {
 
 	private CreationToolsIds() {
-		//to prevent instantiation
+		// to prevent instantiation
 	}
-	
+
 	public static final String CREATE_ASSOCIATION_CLASS_TOOL = "AssociationClass"; //$NON-NLS-1$
-	
+
+	public static final String CREATE_CLASS_TOOL = "CreateClassTool"; //$NON-NLS-1$
+
 	public static final String CREATE_DATATYPE_TOOL = "DataType"; //$NON-NLS-1$
-	
+
 	public static final String CREATE_ENUMERATION_TOOL = "Enumeration"; //$NON-NLS-1$
+
+	public static final String CREATE_INTERFACE_TOOL = "CreateInterfaceTool";//$NON-NLS-1$
 	
 	public static final String CREATE_PRIMITIVETYPE_TOOL = "PrimitiveType"; //$NON-NLS-1$
-	
-	public static final String CREATE_PROPERTY_TOOL = "CreatePropertyTool"; //$NON-NLS-1$
-	
-	public static final String CREATE_OPERATION_TOOL = "CreateOperationTool"; //$NON-NLS-1$
-	
 
+	public static final String CREATE_PROPERTY_TOOL = "CreatePropertyTool"; //$NON-NLS-1$
+
+	public static final String CREATE_OPERATION_TOOL = "CreateOperationTool"; //$NON-NLS-1$
+
+	public static final String CREATE_RECEPTION_TOOL = "CreateReceptionTool"; //$NON-NLS-1$
+
+	public static final String CREATE_SIGNAL_TOOL = "CreateSignalTool"; //$NON-NLS-1$
 
 
 }

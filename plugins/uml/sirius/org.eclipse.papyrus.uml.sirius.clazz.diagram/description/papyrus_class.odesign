@@ -14,6 +14,12 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </nodeMappings>
+        <nodeMappings name="CD_ClassLabelNode" semanticCandidatesExpression="aql:if(self.oclIsKindOf(uml::Class) or self.oclIsKindOf(uml::Interface)) then self.nestedClassifier else null endif" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.Class">
+          <style xsi:type="style:SquareDescription" labelSize="9" labelExpression="service:computeUmlLabel" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Class.gif" labelAlignment="LEFT" sizeComputationExpression="" resizeKind="NSEW" width="16" height="5" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
         <nodeMappings name="CD_Constraint" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='ConstraintEdit']" semanticCandidatesExpression="feature:ownedRule" createElements="false" domainClass="uml.Constraint">
           <style xsi:type="style:NoteDescription" labelSize="9" labelExpression="service:getConstraintLabel()" sizeComputationExpression="9" labelPosition="node" resizeKind="NSEW" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='ConstraintColor']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -38,6 +44,12 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
+        <nodeMappings name="CD_InterfaceLabelNode" semanticCandidatesExpression="aql:if(self.oclIsKindOf(uml::Class) or self.oclIsKindOf(uml::Interface)) then self.nestedClassifier else null endif" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.Interface">
+          <style xsi:type="style:SquareDescription" labelSize="9" labelExpression="service:computeUmlLabel" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Interface.gif" labelAlignment="LEFT" sizeComputationExpression="" resizeKind="NSEW" width="16" height="5" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
         <nodeMappings name="CD_OperationLabelNode" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Element%20Name']" semanticCandidatesExpression="aql:if(self.oclIsKindOf(uml::Classifier) or self.oclIsKindOf(uml::Interface) self.oclIsKindOf(uml::DataType)) then self.ownedOperation else null endif" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.Operation">
           <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Operation.gif" labelAlignment="LEFT" sizeComputationExpression="" labelPosition="node" width="16" height="5" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -52,6 +64,18 @@
         </nodeMappings>
         <nodeMappings name="CD_PropertyLabelNode" preconditionExpression="service:isNotAssociation()" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Element%20Name']" semanticCandidatesExpression="aql:if(self.oclIsKindOf(uml::Classifier) or self.oclIsKindOf(uml::Interface) self.oclIsKindOf(uml::DataType)) then self.ownedAttribute else null endif" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.Property">
           <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Property.gif" labelAlignment="LEFT" sizeComputationExpression="" labelPosition="node" width="16" height="5" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="CD_ReceptionLabelNode" semanticCandidatesExpression="aql:if(self.oclIsKindOf(uml::Class) or self.oclIsKindOf(uml::Interface)) then self.ownedReception else null endif" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.Reception">
+          <style xsi:type="style:SquareDescription" labelSize="9" labelExpression="service:computeUmlLabel" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Reception.gif" labelAlignment="LEFT" sizeComputationExpression="" resizeKind="NSEW" width="16" height="5" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="CD_SignalLabelNode" semanticCandidatesExpression="aql:if(self.oclIsKindOf(uml::Class) or self.oclIsKindOf(uml::Interface)) then self.nestedClassifier else null endif" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.Signal">
+          <style xsi:type="style:SquareDescription" labelSize="9" labelExpression="service:computeUmlLabel" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Signal.gif" labelAlignment="LEFT" sizeComputationExpression="" resizeKind="NSEW" width="16" height="5" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -279,13 +303,7 @@
               </style>
             </conditionnalStyles>
           </subContainerMappings>
-          <subContainerMappings name="CD_ClassOperationsCompartment" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.Class" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticOperationDrop']" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_OperationLabelNode']" childrenPresentation="List">
-            <subNodeMappings name="CD_Reception" semanticCandidatesExpression="aql:if(self.oclIsKindOf(uml::Class) or self.oclIsKindOf(uml::Interface)) then self.ownedReception else null endif" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.Reception">
-              <style xsi:type="style:SquareDescription" labelExpression="service:computeUmlLabel" labelAlignment="LEFT" resizeKind="NSEW" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
+          <subContainerMappings name="CD_ClassOperationsCompartment" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.Class" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticOperationDrop']" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_OperationLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_ReceptionLabelNode']" childrenPresentation="List">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" showIcon="false" labelExpression="operations" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -301,19 +319,7 @@
               </style>
             </conditionnalStyles>
           </subContainerMappings>
-          <subContainerMappings name="CD_ClassNestedClassifiersCompartment" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.Class" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='PrimitiveType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Class%20Primitive%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticEnumerationDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticDataTypeDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='GraphicalEnumerationDrop']" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_DataTypeLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_EnumerationLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_PrimitiveTypeLabelNode']" childrenPresentation="List">
-            <subNodeMappings name="CD_ClassSignalNode" semanticCandidatesExpression="aql:if(self.oclIsKindOf(uml::Class) or self.oclIsKindOf(uml::Interface)) then self.nestedClassifier else null endif" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.Signal">
-              <style xsi:type="style:SquareDescription" labelExpression="service:computeUmlLabel" labelAlignment="LEFT" resizeKind="NSEW" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="CD_ClassClass" semanticCandidatesExpression="aql:if(self.oclIsKindOf(uml::Class) or self.oclIsKindOf(uml::Interface)) then self.nestedClassifier else null endif" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.Class">
-              <style xsi:type="style:SquareDescription" labelExpression="service:computeUmlLabel" labelAlignment="LEFT" resizeKind="NSEW" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
+          <subContainerMappings name="CD_ClassNestedClassifiersCompartment" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.Class" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='PrimitiveType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Class%20Primitive%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticEnumerationDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticDataTypeDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='GraphicalEnumerationDrop']" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_ClassLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_DataTypeLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_EnumerationLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_InterfaceLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_PrimitiveTypeLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_SignalLabelNode']" childrenPresentation="List">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" showIcon="false" labelExpression="nested classifiers" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -364,7 +370,7 @@
               <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.2"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="CD_InterfaceOperationsCompartment" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.Interface" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticOperationDrop']" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassOperationsCompartment']/@subNodeMappings[name='CD_Reception'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_OperationLabelNode']" childrenPresentation="List">
+          <subContainerMappings name="CD_InterfaceOperationsCompartment" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.Interface" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticOperationDrop']" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_OperationLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_ReceptionLabelNode']" childrenPresentation="List">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" showIcon="false" labelExpression="operations" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -372,7 +378,7 @@
               <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.2"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="CD_InterfaceNestedClassifiersCompartment" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.Interface" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='PrimitiveType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Interface%20Primitive%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticEnumerationDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticDataTypeDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='GraphicalEnumerationDrop']" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_DataTypeLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_EnumerationLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_PrimitiveTypeLabelNode']" childrenPresentation="List">
+          <subContainerMappings name="CD_InterfaceNestedClassifiersCompartment" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.Interface" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='PrimitiveType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Interface%20Primitive%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticEnumerationDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticDataTypeDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='GraphicalEnumerationDrop']" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_ClassLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_DataTypeLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_EnumerationLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_InterfaceLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_PrimitiveTypeLabelNode'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_SignalLabelNode']" childrenPresentation="List">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" showIcon="false" labelExpression="nested classifiers" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -520,7 +526,7 @@
           </conditionnalStyles>
         </containerMappings>
         <toolSections name="Nodes" icon="/org.eclipse.gmf.runtime.diagram.ui/icons/group.gif">
-          <ownedTools xsi:type="tool:ToolDescription" name="Class" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Class.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="CreateClassTool" label="Class" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Class.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -534,16 +540,16 @@
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.isClassNodeListContainer()">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(diagram::DNodeList)">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Class" referenceName="nestedClassifier">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
                       <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
-                      <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassNestedClassifiersCompartment']/@subNodeMappings[name='CD_ClassClass']" containerViewExpression="aql:elementView"/>
+                      <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_ClassLabelNode']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.isClassNodeContainer()">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(diagram::DNodeContainer)">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Class" referenceName="packagedElement">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
@@ -649,7 +655,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="Interface" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Interface.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="CreateInterfaceTool" label="Interface" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Interface.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -663,16 +669,16 @@
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.isClassNodeListContainer()">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(diagram::DNodeList)">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Interface" referenceName="nestedClassifier">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
                       <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
-                      <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassNestedClassifiersCompartment']" containerViewExpression="aql:elementView"/>
+                      <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_InterfaceLabelNode']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.isClassNodeContainer()">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(diagram::DNodeContainer)">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Interface" referenceName="packagedElement">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
@@ -756,30 +762,30 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="Signal" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Signal.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="CreateSignalTool" label="Signal" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Signal.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:elementView">
                 <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.isDDiagram()">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Signal" referenceName="ownedType">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Signal" referenceName="packagedElement">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
                       <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
                       <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Signal']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.isClassNodeListContainer()">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(diagram::DNodeList)">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Signal" referenceName="nestedClassifier">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
                       <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
-                      <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassNestedClassifiersCompartment']/@subNodeMappings[name='CD_ClassSignalNode']" containerViewExpression="aql:elementView"/>
+                      <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_SignalLabelNode']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.isClassNodeContainer()">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(diagram::DNodeContainer)">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Signal" referenceName="packagedElement">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
@@ -909,7 +915,7 @@
             <elementView name="elementView"/>
             <initialOperation/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new operation" name="Reception" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_ClassOperationsCompartment']/@subNodeMappings[name='CD_Reception']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Reception.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new operation" name="CreateReceptionTool" label="Reception" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_ReceptionLabelNode']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Reception.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>

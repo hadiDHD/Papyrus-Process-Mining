@@ -21,7 +21,8 @@ public class MappingTypes {
 	private MappingTypes() {
 		// to prevent instantiation
 	}
-
+	public static final String CLASS_LABEL_NODE_TYPE = "CD_ClassLabelNode"; //$NON-NLS-1$
+	
 	public static final String CLASS_NODE_TYPE = "CD_Class"; //$NON-NLS-1$
 
 	public static final String CLASS_NODE_ATTRIBUTES_COMPARTMENT_TYPE = "CD_ClassAttributesCompartment"; //$NON-NLS-1$
@@ -42,6 +43,8 @@ public class MappingTypes {
 
 	public static final String ENUMERATION_NODE_TYPE = "CD_Enumeration"; //$NON-NLS-1$
 
+	public static final String INTERFACE_LABEL_NODE_TYPE = "CD_InterfaceLabelNode"; //$NON-NLS-1$
+	
 	public static final String INTERFACE_NODE_TYPE = "CD_Interface"; //$NON-NLS-1$
 
 	public static final String INTERFACE_NODE_ATTRIBUTES_COMPARTMENT_TYPE = "CD_InterfaceAttributesCompartment"; //$NON-NLS-1$
@@ -61,6 +64,10 @@ public class MappingTypes {
 	public static final String PRIMITIVETYPE_LABEL_NODE_TYPE = "CD_PrimitiveTypeLabelNode"; //$NON-NLS-1$
 
 	public static final String PROPERTY_LABEL_NODE_TYPE = "CD_PropertyLabelNode"; //$NON-NLS-1$
+	
+	public static final String RECEPTION_LABEL_NODE_TYPE = "CD_ReceptionLabelNode"; //$NON-NLS-1$
+	
+	public static final String SIGNAL_LABEL_NODE_TYPE = "CD_SignalLabelNode"; //$NON-NLS-1$
 	
 	public static final String SIGNAL_NODE_TYPE = "CD_Signal"; //$NON-NLS-1$
 }
