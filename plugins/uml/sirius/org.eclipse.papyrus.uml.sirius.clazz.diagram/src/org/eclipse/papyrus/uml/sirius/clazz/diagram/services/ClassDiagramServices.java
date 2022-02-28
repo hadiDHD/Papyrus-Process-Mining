@@ -943,11 +943,7 @@ public class ClassDiagramServices {
 		} else if (element instanceof PrimitiveType) {
 			prefix = "Primitive"; //$NON-NLS-1$
 		} else {
-			prefix = element.getClass().getSimpleName();
-			int endIndex = prefix.indexOf("Impl"); //$NON-NLS-1$
-			if (endIndex != -1) {
-				prefix = prefix.substring(0, endIndex);
-			}
+			prefix = element.eClass().getName();
 		}
 		prefix = ILabelConstants.ST_LEFT + prefix + ILabelConstants.ST_RIGHT;
 

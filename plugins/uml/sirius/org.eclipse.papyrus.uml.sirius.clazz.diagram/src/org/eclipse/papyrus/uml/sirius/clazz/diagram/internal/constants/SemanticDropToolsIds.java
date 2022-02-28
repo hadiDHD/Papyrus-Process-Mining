@@ -22,6 +22,8 @@ public class SemanticDropToolsIds {
 		// to prevent instantiation
 	}
 	
+	public static final String DROP_COMPONENT_TOOL = "SemanticComponentDrop"; //$NON-NLS-1$
+	
 	public static final String DROP_DATATYPE_TOOL = "SemanticDataTypeDrop"; //$NON-NLS-1$
 	
 	public static final String DROP_ENUMERATION_TOOL = "SemanticEnumerationDrop"; //$NON-NLS-1$

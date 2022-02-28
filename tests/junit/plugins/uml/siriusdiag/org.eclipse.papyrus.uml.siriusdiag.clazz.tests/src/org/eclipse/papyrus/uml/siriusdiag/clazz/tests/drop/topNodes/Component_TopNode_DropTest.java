@@ -45,7 +45,7 @@ public class Component_TopNode_DropTest extends AbstractPapyrusTest {
 
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
-	public void Component_DropTest() {
+	public void component_DropTest() {
 
 		Assert.assertTrue(fixture.getModel() instanceof Model);
 		Model rootModel = (Model) fixture.getModel();
@@ -57,7 +57,7 @@ public class Component_TopNode_DropTest extends AbstractPapyrusTest {
 		Assert.assertEquals("The diagram must not yet have children", 0, diagram.getChildren().size());
 
 		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
-		fixture.applyContainerDropDescriptionTool(diagramRepresentation, "Class from Model", diagramRepresentation, elementToBeDropped);
+		fixture.applyContainerDropDescriptionTool(diagramRepresentation, "SemanticComponentDrop", diagramRepresentation, elementToBeDropped);
 		fixture.flushDisplayEvents();
 
 		Assert.assertEquals("The diagram must have one child after the Drop action", 1, diagram.getChildren().size());

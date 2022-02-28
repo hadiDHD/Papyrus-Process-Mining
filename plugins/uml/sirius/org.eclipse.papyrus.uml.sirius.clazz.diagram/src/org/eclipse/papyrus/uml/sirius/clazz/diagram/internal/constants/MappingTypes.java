@@ -31,6 +31,14 @@ public class MappingTypes {
 
 	public static final String CLASS_NODE_NESTED_CLASSIFIERS_COMPARTMENT_TYPE = "CD_ClassNestedClassifiersCompartment"; //$NON-NLS-1$
 
+	public static final String COMPONENT_NODE_TYPE = "CD_Component"; //$NON-NLS-1$
+
+	public static final String COMPONENT_NODE_ATTRIBUTES_COMPARTMENT_TYPE = "CD_ComponentAttributesCompartment"; //$NON-NLS-1$
+
+	public static final String COMPONENT_NODE_OPERATIONS_COMPARTMENT_TYPE = "CD_ComponentOperationsCompartment"; //$NON-NLS-1$
+
+	public static final String COMPONENT_NODE_NESTED_CLASSIFIERS_COMPARTMENT_TYPE = "CD_ComponentNestedClassifiersCompartment"; //$NON-NLS-1$
+
 	public static final String DATATYPE_LABEL_NODE_TYPE = "CD_DataTypeLabelNode"; //$NON-NLS-1$
 
 	public static final String DATATYPE_NODE_TYPE = "CD_DataType"; //$NON-NLS-1$
