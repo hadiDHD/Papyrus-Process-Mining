@@ -535,7 +535,6 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Class" referenceName="packagedElement">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
                       <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -544,7 +543,6 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Class" referenceName="nestedClassifier">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
                       <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_ClassLabelNode']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -553,7 +551,6 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Class" referenceName="packagedElement">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
                       <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -610,7 +607,6 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.DataType" referenceName="packagedElement">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
                       <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_DataType']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -651,7 +647,6 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Enumeration" referenceName="packagedElement">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
                       <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -668,7 +663,6 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Interface" referenceName="packagedElement">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
                       <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -677,7 +671,6 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Interface" referenceName="nestedClassifier">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
                       <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_InterfaceLabelNode']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -686,7 +679,6 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Interface" referenceName="packagedElement">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
                       <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -702,7 +694,6 @@
                 <subModelOperations xsi:type="tool:If" conditionExpression="service:container.isNotTypeOfClass">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.InstanceSpecification" referenceName="packagedElement">
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -715,7 +706,6 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.InformationItem" referenceName="packagedElement">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::uml::VisibilityKind::public"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -729,7 +719,6 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.PrimitiveType" referenceName="ownedType">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
                       <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -738,7 +727,6 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.PrimitiveType" referenceName="nestedClassifier">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
                       <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_PrimitiveTypeLabelNode']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -747,7 +735,6 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.PrimitiveType" referenceName="packagedElement">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
                       <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -775,7 +762,6 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Signal" referenceName="packagedElement">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
                       <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Signal']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -784,7 +770,6 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Signal" referenceName="nestedClassifier">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
                       <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_SignalLabelNode']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -793,7 +778,6 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Signal" referenceName="packagedElement">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::public"/>
                       <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Signal']" containerViewExpression="aql:elementView"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -820,7 +804,6 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.TimeObservation" referenceName="packagedElement">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::uml::VisibilityKind::public"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -832,7 +815,6 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.DurationObservation" referenceName="packagedElement">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::uml::VisibilityKind::public"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -862,9 +844,6 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.EnumerationLiteral" referenceName="ownedLiteral">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.LiteralInteger" referenceName="specification">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="aql:self.eContainer().eContainer().eAllContents(uml::EnumerationLiteral)->size() - 1"/>
-                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -876,7 +855,6 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Operation" referenceName="ownedOperation" variableName="aOperation">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="public"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -888,12 +866,6 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Property" referenceName="ownedAttribute" variableName="aProperty">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="lower" valueExpression="0"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="upper" valueExpression="1"/>
-                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:aProperty.findTypeByName('String') &lt;> null">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:self.findTypeByName('String')"/>
-                  </subModelOperations>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="visibility" valueExpression="public"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -2166,9 +2138,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Comment" referenceName="ownedComment">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                </subModelOperations>
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Comment" referenceName="ownedComment"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
