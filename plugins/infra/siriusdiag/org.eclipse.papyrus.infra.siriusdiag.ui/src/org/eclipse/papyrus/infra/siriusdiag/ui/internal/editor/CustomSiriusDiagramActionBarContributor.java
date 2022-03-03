@@ -14,56 +14,47 @@
 
 package org.eclipse.papyrus.infra.siriusdiag.ui.internal.editor;
 
-import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramActionBarContributor;
-import org.eclipse.jface.action.IContributionItem;
-import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.papyrus.infra.ui.editor.IMultiDiagramEditor;
-import org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditor;
-import org.eclipse.ui.IActionBars;
+import org.eclipse.sirius.diagram.ui.part.SiriusDiagramActionBarContributor;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IWorkbenchActionConstants;
-import org.eclipse.ui.IWorkbenchPage;
 
 /**
- * This action bar contributor allows to group expressions creation in a submenu
+ * Customized actionbar contributor for Papyrus Sirius nested editor
  */
-public class CustomSiriusDiagramActionBarContributor extends DiagramActionBarContributor {
+public class CustomSiriusDiagramActionBarContributor extends SiriusDiagramActionBarContributor {
 
+	/**
+	 * 
+	 * @see org.eclipse.sirius.diagram.ui.part.SiriusDiagramActionBarContributor#getEditorClass()
+	 *
+	 * @return
+	 */
 	@Override
-	protected Class getEditorClass() {
-		return SiriusDiagramEditor.class;
+	protected Class<?> getEditorClass() {
+		//it doesn't seem required to return NestedSiriusDiagramViewEditor.class
+		return super.getEditorClass(); 
 	}
 
+	/**
+	 * 
+	 * @see org.eclipse.sirius.diagram.ui.part.SiriusDiagramActionBarContributor#getEditorId()
+	 *
+	 * @return
+	 */
 	@Override
 	protected String getEditorId() {
-		return "org.eclipse.papyrus.SiriusDiagramEditorID"; //$NON-NLS-1$
+		//defining our own ID for the editor will break actions, because this ID is used by Sirius action to get the instance of the editor
+		return super.getEditorId(); 
 	}
 
-	@Override
-	public void init(IActionBars bars, IWorkbenchPage page) {
-		super.init(bars, page);
-		IMenuManager menuManager = bars.getMenuManager();
-
-		IContributionItem undoAction = bars.getMenuManager().findMenuUsingPath("undoGroup"); //$NON-NLS-1$
-		if (undoAction != null) {
-			menuManager.remove(undoAction);
-		}
-		// print preview
-		IMenuManager fileMenu = bars.getMenuManager().findMenuUsingPath(IWorkbenchActionConstants.M_FILE);
-		if (null != fileMenu) {
-			fileMenu.remove("pageSetupAction"); //$NON-NLS-1$
-		}
-	}
-	
 	/**
 	 * @see org.eclipse.gef.ui.actions.ActionBarContributor#setActiveEditor(org.eclipse.ui.IEditorPart)
 	 *
 	 * @param editor
 	 */
-
 	@Override
 	public void setActiveEditor(IEditorPart editor) {
-		if (editor instanceof IMultiDiagramEditor && ((IMultiDiagramEditor) editor).getActiveEditor()!=null) {
+		if (editor instanceof IMultiDiagramEditor && ((IMultiDiagramEditor) editor).getActiveEditor() != null) {
 			final IEditorPart ep = ((IMultiDiagramEditor) editor).getActiveEditor();
 			super.setActiveEditor(ep);
 		} else {
