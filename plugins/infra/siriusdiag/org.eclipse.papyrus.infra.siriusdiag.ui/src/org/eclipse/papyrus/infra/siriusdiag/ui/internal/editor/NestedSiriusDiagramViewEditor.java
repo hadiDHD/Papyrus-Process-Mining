@@ -25,16 +25,9 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.command.CommandStackListener;
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProvider;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.resource.ResourceSetItemProvider;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.GraphicalViewer;
@@ -79,24 +72,13 @@ import org.eclipse.sirius.business.api.dialect.command.RefreshRepresentationsCom
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.internal.session.SessionTransientAttachment;
-import org.eclipse.sirius.common.tools.api.util.EclipseUtil;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramCommandStack;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramEditorImpl;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.tabbar.Tabbar;
-import org.eclipse.sirius.tools.api.SiriusPlugin;
-import org.eclipse.sirius.ui.business.api.dialect.DialectUI;
-import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
-import org.eclipse.sirius.ui.business.internal.dialect.DialectUIManagerImpl;
 import org.eclipse.sirius.viewpoint.DRepresentation;
-import org.eclipse.sirius.viewpoint.description.audit.provider.AuditItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.description.provider.DescriptionItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.description.style.provider.StyleItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.description.tool.provider.ToolItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.description.validation.provider.ValidationItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.provider.ViewpointItemProviderAdapterFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
@@ -124,8 +106,6 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	private URI uri;
 
 	private TransactionalEditingDomain editingDomain;
-
-	private ComposedAdapterFactory composedAdapterFactory;
 
 	private DSemanticDiagram diagram;
 
@@ -195,7 +175,6 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		if (this.servicesRegistry == null) {
 			return;
 		}
-		initAdapterFactory();
 		initDomainAndStack();
 	}
 
@@ -211,12 +190,12 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 			IMultiDiagramEditor editor = (IMultiDiagramEditor) getSite().getPage().getActiveEditor();
 			// If not the active editor, ignore selection changed.
 			IEditorPart activeEditor = editor.getActiveEditor();
-			
+
 			if (this.equals(activeEditor)) {
 				super.selectionChanged(activeEditor, selection);
 				updateActions(getSelectionActions());
 				rebuildStatusLine();
-				
+
 			} else {
 				super.selectionChanged(part, selection);
 			}
@@ -241,12 +220,11 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 * this method is in charge to init the Editing Domain and the CommandStack
 	 */
 	protected void initDomainAndStack() {
-		// this.editingDomain = TransactionalEditingDomain.Factory.INSTANCE.createEditingDomain();
 		this.editingDomain.getCommandStack().addCommandStackListener(new CommandStackListener() {
 
 			@Override
 			public void commandStackChanged(final EventObject event) {
-				if (getSite() != null) {// TODO: Tester sans tout ca.
+				if (getSite() != null) {
 					getSite().getShell().getDisplay().asyncExec(() -> {
 						firePropertyChange(IEditorPart.PROP_DIRTY);
 					});
@@ -285,41 +263,6 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 			editDomain.setCommandStack(diagramStack);
 		}
 
-	}
-
-
-
-	/**
-	 * Init the adapter factory
-	 */
-	// TODO : VL : probably useless with the Sirius Diagram Editor. In Model2Doc this code was here because it was a Tree Editor and we wanted to overwrite some behaviors
-	protected void initAdapterFactory() {
-
-		final DialectUIManagerImpl manager = new DialectUIManagerImpl();
-		composedAdapterFactory = new ComposedAdapterFactory();
-		if (SiriusPlugin.IS_ECLIPSE_RUNNING) {
-			final List<DialectUI> parsedDialects = EclipseUtil.getExtensionPlugins(DialectUI.class, DialectUIManager.ID, DialectUIManager.CLASS_ATTRIBUTE);
-			for (final DialectUI dialect : parsedDialects) {
-				// manager.enableDialectUI(dialect);
-				composedAdapterFactory.addAdapterFactory(dialect.getServices().createAdapterFactory());
-			}
-		}
-		composedAdapterFactory.addAdapterFactory(new DescriptionItemProviderAdapterFactory());
-		composedAdapterFactory.addAdapterFactory(new ViewpointItemProviderAdapterFactory());
-		composedAdapterFactory.addAdapterFactory(new StyleItemProviderAdapterFactory());
-		composedAdapterFactory.addAdapterFactory(new ToolItemProviderAdapterFactory());
-		composedAdapterFactory.addAdapterFactory(new ValidationItemProviderAdapterFactory());
-		composedAdapterFactory.addAdapterFactory(new AuditItemProviderAdapterFactory());
-
-	}
-
-	/**
-	 *
-	 * @return
-	 *         the created ComposedAdapterFactory
-	 */
-	protected ComposedAdapterFactory createComposedAdapterFactory() {
-		return new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 	}
 
 	/**
@@ -377,12 +320,18 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		});
 	}
 
+	/**
+	 * 
+	 * @see org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor#doSetInput(org.eclipse.ui.IEditorInput, boolean)
+	 *
+	 * @param input
+	 * @param releaseEditorContents
+	 * @throws CoreException
+	 */
 	@Override
 	public void doSetInput(IEditorInput input, boolean releaseEditorContents) throws CoreException {
 		super.doSetInput(input, releaseEditorContents);
 	}
-
-
 
 	/**
 	 *
@@ -408,19 +357,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		return false;
 	}
 
-
-	// /**
-	// * @see org.eclipse.ui.part.MultiPageEditorPart#createSite(org.eclipse.ui.IEditorPart)
-	// *
-	// * @param editor
-	// * @return
-	// */
-	// protected IEditorSite createSite(IEditorPart editor) {
-	// // used to be able to have the error editor part nested in the embedded emf editor
-	// return getEditorSite();
-	// }
-
-	// Need to be add because palette manager is null when closing and reopening a papyrus model
+	// Need to be added because palette manager is null when closing and reopening a papyrus model
 	@Override
 	public void createPartControl(Composite parent) {
 		try {
@@ -446,138 +383,6 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 			Activator.log.error(e1);
 		}
 		super.createPartControl(parent);
-	}
-
-
-	/**
-	 *
-	 * Custom ResourceItemProviderAdapterFactory to be able to show only the structure of the DSemanticDiagram
-	 * and not other elements contained in the file
-	 *
-	 */
-	private class CustomResourceItemProviderAdapterFactory extends ResourceItemProviderAdapterFactory {
-
-		/**
-		 * @see org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory#createResourceSetAdapter()
-		 *
-		 * @return
-		 */
-		@Override
-		public Adapter createResourceSetAdapter() {
-			return new CustomResourceSetItemProvider(this);
-		}
-
-		/**
-		 * @see org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory#createResourceAdapter()
-		 *
-		 * @return
-		 */
-		@Override
-		public Adapter createResourceAdapter() {
-			return new CustomResourceItemProvider(this);
-		}
-	}
-
-
-	/**
-	 *
-	 * Custom ResourceSetItemProvider used to display only the edited documentemplate and not other file contents
-	 *
-	 */
-	private class CustomResourceSetItemProvider extends ResourceSetItemProvider {
-
-		/**
-		 * Constructor.
-		 *
-		 * @param adapterFactory
-		 */
-		public CustomResourceSetItemProvider(AdapterFactory adapterFactory) {
-			super(adapterFactory);
-		}
-
-
-		/**
-		 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#getElements(java.lang.Object)
-		 *
-		 * @param object
-		 * @return
-		 */
-		@Override
-		public Collection<?> getElements(Object object) {
-			return Collections.singleton(diagram.eResource());
-		}
-	}
-
-	/**
-	 *
-	 * Custom ResourceItemProvider to get only the {@link DSemanticDiagram} displayed in the EcoreEditor
-	 *
-	 */
-	private class CustomResourceItemProvider extends ResourceItemProvider {
-
-		/**
-		 * Constructor.
-		 *
-		 * @param adapterFactory
-		 */
-		public CustomResourceItemProvider(AdapterFactory adapterFactory) {
-			super(adapterFactory);
-		}
-
-		/**
-		 *
-		 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#getElements(java.lang.Object)
-		 *
-		 * @param object
-		 * @return
-		 */
-		@Override
-		public Collection<?> getElements(Object object) {
-			return super.getElements(object);
-		}
-
-		/**
-		 *
-		 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#hasChildren(java.lang.Object)
-		 *
-		 * @param object
-		 * @return
-		 */
-		@Override
-		public boolean hasChildren(Object object) {
-			if (object instanceof Resource) {
-				return true;
-			}
-			return super.hasChildren(object);
-		}
-
-		/**
-		 *
-		 * @see org.eclipse.emf.edit.provider.resource.ResourceItemProvider#getParent(java.lang.Object)
-		 *
-		 * @param object
-		 * @return
-		 */
-		@Override
-		public Object getParent(Object object) {
-			return super.getParent(object);
-		}
-
-		/**
-		 *
-		 * @see org.eclipse.emf.edit.provider.resource.ResourceItemProvider#getChildren(java.lang.Object)
-		 *
-		 * @param object
-		 * @return
-		 */
-		@Override
-		public Collection<?> getChildren(Object object) {
-			if (object instanceof Resource) {
-				return Collections.singletonList(diagram);
-			}
-			return super.getChildren(object);
-		}
-
 	}
 
 	/**
@@ -633,7 +438,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 
 			while (iter.hasNext() && !clonedList.isEmpty()) {
 				Object currentEditPart = iter.next();
-				// look only amidst IPrimary editpart to avoid compartment and labels of links
+				// look only admit IPrimary editpart to avoid compartment and labels of links
 				if (currentEditPart instanceof IPrimaryEditPart) {
 					Object currentElement = getSemanticElement(currentEditPart);
 					if (clonedList.contains(currentElement)) {
