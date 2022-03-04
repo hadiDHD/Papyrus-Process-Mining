@@ -16,12 +16,6 @@
             providerClass="org.eclipse.papyrus.uml.sirius.common.diagram.refresh.CommonRefreshExtensionProvider">
       </refreshExtensionProvider>
    </extension>
-  <extension
-        point="org.eclipse.sirius.diagram.ui.tabbarContributor">
-     <tabbarContributor
-           class="org.eclipse.papyrus.uml.sirius.common.diagram.PapyrusSiriusTabbarContributor">
-     </tabbarContributor>
-  </extension>
       <extension
         point="org.eclipse.gmf.runtime.diagram.ui.editpolicyProviders">
      <editpolicyProvider
