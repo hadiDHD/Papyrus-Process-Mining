@@ -18,10 +18,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.LabelServices;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeSpec;
 import org.eclipse.sirius.diagram.description.style.Side;
+import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.uml2.uml.CombinedFragment;
 import org.eclipse.uml2.uml.Constraint;
 import org.eclipse.uml2.uml.Duration;
@@ -29,12 +31,12 @@ import org.eclipse.uml2.uml.DurationConstraint;
 import org.eclipse.uml2.uml.DurationInterval;
 import org.eclipse.uml2.uml.DurationObservation;
 import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.ExecutionOccurrenceSpecification;
 import org.eclipse.uml2.uml.ExecutionSpecification;
 import org.eclipse.uml2.uml.Interaction;
 import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.InteractionOperand;
 import org.eclipse.uml2.uml.LiteralInteger;
+import org.eclipse.uml2.uml.Message;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.OccurrenceSpecification;
@@ -83,36 +85,23 @@ public class TimeObservationConstraintService {
 	 *            the context
 	 * @return the time constraint
 	 */
-	public List<InteractionFragment> getTimeConstraint(EObject context) {
-		List<InteractionFragment> results = new ArrayList<>();
-		if (context instanceof Interaction) {
-			Interaction interaction = (Interaction) context;
-			EList<Constraint> ownedRules = interaction.getOwnedRules();
-			for (Constraint constraint : ownedRules) {
-				if (constraint instanceof TimeConstraint) {
-					EList<Element> constrainedElements = constraint.getConstrainedElements();
-					for (Element element : constrainedElements) {
-						if (element instanceof ExecutionOccurrenceSpecification) {
-							results.add((ExecutionOccurrenceSpecification) element);
-						}
-					}
-				}
-			}
-		}
-		if (context instanceof TimeConstraint) {
-			EList<Element> constrainedElements = ((TimeConstraint) context).getConstrainedElements();
-			for (Element element : constrainedElements) {
-				if (element instanceof ExecutionOccurrenceSpecification) {
-					results.add((ExecutionOccurrenceSpecification) element);
-				}
-			}
-		}
-
+	public List<TimeConstraint> getTimeConstraint(EObject context) {
+		List<TimeConstraint> results= getTimeConstraints(context);
+		results = results.stream().filter(con -> con.getConstrainedElements().contains(context)).collect(Collectors.toList());
 		return results;
-
 	}
 
-
+	/**
+	 * Gets the time constraint.
+	 *
+	 * @param context the context
+	 * @return the time constraint
+	 */
+	public List<TimeObservation> getTimeObservation(EObject context) {
+		List<TimeObservation> results= getTimeObservations(context);
+		results = results.stream().filter(con -> context.equals(con.getEvent())).collect(Collectors.toList());
+		return results;
+	}
 
 	/**
 	 * Gets the side.
@@ -132,8 +121,7 @@ public class TimeObservationConstraintService {
 					if (!ReorderService.getInstance().isStartOfExecution(element, FragmentsService.getInstance().getEnclosingFragments(element))) {
 						results.add(Side.NORTH);
 						return results;
-					}
-					else {
+					} else {
 						results.add(Side.SOUTH);
 						return results;
 					}
@@ -145,18 +133,13 @@ public class TimeObservationConstraintService {
 			if (!ReorderService.getInstance().isStartOfExecution(event, FragmentsService.getInstance().getEnclosingFragments(event))) {
 				results.add(Side.NORTH);
 				return results;
-			}
-			else {
+			} else {
 				results.add(Side.SOUTH);
 				return results;
 			}
 		}
 		return null;
 	}
-
-
-
-
 
 	/**
 	 * Creates the duration observation.
@@ -170,26 +153,41 @@ public class TimeObservationConstraintService {
 	 * @return the duration observation
 	 */
 	public DurationObservation createDurationObservation(EObject context, EObject sourceVariable, EObject targetVariable) {
-		if (context instanceof DNodeSpec) {
-			EObject target = ((DNodeSpec) context).getTarget();
-			if (target instanceof ExecutionSpecification) {
-				InteractionFragment interaction = /* ((ExecutionSpecification) target).getEnclosingInteraction() */FragmentsService.getInstance().getEnclosingFragment(target);
+		EObject target = context;
+		InteractionFragment interaction = null;
+		if (context instanceof DRepresentationElement) {
+			target = ((DRepresentationElement) context).getTarget();
+		}
+		if (target instanceof ExecutionSpecification 
+				|| target instanceof EAnnotation
+				|| target instanceof OccurrenceSpecification 
+				|| target instanceof Message) {
+			interaction = FragmentsService.getInstance().getEnclosingFragment(target);
+		}
+		if (interaction != null) {
+			DurationObservation durationObservation = UMLFactory.eINSTANCE.createDurationObservation();
+			interaction.getModel().getPackagedElements().add(durationObservation);
+			durationObservation.setName(computeDefaultName(durationObservation));
 
-				DurationObservation durationObservation = UMLFactory.eINSTANCE.createDurationObservation();
-				interaction.getModel().getPackagedElements().add(durationObservation);
-				durationObservation.setName(computeDefaultName(durationObservation));
-
-
+			if (sourceVariable instanceof ExecutionSpecification) {
 				durationObservation.getEvents().add(((ExecutionSpecification) sourceVariable).getFinish());
-				durationObservation.getEvents().add(((ExecutionSpecification) targetVariable).getStart());
-
-				return durationObservation;
+			} else if (sourceVariable instanceof OccurrenceSpecification) {
+				durationObservation.getEvents().add((NamedElement) sourceVariable);
+			} else if (sourceVariable instanceof Message) {
+				durationObservation.getEvents().add((((Message) sourceVariable)).getSendEvent());
 			}
+			if (targetVariable instanceof ExecutionSpecification) {
+				durationObservation.getEvents().add(((ExecutionSpecification) targetVariable).getStart());
+			} else if (targetVariable instanceof OccurrenceSpecification) {
+				durationObservation.getEvents().add((NamedElement) targetVariable);
+			} else if (targetVariable instanceof Message) {
+				durationObservation.getEvents().add((((Message) targetVariable)).getSendEvent());
+			}
+
+			return durationObservation;
 		}
 		return null;
 	}
-
-
 
 	/**
 	 * Creates the duration constraint.
@@ -202,43 +200,54 @@ public class TimeObservationConstraintService {
 	 *            the target variable
 	 * @return the duration constraint
 	 */
-	public DurationConstraint createDurationConstraint(EObject context, EObject sourceVariable, EObject targetVariable) {
-		if (context instanceof DNodeSpec) {
-			EObject target = ((DNodeSpec) context).getTarget();
-			if (target instanceof ExecutionSpecification) {
-				InteractionFragment interaction = FragmentsService.getInstance().getEnclosingFragment(target);
-
-				DurationConstraint durationConstraint = UMLFactory.eINSTANCE.createDurationConstraint();
-				getRules(interaction).add(durationConstraint);
-				durationConstraint.setName(computeDefaultName(durationConstraint));
-
-				DurationInterval durationInterval = UMLFactory.eINSTANCE.createDurationInterval();
-				durationConstraint.setSpecification(durationInterval);
-				durationInterval.setName(computeDefaultName(durationInterval));
-
-				Duration min = UMLFactory.eINSTANCE.createDuration();
-				interaction.getModel().getPackagedElements().add(min);
-				durationInterval.setMin(min);
-				min.setName(computeDefaultName(min));
-
-				LiteralInteger minInteger = UMLFactory.eINSTANCE.createLiteralInteger();
-				min.setExpr(minInteger);
-
-				Duration max = UMLFactory.eINSTANCE.createDuration();
-				interaction.getModel().getPackagedElements().add(max);
-				durationInterval.setMax(max);
-				max.setName(computeDefaultName(max));
-
-				LiteralInteger maxInteger = UMLFactory.eINSTANCE.createLiteralInteger();
-				max.setExpr(maxInteger);
-
-				durationConstraint.getConstrainedElements().add(((ExecutionSpecification) sourceVariable).getFinish());
-				durationConstraint.getConstrainedElements().add(((ExecutionSpecification) targetVariable).getStart());
-
-				return durationConstraint;
-			}
+	public DurationConstraint createDurationConstraint(EObject context, EObject sourceVariable,
+			EObject targetVariable) {
+		EObject target = context;
+		if (context instanceof DRepresentationElement) {
+			target = ((DRepresentationElement) context).getTarget();
 		}
-		return null;
+		InteractionFragment interaction = null;
+		if (target instanceof ExecutionSpecification || target instanceof EAnnotation
+				|| target instanceof OccurrenceSpecification || target instanceof Message) {
+			interaction = FragmentsService.getInstance().getEnclosingFragment(target);
+		}
+		DurationConstraint durationConstraint = UMLFactory.eINSTANCE.createDurationConstraint();
+		getRules(interaction).add(durationConstraint);
+		durationConstraint.setName(computeDefaultName(durationConstraint));
+		DurationInterval durationInterval = UMLFactory.eINSTANCE.createDurationInterval();
+		durationConstraint.setSpecification(durationInterval);
+		durationInterval.setName(computeDefaultName(durationInterval));
+		Duration min = UMLFactory.eINSTANCE.createDuration();
+		interaction.getModel().getPackagedElements().add(min);
+		durationInterval.setMin(min);
+		min.setName(computeDefaultName(min));
+		LiteralInteger minInteger = UMLFactory.eINSTANCE.createLiteralInteger();
+		min.setExpr(minInteger);
+		Duration max = UMLFactory.eINSTANCE.createDuration();
+		interaction.getModel().getPackagedElements().add(max);
+		durationInterval.setMax(max);
+		max.setName(computeDefaultName(max));
+		LiteralInteger maxInteger = UMLFactory.eINSTANCE.createLiteralInteger();
+		max.setExpr(maxInteger);
+		if (sourceVariable instanceof EAnnotation || sourceVariable instanceof OccurrenceSpecification) {
+			durationConstraint.getConstrainedElements().add((Element) sourceVariable);
+		}
+		if (sourceVariable instanceof ExecutionSpecification) {
+			durationConstraint.getConstrainedElements().add(((ExecutionSpecification) sourceVariable).getStart());
+		}
+		if (sourceVariable instanceof Message) {
+			durationConstraint.getConstrainedElements().add(((Message) sourceVariable).getSendEvent());
+		}
+		if (targetVariable instanceof EAnnotation || targetVariable instanceof OccurrenceSpecification) {
+			durationConstraint.getConstrainedElements().add((Element) targetVariable);
+		}
+		if (targetVariable instanceof ExecutionSpecification) {
+			durationConstraint.getConstrainedElements().add(((ExecutionSpecification) targetVariable).getFinish());
+		}
+		if (targetVariable instanceof Message) {
+			durationConstraint.getConstrainedElements().add(((Message) targetVariable).getSendEvent());
+		}
+		return durationConstraint;
 	}
 
 	/**
@@ -251,7 +260,10 @@ public class TimeObservationConstraintService {
 	public List<DurationObservation> getAllDurationObservation(EObject context) {
 		List<DurationObservation> results = new ArrayList<>();
 		if (context instanceof Interaction) {
-			List<DurationObservation> collect = ((Interaction) context).getModel().getPackagedElements().stream().filter(e -> e instanceof DurationObservation).map(e -> (DurationObservation) e).collect(Collectors.toList());
+			List<DurationObservation> collect = ((Interaction) context).getModel().getPackagedElements().stream()
+					.filter(e -> e instanceof DurationObservation)
+					.map(e -> (DurationObservation) e)
+					.collect(Collectors.toList());
 			results.addAll(collect);
 			EList<InteractionFragment> fragments = ((Interaction) context).getFragments();
 			for (InteractionFragment interactionFragment : fragments) {
@@ -260,10 +272,7 @@ public class TimeObservationConstraintService {
 				}
 			}
 		}
-
-
 		return results;
-
 	}
 
 
@@ -276,28 +285,16 @@ public class TimeObservationConstraintService {
 	 */
 	public List<TimeConstraint> getTimeConstraints(EObject context) {
 		List<TimeConstraint> results = new ArrayList<>();
-		if (context instanceof ExecutionSpecification) {
-			OccurrenceSpecification start = ((ExecutionSpecification) context).getStart();
-			OccurrenceSpecification finish = ((ExecutionSpecification) context).getFinish();
-			InteractionFragment interaction = FragmentsService.getInstance().getEnclosingFragment(context);
-			EList<Constraint> ownedRules = null;
-			if (interaction instanceof Interaction) {
-				ownedRules = ((Interaction) interaction).getOwnedRules();
-			}
-			if (interaction instanceof InteractionOperand) {
-				ownedRules = ((InteractionOperand) interaction).getOwnedRules();
-			}
+		if (!(context instanceof Interaction) && context instanceof InteractionFragment) {
+			context = FragmentsService.getInstance().getParentInteraction((InteractionFragment) context);
+		}
+		if (context instanceof Interaction) {
+			EList<Constraint> ownedRules = ((Interaction) context).getOwnedRules();
 			for (Constraint constraint : ownedRules) {
 				if (constraint instanceof TimeConstraint) {
-					EList<Element> constrainedElements = constraint.getConstrainedElements();
-					for (Element element : constrainedElements) {
-						if (element.equals(start) || element.equals(finish)) {
-							results.add((TimeConstraint) constraint);
-						}
-					}
+					results.add((TimeConstraint) constraint);
 				}
 			}
-
 		}
 		return results;
 	}
@@ -312,26 +309,54 @@ public class TimeObservationConstraintService {
 	 */
 	public List<TimeObservation> getTimeObservations(EObject context) {
 		List<TimeObservation> results = new ArrayList<>();
-		if (context instanceof ExecutionSpecification) {
-			OccurrenceSpecification start = ((ExecutionSpecification) context).getStart();
-			OccurrenceSpecification finish = ((ExecutionSpecification) context).getFinish();
-
-			Model model = ((ExecutionSpecification) context).getModel();
+		if (context instanceof Element) {
+			Model model = ((Element) context).getModel();
 			EList<PackageableElement> packagedElements = model.getPackagedElements();
 			for (PackageableElement packageableElement : packagedElements) {
 				if (packageableElement instanceof TimeObservation) {
-					if (((TimeObservation) packageableElement).getEvent().equals(start) || ((TimeObservation) packageableElement).getEvent().equals(finish)) {
-						results.add((TimeObservation) packageableElement);
-					}
+					results.add((TimeObservation) packageableElement);
 				}
 			}
 		}
-
 		return results;
 	}
 
-	///// private methode
+	/**
+	 * Gets the rules.
+	 *
+	 * @param interaction the interaction
+	 * @return the rules
+	 */
 
+	public EObject getEventOrSelf(EObject obj) {
+		if (obj instanceof OccurrenceSpecification) {
+			return obj;
+		}
+		if (obj instanceof ExecutionSpecification) {
+			return ((ExecutionSpecification) obj).getStart();
+		}
+		if (obj instanceof Message) {
+			return ((Message) obj).getSendEvent();
+		}
+		return null;
+	}
+
+	public void deleteTimeObservation(EObject context) {
+		List<TimeObservation> tos = getTimeObservation(context);
+		for (TimeObservation to : tos) {
+			to.destroy();
+		}
+	}
+
+	public void deleteTimeConstraint(EObject context) {
+		List<TimeConstraint> tcs = getTimeConstraint(context);
+		for (TimeConstraint tc : tcs) {
+			tc.destroy();
+		}
+	}
+
+	
+	///// private methode
 	/**
 	 * Gets the rules.
 	 *

@@ -78,7 +78,7 @@ public class Node_StateInvariant_CreationTest {
 		fixture.applyNodeCreationToolFromPalette("State Invariant", diagramRepresentation, lifelineDRep, statePosition, null);
 		fixture.flushDisplayEvents();	
 		
-		Assert.assertEquals("The diagram does not contain any additional element after the creation of a StateInvariant node", nbDiagramChild , diagram.getChildren().size());
+		Assert.assertEquals("The diagram contains one additional element after the creation of a StateInvariant node", 2 , diagram.getChildren().size());
 				
 		Interaction interactionElem = (Interaction) fixture.getModel().getOwnedElements().get(0);
 		EList<InteractionFragment> fragments = interactionElem.getFragments();
@@ -98,7 +98,7 @@ public class Node_StateInvariant_CreationTest {
 		// redo
 		fixture.getEditingDomain().getCommandStack().redo();
 		fixture.flushDisplayEvents();	
-		Assert.assertEquals("The diagram does not contain any additional element after redoing the creation of a StateInvariant node", nbDiagramChild , diagram.getChildren().size());
+		Assert.assertEquals("The diagram contains one additional element after redoing the creation of a StateInvariant node", 2 , diagram.getChildren().size());
 		fragment = fragments.iterator().next();
 		Assert.assertTrue("The created element must be an UML StateInvariant", fragment instanceof org.eclipse.uml2.uml.StateInvariant);
 		Assert.assertEquals("The StateVariant is on the Lifeline", ((DNodeSpec) lifelineDRep).getTarget(), ((StateInvariant) fragment).getCovereds().get(0));

@@ -15,6 +15,7 @@ package org.eclipse.papyrus.uml.sirius.sequence.diagram.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAnnotation;
@@ -27,6 +28,7 @@ import org.eclipse.uml2.uml.Gate;
 import org.eclipse.uml2.uml.Interaction;
 import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.InteractionOperand;
+import org.eclipse.uml2.uml.InteractionUse;
 import org.eclipse.uml2.uml.Lifeline;
 import org.eclipse.uml2.uml.Message;
 import org.eclipse.uml2.uml.MessageOccurrenceSpecification;
@@ -382,37 +384,26 @@ public class FragmentsService {
 	 *            the context
 	 * @return the list
 	 */
-	public List<InteractionFragment> makeUnion(EObject context) {
-		List<InteractionFragment> results = new ArrayList<>();
-		EList<InteractionFragment> fragments = null;
-		if (context instanceof Interaction) {
-			fragments = ((Interaction) context).getFragments();
-		}
-		if (context instanceof InteractionOperand) {
-			fragments = ((InteractionOperand) context).getFragments();
-		}
-
-		for (InteractionFragment interactionFragment : fragments) {
-
-			if (interactionFragment instanceof ExecutionSpecification) {
-
-				results.add(((ExecutionSpecification) interactionFragment).getStart());
-				results.add(((ExecutionSpecification) interactionFragment).getFinish());
-			}
-			if (interactionFragment instanceof CombinedFragment) {
-				EList<InteractionOperand> operands = ((CombinedFragment) interactionFragment).getOperands();
-				for (InteractionOperand operand : operands) {
-					results.addAll(makeUnion(operand));
-				}
-			}
-
-		}
-
-
-
-		return results;
+	public List<EObject> makeUnion(EObject context) {
+		List<EObject> fragments = FragmentsService.getInstance()
+				.getFragmentsAndAnnotation((InteractionFragment) context);
+		return fragments;
 	}
 
+	/**
+	 * Get observation points list.
+	 *
+	 * @param context the context
+	 * @return the list
+	 */
+	public List<EObject> getObservationPoints(EObject context) {
+		List<EObject> fragments = FragmentsService.getInstance()
+				.getFragmentsAndAnnotation((InteractionFragment) context);
+		 
+		fragments = fragments.stream().filter(p -> !(p instanceof CombinedFragment) && !(p instanceof ExecutionSpecification) && !(p instanceof InteractionUse))
+				.collect(Collectors.toList());
+		return fragments;
+	}
 
 
 	/**

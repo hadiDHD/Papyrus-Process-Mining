@@ -122,9 +122,9 @@ public class Edge_SynchroMessage_CreationTest {
 		fixture.applyEdgeCreationToolFromPalette("CR_Synchronous_Operation", diagramRepresentation, firstLifelineDRep, secondLifelineDRep, messageAbsoluteStartConnectionPoint, messageAbsoluteEndConnectionPoint);
 		fixture.flushDisplayEvents();
 		
-		Assert.assertEquals("The diagram must contain two additional elements after creating a Synchronous message correspondin to the created execution", 4, diagram.getChildren().size());	
-		Assert.assertEquals("The diagram must contain two edges after creating a Synchronous message", nbEdges + 2, diagram.getEdges().size());		
-		Assert.assertEquals("The diagram contains two additional elements after creating a BehaviorExecution node", nbDiagramChild + 2, diagram.getChildren().size());
+		Assert.assertEquals("The diagram must contain 4 additional elements after creating a Synchronous message correspondin to the created execution", 6, diagram.getChildren().size());	
+		Assert.assertEquals("The diagram must contain 2 edges after creating a Synchronous message", nbEdges + 2, diagram.getEdges().size());		
+		Assert.assertEquals("The diagram contains 4 additional elements after creating a BehaviorExecution node", nbDiagramChild + 4, diagram.getChildren().size());
 		
 		// check the created messages
 		Interaction interactionElem = (Interaction) fixture.getModel().getOwnedElements().get(0);

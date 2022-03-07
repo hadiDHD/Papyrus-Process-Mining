@@ -102,10 +102,10 @@ public class Edge_DurationConstraint_CreationTest {
 	
 		Object firstConstrainedElement = ((DurationConstraint) semanticElement).getConstrainedElements().get(0);
 		Object secondConstrainedElement = ((DurationConstraint) semanticElement).getConstrainedElements().get(1);
-		Object firstExecEnd = ((ActionExecutionSpecification ) ((DNodeSpec) firstExecutionDRep).getTarget()).getFinish();
-		Object secondExecBegin = ((ActionExecutionSpecification ) ((DNodeSpec) secondExecutionDRep).getTarget()).getStart();	
-		Assert.assertEquals("The constraint starts at the end of the first execution", firstExecEnd, firstConstrainedElement);
-		Assert.assertEquals("The constraint ends at the begin of the second execution", secondExecBegin, secondConstrainedElement);
+		Object firstExecStart = ((ActionExecutionSpecification ) ((DNodeSpec) firstExecutionDRep).getTarget()).getStart();
+		Object secondExecEnd = ((ActionExecutionSpecification ) ((DNodeSpec) secondExecutionDRep).getTarget()).getFinish();	
+		Assert.assertEquals("The constraint starts at the end of the first execution", firstExecStart, firstConstrainedElement);
+		Assert.assertEquals("The constraint ends at the begin of the second execution", secondExecEnd, secondConstrainedElement);
 
 		element = ((DurationConstraint) semanticElement).getSpecification();
 		Assert.assertTrue("The constraint specification is an UML DurationInterval", element instanceof org.eclipse.uml2.uml.DurationInterval);

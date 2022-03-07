@@ -40,11 +40,11 @@ import org.junit.Test;
  *
  */
 @SuppressWarnings("restriction")
-@PluginResource("resource/SequenceDiagramTest/creation/combinedFragment/TopNode_CreationTest.di") // the resource to import for the test in the workspace
+@PluginResource("resource/SequenceDiagramTest/creation/combinedFragment/InteractionOperand_CreationTest.di") // the resource to import for the test in the workspace
 public class Node_InteractionOperand_CreationTest {
 
 	/** The sequence diagram name */
-	private static final String DIAGRAM_NAME = "TopNode_Creation_SequenceDiagram";
+	private static final String DIAGRAM_NAME = "SequenceDiagram";
 	
 	/** The first created interaction operand name */
 	private static final String INTERACTION_OPERAND1_NAME = "InteractionOperand2";
@@ -64,7 +64,7 @@ public class Node_InteractionOperand_CreationTest {
 		Assert.assertNotNull("The diagram edit part has not been found", diagramEditpart);
 		Diagram diagram = diagramEditpart.getDiagramView();
 		int nbDiagramChild = diagram.getChildren().size();
-		Assert.assertEquals("The diagram must contains one Lifline and one CombinedFragment before creating the InteractionOperand node", 2, nbDiagramChild);
+		Assert.assertEquals("The diagram must contains one Lifeline and one CombinedFragment before creating the InteractionOperand node", 4, nbDiagramChild);
 
 		// check the initial Operand elements
 		Interaction interactionElem = (Interaction) fixture.getModel().getOwnedElements().get(0);

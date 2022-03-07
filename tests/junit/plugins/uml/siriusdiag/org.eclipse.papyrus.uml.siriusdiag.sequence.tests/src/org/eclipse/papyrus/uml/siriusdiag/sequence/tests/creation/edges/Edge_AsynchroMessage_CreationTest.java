@@ -124,7 +124,7 @@ public class Edge_AsynchroMessage_CreationTest {
 		fixture.applyEdgeCreationToolFromPalette("CR_Asynchronous_Operation", diagramRepresentation, firstLifelineDRep, secondLifelineDRep, messageAbsoluteStartConnectionPoint, messageAbsoluteEndConnectionPoint);
 		fixture.flushDisplayEvents();
 		
-		Assert.assertEquals("The diagram does not contain any additional element after creating of an Asynchronous message", nbDiagramChild, diagram.getChildren().size());	
+		Assert.assertEquals("The diagram contains two observation point after creating an Asynchronous message", 4, diagram.getChildren().size());	
 		Assert.assertEquals("The diagram must contain one additional edge after creating of a Asynchronous message", nbEdges + 1, diagram.getEdges().size());		
 		Assert.assertEquals("The root model contains one additional element after the creation of an Asynchronus message", nbElement + 1 , fixture.getModel().getOwnedElements().size());
 

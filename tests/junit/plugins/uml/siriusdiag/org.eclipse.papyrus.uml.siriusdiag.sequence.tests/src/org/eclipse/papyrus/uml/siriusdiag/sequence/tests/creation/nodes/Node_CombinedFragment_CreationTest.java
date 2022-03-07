@@ -90,7 +90,7 @@ public class Node_CombinedFragment_CreationTest {
 		fixture.applyNodeCreationToolFromPalette("CombinedFragment", diagramRepresentation, diagramRepresentation, cfStartPosition, new Dimension(120,80));
 		fixture.flushDisplayEvents();
 		
-		Assert.assertEquals("The diagram contains one additional element after creating a CombinedFragment node", nbDiagramChild + 1, diagram.getChildren().size());
+		Assert.assertEquals("The diagram contains 3 additional element after creating a CombinedFragment node", nbDiagramChild + 3, diagram.getChildren().size());
 		Object element = diagram.getChildren().get(1);
 		Assert.assertTrue("The created element must be a View", element instanceof View);
 		EObject siriusNewRepresentation = ((View) element).getElement();
@@ -141,7 +141,7 @@ public class Node_CombinedFragment_CreationTest {
 		// redo
 		fixture.getEditingDomain().getCommandStack().redo();
 		fixture.flushDisplayEvents();	
-		Assert.assertEquals("The diagram contains one additional element after redoing the creation of a CombinedFragment", nbDiagramChild + 1, diagram.getChildren().size());
+		Assert.assertEquals("The diagram contains 3 additional elements after redoing the creation of a CombinedFragment", nbDiagramChild + 3, diagram.getChildren().size());
 		element = diagram.getChildren().get(1);
 		Assert.assertTrue("The created element must be a View", element instanceof View);
 		siriusNewRepresentation = ((View) element).getElement();

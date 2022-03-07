@@ -18,15 +18,19 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.uml2.uml.Constraint;
 import org.eclipse.uml2.uml.DurationConstraint;
 import org.eclipse.uml2.uml.DurationObservation;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.ExecutionOccurrenceSpecification;
+import org.eclipse.uml2.uml.ExecutionSpecification;
+import org.eclipse.uml2.uml.Message;
 import org.eclipse.uml2.uml.MessageOccurrenceSpecification;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
+import org.eclipse.uml2.uml.OccurrenceSpecification;
 import org.eclipse.uml2.uml.OpaqueExpression;
 import org.eclipse.uml2.uml.TimeConstraint;
 import org.eclipse.uml2.uml.ValueSpecification;
@@ -121,12 +125,16 @@ public class ConstraintService {
 			EList<Element> constrainedElements = ((DurationConstraint) context).getConstrainedElements();
 			Element element = constrainedElements.get(0);
 
-			if (element instanceof MessageOccurrenceSpecification) {
-				return ReorderService.getInstance()
-						.getExecutionFromMessageOccurence((MessageOccurrenceSpecification) element);
+			if (element instanceof ExecutionSpecification) {
+				return (((ExecutionSpecification) element).getStart());
 			}
-			if (element instanceof ExecutionOccurrenceSpecification) {
-				return ((ExecutionOccurrenceSpecification) element).getExecution();
+			
+			if (element instanceof Message) {
+				return (((Message) element).getSendEvent());
+			}
+
+			if (element instanceof OccurrenceSpecification || element instanceof EAnnotation) {
+				return element;
 			}
 
 		}
@@ -147,16 +155,18 @@ public class ConstraintService {
 			EList<Element> constrainedElements = ((DurationConstraint) context).getConstrainedElements();
 			Element element = constrainedElements.get(constrainedElements.size() - 1);
 
-			if (element instanceof MessageOccurrenceSpecification) {
-				return ReorderService.getInstance()
-						.getExecutionFromMessageOccurence((MessageOccurrenceSpecification) element);
+			if (element instanceof ExecutionSpecification) {
+				return (((ExecutionSpecification) element).getStart());
 			}
-			if (element instanceof ExecutionOccurrenceSpecification) {
-				return ((ExecutionOccurrenceSpecification) element).getExecution();
+			
+			if (element instanceof Message) {
+				return (((Message) element).getSendEvent());
 			}
 
+			if (element instanceof OccurrenceSpecification || element instanceof EAnnotation) {
+				return element;
+			}
 		}
-
 		return null;
 	}
 
@@ -171,13 +181,14 @@ public class ConstraintService {
 			EList<NamedElement> events = ((DurationObservation) context).getEvents();
 
 			Element element = events.get(0);
-			if (element instanceof MessageOccurrenceSpecification) {
-				return ReorderService.getInstance()
-						.getExecutionFromMessageOccurence((MessageOccurrenceSpecification) element);
+			if (element instanceof OccurrenceSpecification) {
+				return element;
 			}
-			if (element instanceof ExecutionOccurrenceSpecification) {
-				return ((ExecutionOccurrenceSpecification) element).getExecution();
+
+			if (element instanceof EAnnotation) {
+				return ((EAnnotation) element);
 			}
+
 
 		}
 		return null;
@@ -194,14 +205,13 @@ public class ConstraintService {
 			EList<NamedElement> events = ((DurationObservation) context).getEvents();
 
 			Element element = events.get(events.size() - 1);
-			if (element instanceof MessageOccurrenceSpecification) {
-				return ReorderService.getInstance()
-						.getExecutionFromMessageOccurence((MessageOccurrenceSpecification) element);
-			}
-			if (element instanceof ExecutionOccurrenceSpecification) {
-				return ((ExecutionOccurrenceSpecification) element).getExecution();
+			if (element instanceof OccurrenceSpecification) {
+				return element;
 			}
 
+			if (element instanceof EAnnotation) {
+				return ((EAnnotation) element);
+			}
 		}
 		return null;
 	}

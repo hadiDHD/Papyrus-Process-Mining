@@ -121,10 +121,20 @@ public class SequenceDiagramServices extends AbstractDiagramServices {
 	 *            the context
 	 * @return the list
 	 */
-	public List<InteractionFragment> makeUnion(EObject context) {
+	public List<EObject> makeUnion(EObject context) {
 		return fragmentsService.makeUnion(context);
 	}
 
+	/**
+	 * Get observation points to draw.
+	 *
+	 * @param context
+	 *            the context
+	 * @return the list
+	 */
+	public List<EObject> getObservationPoints(EObject context) {
+		return fragmentsService.getObservationPoints(context);
+	}
 
 
 	/**
@@ -185,7 +195,7 @@ public class SequenceDiagramServices extends AbstractDiagramServices {
 	 *            the context
 	 * @return the time constraint
 	 */
-	public List<InteractionFragment> getTimeConstraint(EObject context) {
+	public List<TimeConstraint> getTimeConstraint(EObject context) {
 		return timeObservationConstraintService.getTimeConstraint(context);
 	}
 
@@ -303,6 +313,52 @@ public class SequenceDiagramServices extends AbstractDiagramServices {
 	 */
 	public List<TimeObservation> getTimeObservations(EObject context) {
 		return timeObservationConstraintService.getTimeObservations(context);
+	}
+	
+	/**
+	 * Gets the Event.
+	 *
+	 * @param context
+	 *            the context
+	 * @return the time observations
+	 */
+	public EObject getEventOrSelf(EObject context) {
+		return timeObservationConstraintService.getEventOrSelf(context);
+	}
+
+	/**
+	 * Delete the time constraint Event.
+	 *
+	 * @param context
+	 *            the context
+	 * @return the time observations
+	 */
+	public void deleteTimeConstraint(EObject context) {
+		timeObservationConstraintService.deleteTimeConstraint(context);
+	}
+	
+	/**
+	 * Delete the time constraint Event.
+	 *
+	 * @param context
+	 *            the context
+	 * @return the time observations
+	 */
+	public void deleteTimeObservation(EObject context) {
+		timeObservationConstraintService.deleteTimeObservation(context);
+	}
+
+
+	
+	/**
+	 * Gets the time observations.
+	 *
+	 * @param context
+	 *            the context
+	 * @return the time observations
+	 */
+	public List<TimeObservation> getTimeObservation(EObject context) {
+		return timeObservationConstraintService.getTimeObservation(context);
 	}
 
 

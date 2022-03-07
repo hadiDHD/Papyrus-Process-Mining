@@ -18,7 +18,7 @@
       <component
             class="org.eclipse.papyrus.uml.sirius.sequence.diagram.Activator"
             id="org.eclipse.papyrus.uml.sirius.sequence.diagram"
-            name="Sequence Diagram">
+            name="SequenceDiagram">
       </component>
    </extension>
 <extension
