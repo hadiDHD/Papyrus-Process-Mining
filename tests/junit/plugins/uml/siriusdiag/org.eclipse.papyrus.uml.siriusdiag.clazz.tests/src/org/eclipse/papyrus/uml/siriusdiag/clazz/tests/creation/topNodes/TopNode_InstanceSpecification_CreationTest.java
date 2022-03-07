@@ -23,7 +23,9 @@ import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
 import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DNodeList;
+import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeContainerSpec;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -63,8 +65,8 @@ public class TopNode_InstanceSpecification_CreationTest extends AbstractPapyrusT
 		Object element = diagram.getChildren().get(0);
 		Assert.assertTrue("The created element must be a View", element instanceof View);
 		EObject siriusNewRepresentation = ((View) element).getElement();
-		Assert.assertTrue("The created sirus node must be a DNodeList", siriusNewRepresentation instanceof DNodeList);
-		EObject semanticElement = ((DNodeList) siriusNewRepresentation).getSemanticElements().iterator().next(); // TODO extact properly
+		Assert.assertTrue("The created sirus node must be a DNodeContainer", siriusNewRepresentation instanceof DNodeContainer);
+		EObject semanticElement = ((DNodeContainer) siriusNewRepresentation).getSemanticElements().iterator().next(); // TODO extact properly
 		Assert.assertTrue("The created element must be a UML InstanceSpecification", semanticElement instanceof org.eclipse.uml2.uml.InstanceSpecification);
 		Assert.assertEquals("The root must only contains one additional element after the creation", nbElement + 1, fixture.getModel().getOwnedElements().size());
 
@@ -81,8 +83,8 @@ public class TopNode_InstanceSpecification_CreationTest extends AbstractPapyrusT
 		element = diagram.getChildren().get(0);
 		Assert.assertTrue("The created element must be a View", element instanceof View);
 		siriusNewRepresentation = ((View) element).getElement();
-		Assert.assertTrue("The created sirus node must be a DNodeList", siriusNewRepresentation instanceof DNodeList);
-		semanticElement = ((DNodeList) siriusNewRepresentation).getSemanticElements().iterator().next();
+		Assert.assertTrue("The created sirus node must be a DNodeContainer", siriusNewRepresentation instanceof DNodeContainer);
+		semanticElement = ((DNodeContainer) siriusNewRepresentation).getSemanticElements().iterator().next();
 		Assert.assertTrue("The created element must be a UML InstanceSpecification", semanticElement instanceof org.eclipse.uml2.uml.InstanceSpecification);
 		Assert.assertEquals("The root must only contains one additional element after the creation", nbElement + 1, fixture.getModel().getOwnedElements().size());
 	}

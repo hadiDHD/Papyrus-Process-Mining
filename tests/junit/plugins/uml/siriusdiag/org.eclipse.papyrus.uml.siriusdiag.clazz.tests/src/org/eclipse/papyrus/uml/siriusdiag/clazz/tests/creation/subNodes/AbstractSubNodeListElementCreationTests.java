@@ -117,64 +117,6 @@ public abstract class AbstractSubNodeListElementCreationTests<T extends Element>
 		return (DNodeListElement) subNodeContainer.getElements().get(0);
 	}
 
-	/**
-	 * 
-	 * @param compartmentMappingType
-	 *            the type of the compartment in which we want to do the creation
-	 * @param creationToolId
-	 *            the id of the creation tool to test
-	 * @param expectedMappingType
-	 *            the expected mapping type for the created view
-	 * @return
-	 *         the created NodeListElement
-	 */
-	protected final DNodeListElement createSubNodeInDNodeList(final String compartmentMappingType, final String creationToolId, final String expectedMappingType) {
-		// check container is the uml Class,
-		// check owned element is empty
-		final Diagram diagram = getClassDiagram();
-		Assert.assertEquals("The root model must have only one node element before creating the sub node", 1, diagram.getChildren().size()); //$NON-NLS-1$
-		final Object firstView = diagram.getChildren().get(0);
-
-		Assert.assertTrue(((View) firstView).getElement() instanceof DNodeList);
-		final DNodeList classNode = (DNodeList) ((View) firstView).getElement();
-		// only one semantic element must be associated to the classNodeContainer
-		Assert.assertEquals(1, classNode.getSemanticElements().size());
-		Assert.assertEquals(this.semanticOwner, classNode.getSemanticElements().get(0));
-
-		final DNodeList subNodeContainer = classNode;
-		Assert.assertNotNull(NLS.bind("We didn't find the compartment type {0}", compartmentMappingType), subNodeContainer); //$NON-NLS-1$
-		Assert.assertEquals("The compartment must be empty", 0, subNodeContainer.getElements().size()); //$NON-NLS-1$
-		final DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
-
-		// create the element in the container
-		boolean result = fixture.applyContainerCreationTool(creationToolId, diagramRepresentation, subNodeContainer);
-		Assert.assertTrue("The creation of element failed", result); //$NON-NLS-1$
-		fixture.flushDisplayEvents();
-
-		Assert.assertEquals("The diagram children size does not change on adding a sub node", 1, diagram.getChildren().size()); //$NON-NLS-1$
-		Assert.assertEquals(1, subNodeContainer.getElements().size());
-		DNodeListElement createdElementRepresentation = subNodeContainer.getOwnedElements().get(0);
-
-		Assert.assertEquals("The mapping is not the expected one", expectedMappingType, createdElementRepresentation.getMapping().getName()); //$NON-NLS-1$
-		Assert.assertEquals("The created element representation must have 1 associated semantic element", 1, createdElementRepresentation.getSemanticElements().size()); //$NON-NLS-1$
-		final EObject createdSemanticElement = createdElementRepresentation.getSemanticElements().get(0);
-		Assert.assertEquals(1, this.semanticOwner.getOwnedElements().size());
-		Assert.assertEquals(createdSemanticElement, this.semanticOwner.getOwnedElements().get(0));
-
-		// undo
-		fixture.getEditingDomain().getCommandStack().undo();
-		fixture.flushDisplayEvents();
-		Assert.assertEquals("The class must have no attribut after undoing the creation", 0, this.semanticOwner.getOwnedElements().size()); //$NON-NLS-1$
-		Assert.assertEquals(0, subNodeContainer.getElements().size());
-
-		// redo
-		fixture.getEditingDomain().getCommandStack().redo();
-		fixture.flushDisplayEvents();
-		Assert.assertEquals("The class must contain one Operation after creating a sub node", 1, this.semanticOwner.getOwnedElements().size()); //$NON-NLS-1$
-		Assert.assertEquals(1, subNodeContainer.getElements().size());
-		return (DNodeListElement) subNodeContainer.getElements().get(0);
-	}
-
 	
 	/**
 	 * 

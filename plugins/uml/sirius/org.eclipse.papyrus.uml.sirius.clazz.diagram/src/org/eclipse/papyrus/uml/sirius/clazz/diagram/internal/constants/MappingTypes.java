@@ -51,6 +51,10 @@ public class MappingTypes {
 
 	public static final String ENUMERATION_NODE_TYPE = "CD_Enumeration"; //$NON-NLS-1$
 
+	public static final String INSTANCESPECIFICATION_NODE_TYPE = "CD_InstanceSpecification"; //$NON-NLS-1$
+	
+	public static final String INSTANCESPECIFICATION_NODE_SLOTS_COMPARTMENT_TYPE = "CD_InstanceSpecificationSlotsCompartment"; //$NON-NLS-1$
+	
 	public static final String INTERFACE_LABEL_NODE_TYPE = "CD_InterfaceLabelNode"; //$NON-NLS-1$
 	
 	public static final String INTERFACE_NODE_TYPE = "CD_Interface"; //$NON-NLS-1$
@@ -78,4 +82,9 @@ public class MappingTypes {
 	public static final String SIGNAL_LABEL_NODE_TYPE = "CD_SignalLabelNode"; //$NON-NLS-1$
 	
 	public static final String SIGNAL_NODE_TYPE = "CD_Signal"; //$NON-NLS-1$
+	
+	public static final String SIGNAL_NODE_ATTRIBUTES_COMPARTMENT_TYPE = "CD_SignalAttributesCompartment"; //$NON-NLS-1$
+	
+	public static final String SLOT_LABEL_NODE_TYPE = "CD_SlotLabelNode"; //$NON-NLS-1$
+
 }

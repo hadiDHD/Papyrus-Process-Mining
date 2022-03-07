@@ -43,6 +43,8 @@ public class CreationToolsIds {
 	public static final String CREATE_RECEPTION_TOOL = "CreateReceptionTool"; //$NON-NLS-1$
 
 	public static final String CREATE_SIGNAL_TOOL = "CreateSignalTool"; //$NON-NLS-1$
+	
+	public static final String CREATE_SLOT_TOOL = "CreateSlotTool"; //$NON-NLS-1$
 
 }
 

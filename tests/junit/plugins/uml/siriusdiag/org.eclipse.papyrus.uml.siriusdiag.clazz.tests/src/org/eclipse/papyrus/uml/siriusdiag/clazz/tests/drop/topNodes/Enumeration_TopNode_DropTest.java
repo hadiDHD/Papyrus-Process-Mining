@@ -36,6 +36,6 @@ public class Enumeration_TopNode_DropTest extends AbstractTopNodeDropTest {
 	public void enumeration_DropTest() {
 		final NamedElement elementToBeDropped = this.root.getMember("EnumerationToDrop"); //$NON-NLS-1$
 		Assert.assertTrue("The element to be dropped must be an instance of Enumeration", elementToBeDropped instanceof Enumeration);//$NON-NLS-1$
-		dropDNodeListElement(elementToBeDropped, SemanticDropToolsIds.DROP_ENUMERATION_TOOL, MappingTypes.ENUMERATION_NODE_TYPE);
+		dropDNodeContainer(elementToBeDropped, SemanticDropToolsIds.DROP_ENUMERATION_TOOL, MappingTypes.ENUMERATION_NODE_TYPE);
 	}
 }

@@ -259,19 +259,6 @@ public class LabelServices {
 	}
 
 	/**
-	 * {@inheritDoc}
-	 */
-	public String slotLabel(Slot slot) {
-		if (slot.getDefiningFeature() != null) {
-			slot.getDefiningFeature().getName();
-		} else {
-			return "<UNDEFINED>";
-		}
-		return null;
-	}
-
-
-	/**
 	 * @param bound
 	 * @return
 	 */

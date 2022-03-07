@@ -17,18 +17,16 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.junit.framework.classification.ClassificationRunner;
 import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
 import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.CreationToolsIds;
 import org.eclipse.sirius.diagram.DDiagram;
-import org.eclipse.sirius.diagram.DNodeList;
+import org.eclipse.sirius.diagram.DNodeContainer;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 /**
  * adapted from org.eclipse.papyrus.uml.diagram.clazz.test.canonical.TestClassDiagramTopNode
@@ -64,8 +62,8 @@ public class TopNode_Signal_CreationTest extends AbstractPapyrusTest {
 		Object element = diagram.getChildren().get(0);
 		Assert.assertTrue("The created element must be a View", element instanceof View);
 		EObject siriusNewRepresentation = ((View) element).getElement();
-		Assert.assertTrue("The created sirus node must be a DNodeList", siriusNewRepresentation instanceof DNodeList);
-		EObject semanticElement = ((DNodeList) siriusNewRepresentation).getSemanticElements().iterator().next();
+		Assert.assertTrue("The created sirus node must be a DNodeContainer", siriusNewRepresentation instanceof DNodeContainer);
+		EObject semanticElement = ((DNodeContainer) siriusNewRepresentation).getSemanticElements().iterator().next();
 		Assert.assertTrue("The created element must be a UML Signal", semanticElement instanceof org.eclipse.uml2.uml.Signal);
 		Assert.assertEquals("The root must only contains one additional element after the creation", nbElement + 1, fixture.getModel().getOwnedElements().size());
 
@@ -82,8 +80,8 @@ public class TopNode_Signal_CreationTest extends AbstractPapyrusTest {
 		element = diagram.getChildren().get(0);
 		Assert.assertTrue("The created element must be a View", element instanceof View);
 		siriusNewRepresentation = ((View) element).getElement();
-		Assert.assertTrue("The created sirus node must be a DNodeList", siriusNewRepresentation instanceof DNodeList);
-		semanticElement = ((DNodeList) siriusNewRepresentation).getSemanticElements().iterator().next();
+		Assert.assertTrue("The created sirus node must be a DNodeContainer", siriusNewRepresentation instanceof DNodeContainer);
+		semanticElement = ((DNodeContainer) siriusNewRepresentation).getSemanticElements().iterator().next();
 		Assert.assertTrue("The created element must be a UML Signal", semanticElement instanceof org.eclipse.uml2.uml.Signal);
 		Assert.assertEquals("The root must only contains one additional element after the creation", nbElement + 1, fixture.getModel().getOwnedElements().size());
 	}

@@ -604,7 +604,9 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 	 */
 	@Override
 	public String caseSlot(Slot object) {
-
+		if (object.getDefiningFeature() == null) {
+			return "<UNDEFINED>"; //$NON-NLS-1$
+		}
 		final StringBuilder label = new StringBuilder(object.getDefiningFeature().getName());
 		label.append(" = "); //$NON-NLS-1$
 		final List<ValueSpecification> values = object.getValues();
