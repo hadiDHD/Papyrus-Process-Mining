@@ -29,6 +29,8 @@ public class CreationToolsIds {
 	public static final String CREATE_COMPONENT_TOOL = "CreateComponentTool"; //$NON-NLS-1$
 	
 	public static final String CREATE_DATATYPE_TOOL = "DataType"; //$NON-NLS-1$
+	
+	public static final String CREATE_DURATIONOBSERVATION_TOOL = "CreateDurationObservationTool"; //$NON-NLS-1$
 
 	public static final String CREATE_ENUMERATION_TOOL = "Enumeration"; //$NON-NLS-1$
 
@@ -45,6 +47,8 @@ public class CreationToolsIds {
 	public static final String CREATE_SIGNAL_TOOL = "CreateSignalTool"; //$NON-NLS-1$
 	
 	public static final String CREATE_SLOT_TOOL = "CreateSlotTool"; //$NON-NLS-1$
+	
+	public static final String CREATE_TIMEOBSERVATION_TOOL = "CreateTimeObservationTool"; //$NON-NLS-1$
 
 }
 

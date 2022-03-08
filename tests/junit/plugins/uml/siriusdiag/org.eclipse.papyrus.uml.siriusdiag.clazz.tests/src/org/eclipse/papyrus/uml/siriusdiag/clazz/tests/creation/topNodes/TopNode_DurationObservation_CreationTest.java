@@ -17,17 +17,16 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.junit.framework.classification.ClassificationRunner;
 import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
+import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.CreationToolsIds;
 import org.eclipse.sirius.diagram.DDiagram;
-import org.eclipse.sirius.diagram.DNodeContainer;
+import org.eclipse.sirius.diagram.DNode;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 /**
  * adapted from org.eclipse.papyrus.uml.diagram.clazz.test.canonical.TestClassDiagramTopNode
@@ -56,15 +55,15 @@ public class TopNode_DurationObservation_CreationTest extends AbstractPapyrusTes
 		Assert.assertEquals("The diagram must be empty before creating the top node", 0, diagram.getChildren().size());
 
 		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
-		fixture.applyContainerCreationTool("Duration Observation", diagramRepresentation, diagramRepresentation);
+		fixture.applyContainerCreationTool(CreationToolsIds.CREATE_DURATIONOBSERVATION_TOOL, diagramRepresentation, diagramRepresentation);
 		fixture.flushDisplayEvents();// it is required ?
 
 		Assert.assertEquals("The diagram must contain one element after creating a top node", 1, diagram.getChildren().size());
 		Object element = diagram.getChildren().get(0);
 		Assert.assertTrue("The created element must be a View", element instanceof View);
 		EObject siriusNewRepresentation = ((View) element).getElement();
-		Assert.assertTrue("The created sirus node must be a DNode", siriusNewRepresentation instanceof DNodeContainer);
-		EObject semanticElement = ((DNodeContainer) siriusNewRepresentation).getSemanticElements().iterator().next();
+		Assert.assertTrue("The created sirus node must be a DNode", siriusNewRepresentation instanceof DNode);
+		EObject semanticElement = ((DNode) siriusNewRepresentation).getSemanticElements().iterator().next();
 		Assert.assertTrue("The created element must be a UML DurationObservation", semanticElement instanceof org.eclipse.uml2.uml.DurationObservation);
 		Assert.assertEquals("The root must only contains one additional element after the creation", nbElement + 1, fixture.getModel().getOwnedElements().size());
 
@@ -81,8 +80,8 @@ public class TopNode_DurationObservation_CreationTest extends AbstractPapyrusTes
 		element = diagram.getChildren().get(0);
 		Assert.assertTrue("The created element must be a View", element instanceof View);
 		siriusNewRepresentation = ((View) element).getElement();
-		Assert.assertTrue("The created sirus node must be a DNode", siriusNewRepresentation instanceof DNodeContainer);
-		semanticElement = ((DNodeContainer) siriusNewRepresentation).getSemanticElements().iterator().next();
+		Assert.assertTrue("The created sirus node must be a DNode", siriusNewRepresentation instanceof DNode);
+		semanticElement = ((DNode) siriusNewRepresentation).getSemanticElements().iterator().next();
 		Assert.assertTrue("The created element must be a UML DurationObservation", semanticElement instanceof org.eclipse.uml2.uml.DurationObservation);
 		Assert.assertEquals("The root must only contains one additional element after the creation", nbElement + 1, fixture.getModel().getOwnedElements().size());
 	}

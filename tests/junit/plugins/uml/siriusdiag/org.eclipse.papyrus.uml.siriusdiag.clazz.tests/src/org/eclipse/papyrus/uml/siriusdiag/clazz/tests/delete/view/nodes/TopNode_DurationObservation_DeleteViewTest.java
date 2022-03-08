@@ -22,19 +22,19 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.papyrus.junit.framework.classification.ClassificationRunner;
 import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
+import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeContainerSpec;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerEditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeEditPart;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 /**
  * Delete Class from diagram test
@@ -67,8 +67,8 @@ public class TopNode_DurationObservation_DeleteViewTest extends AbstractPapyrusT
 		Object elementToBeDeleted = classDiagram.getChildren().get(0);
 		Assert.assertTrue(elementToBeDeleted instanceof View);
 		EObject siriusNewRepresentation = ((View) elementToBeDeleted).getElement();
-		Assert.assertTrue(siriusNewRepresentation instanceof DNodeContainerSpec);
-		Assert.assertEquals("The found view doesn't represent the element to destroy", element, ((DNodeContainerSpec) siriusNewRepresentation).getTarget());
+		Assert.assertTrue(siriusNewRepresentation instanceof DNode);
+		Assert.assertEquals("The found view doesn't represent the element to destroy", element, ((DNode) siriusNewRepresentation).getTarget());
 
 		EditPart toSelect = null;
 		final List<?> childEP = fixture.getActiveDiagram().getChildren();
@@ -78,7 +78,7 @@ public class TopNode_DurationObservation_DeleteViewTest extends AbstractPapyrusT
 			if (current instanceof EditPart) {
 				final Object model = ((EditPart) current).getModel();
 				siriusNewRepresentation = ((View) model).getElement();
-				if (model instanceof View && ((DNodeContainerSpec) siriusNewRepresentation).getTarget() == rootModel.getMember(ELEMENT_TO_DESTROY_NAME)) {
+				if (model instanceof View && ((DNode) siriusNewRepresentation).getTarget() == rootModel.getMember(ELEMENT_TO_DESTROY_NAME)) {
 					toSelect = (EditPart) current;
 					break;
 				}
@@ -89,10 +89,10 @@ public class TopNode_DurationObservation_DeleteViewTest extends AbstractPapyrusT
 		fixture.getActiveDiagramEditor().getSite().getSelectionProvider().setSelection(new StructuredSelection(toSelect));
 		fixture.flushDisplayEvents();
 
-		StructuredSelection selecetdElement = (StructuredSelection) fixture.getActiveDiagramEditor().getSite().getSelectionProvider().getSelection();
-		DNodeContainerEditPart selectedContainer = (DNodeContainerEditPart) selecetdElement.getFirstElement();
+		StructuredSelection selectedElement = (StructuredSelection) fixture.getActiveDiagramEditor().getSite().getSelectionProvider().getSelection();
+		DNodeEditPart selectedContainer = (DNodeEditPart) selectedElement.getFirstElement();
 		EObject elemToDelete = ((View) selectedContainer.getModel()).getElement();
-		fixture.applyGraphicalDeletionTool((DNodeContainerSpec) elemToDelete);
+		fixture.applyGraphicalDeletionTool((DNode) elemToDelete);
 		fixture.flushDisplayEvents();
 
 		// the semantic element has not been destroyed

@@ -22,6 +22,7 @@ import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusT
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
+import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeContainerSpec;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
@@ -62,10 +63,10 @@ public class TopNode_DurationObservation_DeleteSemanticTest extends AbstractPapy
 		Object elementToBeDeleted = classDiagram.getChildren().get(0);
 		Assert.assertTrue(elementToBeDeleted instanceof View);
 		EObject siriusNewRepresentation = ((View) elementToBeDeleted).getElement();
-		Assert.assertTrue(siriusNewRepresentation instanceof DNodeContainerSpec);
-		Assert.assertEquals("The found view doesn't represent the DurationObservation element to destroy", element, ((DNodeContainerSpec) siriusNewRepresentation).getTarget());
+		Assert.assertTrue(siriusNewRepresentation instanceof DNode);
+		Assert.assertEquals("The found view doesn't represent the DurationObservation element to destroy", element, ((DNode) siriusNewRepresentation).getTarget());
 
-		fixture.applySemanticDeletionTool((DNodeContainerSpec) siriusNewRepresentation);
+		fixture.applySemanticDeletionTool((DNode) siriusNewRepresentation);
 		fixture.flushDisplayEvents();
 
 		// the semantic element has been destroyed
