@@ -28,6 +28,12 @@ Add your user name as vmargs argument like that in order to get a nice file head
 
 ''-Duser.name=John Doe (Company) <john.doe@company.com>''
 
+==Manifest.ini==
+Rules:
+*we avoid to use '''Import Package'''
+*each dependency is defined with a min and max values
+*the dependencies are sorted by alphabetical order
+
 
 = Architecture of Papyrus-SiriusDiag =
 This framework has been developed to be used only when a sirius diagram is opened.
@@ -50,6 +56,33 @@ This framework has been developed to be used only when a sirius diagram is opene
 **'''statemachine.diagram''': contains statemachine diagram description and services
 **'''xtext.integration.ui''': contains customization to add xtext on label edition
 
+= odesign file conception rules =
+To ease development and review, we decided to follow conception rules for odesign file: 
+*structure of the odesign:
+**all elements are organized by alphabetical order (following the label displayed in the odesign editor)
+
+*''id'' field rules:
+** doesn't contents space
+** contains the name of the semantic element
+** tool for creation must be named following this pattern ''CreateXXXTool''
+** tool for semantic drop must be named following this pattern ''SemanticXXXDrop''
+** tool for graphical drop must be named following this pattern ''GraphicalXXXDrop''
+** mapping representing a label node must be suffixed with ''LabelNode''
+** mapping representing a compartment node must be named like this: ''parentMappingName'' + ''ElementNames''(plural form) + ''Compartment'', example: '''CD_ClassAttributesCompartment'''
+
+*''node'' rules:
+** all nodes containing objects must have compartments
+** all nodes must be described at the root of the layer: we avoid defining nodes inside another nodes (this rule is not applicable for bordered nodes.
+
+*''palette'' rules:
+** the palette will contains 2 folders, one for nodes, named '''Nodes''', one for edges, named '''Edges'''.
+** in these folder, the tools will be sorted by alphabetical order
+
+*''icon'' rules:
+**the path of the icon of semantic UML element must be something like '''/org.eclipse.uml2.uml.edit/icons/full/obj16/xxx.yyy''' each time it exists. We must avoid to duplicate icons when it is not necessary.
+
+*''validation'' rules:
+**the *.odesign files must be valid (using EMF Validation)
 
 = Sirius viewpoint =
 
