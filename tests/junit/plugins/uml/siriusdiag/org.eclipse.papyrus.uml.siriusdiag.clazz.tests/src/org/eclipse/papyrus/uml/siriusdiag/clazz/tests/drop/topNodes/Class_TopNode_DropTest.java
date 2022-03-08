@@ -22,6 +22,7 @@ import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusT
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
+import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.SemanticDropToolsIds;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.uml2.uml.Model;
@@ -57,7 +58,7 @@ public class Class_TopNode_DropTest extends AbstractPapyrusTest {
 		Assert.assertEquals("The diagram must not yet have children", 0, diagram.getChildren().size());
 
 		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
-		fixture.applyContainerDropDescriptionTool(diagramRepresentation, "Class from Model", diagramRepresentation, elementToBeDropped);
+		fixture.applyContainerDropDescriptionTool(diagramRepresentation, SemanticDropToolsIds.DROP_CLASS_TOOL, diagramRepresentation, elementToBeDropped);
 		fixture.flushDisplayEvents();
 
 		Assert.assertEquals("The diagram must have one child after the Drop action", 1, diagram.getChildren().size());

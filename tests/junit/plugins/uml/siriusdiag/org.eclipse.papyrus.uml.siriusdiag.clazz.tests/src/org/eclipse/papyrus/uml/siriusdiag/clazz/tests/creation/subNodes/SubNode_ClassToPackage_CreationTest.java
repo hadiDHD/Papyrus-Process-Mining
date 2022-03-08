@@ -13,6 +13,8 @@
  *****************************************************************************/
 package org.eclipse.papyrus.uml.siriusdiag.clazz.tests.creation.subNodes;
 
+import java.util.stream.Collectors;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
@@ -24,6 +26,7 @@ import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
 import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.CreationToolsIds;
+import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.MappingTypes;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DNodeContainer;
@@ -63,6 +66,15 @@ public class SubNode_ClassToPackage_CreationTest extends AbstractPapyrusTest {
 		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
 		Object packageElement = diagram.getChildren().get(0);
 		EObject packageRepresentation = ((View) packageElement).getElement();
+		if(packageRepresentation instanceof DNodeContainer) {
+			packageRepresentation = ((DNodeContainer)packageRepresentation)
+					.getOwnedDiagramElements()
+					.stream()
+					.filter(e -> MappingTypes.PACKAGE_NODE_PACKAGEDELEMENTS_COMPARTMENTS_TYPE
+							.equals(e.getMapping().getName()))
+							.findAny()
+			                .orElse(null);
+		}
 		fixture.applyGenericTool(CreationToolsIds.CREATE_CLASS_TOOL, diagramRepresentation, packageRepresentation);
 		fixture.flushDisplayEvents();
 

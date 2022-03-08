@@ -22,6 +22,8 @@ public class SemanticDropToolsIds {
 		// to prevent instantiation
 	}
 	
+	public static final String DROP_CLASS_TOOL = "SemanticClassDrop"; //$NON-NLS-1$
+	
 	public static final String DROP_COMPONENT_TOOL = "SemanticComponentDrop"; //$NON-NLS-1$
 	
 	public static final String DROP_DATATYPE_TOOL = "SemanticDataTypeDrop"; //$NON-NLS-1$
@@ -30,7 +32,11 @@ public class SemanticDropToolsIds {
 	
 	public static final String DROP_DURATIONOBSERVATION_TOOL = "SemanticDurationObservationDrop"; //$NON-NLS-1$
 	
+	public static final String DROP_MODEL_TOOL = "SemanticModelDrop"; //$NON-NLS-1$
+	
 	public static final String DROP_OPERATION_TOOL = "SemanticOperationDrop"; //$NON-NLS-1$
+	
+	public static final String DROP_PACKAGE_TOOL = "SemanticPackageDrop"; //$NON-NLS-1$
 	
 	public static final String DROP_PROPERTY_TOOL = "SemanticPropertyDrop"; //$NON-NLS-1$
 	

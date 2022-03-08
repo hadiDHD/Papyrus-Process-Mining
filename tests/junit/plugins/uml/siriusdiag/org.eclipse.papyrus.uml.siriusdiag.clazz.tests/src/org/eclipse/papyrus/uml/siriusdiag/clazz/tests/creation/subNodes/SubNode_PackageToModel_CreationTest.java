@@ -23,6 +23,7 @@ import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusT
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
+import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.MappingTypes;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DNodeContainer;
@@ -62,12 +63,22 @@ public class SubNode_PackageToModel_CreationTest extends AbstractPapyrusTest {
 		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
 		Object packageElement = diagram.getChildren().get(0);
 		EObject packageRepresentation = ((View) packageElement).getElement();
+		if(packageRepresentation instanceof DNodeContainer) {
+			packageRepresentation = ((DNodeContainer)packageRepresentation)
+					.getOwnedDiagramElements()
+					.stream()
+					.filter(e -> MappingTypes.MODEL_NODE_PACKAGEDELEMENTS_COMPARTMENTS_TYPE
+							.equals(e.getMapping().getName()))
+							.findAny()
+			                .orElse(null);
+		}
 		fixture.applyContainerCreationTool("Package", diagramRepresentation, packageRepresentation);
 		fixture.flushDisplayEvents();
 
 		EList<DDiagramElement> modelSubNodes = ((DNodeContainerSpec) packageRepresentation).getOwnedDiagramElements();
 		Assert.assertEquals("The diagram children size does not change on adding a sub node", nbElement, diagram.getChildren().size());
 		EObject siriusNewRepresentation = modelSubNodes.get(0);
+		
 		Assert.assertEquals("The model element contains one additional element", 1, modelSubNodes.size());
 		Assert.assertTrue("The created sirus node must be a DNode", siriusNewRepresentation instanceof DNodeContainer);
 		EObject semanticElement = ((DNodeContainer) siriusNewRepresentation).getSemanticElements().iterator().next(); // TODO extact properly
