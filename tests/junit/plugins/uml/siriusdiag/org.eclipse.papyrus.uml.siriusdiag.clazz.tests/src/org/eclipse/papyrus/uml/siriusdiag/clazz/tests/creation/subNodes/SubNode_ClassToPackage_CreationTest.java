@@ -75,7 +75,7 @@ public class SubNode_ClassToPackage_CreationTest extends AbstractPapyrusTest {
 							.findAny()
 			                .orElse(null);
 		}
-		fixture.applyGenericTool(CreationToolsIds.CREATE_CLASS_TOOL, diagramRepresentation, packageRepresentation);
+		fixture.applyGenericTool(CreationToolsIds.CREATE__CLASS__TOOL, diagramRepresentation, packageRepresentation);
 		fixture.flushDisplayEvents();
 
 		EList<DDiagramElement> packageSubNodes = ((DNodeContainerSpec) packageRepresentation).getOwnedDiagramElements();

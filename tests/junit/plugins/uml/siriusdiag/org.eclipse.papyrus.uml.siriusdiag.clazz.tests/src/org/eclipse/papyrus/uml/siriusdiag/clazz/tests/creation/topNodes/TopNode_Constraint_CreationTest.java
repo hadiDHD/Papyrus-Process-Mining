@@ -22,6 +22,7 @@ import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusT
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
+import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.CreationToolsIds;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeSpec;
 import org.junit.Assert;
@@ -57,7 +58,7 @@ public class TopNode_Constraint_CreationTest extends AbstractPapyrusTest {
 		Assert.assertEquals("The diagram must be empty before creating the top node", 0, diagram.getChildren().size());
 
 		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
-		fixture.applyNodeCreationTool("Constraint", diagramRepresentation, diagramRepresentation);
+		fixture.applyNodeCreationTool(CreationToolsIds.CREATE__CONSTRAINT__TOOL, diagramRepresentation, diagramRepresentation);
 		fixture.flushDisplayEvents();
 
 		Assert.assertEquals("The diagram must contain one element after creating a top node", 1, diagram.getChildren().size());

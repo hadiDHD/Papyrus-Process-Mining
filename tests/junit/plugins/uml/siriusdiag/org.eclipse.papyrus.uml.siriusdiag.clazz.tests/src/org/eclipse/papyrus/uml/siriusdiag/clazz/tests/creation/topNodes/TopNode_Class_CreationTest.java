@@ -57,7 +57,7 @@ public class TopNode_Class_CreationTest extends AbstractPapyrusTest {
 		Assert.assertEquals("The diagram must be empty before creating the top node", 0, diagram.getChildren().size());
 
 		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
-		fixture.applyContainerCreationTool(CreationToolsIds.CREATE_CLASS_TOOL, diagramRepresentation, diagramRepresentation);
+		fixture.applyContainerCreationTool(CreationToolsIds.CREATE__CLASS__TOOL, diagramRepresentation, diagramRepresentation);
 		fixture.flushDisplayEvents();
 
 		Assert.assertEquals("The diagram must contain one element after creating a top node", 1, diagram.getChildren().size());

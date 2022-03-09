@@ -47,7 +47,7 @@ public class InstanceSpecificationSubNodes_CreationTest extends AbstractSubNodeL
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME)
 	public void createSlotLabelNodeTest() {
-		final DDiagramElement createdElement = createSubNodeInDNodeContainer(MappingTypes.INSTANCESPECIFICATION_NODE_SLOTS_COMPARTMENT_TYPE, CreationToolsIds.CREATE_SLOT_TOOL, MappingTypes.SLOT_LABEL_NODE_TYPE);
+		final DDiagramElement createdElement = createSubNodeInDNodeContainer(MappingTypes.INSTANCESPECIFICATION_NODE_SLOTS_COMPARTMENT_TYPE, CreationToolsIds.CREATE__SLOT__TOOL, MappingTypes.SLOT_LABEL_NODE_TYPE);
 		final EObject semantic = createdElement.getSemanticElements().get(0);
 		Assert.assertTrue(NLS.bind("The created element must be a Slot instead of a {0}.", semantic.eClass().getName()),semantic instanceof Slot); //$NON-NLS-1$
 		Assert.assertTrue("The created element is not owned by the expected feature", this.semanticOwner.getSlots().contains(semantic)); //$NON-NLS-1$

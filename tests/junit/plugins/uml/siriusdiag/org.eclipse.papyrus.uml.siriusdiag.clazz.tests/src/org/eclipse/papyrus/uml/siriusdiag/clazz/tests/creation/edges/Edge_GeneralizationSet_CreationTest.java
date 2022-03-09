@@ -22,6 +22,7 @@ import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusT
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
+import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.CreationToolsIds;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.EdgeTarget;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DEdgeSpec;
@@ -66,7 +67,7 @@ public class Edge_GeneralizationSet_CreationTest extends AbstractPapyrusTest {
 		// get the target of the GeneralizationSet edge (target = the other Generalization edge)
 		EdgeTarget edgeTarget = (EdgeTarget) ((View) diagram.getEdges().get(1)).getElement();
 
-		fixture.applyEdgeCreationTool("Generalization Set", diagramRepresentation, edgeSource, edgeTarget);
+		fixture.applyEdgeCreationTool(CreationToolsIds.CREATE__GENERALISATION_SET__TOOL, diagramRepresentation, edgeSource, edgeTarget);
 		fixture.flushDisplayEvents();
 
 		Assert.assertEquals("The diagram must contain one additional edge after creating an Edge", nbEdge + 1, diagram.getEdges().size());

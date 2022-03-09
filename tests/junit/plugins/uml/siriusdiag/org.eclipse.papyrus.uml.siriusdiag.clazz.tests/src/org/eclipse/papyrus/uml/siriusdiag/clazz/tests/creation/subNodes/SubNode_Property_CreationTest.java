@@ -61,7 +61,7 @@ public class SubNode_Property_CreationTest extends AbstractPapyrusTest {
 		DNodeContainerSpec classRepresentation = (DNodeContainerSpec) ((View) classElement).getElement();
 		EObject subNodeContainer = classRepresentation.getOwnedDiagramElements().get(1);
 		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
-		fixture.applyContainerCreationTool(CreationToolsIds.CREATE_PROPERTY_TOOL, diagramRepresentation, subNodeContainer);
+		fixture.applyContainerCreationTool(CreationToolsIds.CREATE__PROPERTY__TOOL, diagramRepresentation, subNodeContainer);
 		fixture.flushDisplayEvents();
 
 		Assert.assertEquals("The diagram children size does not change on adding a sub node", 1, diagram.getChildren().size());

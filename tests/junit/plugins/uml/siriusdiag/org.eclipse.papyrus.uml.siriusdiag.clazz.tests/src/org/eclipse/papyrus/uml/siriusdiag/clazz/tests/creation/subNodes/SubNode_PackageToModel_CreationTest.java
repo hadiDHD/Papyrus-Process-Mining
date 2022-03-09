@@ -23,6 +23,7 @@ import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusT
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
+import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.CreationToolsIds;
 import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.MappingTypes;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
@@ -72,7 +73,7 @@ public class SubNode_PackageToModel_CreationTest extends AbstractPapyrusTest {
 							.findAny()
 			                .orElse(null);
 		}
-		fixture.applyContainerCreationTool("Package", diagramRepresentation, packageRepresentation);
+		fixture.applyContainerCreationTool(CreationToolsIds.CREATE__PACKAGE__TOOL, diagramRepresentation, packageRepresentation);
 		fixture.flushDisplayEvents();
 
 		EList<DDiagramElement> modelSubNodes = ((DNodeContainerSpec) packageRepresentation).getOwnedDiagramElements();

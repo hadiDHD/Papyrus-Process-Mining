@@ -55,7 +55,7 @@ public class TopNode_DurationObservation_CreationTest extends AbstractPapyrusTes
 		Assert.assertEquals("The diagram must be empty before creating the top node", 0, diagram.getChildren().size());
 
 		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
-		fixture.applyContainerCreationTool(CreationToolsIds.CREATE_DURATIONOBSERVATION_TOOL, diagramRepresentation, diagramRepresentation);
+		fixture.applyContainerCreationTool(CreationToolsIds.CREATE__DURATION_OBSERVATION__TOOL, diagramRepresentation, diagramRepresentation);
 		fixture.flushDisplayEvents();// it is required ?
 
 		Assert.assertEquals("The diagram must contain one element after creating a top node", 1, diagram.getChildren().size());

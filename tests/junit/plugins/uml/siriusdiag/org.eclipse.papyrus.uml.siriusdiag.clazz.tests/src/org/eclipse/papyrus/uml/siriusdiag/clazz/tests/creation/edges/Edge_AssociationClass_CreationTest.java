@@ -63,7 +63,7 @@ public class Edge_AssociationClass_CreationTest extends AbstractPapyrusTest {
 		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
 		EdgeTarget edgeSource = (EdgeTarget) ((View) diagram.getChildren().get(0)).getElement();
 		EdgeTarget edgeTarget = (EdgeTarget) ((View) diagram.getChildren().get(1)).getElement();
-		fixture.applyEdgeCreationTool(CreationToolsIds.CREATE_ASSOCIATION_CLASS_TOOL, diagramRepresentation, edgeSource, edgeTarget);
+		fixture.applyEdgeCreationTool(CreationToolsIds.CREATE__ASSOCIATION_CLASS__TOOL, diagramRepresentation, edgeSource, edgeTarget);
 		fixture.flushDisplayEvents();
 
 		Assert.assertEquals("The diagram must contain two additional edges after creating an AssociationClass Edge", nbEdge + 2, diagram.getEdges().size());

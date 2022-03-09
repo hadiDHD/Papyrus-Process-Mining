@@ -22,6 +22,7 @@ import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusT
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirusdiag.junit.utils.rules.SiriusDiagramEditorFixture;
+import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.CreationToolsIds;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.EdgeTarget;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DEdgeSpec;
@@ -62,7 +63,7 @@ public class Edge_PackageImport_CreationTest extends AbstractPapyrusTest {
 		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
 		EdgeTarget edgeSource = (EdgeTarget) ((View) diagram.getChildren().get(0)).getElement();
 		EdgeTarget edgeTarget = (EdgeTarget) ((View) diagram.getChildren().get(1)).getElement();
-		fixture.applyEdgeCreationTool("Package Import", diagramRepresentation, edgeSource, edgeTarget);
+		fixture.applyEdgeCreationTool(CreationToolsIds.CREATE__PACKAGE_IMPORT__TOOL, diagramRepresentation, edgeSource, edgeTarget);
 		fixture.flushDisplayEvents();
 
 		Assert.assertEquals("The diagram must contain one additional edge after creating an Edge", nbEdge + 1, diagram.getEdges().size());
