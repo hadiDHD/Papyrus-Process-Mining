@@ -873,7 +873,7 @@
       </additionalLayers>
       <additionalLayers name="Comment" activeByDefault="true">
         <nodeMappings name="Comment" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='CommentEdit']" createElements="false" domainClass="uml.Comment">
-          <style xsi:type="style:NoteDescription" labelSize="9" showIcon="false" labelExpression="feature:body" sizeComputationExpression="9" labelPosition="node" resizeKind="NSEW" color="//@userColorsPalettes[name='UMLPalette']/@entries[name='CommentColor']">
+          <style xsi:type="style:NoteDescription" labelSize="9" showIcon="false" labelExpression="feature:body" labelAlignment="LEFT" sizeComputationExpression="9" labelPosition="node" resizeKind="NSEW" color="//@userColorsPalettes[name='UMLPalette']/@entries[name='CommentColor']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
