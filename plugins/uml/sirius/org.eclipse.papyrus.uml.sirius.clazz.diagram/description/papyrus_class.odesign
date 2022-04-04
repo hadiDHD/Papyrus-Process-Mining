@@ -2185,7 +2185,7 @@
           </style>
         </nodeMappings>
         <toolSections name="Nodes">
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new literal" name="Comment" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Comment']/@nodeMappings[name='CD_Comment']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Comment.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Create a new literal" name="CreateCommentTool" label="Comment" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Comment']/@nodeMappings[name='CD_Comment']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Comment.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>

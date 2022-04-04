@@ -28,8 +28,10 @@ public class CreationToolsIds {
 
 	public static final String CREATE__CLASS__TOOL = "CreateClassTool"; //$NON-NLS-1$
 
-	public static final String CREATE__CLASSIFIER_TEMPLATE_PARAMETER__TOOL = "CreateClassifierTemplateParameterTool"; //$NON-NLS-1$ "
+	public static final String CREATE__CLASSIFIER_TEMPLATE_PARAMETER__TOOL = "CreateClassifierTemplateParameterTool"; //$NON-NLS-1$
 
+	public static final String CREATE__COMMENT__TOOL = "CreateCommentTool"; //$NON-NLS-1$
+	
 	public static final String CREATE__COMPONENT__TOOL = "CreateComponentTool"; //$NON-NLS-1$
 
 	public static final String CREATE__CONSTRAINT__TOOL = "CreateConstraintTool"; //$NON-NLS-1$
