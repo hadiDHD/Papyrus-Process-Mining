@@ -49,7 +49,7 @@ public class SemanticDropIntoModelTest extends AbstractSemanticDropSubNodeTests<
 	@ActiveDiagram(DIAGRAM_NAME)
 	public void dropPackageIntoModel() {
 		final NamedElement toDrop = getSemanticOwner().getMember("PackageToDrop"); //$NON-NLS-1$
-		final DDiagramElement createdElement = dropNodeInDNodeContainer(MappingTypes.MODEL_NODE_PACKAGEDELEMENTS_COMPARTMENTS_TYPE, SemanticDropToolsIds.DROP_PACKAGE_TOOL, MappingTypes.PACKAGE_NODE_TYPE, toDrop);
+		final DDiagramElement createdElement = dropNodeInDNodeContainer(MappingTypes.MODEL_NODE_PACKAGEDELEMENTS_COMPARTMENTS_TYPE, SemanticDropToolsIds.DROP__PACKAGE__TOOL, MappingTypes.PACKAGE_NODE_TYPE, toDrop);
 		final EObject semantic = createdElement.getSemanticElements().get(0);
 		Assert.assertEquals("The dropped element is not the expected one", toDrop, semantic); //$NON-NLS-1$
 	}

@@ -22,22 +22,33 @@ public class SemanticDropToolsIds {
 		// to prevent instantiation
 	}
 
-	public static final String DROP_CLASS_TOOL = "SemanticClassDrop"; //$NON-NLS-1$
+	public static final String DROP__CLASS__TOOL = "SemanticClassDrop"; //$NON-NLS-1$
 
-	public static final String DROP_COMPONENT_TOOL = "SemanticComponentDrop"; //$NON-NLS-1$
+	public static final String DROP__COMPONENT__TOOL = "SemanticComponentDrop"; //$NON-NLS-1$
 
-	public static final String DROP_DATATYPE_TOOL = "SemanticDataTypeDrop"; //$NON-NLS-1$
+	public static final String DROP__CONSTRAINT__TOOL = "SemanticConstraintDrop"; //$NON-NLS-1$
 
-	public static final String DROP_ENUMERATION_TOOL = "SemanticEnumerationDrop"; //$NON-NLS-1$
+	public static final String DROP__DATATYPE__TOOL = "SemanticDataTypeDrop"; //$NON-NLS-1$
 
-	public static final String DROP_MODEL_TOOL = "SemanticModelDrop"; //$NON-NLS-1$
+	public static final String DROP__ENUMERATION__TOOL = "SemanticEnumerationDrop"; //$NON-NLS-1$
 
-	public static final String DROP_OPERATION_TOOL = "SemanticOperationDrop"; //$NON-NLS-1$
+	public static final String DROP__INFORMATION_ITEM__TOOL = "SemanticInformationItemDrop"; //$NON-NLS-1$
 
-	public static final String DROP_PACKAGE_TOOL = "SemanticPackageDrop"; //$NON-NLS-1$
+	public static final String DROP__INSTANCE_SPECIFICATION__TOOL = "SemanticInstanceSpecificationDrop"; //$NON-NLS-1$
 
-	public static final String DROP_PROPERTY_TOOL = "SemanticPropertyDrop"; //$NON-NLS-1$
+	public static final String DROP__INTERFACE__TOOL = "SemanticInterfaceDrop"; //$NON-NLS-1$
 
-	public static final String DROP_PRIMITIVETYPE_TOOL = "SemanticPrimitiveTypeDrop"; //$NON-NLS-1$
+	public static final String DROP__MODEL__TOOL = "SemanticModelDrop"; //$NON-NLS-1$
+
+	public static final String DROP__OPERATION__TOOL = "SemanticOperationDrop"; //$NON-NLS-1$
+
+	public static final String DROP__PACKAGE__TOOL = "SemanticPackageDrop"; //$NON-NLS-1$
+
+	public static final String DROP__PROPERTY__TOOL = "SemanticPropertyDrop"; //$NON-NLS-1$
+
+	public static final String DROP__PRIMITIVETYPE__TOOL = "SemanticPrimitiveTypeDrop"; //$NON-NLS-1$
+
+	public static final String DROP__SIGNAL__TOOL = "SemanticSignalDrop"; //$NON-NLS-1$
+
 
 }

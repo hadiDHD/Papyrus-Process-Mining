@@ -26,9 +26,9 @@ import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeContainerSpec;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeListElementSpec;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeListSpec;
+import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
-import org.eclipse.uml2.uml.Class;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -61,7 +61,7 @@ public class SubNode_PropertyToClass_DropTest extends AbstractPapyrusTest {
 		DNodeListSpec propertyContainer = (DNodeListSpec) classRepresentation.getOwnedDiagramElements().get(1);
 		NamedElement elementToBeDropped = ((Class) classRepresentation.getTarget()).getOwnedAttributes().get(0);
 		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
-		fixture.applyContainerDropDescriptionTool(diagramRepresentation, SemanticDropToolsIds.DROP_PROPERTY_TOOL, propertyContainer, elementToBeDropped);
+		fixture.applyContainerDropDescriptionTool(diagramRepresentation, SemanticDropToolsIds.DROP__PROPERTY__TOOL, propertyContainer, elementToBeDropped);
 		fixture.flushDisplayEvents();
 
 		classElement = diagram.getChildren().get(0);

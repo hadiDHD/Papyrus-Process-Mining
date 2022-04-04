@@ -5,5 +5,6 @@
   </packageImport>
   <packagedElement xmi:type="uml:Package" xmi:id="_Ltk40J-EEeyF49nN-xvxfg" name="Package">
     <packagedElement xmi:type="uml:Class" xmi:id="_OgxZMJ-EEeyF49nN-xvxfg" name="ClassToDrop"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_vbLqoK9wEeygIIt21k9Vcw" name="PackageToDrop"/>
   </packagedElement>
 </uml:Model>

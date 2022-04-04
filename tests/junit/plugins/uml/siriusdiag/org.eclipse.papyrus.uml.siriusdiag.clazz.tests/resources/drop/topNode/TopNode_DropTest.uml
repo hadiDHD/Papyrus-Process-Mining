@@ -13,6 +13,4 @@
   <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Rs5D4B1DEeyMqqMrfth9Gw" name="PrimitiveTypeToDrop"/>
   <packagedElement xmi:type="uml:Model" xmi:id="_VYkEYB1DEeyMqqMrfth9Gw" name="ModelToDrop"/>
   <packagedElement xmi:type="uml:InformationItem" xmi:id="_erkg0B1DEeyMqqMrfth9Gw" name="InformationItemToDrop"/>
-  <packagedElement xmi:type="uml:DurationObservation" xmi:id="_xmmncB1DEeyMqqMrfth9Gw" name="DurationObservationToDrop"/>
-  <packagedElement xmi:type="uml:TimeObservation" xmi:id="_3RUHgB1DEeyMqqMrfth9Gw" name="TimeObservationToDrop"/>
 </uml:Model>

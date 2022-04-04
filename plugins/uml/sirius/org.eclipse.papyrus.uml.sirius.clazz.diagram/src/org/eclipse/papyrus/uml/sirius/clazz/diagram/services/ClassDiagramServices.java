@@ -60,7 +60,6 @@ import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.EdgeTarget;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeContainerSpec;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeListSpec;
-import org.eclipse.sirius.diagram.model.business.internal.spec.DSemanticDiagramSpec;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.FontFormat;
 import org.eclipse.swt.widgets.Display;
@@ -355,24 +354,6 @@ public class ClassDiagramServices {
 		}
 
 		return "packagedElement";
-	}
-
-	/**
-	 * Check if the container is valid or not
-	 * 
-	 * @param context
-	 *            the current context
-	 * @param newContainerView
-	 *            the new container view
-	 * @return true if the container can contain the element to create
-	 */
-	public boolean isValidContainer(EObject context, EObject newContainerView) {
-		if (newContainerView instanceof DSemanticDiagramSpec) {
-			return context.eContainer().equals(((DSemanticDiagramSpec) newContainerView).getTarget());
-		} else if (newContainerView instanceof DNodeContainerSpec) {
-			return context.eContainer().equals(((DNodeContainerSpec) newContainerView).getTarget());
-		}
-		return false;
 	}
 
 	/**

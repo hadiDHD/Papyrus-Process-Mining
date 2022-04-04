@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.junit.framework.classification.ClassificationRunner;
 import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
@@ -28,10 +27,11 @@ import org.eclipse.uml2.uml.Model;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 /**
  * Drop Class test
+ * 
+ * TODO : move the test into {@link DropTopNodeOnClassDiagram_ModelOwner_Test} when the comment will be included in the common viewpoint in the VSL
  */
 @PluginResource("resources/drop/topNode/TopNode_DropTest.di")
 @SuppressWarnings("nls")
