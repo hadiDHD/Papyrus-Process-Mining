@@ -14,13 +14,18 @@
 package org.eclipse.papyrus.uml.siriusdiag.clazz.tests.creation.subNodes;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.osgi.util.NLS;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.CreationToolsIds;
 import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.MappingTypes;
+import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphical.CD_PropertyLabelNodeCreationChecker;
+import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.semantic.PropertySemanticCreationChecker;
+import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.internal.api.IGraphicalNodeCreationChecker;
+import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.internal.api.ISemanticNodeCreationChecker;
+import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.internal.api.SemanticAndGraphicalCreationChecker;
+import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.creation.topNodes.AbstractCreateNodeTests;
+import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
-import org.eclipse.uml2.uml.Property;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -28,7 +33,7 @@ import org.junit.Test;
  * This class tests the creation of subnode for Class Node
  */
 @PluginResource("resources/creation/subNodes/signalSubNodes/signalSubNodes.di") // the resource to import for the test in the workspace
-public class SignalSubNodes_CreationTest extends AbstractSubNodeListElementCreationTests<org.eclipse.uml2.uml.Signal>{
+public class SignalSubNodes_CreationTest extends AbstractCreateNodeTests{
 
 	private static final String SEMANTIC_ONWER_NAME = "Signal1"; //$NON-NLS-1$
 
@@ -44,13 +49,28 @@ public class SignalSubNodes_CreationTest extends AbstractSubNodeListElementCreat
 		return (org.eclipse.uml2.uml.Signal) this.root.getMember(SEMANTIC_ONWER_NAME);
 	}
 	
+	/**
+	 * @see org.eclipse.papyrus.uml.siriusdiag.clazz.tests.creation.topNodes.AbstractCreateNodeTests#getTopGraphicalContainer()
+	 *
+	 * @return
+	 */
+	@Override
+	protected EObject getTopGraphicalContainer() {
+		final DDiagram ddiagram = getDDiagram();
+		Assert.assertEquals(1, ddiagram.getOwnedDiagramElements().size());
+		final DDiagramElement element = ddiagram.getOwnedDiagramElements().get(0);
+		Assert.assertEquals(getSemanticOwner(), element.getSemanticElements().get(0));
+		Assert.assertEquals(MappingTypes.SIGNAL_NODE_TYPE, element.getMapping().getName());
+		return element;
+	}
+	
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME)
 	public void createPropertyLabelNodeTest() {
-		final DDiagramElement createdElement = createSubNodeInDNodeContainer(MappingTypes.SIGNAL_NODE_ATTRIBUTES_COMPARTMENT_TYPE, CreationToolsIds.CREATE__PROPERTY__TOOL, MappingTypes.PROPERTY_LABEL_NODE_TYPE);
-		final EObject semantic = createdElement.getSemanticElements().get(0);
-		Assert.assertTrue(NLS.bind("The created element must be an Property instead of a {0}.", semantic.eClass().getName()),semantic instanceof Property); //$NON-NLS-1$
-		Assert.assertTrue("The created element is not owned by the expected feature", this.semanticOwner.getOwnedAttributes().contains(semantic)); //$NON-NLS-1$
+		final EObject graphicalContainer = getSubNodeOfGraphicalContainer(MappingTypes.SIGNAL_NODE_ATTRIBUTES_COMPARTMENT_TYPE);
+		final ISemanticNodeCreationChecker semanticChecker = new PropertySemanticCreationChecker(getSemanticOwner());
+		final IGraphicalNodeCreationChecker graphicalChecker = new CD_PropertyLabelNodeCreationChecker(getDiagram(), graphicalContainer);
+		createNode(CreationToolsIds.CREATE__PROPERTY__TOOL, new SemanticAndGraphicalCreationChecker(semanticChecker, graphicalChecker), graphicalContainer);
 	}
 
 }

@@ -17,16 +17,17 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.internal.api.AbstractSemanticNodeCreationChecker;
+import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.Interface;
-import org.eclipse.uml2.uml.Package;
+import org.eclipse.uml2.uml.Signal;
 import org.eclipse.uml2.uml.StructuredClassifier;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.junit.Assert;
 
 /**
- * Creation checker for UML Signal
+ * Creation checker for UML Property
  */
-public class SignalSemanticCreationChecker extends AbstractSemanticNodeCreationChecker {
+public class PropertySemanticCreationChecker extends AbstractSemanticNodeCreationChecker {
 
 	/**
 	 * 
@@ -35,7 +36,7 @@ public class SignalSemanticCreationChecker extends AbstractSemanticNodeCreationC
 	 * @param expectedOwner
 	 *            the expected owner of the created element
 	 */
-	public SignalSemanticCreationChecker(final EObject expectedOwner) {
+	public PropertySemanticCreationChecker(final EObject expectedOwner) {
 		super(expectedOwner);
 	}
 
@@ -47,7 +48,7 @@ public class SignalSemanticCreationChecker extends AbstractSemanticNodeCreationC
 
 	@Override
 	protected void validateSemanticElementInstance(final EObject semanticElement) {
-		Assert.assertTrue(NLS.bind("The created element must be a UML Signal instead of a {0}.", semanticElement.eClass().getName()), semanticElement instanceof org.eclipse.uml2.uml.Signal); //$NON-NLS-1$
+		Assert.assertTrue(NLS.bind("The created element must be a UML Property instead of a {0}.", semanticElement.eClass().getName()), semanticElement instanceof org.eclipse.uml2.uml.Property); //$NON-NLS-1$
 	}
 
 	/**
@@ -55,15 +56,19 @@ public class SignalSemanticCreationChecker extends AbstractSemanticNodeCreationC
 	 *
 	 * @return
 	 */
+
 	@Override
 	protected EReference getContainmentFeature() {
 		if (this.semanticOwner instanceof StructuredClassifier) {
-			return UMLPackage.eINSTANCE.getClass_NestedClassifier();
-		} else if (this.semanticOwner instanceof Package) {
-			return UMLPackage.eINSTANCE.getPackage_PackagedElement();
+			return UMLPackage.eINSTANCE.getStructuredClassifier_OwnedAttribute();
+		}else if(this.semanticOwner instanceof DataType) {
+			return UMLPackage.eINSTANCE.getDataType_OwnedAttribute();
 		}else if(this.semanticOwner instanceof Interface) {
-			return UMLPackage.eINSTANCE.getInterface_NestedClassifier();
+			return UMLPackage.eINSTANCE.getInterface_OwnedAttribute();
+		}else if(this.semanticOwner instanceof Signal) {
+			return UMLPackage.eINSTANCE.getSignal_OwnedAttribute();
 		}
 		return null;
 	}
+
 }

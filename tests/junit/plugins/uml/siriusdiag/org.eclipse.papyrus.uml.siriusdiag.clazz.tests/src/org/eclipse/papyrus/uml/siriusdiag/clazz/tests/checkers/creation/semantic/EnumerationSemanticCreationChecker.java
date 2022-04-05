@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.internal.api.AbstractSemanticNodeCreationChecker;
+import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.StructuredClassifier;
 import org.eclipse.uml2.uml.UMLPackage;
@@ -61,6 +62,8 @@ public class EnumerationSemanticCreationChecker extends AbstractSemanticNodeCrea
 			return UMLPackage.eINSTANCE.getClass_NestedClassifier();
 		} else if (this.semanticOwner instanceof Package) {
 			return UMLPackage.eINSTANCE.getPackage_PackagedElement();
+		}else if(this.semanticOwner instanceof Interface) {
+			return UMLPackage.eINSTANCE.getInterface_NestedClassifier();
 		}
 		return null;
 	}

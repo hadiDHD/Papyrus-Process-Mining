@@ -39,5 +39,5 @@ Require-Bundle: org.eclipse.ui;bundle-version="[3.119.0,4.0.0)",
  org.eclipse.sirius.diagram.ui;bundle-version="[7.0.0,8.0.0)",
  org.eclipse.papyrus.junit.utils;bundle-version="[3.2.0,4.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Automatic-Module-Name: uml.diagram.clazz.tests.examples
+Automatic-Module-Name: org.eclipse.papyrus.uml.siriusdiag.clazz.tests
 Bundle-ActivationPolicy: lazy
