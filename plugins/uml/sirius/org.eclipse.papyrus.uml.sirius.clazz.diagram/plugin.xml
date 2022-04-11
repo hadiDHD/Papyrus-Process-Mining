@@ -7,6 +7,14 @@
             class="org.eclipse.papyrus.uml.sirius.clazz.diagram.Startup">
       </startup>
    </extension>
+   <extension
+         point="org.eclipse.sirius.componentization">
+      <component
+            class="org.eclipse.papyrus.uml.sirius.clazz.diagram.Activator"
+            id="org.eclipse.papyrus.uml.sirius.clazz.diagram"
+            name="Class Diagram">
+      </component>
+   </extension>
 
 
 </plugin>

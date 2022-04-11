@@ -1,5 +1,5 @@
 /*****************************************************************************
- * Copyright (c) 2021 CEA LIST and others.
+ * Copyright (c) 2021, 2022 CEA LIST, Obeo and others.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -10,6 +10,7 @@
  *
  * Contributors:
  *  Vincent Lorenzo (CEA LIST) <vincent.lorenzo@cea.fr> - Initial API and implementation
+ *  Jessy MALLET (OBEO) <jessy.mallet@obeo.fr> - Bug 579694
  *
  *****************************************************************************/
 package org.eclipse.papyrus.infra.siriusdiag.ui.internal.sessions;
@@ -18,7 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
@@ -49,6 +50,7 @@ import org.eclipse.sirius.business.api.session.DefaultLocalSessionCreationOperat
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.description.DiagramDescription;
+import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
@@ -267,6 +269,8 @@ public class SessionService implements ISiriusSessionService, ISiriusSessionView
 	 *         the collection of Sirius {@link Viewpoint} referenced in the current Papyrus architecture framework
 	 */
 	private final Collection<Viewpoint> collectSiriusViewpointInPapyrusArchitecture() {
+		String fileExtension = createdSession.getSemanticResources().iterator().next().getURI().fileExtension();
+		Set<Viewpoint> availableViewpoints = ViewpointSelection.getViewpoints(fileExtension);
 		final ArchitectureDescriptionUtils utils = new ArchitectureDescriptionUtils(this.modelSet);
 		final Collection<MergedArchitectureViewpoint> vp = utils.getArchitectureContext().getViewpoints();
 		final Collection<Viewpoint> siriusViewpoints = new HashSet<>();
@@ -276,7 +280,8 @@ public class SessionService implements ISiriusSessionService, ISiriusSessionView
 					final DiagramDescription desc = ((SiriusDiagramPrototype) current).getDiagramDescription();
 					final EObject currentV = desc.eContainer();
 					if (currentV instanceof Viewpoint) {
-						siriusViewpoints.add((Viewpoint) currentV);
+						Viewpoint appliedViewpoint = availableViewpoints.stream().filter(v->v.getName().equals(((Viewpoint) currentV).getName())).findFirst().orElse((Viewpoint) currentV);
+						siriusViewpoints.add(appliedViewpoint);
 					}
 				}
 			}
