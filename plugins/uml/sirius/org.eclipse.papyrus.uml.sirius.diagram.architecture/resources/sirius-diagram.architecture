@@ -5,10 +5,10 @@
     <viewpoints xmi:type="architecture:ArchitectureViewpoint" xmi:id="_dmWHgLp3EeiViqj5DY8SRQ" id="org.eclipse.papyrus.uml.design" name="Software Design" description="" icon="platform:/plugin/org.eclipse.papyrus.uml.architecture/icons/viewpoint.gif" representationKinds="_v6j60Ci7EeuXVsN3JsOSRg _Lt0sUA68EeyT-6l_Qn7xWQ __pWwYBnpEey3SZW9Qc4G9Q"/>
     <representationKinds xmi:type="representation:SiriusDiagramPrototype" xmi:id="_v6j60Ci7EeuXVsN3JsOSRg" id="org.eclipse.papyrus.infra.siriusdiag.class" name="New Class Diagram" description="Create a new class diagram." icon="platform:/plugin/org.eclipse.papyrus.uml.sirius.diagram.architecture/resources/icons/Diagram_Class.png" grayedIcon="" implementationID="Sirius" creationCommandClass="org.eclipse.papyrus.infra.siriusdiag.representation.architecture.CreatePapyrusSiriusClassDiagramEditorCommand">
       <modelRules xmi:type="representation_1:ModelRule" xmi:id="_yQX7oCi7EeuXVsN3JsOSRg" permit="true" elementMultiplicity="1" multiplicity="-1">
-        <element xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement"/>
+        <element xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
       </modelRules>
       <owningRules xmi:type="representation_1:OwningRule" xmi:id="_zeWKoCi7EeuXVsN3JsOSRg" permit="true" multiplicity="-1">
-        <element xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement"/>
+        <element xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
       </owningRules>
       <diagramDescription xmi:type="description:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']"/>
     </representationKinds>
