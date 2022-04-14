@@ -105,6 +105,23 @@ To use the same transactional editing domain than other papyrus services, we had
 
 For new services using session, it is recommanded to use the SessionService provided in the org.eclipse.papyrus.infra.siriusdiag.ui plugin. 
 
+= API To find creatable Sirius Diagram Prototype =
+From a selected EObject, we want to find all SiriusDiagramViewPrototype and store them into a list:
+
+<source>
+List<ViewPrototype> data = new ArrayList<>();
+for (final ViewPrototype proto : PolicyChecker.getFor(selection).getPrototypesFor(selection)) {
+	if (proto instanceof SiriusDiagramViewPrototype && proto.getRepresentationKind() instanceof SiriusDiagramPrototype) {
+		final SiriusDiagramViewPrototype siriusPrototype = (SiriusDiagramViewPrototype) proto;
+
+		//additional check not yet done by the PolicyChecker
+		if (siriusPrototype.canInstantianteOn(selection)) {
+			data.add(proto);
+		}
+	}
+}</source>
+
+
 = Common Diagram =
 
 == Common concepts ==

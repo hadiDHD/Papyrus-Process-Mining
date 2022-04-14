@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 2021 CEA LIST, Artal Technologies
+ * Copyright (c) 2021, 2022 CEA LIST, Artal Technologies
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -10,6 +10,7 @@
  *
  * Contributors:
  *  Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
+ *  Vincent Lorenzo (CEA LIST) - vincent.lorenzo@cea.fr - Bug 579701
  *****************************************************************************/
 
 package org.eclipse.papyrus.infra.siriusdiag.ui.internal.viewpoint;
@@ -25,7 +26,9 @@ import org.eclipse.papyrus.infra.siriusdiag.representation.ICreateSiriusDiagramE
 import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
 import org.eclipse.papyrus.infra.siriusdiag.ui.Activator;
 import org.eclipse.papyrus.infra.viewpoints.policy.ViewPrototype;
+import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.sirius.diagram.description.DiagramDescription;
 
 /**
  * Represents a prototype of Sirius Diagram View for the viewpoints infrastructure.
@@ -38,11 +41,27 @@ public class SiriusDiagramViewPrototype extends ViewPrototype implements Extende
 	 * Constructor.
 	 *
 	 * @param prototype
-	 *                      The PapyrusDocument representation
+	 *            The PapyrusDocument representation
 	 */
 	public SiriusDiagramViewPrototype(final SiriusDiagramPrototype prototype, final ICreateSiriusDiagramEditorCommand command) {
 		super(prototype);
 		this.command = command;
+	}
+
+	/**
+	 * 
+	 * @see org.eclipse.papyrus.infra.siriusdiag.ui.internal.viewpoint.ExtendedViewPrototype#canInstantianteOn(org.eclipse.emf.ecore.EObject)
+	 *
+	 * @param selection
+	 *            the selected element to used as semantic context to create a new diagram
+	 * @return
+	 *         <code>true</code> if the Sirius VSM allows the creation
+	 */
+	@Override
+	public boolean canInstantianteOn(final EObject selection) {
+		// here we call the Sirius API to check the condition of creation
+		final DiagramDescription diagramDescription = getRepresentationKind().getDiagramDescription();
+		return (DialectManager.INSTANCE.canCreate(selection, diagramDescription, false));
 	}
 
 	/**
@@ -52,7 +71,7 @@ public class SiriusDiagramViewPrototype extends ViewPrototype implements Extende
 	 */
 	@Override
 	public boolean isOwnerReassignable() {
-		// Users can always move documents that are part of their viewpoint
+		// Users can always move diagram that are part of their viewpoint
 		return true;
 	}
 
@@ -153,7 +172,7 @@ public class SiriusDiagramViewPrototype extends ViewPrototype implements Extende
 	public Command getCommandChangeRoot(EObject view, final EObject target) {
 		final DSemanticDiagram diagram = (DSemanticDiagram) view;
 		final EObject previous = diagram.getTarget();
-		return new AbstractCommand("Change diagram root element") {
+		return new AbstractCommand("Change diagram root element") { //$NON-NLS-1$
 			@Override
 			public void execute() {
 				diagram.setTarget(target);
@@ -195,7 +214,7 @@ public class SiriusDiagramViewPrototype extends ViewPrototype implements Extende
 	public Command getCommandChangeOwner(EObject view, final EObject target) {
 		final DSemanticDiagram diagram = (DSemanticDiagram) view;
 		final EObject previous = diagram.getTarget();
-		return new AbstractCommand("Change diagram owner") {
+		return new AbstractCommand("Change diagram owner") { //$NON-NLS-1$
 			@Override
 			public void execute() {
 				// DiagramUtils.setOwner(diagram, target);

@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 2021 CEA LIST, Artal Technologies
+ * Copyright (c) 2021, 2022 CEA LIST, Artal Technologies
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -10,6 +10,7 @@
  *
  * Contributors:
  *  Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
+ *  Vincent Lorenzo (CEA LIST) - vincent.lorenzo@cea.fr - Bug 579701
  *****************************************************************************/
 package org.eclipse.papyrus.infra.siriusdiag.ui.internal.menus;
 
@@ -26,11 +27,6 @@ import org.eclipse.papyrus.infra.siriusdiag.ui.internal.viewpoint.SiriusDiagramV
 import org.eclipse.papyrus.infra.viewpoints.policy.DynamicContribution;
 import org.eclipse.papyrus.infra.viewpoints.policy.PolicyChecker;
 import org.eclipse.papyrus.infra.viewpoints.policy.ViewPrototype;
-import org.eclipse.uml2.uml.Interaction;
-import org.eclipse.uml2.uml.Model;
-import org.eclipse.uml2.uml.Region;
-import org.eclipse.uml2.uml.State;
-import org.eclipse.uml2.uml.StateMachine;
 
 
 /**
@@ -54,20 +50,6 @@ public class SiriusDiagramDynamicContribution extends DynamicContribution {
 		super(id);
 	}
 
-	public boolean isCompatible(SiriusDiagramViewPrototype proto, EObject selection) {
-		// TODO VL : you can't reference UML elements in this plugin
-		// TODO : you can't check current diagram type in this plugin
-		if (proto.getRepresentationKind().getDiagramDescription().getName().equals("ClassDiagram") && (selection instanceof Model || selection instanceof org.eclipse.uml2.uml.Class)) {
-			return true;
-		} else if (proto.getRepresentationKind().getDiagramDescription().getName().equals("StateMachineDiagram") && (selection instanceof Model || selection instanceof State || selection instanceof StateMachine || selection instanceof Region)) {
-			return true;
-		} else if (proto.getRepresentationKind().getDiagramDescription().getName().equals("SequenceDiagram") && (selection instanceof Model || selection instanceof Interaction)) {
-			return true;
-		}
-
-		return false;
-	}
-
 	/**
 	 * @see org.eclipse.ui.actions.CompoundContributionItem#getContributionItems()
 	 *
@@ -83,11 +65,12 @@ public class SiriusDiagramDynamicContribution extends DynamicContribution {
 		// build a list of all the available prototypes
 		List<ViewPrototype> data = new ArrayList<>();
 		for (final ViewPrototype proto : PolicyChecker.getFor(selection).getPrototypesFor(selection)) {
-			if (!(proto.getRepresentationKind() instanceof SiriusDiagramPrototype)) {
-				continue;
-			}
-			if (isCompatible((SiriusDiagramViewPrototype) proto, selection)) {
-				data.add(proto);
+
+			if (proto instanceof SiriusDiagramViewPrototype && proto.getRepresentationKind() instanceof SiriusDiagramPrototype) {
+				final SiriusDiagramViewPrototype siriusPrototype = (SiriusDiagramViewPrototype) proto;
+				if (siriusPrototype.canInstantianteOn(selection)) {
+					data.add(proto);
+				}
 			}
 		}
 
