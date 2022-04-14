@@ -296,18 +296,6 @@ public class SequenceDiagramServices extends AbstractDiagramServices {
 
 
 	/**
-	 * Checks if is constrained time.
-	 *
-	 * @param context the context
-	 * @return true, if is constrained time
-	 */
-	public boolean isConstrainedTime(EObject context) {
-		return constraintService.isConstrainedTime(context);
-	}
-
-
-
-	/**
 	 * Gets the time observations.
 	 *
 	 * @param context
@@ -450,29 +438,6 @@ public class SequenceDiagramServices extends AbstractDiagramServices {
 
 	// --------------- MANAGE MESSAGE
 
-
-
-	/**
-	 * Checks if is break.
-	 *
-	 * @param context
-	 *            the context
-	 * @return true, if is break
-	 */
-	public boolean isNotBreak(EObject context) {
-		return !isBreak;
-	}
-
-	/**
-	 * Inits the break.
-	 *
-	 * @param context
-	 *            the context
-	 */
-	public void initBreak(EObject context) {
-		isBreak = false;
-	}
-
 	/**
 	 * Check is selection.
 	 *
@@ -506,27 +471,6 @@ public class SequenceDiagramServices extends AbstractDiagramServices {
 			isBreak = true;
 		}
 		return checkIsGateSelection;
-	}
-
-
-
-
-
-	/**
-	 * Check is exection selection.
-	 *
-	 * @param sourceView
-	 *            the source view
-	 * @param targetView
-	 *            the target view
-	 * @return true, if successful
-	 */
-	public boolean checkIsExecutionSelection(EObject sourceView, EObject targetView) {
-		boolean checkIsExecutionSelection = messageService.checkIsExecutionSelection(sourceView, targetView);
-		if (checkIsExecutionSelection) {
-			isBreak = true;
-		}
-		return checkIsExecutionSelection;
 	}
 	
 	/**
@@ -765,17 +709,6 @@ public class SequenceDiagramServices extends AbstractDiagramServices {
 	 */
 	public boolean isNotReply(Message message) {
 		return messageService.isNotReply(message);
-	}
-
-	/**
-	 * Check if message is a reply message.
-	 *
-	 * @param message
-	 *            Message
-	 * @return True if message is a reply message
-	 */
-	public boolean isReply(Message message) {
-		return messageService.isReply(message);
 	}
 
 	/**

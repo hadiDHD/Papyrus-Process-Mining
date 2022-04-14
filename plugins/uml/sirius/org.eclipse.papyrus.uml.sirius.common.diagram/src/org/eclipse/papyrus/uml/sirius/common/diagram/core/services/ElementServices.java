@@ -154,28 +154,6 @@ public class ElementServices {
     }
 
     /**
-     * Get all root elements of the current session.
-     *
-     * @param any
-     *            The element to retrieve a session
-     * @return root elements
-     */
-    public Collection<Element> getAllRootsInSession(EObject any) {
-        final Session session = SessionManager.INSTANCE.getSession(any);
-        final Collection<Element> roots = Lists.newArrayList();
-        if (session != null) {
-            for (final Resource childRes : session.getSemanticResources()) {
-                for (final EObject root : childRes.getContents()) {
-                    if (root instanceof Element) {
-                        roots.add((Element) root);
-                    }
-                }
-            }
-        }
-        return roots;
-    }
-
-    /**
      * Get the namespace associated to a named element.
      *
      * @param element
@@ -316,17 +294,6 @@ public class ElementServices {
      */
     public void importXmlPrimitiveTypes(NamedElement element) {
         ElementServices.INSTANCE.importPrimitiveTypes(element, UMLResource.XML_PRIMITIVE_TYPES_LIBRARY_URI);
-    }
-
-    /**
-     * Check if an element is a component.
-     *
-     * @param element
-     *            Element
-     * @return True if element is an instance of component
-     */
-    public boolean isComponent(EObject element) {
-        return element instanceof Component;
     }
 
     /**

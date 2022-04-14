@@ -128,57 +128,6 @@ public class NodeInverseRefsServices {
 	}
 
 	/**
-	 * Retrieve the cross references of the given type of all the UML elements displayed as node in a Diagram.
-	 * Note that a Property cross reference will lead to retrieve the cross references of this property.
-	 *
-	 * @param containerView
-	 *            a diagram.
-	 * @param typeName
-	 *            the expected type.
-	 * @return the list of cross reference of the given
-	 */
-	public Collection<EObject> getNodeInverseRefs(DDiagramElement containerView, String typeName) {
-		final Set<EObject> result = Sets.newLinkedHashSet();
-		final Session sess = SessionManager.INSTANCE.getSession(containerView.getTarget());
-
-		final Iterator<EObject> it = Iterators.transform(
-				Iterators.filter(containerView.eAllContents(), AbstractDNode.class),
-				new Function<AbstractDNode, EObject>() {
-
-					public EObject apply(AbstractDNode input) {
-						return input.getTarget();
-					}
-				});
-		while (it.hasNext()) {
-			final EObject displayedAsANode = it.next();
-			if (displayedAsANode != null) {
-				for (final Setting xRef : sess.getSemanticCrossReferencer()
-						.getInverseReferences(displayedAsANode)) {
-					final EObject eObject = xRef.getEObject();
-					if (sess.getModelAccessor().eInstanceOf(eObject, typeName)) {
-						result.add(eObject);
-					}
-					/*
-					 * In the case of an association the real interesting object is the association linked to
-					 * the Property and not the direct cross reference.
-					 */
-					if (eObject instanceof Property) {
-						if (((Property)eObject).getAssociation() != null) {
-							if (sess.getModelAccessor().eInstanceOf(((Property)eObject).getAssociation(),
-									typeName)) {
-								result.add(((Property)eObject).getAssociation());
-							}
-						}
-
-					}
-				}
-			}
-		}
-
-		return result;
-	}
-
-	/**
 	 * Retrieve the cross references of the template binding of all the UML elements displayed as node in a
 	 * Diagram. Note that a Property cross reference will lead to retrieve the cross references of this
 	 * property.

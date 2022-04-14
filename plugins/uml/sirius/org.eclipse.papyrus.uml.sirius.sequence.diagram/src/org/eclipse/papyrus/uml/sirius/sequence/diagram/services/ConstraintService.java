@@ -216,29 +216,4 @@ public class ConstraintService {
 		}
 		return null;
 	}
-
-	/**
-	 * Checks if is constrained time.
-	 *
-	 * @param context the context
-	 * @return true, if is constrained time
-	 */
-	public boolean isConstrainedTime(EObject context) {
-		if (context instanceof Element) {
-			Model model = ((Element) context).getModel();
-			TreeIterator<EObject> eAllContents = model.eAllContents();
-			while (eAllContents.hasNext()) {
-				EObject next = eAllContents.next();
-				if (next instanceof TimeConstraint) {
-					EList<Element> constrainedElements = ((TimeConstraint) next).getConstrainedElements();
-					if (constrainedElements.contains(context)) {
-						return true;
-					}
-				}
-			}
-		}
-
-		return false;
-	}
-
 }

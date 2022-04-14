@@ -36,10 +36,8 @@ import javax.swing.event.ListSelectionListener;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -58,7 +56,6 @@ import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.UIServices;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
-import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DNodeList;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.EdgeTarget;
@@ -76,7 +73,6 @@ import org.eclipse.uml2.uml.AssociationClass;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Comment;
-import org.eclipse.uml2.uml.Component;
 import org.eclipse.uml2.uml.Constraint;
 import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.Dependency;
@@ -125,15 +121,6 @@ public class ClassDiagramServices {
 	 * A singleton instance to be accessed by other java services.
 	 */
 	public static final ClassDiagramServices INSTANCE = new ClassDiagramServices();
-
-	/** Class diagram package name */
-	public static final String CLASS_DIAGRAM_PACKAGE_NAME = "/org.eclipse.papyrus.uml.sirius.clazz.diagram";
-
-	/** TimeObseravtion element symbol path */
-	public static final String TIME_OBSERVATION_SYMBOL_PATH = CLASS_DIAGRAM_PACKAGE_NAME + "/icons/symbols/TimeObservation.png";
-
-	/** DurationObseravtion element symbol path */
-	public static final String DURATION_OBSERVATION_SYMBOL_PATH = CLASS_DIAGRAM_PACKAGE_NAME + "/icons/symbols/DurationObservation.png";
 
 	/** INSTANCE_END for instance specification eAnnotation */
 	protected static final String INSTANCE_END = "InstanceEnd";
@@ -267,39 +254,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Test if element is ClassNodeList.
-	 * 
-	 * @param context
-	 *            the current context
-	 * @return true if class node list mapping
-	 */
-	public boolean isClassNodeListContainer(EObject self) {
-		if (self instanceof DNodeList) {
-			DNodeList node = (DNodeList) self;
-			return node.getTarget() instanceof Class;
-		} else {
-			return false;
-		}
-	}
-
-	/**
-	 * Test if element is ClassNodeContainer.
-	 * 
-	 * @param context
-	 *            the current context
-	 * @return true if class node container mapping
-	 */
-	public boolean isClassNodeContainer(EObject self) {
-		if (self instanceof DNodeContainer) {
-			DNodeContainer node = (DNodeContainer) self;
-			return node.getTarget() instanceof Package;
-		} else {
-			return false;
-		}
-	}
-
-
-	/**
 	 * Get the target element for the containment link.
 	 * 
 	 * @param context
@@ -316,22 +270,6 @@ public class ClassDiagramServices {
 		}
 
 		return null;
-	}
-
-	/**
-	 * Get the feature which will contain the element.
-	 * 
-	 * @param context
-	 *            the current context
-	 * @return the name of the feature
-	 */
-	public String getFeatureName(EObject context) {
-		if (context instanceof Constraint) {
-			return "ownedRule";
-		} else if (context instanceof Comment) {
-			return "ownedComment";
-		}
-		return "packagedElement";
 	}
 
 	/**
@@ -358,23 +296,6 @@ public class ClassDiagramServices {
 		}
 
 		return "packagedElement";
-	}
-
-	/**
-	 * Check if the oldcontainer was a class.
-	 * 
-	 * @param context
-	 *            the current context
-	 * @param oldContainer
-	 *            the current context
-	 * @return true if the source is a class or an interface
-	 */
-	public boolean ifSourceIsClass(EObject context, EObject oldContainer) {
-		if (oldContainer instanceof Class || oldContainer instanceof Interface) {
-			return true;
-		}
-
-		return false;
 	}
 
 	/**
@@ -856,22 +777,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Get the target element of the Link link.
-	 * 
-	 * @param source
-	 *            the semantic source element
-	 * @param target
-	 *            the semantic target element
-	 */
-	public boolean isNotObservationSourceWithCommentTarget(EObject context, Element source, Element target) {
-		if ((source instanceof TimeObservation || source instanceof DurationObservation) && target instanceof Comment) {
-			return false;
-		}
-
-		return true;
-	}
-
-	/**
 	 * Get the Constraint label.
 	 */
 	public String getConstraintLabel(Element elem) {
@@ -956,22 +861,6 @@ public class ClassDiagramServices {
 		}
 
 		return name;
-	}
-
-	/**
-	 * Get the symbol path for decorator
-	 * 
-	 * @param elem
-	 *            the current element
-	 * @return the path of symbol to use
-	 */
-
-	public String getSymbolPath(Element elem) {
-		if (elem instanceof TimeObservation) {
-			return TIME_OBSERVATION_SYMBOL_PATH;
-		}
-		return DURATION_OBSERVATION_SYMBOL_PATH;
-
 	}
 
 	/**
@@ -2369,10 +2258,6 @@ public class ClassDiagramServices {
 		return LabelServices.INSTANCE.computeAssociationBeginLabel(association);
 	}
 
-	public boolean isValidTest(EObject obj) {
-		return true;
-	}
-
 	/**
 	 * Compute the association edge begin name
 	 * 
@@ -2436,17 +2321,6 @@ public class ClassDiagramServices {
 		return LabelServices.INSTANCE.computeAssociationEndLabel(association);
 	}
 
-	/**
-	 * Compute label forn_ary association edge.
-	 *
-	 * @param association
-	 * @param view
-	 *            edge
-	 * @return label
-	 */
-	public String computeAssociationNAryBeginLabel(Association association, DDiagramElement view) {
-		return LabelServices.INSTANCE.computeAssociationBeginLabel(association, view);
-	}
 
 	/**
 	 * Create an association between two elements.
@@ -2871,42 +2745,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Get list of n-ary association. Check in diagram if more than two ends are
-	 * presents.
-	 *
-	 * @param container
-	 *            package
-	 * @param diagram
-	 *            diagram
-	 * @return list of n-ary association
-	 */
-	public List<Association> getNAryAssociation(Package container, DDiagram diagram) {
-		final List<Association> result = new ArrayList<Association>();
-		final Collection<EObject> associations = getAssociationInverseRefs(diagram);
-		for (final EObject object : associations) {
-			final Association association = (Association) object;
-			if (association.eContainer().equals(container)
-					&& getVisibleAssociationEnds(association, diagram).size() > 2) {
-				// Check if n-ary association container is current container to avoid to display
-				// twice
-				result.add(association);
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * Get source for n-ary association.
-	 *
-	 * @param association
-	 *            association
-	 * @return list of source.
-	 */
-	public EList<Type> getNAryAssociationSource(Association association) {
-		return association.getEndTypes();
-	}
-
-	/**
 	 * Get navigable owned end of an association
 	 *
 	 * @param association
@@ -2924,49 +2762,6 @@ public class ClassDiagramServices {
 			ends.add(target);
 		}
 		return ends;
-	}
-
-	/**
-	 * Return a set of classes from model.
-	 *
-	 * @param element
-	 *            an element in model
-	 * @return set of classes or empty collection
-	 */
-	public Collection<Class> getSemanticCandidatesClasses(Element element) {
-		final Set<Class> classes = new HashSet<Class>();
-		final TreeIterator<EObject> iterator = element.getModel().eAllContents();
-		while (iterator.hasNext()) {
-			final EObject object = iterator.next();
-			if (isTypeOfClass(object) || object instanceof Component) {
-				classes.add((Class) object);
-			}
-		}
-		return classes;
-	}
-
-	/**
-	 * Get association end qualifier for a classifier.
-	 *
-	 * @param classifier
-	 *            association end
-	 * @param diagram
-	 *            Diagram
-	 * @return List of qualifier
-	 */
-	public List<Property> getSemanticCandidatesQualifier(Classifier classifier, DDiagram diagram) {
-		final List<Property> qualifiers = new ArrayList<Property>();
-		final Collection<EObject> associations = getAssociationInverseRefs(diagram);
-		for (final EObject association : associations) {
-			for (final Property end : ((Association) association).getMemberEnds()) {
-				if (((Association) association).getMemberEnds().size() <= 2 && end.getType().equals(classifier)
-						&& !end.getQualifiers().isEmpty()
-						&& getVisibleAssociationEnds((Association) association, diagram).size() >= 2) {
-					qualifiers.add(end);
-				}
-			}
-		}
-		return qualifiers;
 	}
 
 	/**
@@ -2998,66 +2793,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Get stereotype application label.
-	 *
-	 * @param stereotypeApplication
-	 *            Stereotype application
-	 * @return The stereotype name.
-	 */
-	public String getStereotypeApplicationLabel(EObject stereotypeApplication) {
-		return org.eclipse.papyrus.uml.sirius.common.diagram.core.services.StereotypeServices.INSTANCE
-				.getStereotypeApplicationLabel(stereotypeApplication);
-	}
-
-	/**
-	 * Get tagged value label.
-	 *
-	 * @param feature
-	 *            Feature
-	 * @param view
-	 *            Stereotype application view
-	 * @return Tagged value label featureName = value
-	 */
-	public String getTaggedValueLabel(EStructuralFeature feature, DDiagramElement view) {
-		final DDiagramElement stereotypeApplicationView = (DDiagramElement) view.eContainer();
-		final EObject stereotypeApplication = stereotypeApplicationView.getTarget();
-
-		return feature.getName() + "=" + stereotypeApplication.eGet(feature); //$NON-NLS-1$
-	}
-
-	/**
-	 * Get tagged values.
-	 *
-	 * @param stereotypeApplication
-	 *            Container
-	 * @return Collection of tagged values
-	 */
-	public Collection<Object> getTaggedValues(EObject stereotypeApplication) {
-		final Collection<Object> results = Lists.newArrayList();
-		for (final EStructuralFeature feature : stereotypeApplication.eClass().getEAllStructuralFeatures()) {
-			if (!feature.getName().startsWith("base_")) { //$NON-NLS-1$
-				results.add(feature);
-			}
-		}
-
-		return results;
-	}
-
-	/**
-	 * Get the list of broken ends.
-	 *
-	 * @param association
-	 *            association
-	 * @return List
-	 */
-	public List<Type> getTargetBrokenAssociationToClasse(Association association) {
-		if (!isNary(association)) {
-			return AssociationServices.INSTANCE.getTypes(association);
-		}
-		return null;
-	}
-
-	/**
 	 * Get the type of the association target end.
 	 *
 	 * @param association
@@ -3067,15 +2802,12 @@ public class ClassDiagramServices {
 	 * @return Type of the target
 	 */
 	public Element getTargetType(Association association, DDiagram diagram) {
-
 		final EList<DDiagramElement> elements = diagram.getDiagramElements();
-
 		// List semantic elements visible in diagram
 		final List<EObject> diagramElements = new ArrayList<EObject>();
 		for (final DDiagramElement element : elements) {
 			diagramElements.add(element.getTarget());
 		}
-
 		final List<Property> ends = association.getMemberEnds();
 		// find source index in list
 		int sourceIndex = 0;
@@ -3085,7 +2817,6 @@ public class ClassDiagramServices {
 				break;
 			}
 		}
-
 		// find target from the end of the list
 		int targetIndex = ends.size() - 1;
 		while (targetIndex > 0 && targetIndex > sourceIndex) {
@@ -3201,17 +2932,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Check if an element is a package.
-	 *
-	 * @param element
-	 *            Element
-	 * @return True if element is a package
-	 */
-	public boolean isPackage(EObject element) {
-		return element instanceof Package;
-	}
-
-	/**
 	 * Check is a feature is static.
 	 *
 	 * @param feature
@@ -3231,24 +2951,6 @@ public class ClassDiagramServices {
 	 */
 	public boolean isTypeOfClass(EObject element) {
 		return "Class".equals(element.eClass().getName()); //$NON-NLS-1$
-	}
-
-	/**
-	 * Is a composite or aggregation association is valid.
-	 *
-	 * @param association
-	 * @return true if an aggregation or a composite association is binary
-	 */
-	public boolean isValidAggregationCompositeAssociation(Association association) {
-		final EList<Property> ends = association.getMemberEnds();
-		if (ends.size() > 2) {
-			for (final Property end : ends) {
-				if (end.getAggregation().getValue() != AggregationKind.NONE) {
-					return false;
-				}
-			}
-		}
-		return true;
 	}
 
 	/**
@@ -3308,28 +3010,6 @@ public class ClassDiagramServices {
 					return false;
 				}
 			}
-		}
-
-		return true;
-	}
-
-	/**
-	 * Check if an Nary association can be created. Both selected elements are not
-	 * association. If an association is selected is should not be an aggregation or
-	 * a composite
-	 *
-	 * @param self
-	 *            association
-	 * @param preSource
-	 *            User select element as source
-	 * @param preTarget
-	 *            user select element as target
-	 * @return true if valid
-	 */
-	public boolean isValidNaryAssociation(EObject self, Element preSource, Element preTarget) {
-
-		if (preSource instanceof Association || preTarget instanceof Association) {
-			return false;
 		}
 
 		return true;

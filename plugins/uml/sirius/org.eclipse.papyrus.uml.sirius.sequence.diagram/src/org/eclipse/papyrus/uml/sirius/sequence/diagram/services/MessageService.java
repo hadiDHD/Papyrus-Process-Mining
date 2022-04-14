@@ -1656,24 +1656,6 @@ public class MessageService {
 
 	}
 
-
-	/**
-	 * Check is exection selection.
-	 *
-	 * @param sourceView
-	 *            the source view
-	 * @param targetView
-	 *            the target view
-	 * @return true, if successful
-	 */
-	public boolean checkIsExecutionSelection(EObject sourceView, EObject targetView) {
-
-		return !checkIsGateSelection(sourceView, targetView) && !checkIsOccurenceSpecSelection(sourceView, targetView);
-	}
-
-
-
-
 	/**
 	 * Pre condition message basic.
 	 *

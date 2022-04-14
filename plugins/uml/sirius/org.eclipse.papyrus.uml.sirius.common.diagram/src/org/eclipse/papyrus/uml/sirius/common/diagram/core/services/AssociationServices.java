@@ -125,43 +125,6 @@ public class AssociationServices {
 	}
 
 	/**
-	 * Retrieve the cross references of the association of all the UML elements displayed as node in a
-	 * Diagram. Note that a Property cross reference will lead to retrieve the cross references of this
-	 * property.
-	 *
-	 * @param diagram
-	 *            a diagram.
-	 * @return the list of cross reference of the given
-	 */
-	public Collection<EObject> getAssociationInverseRefs(DDiagram diagram) {
-		return NodeInverseRefsServices.INSTANCE.getAssociationInverseRefs(diagram);
-	}
-
-	/**
-	 * Get association end qualifier for a classifier.
-	 *
-	 * @param classifier
-	 *            association end
-	 * @param diagram
-	 *            Diagram
-	 * @return List of qualifier
-	 */
-	public List<Property> getSemanticCandidatesQualifier(Classifier classifier, DDiagram diagram) {
-		final List<Property> qualifiers = new ArrayList<Property>();
-		final Collection<EObject> associations = getAssociationInverseRefs(diagram);
-		for (final EObject association : associations) {
-			for (final Property end : ((Association)association).getMemberEnds()) {
-				if (((Association)association).getMemberEnds().size() <= 2 && end.getType().equals(classifier)
-						&& !end.getQualifiers().isEmpty()
-						&& getVisibleAssociationEnds((Association)association, diagram).size() >= 2) {
-					qualifiers.add(end);
-				}
-			}
-		}
-		return qualifiers;
-	}
-
-	/**
 	 * Return the source of an association.
 	 *
 	 * @param association
@@ -276,28 +239,6 @@ public class AssociationServices {
 		return types;
 	}
 
-	private List<Property> getVisibleAssociationEnds(Association association, DDiagram diagram) {
-		final List<Property> ends = new ArrayList<Property>();
-		// Association should be visible in self container
-		// At least one of the ends is visible in diagram
-		final EList<DDiagramElement> elements = diagram.getDiagramElements();
-		// check if at least more than 2 ends are displayed in diagram
-		final List<EObject> visibleEndsList = new ArrayList<EObject>();
-		for (final DDiagramElement element : elements) {
-			visibleEndsList.add(element.getTarget());
-		}
-		final EList<Property> associationEnds = association.getMemberEnds();
-		for (final Property end : associationEnds) {
-			if (visibleEndsList.contains(end.getType())) {
-				ends.add(end);
-			}
-			if (end.getType() == null) { // Broken association case
-				ends.add(end);
-			}
-		}
-		return ends;
-	}
-
 	public boolean isComposite(Property property) {
 		return property != null && property.isComposite();
 	}
@@ -310,60 +251,6 @@ public class AssociationServices {
 		return property != null && AggregationKind.SHARED_LITERAL.equals(property.getAggregation());
 	}
 
-	/**
-	 * Remove ends or association.
-	 *
-	 * @param association
-	 *            association
-	 */
-	/*public void removeAssociationEnd(final Association association) {
-		final EList<Property> ends = association.getMemberEnds();
-		final ModelElementsSelectionDialog dlg = new ModelElementsSelectionDialog("Remove end Association", //$NON-NLS-1$
-				"Select end to remove from association." + System.lineSeparator() //$NON-NLS-1$
-				+ " If all ends are selected except one the association will be deleted else end are remove from association " //$NON-NLS-1$
-				+ System.lineSeparator());
-		final List<Element> endOwners = new ArrayList<Element>();
-
-		dlg.setGrayedPredicate(new Predicate<EObject>() {
-
-			public boolean apply(EObject input) {
-				if (endOwners.contains(input)) {
-					return true;
-				} else if (input instanceof Property) {
-					return false;
-				}
-				return true;
-			}
-		});
-		final List<?> elementsToAdd = dlg.open(association);
-		final Session session = SessionManager.INSTANCE.getSession(association);
-		TransactionalEditingDomain editingDomain = null;
-		if (session != null) {
-			editingDomain = session.getTransactionalEditingDomain();
-		}
-		if (editingDomain != null && elementsToAdd.size() > 0 && ends.containsAll(elementsToAdd) && ends.size() - elementsToAdd.size() >= 2) {
-			final RecordingCommand command = new RecordingCommand(editingDomain) {
-				@Override
-				protected void doExecute() {
-					for (final Object element : elementsToAdd) {
-						if (element instanceof Element) {
-							((Element) element).destroy();
-						}
-					}
-				}
-			};
-			editingDomain.getCommandStack().execute(command);
-		} else if (editingDomain != null && elementsToAdd.size() > 0 && ends.containsAll(elementsToAdd) && ends.size() - elementsToAdd.size() < 2) {
-			final RecordingCommand command = new RecordingCommand(editingDomain) {
-				@Override
-				protected void doExecute() {
-					association.destroy();
-				}
-			};
-			editingDomain.getCommandStack().execute(command);
-		}
-	}
-*/
 	/**
 	 * Check is an association source is composite.
 	 *
