@@ -11,6 +11,7 @@
  * Contributors:
  *  Obeo - initial API and implementation
  *  Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - adaptation to integrate in Papyrus
+ *  Jessy Mallet (Obeo) - jessy.mallet@obeo.fr - Bug 579695
  *****************************************************************************/
 
 package org.eclipse.papyrus.uml.sirius.common.diagram.core.services;
@@ -26,6 +27,7 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.papyrus.uml.sirius.common.diagram.Activator;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.DDiagram;
@@ -157,9 +159,9 @@ public abstract class AbstractDiagramServices {
                             HideFilterHelper.INSTANCE.reveal(element);
                         }
                     } catch (final MetaClassNotFoundException e) {
-//                        UMLDesignerCorePlugin.log(IStatus.ERROR, NLS.bind(Messages.UmlModelWizard_UI_ErrorMsg_BadFileExtension, semanticElement), e);
+                        Activator.log.error(e);
                     } catch (final FeatureNotFoundException e) {
-//                        UMLDesignerCorePlugin.log(IStatus.ERROR, NLS.bind(Messages.UmlModelWizard_UI_ErrorMsg_BadFileExtension, semanticElement), e);
+                        Activator.log.error(e);
                     }
                 }
             });

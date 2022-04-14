@@ -75,7 +75,6 @@ import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.ValueSpecification;
 import org.eclipse.uml2.uml.edit.UMLEditPlugin;
 import org.eclipse.uml2.uml.util.UMLSwitch;
-//import org.obeonetwork.dsl.uml2.core.UMLDesignerCorePlugin;
 
 import com.google.common.base.Strings;
 
@@ -155,7 +154,7 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 
 			return stereotypeLabel.toString();
 		}
-		return "";
+		return ""; //$NON-NLS-1$
 	}
 
 
@@ -235,7 +234,7 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 	 */
 	@Override
 	public String caseDeployment(org.eclipse.uml2.uml.Deployment object) {
-		return computeStereotypes(object) + ILabelConstants.ST_LEFT + "deploy"+ ILabelConstants.ST_RIGHT;
+		return computeStereotypes(object) + ILabelConstants.ST_LEFT + "deploy"+ ILabelConstants.ST_RIGHT; //$NON-NLS-1$
 	}
 
 	/**
@@ -251,7 +250,7 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 	 */
 	@Override
 	public String caseElementImport(ElementImport object) {
-		return computeStereotypes(object) + ILabelConstants.ST_LEFT + "import"+ ILabelConstants.ST_RIGHT; 
+		return computeStereotypes(object) + ILabelConstants.ST_LEFT + "import"+ ILabelConstants.ST_RIGHT;  //$NON-NLS-1$
 	}
 
 	/**
@@ -290,7 +289,7 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 	 */
 	@Override
 	public String casePackageMerge(PackageMerge object) {
-		return computeStereotypes(object) + ILabelConstants.ST_LEFT + "merge" + ILabelConstants.ST_RIGHT;
+		return computeStereotypes(object) + ILabelConstants.ST_LEFT + "merge" + ILabelConstants.ST_RIGHT; //$NON-NLS-1$
 	}
 	
 	/**
@@ -449,7 +448,7 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 	public String caseNamedElement(NamedElement object) {
 		if (showQualifiedNameFilter) {
 			return computeStereotypes(object)
-					+ (object.getName() == null ? "" : UMLQualifiedNameUtils.getQualifiedName(object, ":")); //$NON-NLS-1$
+					+ (object.getName() == null ? "" : UMLQualifiedNameUtils.getQualifiedName(object, ":")); //$NON-NLS-1$ //$NON-NLS-2$
 		} else {
 			return computeStereotypes(object) + (object.getName() == null ? "" //$NON-NLS-1$
 					: UMLLabelInternationalization.getInstance().getLabel(object, shouldTranslate()));
@@ -722,7 +721,7 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 				if (triggersLabel != null) {
 					triggersLabel += ","; //$NON-NLS-1$
 				} else {
-					triggersLabel = "";
+					triggersLabel = ""; //$NON-NLS-1$
 				}
 				triggersLabel += LabelServices.INSTANCE.computeUmlLabel(trigger);
 			}
@@ -901,7 +900,7 @@ public class DisplayLabelSwitch extends UMLSwitch<String> implements ILabelConst
 			sb.append("/"); //$NON-NLS-1$
 		}
 		if (p.getName() != null) {
-			sb.append("+ " + p.getName());
+			sb.append("+ " + p.getName()); //$NON-NLS-1$
 		}
 		sb.append(caseMultiplicityElement(p));
 		return sb.toString();
