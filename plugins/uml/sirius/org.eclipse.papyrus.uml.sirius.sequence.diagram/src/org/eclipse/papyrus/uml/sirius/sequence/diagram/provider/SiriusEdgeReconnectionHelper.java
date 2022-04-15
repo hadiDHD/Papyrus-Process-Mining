@@ -1,5 +1,5 @@
-/******************************************************************************
- * Copyright (c) 2021 CEA LIST, Artal Technologies
+/*******************************************************************************
+ * Copyright (c) 2014, 2015 THALES GLOBAL SERVICES, CEA LIST, Artal Technologies
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -9,8 +9,9 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
- *****************************************************************************/
+ *    Obeo - initial API and implementation
+ *    Yann Binot (Artal Technologies) <yann.binot@artal.fr> - adaptation to integrate in Papyrus
+ *******************************************************************************/
 package org.eclipse.papyrus.uml.sirius.sequence.diagram.provider;
 
 import java.util.ArrayList;
@@ -32,9 +33,9 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 
 /**
- * The Class SiriusEdgeReconnectionHelper.
+ * Query used for accessing the resulting edge of a reconnection operation.
  *
- * @author Yann Binot (Artal Technologies) <yann.binot@artal.fr>
+ * @author <a href="mailto:steve.monnier@obeo.fr">Steve Monnier</a>
  */
 public class SiriusEdgeReconnectionHelper {
 

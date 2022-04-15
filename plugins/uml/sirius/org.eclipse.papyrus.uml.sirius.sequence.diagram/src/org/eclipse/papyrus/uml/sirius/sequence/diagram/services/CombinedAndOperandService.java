@@ -10,6 +10,7 @@
  *
  * Contributors:
  *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
+ *    Yann Binot (ARTAL) - yann.binot@artal.fr - Initial API and implementation
  *****************************************************************************/
 package org.eclipse.papyrus.uml.sirius.sequence.diagram.services;
 
@@ -26,7 +27,6 @@ import org.eclipse.uml2.uml.CombinedFragment;
 import org.eclipse.uml2.uml.Interaction;
 import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.InteractionOperand;
-import org.eclipse.uml2.uml.Lifeline;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.OccurrenceSpecification;
 

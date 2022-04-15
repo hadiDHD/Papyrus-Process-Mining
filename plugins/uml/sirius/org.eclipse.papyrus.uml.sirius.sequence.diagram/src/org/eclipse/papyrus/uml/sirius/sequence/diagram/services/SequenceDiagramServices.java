@@ -1,5 +1,5 @@
-/******************************************************************************
- * Copyright (c) 2021 CEA LIST, Artal Technologies
+/*******************************************************************************
+ * Copyright (c) 2009, 2011, 2021 Obeo, CEA LIST, Artal Technologies
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -9,8 +9,9 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
- *****************************************************************************/
+ *    Obeo - initial API and implementation
+ *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - adaptation to integrate in Papyrus
+ *******************************************************************************/
 package org.eclipse.papyrus.uml.sirius.sequence.diagram.services;
 
 import java.util.Arrays;

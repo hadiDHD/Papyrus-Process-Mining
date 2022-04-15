@@ -10,6 +10,7 @@
  *
  * Contributors:
  *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
+ *    Yann Binot (ARTAL) - yann.binot@artal.fr - Initial API and implementation
  *****************************************************************************/
 package org.eclipse.papyrus.uml.sirius.sequence.diagram.services;
 
