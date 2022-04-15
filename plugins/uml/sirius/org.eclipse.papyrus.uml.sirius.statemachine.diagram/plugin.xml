@@ -8,12 +8,6 @@
     </component>
   </extension>
   <extension
-        point="org.eclipse.ui.startup">
-     <startup
-           class="org.eclipse.papyrus.uml.sirius.statemachine.diagram.Startup">
-     </startup>
-  </extension>
-  <extension
         point="org.eclipse.gmf.runtime.diagram.ui.editpolicyProviders">
      <editpolicyProvider
            class="org.eclipse.papyrus.uml.sirius.statemachine.diagram.custom.StateMachineSiriusCreateEditPolicyProvider">

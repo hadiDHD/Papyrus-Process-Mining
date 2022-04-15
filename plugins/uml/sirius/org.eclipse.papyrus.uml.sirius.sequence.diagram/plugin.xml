@@ -13,12 +13,6 @@
        ARTAL - Initial API and implementation
 -->
 <plugin>
-   <extension
-         point="org.eclipse.ui.startup">
-      <startup
-            class="org.eclipse.papyrus.uml.sirius.sequence.diagram.Startup">
-      </startup>
-   </extension>
 <extension
          point="org.eclipse.sirius.componentization">
       <component

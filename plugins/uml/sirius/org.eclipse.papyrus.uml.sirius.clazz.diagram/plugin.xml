@@ -2,12 +2,6 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.ui.startup">
-      <startup
-            class="org.eclipse.papyrus.uml.sirius.clazz.diagram.Startup">
-      </startup>
-   </extension>
-   <extension
          point="org.eclipse.sirius.componentization">
       <component
             class="org.eclipse.papyrus.uml.sirius.clazz.diagram.Activator"
@@ -15,6 +9,4 @@
             name="Class Diagram">
       </component>
    </extension>
-
-
 </plugin>
