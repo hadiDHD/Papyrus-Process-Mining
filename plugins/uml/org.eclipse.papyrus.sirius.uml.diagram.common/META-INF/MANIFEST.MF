@@ -54,6 +54,7 @@ Bundle-Activator: org.eclipse.papyrus.sirius.uml.diagram.common.Activator
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.papyrus.sirius.uml.diagram.common,
  org.eclipse.papyrus.sirius.uml.diagram.common.core.services,
- org.eclipse.papyrus.sirius.uml.diagram.common.services
+ org.eclipse.papyrus.sirius.uml.diagram.common.services,
+ org.eclipse.papyrus.sirius.uml.diagram.common.utils
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin

@@ -40,23 +40,5 @@ public final class FilterService {
 		}
 		return false;
 	}
-
-	public boolean isStereotypeFilterActivated(DDiagram diagram) {
-		for (FilterDescription filter : diagram.getActivatedFilters()) {
-			if (filter.getName().equals("Show Stereotypes")) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	public boolean isQualifiedNameFilterActivated(DDiagram diagram) {
-		for (FilterDescription filter : diagram.getActivatedFilters()) {
-			if (filter.getName().equals("Show Qualified Names")) {
-				return true;
-			}
-		}
-		return false;
-	}
 	
 }

@@ -42,6 +42,7 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.DisplayLabelSwitch;
 import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.FilterService;
 import org.eclipse.papyrus.sirius.uml.diagram.common.services.DiagramServices;
+import org.eclipse.papyrus.sirius.uml.diagram.common.utils.ODesignConstant;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
@@ -78,15 +79,17 @@ public class CommonDiagramRefreshExtension implements IRefreshExtension {
 
 	private int bendpointDiameter = 7;
 
-	private static final String BENDPOINT_MAPPING = "Bendpoint"; //$NON-NLS-1$
 
 	/**
 	 * @see org.eclipse.sirius.business.api.refresh.IRefreshExtension#beforeRefresh(org.eclipse.sirius.DDiagram)
 	 */
 	@Override
 	public void beforeRefresh(DDiagram diagram) {
-		DisplayLabelSwitch.setStereotypeFilter(FilterService.INSTANCE.isStereotypeFilterActivated(diagram));
-		DisplayLabelSwitch.setQualifiedNameFilter(FilterService.INSTANCE.isQualifiedNameFilterActivated(diagram));
+		long showStereotype = diagram.getActivatedLayers().stream().filter(layer -> ODesignConstant.APPLIED_STEREOTYPE_LAYER_ID.equals(layer.getName())).count(); //$NON-NLS-1$
+		DisplayLabelSwitch.setStereotypeFilter(showStereotype == 1);
+		
+		long showQualifiedName = diagram.getActivatedLayers().stream().filter(layer -> ODesignConstant.QUALIFIED_NAMED_LAYER_ID.equals(layer.getName())).count(); //$NON-NLS-1$
+		DisplayLabelSwitch.setQualifiedNameFilter(showQualifiedName == 1);
 	}
 
 	/**
@@ -94,7 +97,6 @@ public class CommonDiagramRefreshExtension implements IRefreshExtension {
 	 */
 	@Override
 	public void postRefresh(DDiagram diagram) {
-
 		List<EObject> list = new ArrayList<>();
 		diagram.eAllContents().forEachRemaining(list::add);
 		// ResetStyleHelper.resetStyle(list);
@@ -424,7 +426,7 @@ public class CommonDiagramRefreshExtension implements IRefreshExtension {
 			// to use DiagramMappingsManager
 			DiagramMappingsManager dmm = getMappingManager(diagram);
 			for (NodeMapping map : dmm.getNodeMappings()) {
-				if (BENDPOINT_MAPPING.equals(map.getName())) {
+				if (ODesignConstant.BENDPOINT_MAPPING.equals(map.getName())) {
 					mapping = map;
 				}
 			}
