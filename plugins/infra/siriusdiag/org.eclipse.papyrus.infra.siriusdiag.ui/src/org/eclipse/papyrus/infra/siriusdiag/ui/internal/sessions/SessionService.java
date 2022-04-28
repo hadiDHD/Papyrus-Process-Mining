@@ -10,7 +10,7 @@
  *
  * Contributors:
  *  Vincent Lorenzo (CEA LIST) <vincent.lorenzo@cea.fr> - Initial API and implementation
- *  Jessy MALLET (OBEO) <jessy.mallet@obeo.fr> - Bug 579694
+ *  Jessy MALLET (OBEO) <jessy.mallet@obeo.fr> - Bug 579694, 579782
  *
  *****************************************************************************/
 package org.eclipse.papyrus.infra.siriusdiag.ui.internal.sessions;
@@ -26,7 +26,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.osgi.util.NLS;
@@ -45,10 +44,8 @@ import org.eclipse.papyrus.infra.siriusdiag.ui.Activator;
 import org.eclipse.papyrus.infra.siriusdiag.ui.internal.listeners.SiriusArchitectureDescriptionAdapter;
 import org.eclipse.papyrus.infra.siriusdiag.ui.modelresource.SiriusDiagramModel;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
-import org.eclipse.sirius.business.api.query.FileQuery;
 import org.eclipse.sirius.business.api.session.DefaultLocalSessionCreationOperation;
 import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.description.DiagramDescription;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
@@ -98,7 +95,7 @@ public class SessionService implements ISiriusSessionService, ISiriusSessionView
 	public void init(final ServicesRegistry servicesRegistry) throws ServiceException {
 		this.servicesRegistry = servicesRegistry;
 		if (this.servicesRegistry == null) {
-			throw new ServiceException(NLS.bind("The service {0} can't be initialized because the ServicesRegistry is not found", ISiriusSessionService.SERVICE_ID));
+			throw new ServiceException(NLS.bind("The service {0} can't be initialized because the ServicesRegistry is not found", ISiriusSessionService.SERVICE_ID)); //$NON-NLS-1$
 		}
 	}
 
@@ -113,7 +110,7 @@ public class SessionService implements ISiriusSessionService, ISiriusSessionView
 		this.modelSet = getModelSet();
 		this.editingDomain = getEditingDomain();
 		if (this.modelSet == null || this.editingDomain == null) {
-			throw new ServiceException(NLS.bind("The service {0} can't start.", ISiriusSessionService.SERVICE_ID));
+			throw new ServiceException(NLS.bind("The service {0} can't start.", ISiriusSessionService.SERVICE_ID)); //$NON-NLS-1$
 		}
 		this.architectureListener = new SiriusArchitectureDescriptionAdapter(this);
 		ArchitectureDescriptionAdapterUtils.registerListener(this.modelSet, this.architectureListener);
@@ -169,18 +166,11 @@ public class SessionService implements ISiriusSessionService, ISiriusSessionView
 		// 3. create the session
 		this.createdSession = createSiriusSession(siriusFileResource);
 
-
 		SiriusDiagramModel siriusModel = (SiriusDiagramModel) modelSet.getModel(SiriusDiagramModel.SIRIUS_DIAGRAM_MODEL_ID);
-		Assert.isNotNull(siriusModel, NLS.bind("We can't find the '{0}' class.", SiriusDiagramModel.class.getName()));
+		Assert.isNotNull(siriusModel, NLS.bind("We can't find the '{0}' class.", SiriusDiagramModel.class.getName())); //$NON-NLS-1$
 		siriusModel.setSiriusSession(this.createdSession);
 
-
-
-		// useless or not ?*
-		/* Papyrus */SessionManager.INSTANCE.add(createdSession);
-		/* Papyrus */SessionManager.INSTANCE.openSession(siriusFileResource, new NullProgressMonitor(), null);// check parameters
-
-		URI umlURI = modelSet.getURIWithoutExtension().appendFileExtension("uml");//// $NON-NLS-1 //TODO uml as string is not very nice inside an infra plugin
+		URI umlURI = modelSet.getURIWithoutExtension().appendFileExtension("uml");//TODO uml as string is not very nice inside an infra plugin //$NON-NLS-1$
 		this.createdSession.addSemanticResource(umlURI, new NullProgressMonitor());
 		this.createdSession.save(new NullProgressMonitor());
 
@@ -325,20 +315,39 @@ public class SessionService implements ISiriusSessionService, ISiriusSessionView
 		public void run() {
 			final Collection<Viewpoint> toApply = collectSiriusViewpointInPapyrusArchitecture();
 			final Collection<Viewpoint> currentAppliedViewpoints = this.session.getSelectedViewpoints(false);
-
 			final Collection<Viewpoint> toUnapply = new ArrayList<>(currentAppliedViewpoints);
-			toUnapply.removeAll(toApply);
-			toApply.removeAll(currentAppliedViewpoints);
 
 			final ViewpointSelectionCallback callBack = new ViewpointSelectionCallback();
-
+			for (Viewpoint vp : toApply) {
+				Viewpoint matchingSelectedViewpoint = getMatchingSelectedViewpoint(currentAppliedViewpoints, vp);
+				if (matchingSelectedViewpoint == null) {
+					callBack.selectViewpoint(vp, this.session, new NullProgressMonitor());
+				} else {
+					toUnapply.remove(matchingSelectedViewpoint);
+				}
+			}
+			
 			for (final Viewpoint previouslySelected : toUnapply) {
 				callBack.deselectViewpoint(previouslySelected, this.session, new NullProgressMonitor());
 			}
-
-			for (Viewpoint current : toApply) {
-				callBack.selectViewpoint(current, this.session, new NullProgressMonitor());
+		}
+		
+		/**
+		 * Get the viewpoint among selectedViewpoint corresponding to the viewpoint to apply.
+		 * 
+		 * @param currentAppliedViewpoints
+		 *            list of selected viewpoints
+		 * @param vp
+		 *            the viewpoint to apply
+		 * @return the viewpoint among selectedViewpoint corresponding to the viewpoint to apply.
+		 */
+		private Viewpoint getMatchingSelectedViewpoint(Collection<Viewpoint> currentAppliedViewpoints, Viewpoint vp) {
+			for (Viewpoint cvp : currentAppliedViewpoints) {
+				if (cvp.getName() != null && cvp.getName().equals(vp.getName())) {
+					return cvp;
+				}
 			}
+			return null;
 		}
 	}
 
@@ -364,8 +373,8 @@ public class SessionService implements ISiriusSessionService, ISiriusSessionView
 		Collection<RepresentationDescription> desc = DialectManager.INSTANCE.getAvailableRepresentationDescriptions(this.createdSession.getSelectedViewpoints(false), context);
 		if (desc.isEmpty()) { // TODO required?
 			updateAppliedSiriusViewpoints();
+			desc = DialectManager.INSTANCE.getAvailableRepresentationDescriptions(this.createdSession.getSelectedViewpoints(false), context);
 		}
-		desc = DialectManager.INSTANCE.getAvailableRepresentationDescriptions(this.createdSession.getSelectedViewpoints(false), context);
 		final java.util.Iterator<RepresentationDescription> iter = desc.iterator();
 		while (iter.hasNext()) {
 			final RepresentationDescription current = iter.next();

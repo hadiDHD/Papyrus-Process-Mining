@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 2021 CEA LIST, Artal Technologies
+ * Copyright (c) 2021, 2022 CEA LIST, Artal Technologies, Obeo and others.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -10,6 +10,7 @@
  *
  * Contributors:
  *  Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
+ *  Jessy MALLET (OBEO) <jessy.mallet@obeo.fr> - Bug 579782
  *****************************************************************************/
 package org.eclipse.papyrus.infra.siriusdiag.ui.internal.editor;
 
@@ -375,7 +376,10 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 
 			this.diagram.getTarget().eAdapters().add(new SessionTransientAttachment(session));
 			modelSet.getResources().add(session.getSessionResource());
-			this.session.open(new NullProgressMonitor());
+			
+			if (this.session != null && !this.session.isOpen()) {
+				this.session.open(new NullProgressMonitor());
+			}
 
 			SessionPrinter.print(session, this.getClass().getCanonicalName() + " " + "createPartControl");
 
