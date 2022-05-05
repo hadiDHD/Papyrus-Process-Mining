@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 2021 CEA LIST, Artal Technologies
+ * Copyright (c) 2021, 2022 CEA LIST, Artal Technologies and Obeo
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -10,6 +10,7 @@
  *
  * Contributors:
  *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
+ *    Jessy Mallet (Obeo) - jessy.mallet@obeo.fr - Modify Lost/Found Message creation
  *****************************************************************************/
 package org.eclipse.papyrus.uml.sirius.sequence.diagram.services;
 
@@ -96,70 +97,43 @@ public class MessageService {
 		}
 		return service;
 	}
-
-
+	
 	/**
-	 * Delete message.
+	 * Complete Found {@link Message} creation with its {@link MessageOccurrenceSpecification} receive event.
 	 *
 	 * @param context
-	 *            the context
-	 * @param sourceVariable
-	 *            the source variable
-	 * @return the message
+	 *            the context which hold the created Found {@link Message}
+	 * @param foundMessage
+	 *            the created Found {@link Message}.
 	 */
-	public Message foundMessage(EObject context, EObject sourceVariable) {
-		EObject target = null;
-		if (context instanceof DNodeSpec) {
-			target = ((DNodeSpec) context).getTarget();
-		}
+	public void completeFoundMessageWithMsgOccSpec(EObject context, Message foundMessage) {
+		Lifeline lifeline= null;
 		if (context instanceof Lifeline) {
-			target = context;
-		}
-		if (context instanceof ExecutionOccurrenceSpecification) {
-			Lifeline lifeline = ((ExecutionOccurrenceSpecification) context).getCovered();
-			Message deleteMessage = createFoundMessage(lifeline, (ExecutionOccurrenceSpecification) context);
-			return deleteMessage;
-		}
-		if (target instanceof Lifeline) {
-			Lifeline lifeline = (Lifeline) target;
-			Message deleteMessage = createFoundMessage(lifeline, null);
-
-			return deleteMessage;
-		}
-
-		return null;
-	}
-
-	/**
-	 * Creates the found message.
-	 *
-	 * @param lifeline
-	 *            the lifeline
-	 * @param occ
-	 *            the occ
-	 * @return the message
-	 */
-	private Message createFoundMessage(Lifeline lifeline, ExecutionOccurrenceSpecification occ) {
-
+			lifeline = (Lifeline) context;
+		} else if (context instanceof ExecutionOccurrenceSpecification) {
+			lifeline = ((ExecutionOccurrenceSpecification) context).getCovered();
+		}			
 		Interaction interaction = lifeline.getInteraction();
-		Message deleteMessage = UMLFactory.eINSTANCE.createMessage();
-		interaction.getMessages().add(deleteMessage);
-		deleteMessage.setName(computeDefaultName(deleteMessage));
+		
+		foundMessage.setName(computeDefaultName(foundMessage));
 
-		MessageOccurrenceSpecification occurenceMessageSend = UMLFactory.eINSTANCE.createMessageOccurrenceSpecification();
-		if (occ != null) {
-			ReorderService.getInstance().replaceExecByMessage(occurenceMessageSend, interaction.getFragments(), occ);
-
+		MessageOccurrenceSpecification occurenceMessageReceive = UMLFactory.eINSTANCE.createMessageOccurrenceSpecification();
+		occurenceMessageReceive.setMessage(foundMessage);
+		
+		if (context instanceof ExecutionOccurrenceSpecification) {
+			ReorderService.getInstance().replaceExecByMessage(occurenceMessageReceive, interaction.getFragments(), (ExecutionOccurrenceSpecification) context);
 		} else {
-			interaction.getFragments().add(occurenceMessageSend);
+			interaction.getFragments().add(occurenceMessageReceive);
 		}
-		lifeline.getCoveredBys().add(occurenceMessageSend);
-		occurenceMessageSend.setName(computeDefaultName(occurenceMessageSend) + "ReceiveEvent");
+		
+		lifeline.getCoveredBys().add(occurenceMessageReceive);
+		occurenceMessageReceive.setName(computeDefaultName(occurenceMessageReceive) + "ReceiveEvent"); //$NON-NLS-1$
+		EAnnotation annotation = EcoreFactory.eINSTANCE.createEAnnotation();
+		annotation.setSource(occurenceMessageReceive.getName() + "FOUNDMESSAGE"); //$NON-NLS-1$
+		occurenceMessageReceive.getEAnnotations().add(annotation);
 
-
-		deleteMessage.setMessageSort(MessageSort.SYNCH_CALL_LITERAL);
-		deleteMessage.setReceiveEvent(occurenceMessageSend);
-		return deleteMessage;
+		foundMessage.setMessageSort(MessageSort.SYNCH_CALL_LITERAL);
+		foundMessage.setReceiveEvent(occurenceMessageReceive);
 	}
 
 
@@ -183,77 +157,43 @@ public class MessageService {
 
 
 	}
-
-
-
-
+	
 	/**
-	 * Delete message.
+	 * Complete Lost {@link Message} creation with its {@link MessageOccurrenceSpecification} Send Event.
 	 *
 	 * @param context
-	 *            the context
-	 * @param sourceVariable
-	 *            the source variable
-	 * @return the message
+	 *            the context which hold the created Lost {@link Message}
+	 * @param lostMessage
+	 *            the created Lost {@link Message}.
 	 */
-	public Message lostMessage(EObject context, EObject sourceVariable) {
-		EObject target = null;
-		if (context instanceof DNodeSpec) {
-			target = ((DNodeSpec) context).getTarget();
-		}
-
-		if (context instanceof ExecutionOccurrenceSpecification) {
-			Lifeline lifeline = ((ExecutionOccurrenceSpecification) context).getCovered();
-			Message deleteMessage = createLostMessage(lifeline, (ExecutionOccurrenceSpecification) context);
-			return deleteMessage;
-		}
-
+	public void completeLostMessageWithMsgOccSpec(EObject context, Message lostMessage) {
+		Lifeline lifeline = null;
 		if (context instanceof Lifeline) {
-			target = context;
+			lifeline = (Lifeline) context;
+		} else if (context instanceof ExecutionOccurrenceSpecification) {
+			lifeline = ((ExecutionOccurrenceSpecification) context).getCovered();			
 		}
-		if (target instanceof Lifeline) {
-			Lifeline lifeline = (Lifeline) target;
-			Message deleteMessage = createLostMessage(lifeline, null);
-
-			return deleteMessage;
-		}
-
-		return null;
-	}
-
-	/**
-	 * Creates the lost message.
-	 *
-	 * @param lifeline
-	 *            the lifeline
-	 * @param occ
-	 *            the occ
-	 * @return the message
-	 */
-	private Message createLostMessage(Lifeline lifeline, ExecutionOccurrenceSpecification occ) {
 		Interaction interaction = lifeline.getInteraction();
 
-		Message deleteMessage = UMLFactory.eINSTANCE.createMessage();
-		interaction.getMessages().add(deleteMessage);
-		deleteMessage.setName(computeDefaultName(deleteMessage));
+		lostMessage.setName(computeDefaultName(lostMessage));
 
 		MessageOccurrenceSpecification occurenceMessageSend = UMLFactory.eINSTANCE.createMessageOccurrenceSpecification();
+		occurenceMessageSend.setMessage(lostMessage);
 
-		if (occ != null) {
-			ReorderService.getInstance().replaceExecByMessage(occurenceMessageSend, interaction.getFragments(), occ);
+		if (context instanceof ExecutionOccurrenceSpecification) {
+			ReorderService.getInstance().replaceExecByMessage(occurenceMessageSend, interaction.getFragments(), (ExecutionOccurrenceSpecification) context);
 
 		} else {
 			interaction.getFragments().add(occurenceMessageSend);
 		}
 		lifeline.getCoveredBys().add(occurenceMessageSend);
-		occurenceMessageSend.setName(computeDefaultName(occurenceMessageSend) + "SendEvent");
+		occurenceMessageSend.setName(computeDefaultName(occurenceMessageSend) + "SendEvent"); //$NON-NLS-1$
 		EAnnotation annotation = EcoreFactory.eINSTANCE.createEAnnotation();
-		annotation.setSource(occurenceMessageSend.getName() + "LOSTMESSAGE");
+		annotation.setSource(occurenceMessageSend.getName() + "LOSTMESSAGE"); //$NON-NLS-1$
 		occurenceMessageSend.getEAnnotations().add(annotation);
 
-		deleteMessage.setMessageSort(MessageSort.SYNCH_CALL_LITERAL);
-		deleteMessage.setSendEvent(occurenceMessageSend);
-		return deleteMessage;
+		lostMessage.setMessageSort(MessageSort.SYNCH_CALL_LITERAL);
+		lostMessage.setSendEvent(occurenceMessageSend);
 	}
 
 
@@ -269,11 +209,33 @@ public class MessageService {
 			MessageEnd sendEvent = ((Message) context).getSendEvent();
 			EList<EAnnotation> eAnnotations = sendEvent.getEAnnotations();
 			for (EAnnotation eAnnotation : eAnnotations) {
-				if (eAnnotation.getSource().equals(sendEvent.getName() + "LOSTMESSAGE")) {
+				if (eAnnotation.getSource().equals(sendEvent.getName() + "LOSTMESSAGE")) { //$NON-NLS-1$
 					return eAnnotation;
 				}
 			}
 			return sendEvent;
+		}
+
+		return null;
+	}
+	
+	/**
+	 * Gets the found send annotation.
+	 *
+	 * @param context
+	 *            the context
+	 * @return the found send annotation
+	 */
+	public EObject getFoundSendAnnotation(EObject context) {
+		if (context instanceof Message) {
+			MessageEnd receiveEvent = ((Message) context).getReceiveEvent();
+			EList<EAnnotation> eAnnotations = receiveEvent.getEAnnotations();
+			for (EAnnotation eAnnotation : eAnnotations) {
+				if (eAnnotation.getSource().equals(receiveEvent.getName() + "FOUNDMESSAGE")) { //$NON-NLS-1$
+					return eAnnotation;
+				}
+			}
+			return receiveEvent;
 		}
 
 		return null;
@@ -809,13 +771,13 @@ public class MessageService {
 	 */
 	public void createOperationAndSynchMessage(NamedElement target, NamedElement source,
 			EventEnd startingEndPredecessor, EventEnd finishingEndPredecessor) {
-		Element startingEndPredecessorSemanticEnd = null;
+		EObject startingEndPredecessorSemanticEnd = null;
 		if (startingEndPredecessor != null) {
-			startingEndPredecessorSemanticEnd = (Element) startingEndPredecessor.getSemanticEnd();
+			startingEndPredecessorSemanticEnd = startingEndPredecessor.getSemanticEnd();
 		}
-		Element finishingEndPredecessorSemanticEnd = null;
+		EObject finishingEndPredecessorSemanticEnd = null;
 		if (finishingEndPredecessor != null) {
-			finishingEndPredecessorSemanticEnd = (Element) finishingEndPredecessor.getSemanticEnd();
+			finishingEndPredecessorSemanticEnd = finishingEndPredecessor.getSemanticEnd();
 		}
 		// Get associated class and interaction
 		org.eclipse.uml2.uml.Type type;
@@ -1350,8 +1312,8 @@ public class MessageService {
 	 *            Operation associated with the message
 	 */
 	private void createSynchronousMessage(InteractionFragment interaction, NamedElement sourceFragment,
-			NamedElement targetFragment, boolean createReply, boolean createExecution, Element startingEndPredecessor,
-			Element finishingEndPredecessor, Operation operation) {
+			NamedElement targetFragment, boolean createReply, boolean createExecution, EObject startingEndPredecessor,
+			EObject finishingEndPredecessor, Operation operation) {
 		final Lifeline target = LifelineService.getInstance().getLifeline(targetFragment);
 		final BehaviorExecutionSpecification predecessorExecution = ExecutionService.getInstance().getExecution(
 				startingEndPredecessor);
@@ -1477,7 +1439,7 @@ public class MessageService {
 	 * @return a synchronous message
 	 */
 	private Message createSynchronousMessage(InteractionFragment interaction, NamedElement sourceFragment,
-			NamedElement targetFragment, Element startingEndPredecessor, Element finishingEndPredecessor,
+			NamedElement targetFragment, EObject startingEndPredecessor, EObject finishingEndPredecessor,
 			Operation operation) {
 
 		final UMLFactory factory = UMLFactory.eINSTANCE;

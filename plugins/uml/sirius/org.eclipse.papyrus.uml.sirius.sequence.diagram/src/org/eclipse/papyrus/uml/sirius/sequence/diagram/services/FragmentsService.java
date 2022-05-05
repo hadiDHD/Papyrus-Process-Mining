@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 2021 CEA LIST, Artal Technologies
+ * Copyright (c) 2021,2022 CEA LIST, Artal Technologies and Obeo
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -10,6 +10,7 @@
  *
  * Contributors:
  *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
+ *    Jessy Mallet (Obeo) - jessy.mallet@obeo.fr - Add FoundMessage annotation
  *****************************************************************************/
 package org.eclipse.papyrus.uml.sirius.sequence.diagram.services;
 
@@ -254,7 +255,7 @@ public class FragmentsService {
 		if (interactionFragment instanceof MessageOccurrenceSpecification) {
 			EList<EAnnotation> eAnnotations = interactionFragment.getEAnnotations();
 			for (EAnnotation eAnnotation : eAnnotations) {
-				if (eAnnotation.getSource().equals(interactionFragment.getName() + "LOSTMESSAGE")) {
+				if (eAnnotation.getSource().equals(interactionFragment.getName() + "LOSTMESSAGE") || eAnnotation.getSource().equals(interactionFragment.getName() + "FOUNDMESSAGE")) { //$NON-NLS-1$ //$NON-NLS-2$
 					results.add(eAnnotation);
 				}
 			}
@@ -531,15 +532,18 @@ public class FragmentsService {
 			if (interactionFragment instanceof CombinedFragment) {
 				EList<EAnnotation> eAnnotations = interactionFragment.getEAnnotations();
 				for (EAnnotation annot : eAnnotations) {
-					if (annot.getSource().equals(((CombinedFragment) interactionFragment).getName() + "_start")) {
+					if (annot.getSource().equals(((CombinedFragment) interactionFragment).getName() + "_start")) { //$NON-NLS-1$
 						results.add(annot);
 					}
 				}
 				fillIInteractionFragment(results, interactionFragment);
 				for (EAnnotation annot : eAnnotations) {
-					if (annot.getSource().equals(((CombinedFragment) interactionFragment).getName() + "_end")) {
+					if (annot.getSource().equals(((CombinedFragment) interactionFragment).getName() + "_end")) { //$NON-NLS-1$
 						results.add(annot);
 					}
+				}			
+				for (InteractionOperand operand : ((CombinedFragment) interactionFragment).getOperands()) {
+						getFragmentsAndAnnotations(results, operand.getFragments());
 				}
 			} else {
 				fillIInteractionFragment(results, interactionFragment);

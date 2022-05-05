@@ -160,7 +160,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings xsi:type="description_1:BasicMessageMapping" name="MessageFound" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:message" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='LostFound']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" targetFinderExpression="service:findOccurrenceSpecificationContextForReceiveEvent" sourceFinderExpression="var:self" domainClass="Message" useDomainElement="true" sendingEndFinderExpression="feature:receiveEvent" receivingEndFinderExpression="feature:receiveEvent">
+        <edgeMappings xsi:type="description_1:BasicMessageMapping" name="MessageFound" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:message" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='LostFound']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" targetFinderExpression="service:findOccurrenceSpecificationContextForReceiveEvent" sourceFinderExpression="var:self" domainClass="Message" useDomainElement="true" sendingEndFinderExpression="feature:getFoundSendAnnotation()" receivingEndFinderExpression="feature:receiveEvent">
           <style>
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -479,12 +479,12 @@
             <variable name="variable"/>
             <viewVariable name="viewVariable"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.econtainer()">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.CombinedFragment" referenceName="fragment" variableName="fragment">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainerOrSelf(uml::Interaction)">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.CombinedFragment" referenceName="fragment" variableName="newCombinedFragment">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="covered" valueExpression="var:coveredLifelines"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createEAnnotations"/>
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.InteractionOperand" referenceName="operand" variableName="operand">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.InteractionOperand" referenceName="operand" variableName="newOperand">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="covered" valueExpression="var:coveredLifelines"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createEAnnotations"/>
@@ -494,7 +494,7 @@
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.reorderNewCombinedFragment(startingEndPredecessor,finishingEndPredecessor,fragment)"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:reorderNewCombinedFragment(startingEndPredecessor,finishingEndPredecessor,newCombinedFragment)"/>
               </firstModelOperations>
             </initialOperation>
             <startingEndPredecessor name="startingEndPredecessor"/>
@@ -694,7 +694,7 @@
             <startingEndPredecessor name="startingEndPredecessor"/>
             <finishingEndPredecessor name="finishingEndPredecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:MessageCreationTool" documentation="Create a new asynchronous operation" name="CR_Asynchronous_Operation" label="Asynchronous Message" precondition="service:preTarget.isValidMessageEnd" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='SD_Message']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/MessageAsynchCallCreation.gif" extraSourceMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']">
+          <ownedTools xsi:type="tool:MessageCreationTool" documentation="Create a new asynchronous operation" name="CR_Asynchronous_Operation" label="Asynchronous Message" precondition="service:preTarget.isValidMessageEnd" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='SD_Message']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/MessageAsynchCallCreation.gif" extraSourceMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -762,14 +762,19 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:lostMessage(element)">
-                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="Adjust message position 2" id="org.eclipse.sirius.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="aql:self.eContainerOrSelf(uml::Interaction)"/>
-                  <parameters name="referenceName" value="message"/>
-                  <parameters name="element" value="var:self"/>
-                  <parameters name="predecessor" value="aql:self.getPredecessor()"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:element.oclIsTypeOf(uml::Lifeline) ">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.oclAsType(uml::Lifeline).interaction">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml::Message" referenceName="message" variableName="messageInstance"/>
+                  </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="Adjust new call message position" action="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Message%20Lost']/@initialOperation/@firstModelOperations/@subModelOperations.0"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:element.oclIsTypeOf(uml::ExecutionOccurrenceSpecification) ">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.oclAsType(uml::ExecutionOccurrenceSpecification).covered->first().interaction">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml::Message" referenceName="message" variableName="messageInstance"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:element.completeLostMessageWithMsgOccSpec(messageInstance)"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:messageInstance.reorderFragment(endBefore,endBefore)"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -777,7 +782,20 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:foundMessage(element)"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:element.oclIsTypeOf(uml::Lifeline) ">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.oclAsType(uml::Lifeline).interaction">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml::Message" referenceName="message" variableName="messageInstance"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:element.oclIsTypeOf(uml::ExecutionOccurrenceSpecification) ">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.oclAsType(uml::ExecutionOccurrenceSpecification).covered->first().interaction">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml::Message" referenceName="message" variableName="messageInstance"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:element.completeFoundMessageWithMsgOccSpec(messageInstance)"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:messageInstance.reorderFragment(endBefore,endBefore)"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:MessageCreationTool" name="General Ordering" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='GeneralOrdering']">

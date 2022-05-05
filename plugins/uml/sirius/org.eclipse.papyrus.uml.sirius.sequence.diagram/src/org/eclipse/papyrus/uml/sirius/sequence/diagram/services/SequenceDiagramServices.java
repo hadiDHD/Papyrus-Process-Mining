@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2011, 2021 Obeo, CEA LIST, Artal Technologies
+ * Copyright (c) 2009, 2022 Obeo, CEA LIST, Artal Technologies
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -11,6 +11,7 @@
  * Contributors:
  *    Obeo - initial API and implementation
  *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - adaptation to integrate in Papyrus
+ *    Jessy Mallet (Obeo) - jessy.mallet@obeo.fr - Update services with MessageServices.
  *******************************************************************************/
 package org.eclipse.papyrus.uml.sirius.sequence.diagram.services;
 
@@ -42,6 +43,7 @@ import org.eclipse.uml2.uml.Interaction;
 import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.Lifeline;
 import org.eclipse.uml2.uml.Message;
+import org.eclipse.uml2.uml.MessageOccurrenceSpecification;
 import org.eclipse.uml2.uml.MessageSort;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.TimeConstraint;
@@ -526,33 +528,29 @@ public class SequenceDiagramServices extends AbstractDiagramServices {
 		}
 		return checkIsExecutionSelection;
 	}
-
-
+	
 	/**
-	 * Delete message.
+	 * Complete Lost {@link Message} creation with {@link MessageOccurrenceSpecification}.
 	 *
 	 * @param context
-	 *            the context
-	 * @param sourceVariable
-	 *            the source variable
-	 * @return the message
+	 *            the context which hold the created Lost {@link Message}
+	 * @param message
+	 *            the created Lost {@link Message}.
 	 */
-	public Message foundMessage(EObject context, EObject sourceVariable) {
-		return messageService.foundMessage(context, sourceVariable);
+	public void completeLostMessageWithMsgOccSpec(EObject context, Message message) {
+		messageService.completeLostMessageWithMsgOccSpec(context, message);
 	}
-
-
+	
 	/**
-	 * Delete message.
+	 * Complete Found {@link Message} creation with {@link MessageOccurrenceSpecification}.
 	 *
 	 * @param context
-	 *            the context
-	 * @param sourceVariable
-	 *            the source variable
-	 * @return the message
+	 *            the context which hold the created Found {@link Message}
+	 * @param message
+	 *            the created Found {@link Message}.
 	 */
-	public Message lostMessage(EObject context, EObject sourceVariable) {
-		return messageService.lostMessage(context, sourceVariable);
+	public void completeFoundMessageWithMsgOccSpec(EObject context, Message message) {
+		messageService.completeFoundMessageWithMsgOccSpec(context, message);
 	}
 
 	/**
@@ -989,18 +987,6 @@ public class SequenceDiagramServices extends AbstractDiagramServices {
 	public void reorderFragment(Element fragment, EventEnd startingEndPredecessorAfter,
 			EventEnd finishingEndPredecessorAfter) {
 		reorderService.reorderFragment(fragment, startingEndPredecessorAfter, finishingEndPredecessorAfter);
-	}
-
-
-	/**
-	 * Gets the predecessor.
-	 *
-	 * @param context
-	 *            the context
-	 * @return the predecessor
-	 */
-	public EObject getPredecessor(EObject context) {
-		return null;
 	}
 
 
