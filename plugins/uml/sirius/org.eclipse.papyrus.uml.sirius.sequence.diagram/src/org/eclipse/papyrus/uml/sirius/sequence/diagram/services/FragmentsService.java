@@ -448,7 +448,7 @@ public class FragmentsService {
 
 			fragments = /* getParentInteraction(execution).getFragments() */FragmentsService.getInstance().getFragmentsAndAnnotation(parentInteraction);
 		}
-		if (!fragmentsource.equals(fragments)/* && execution instanceof ExecutionSpecification */) {
+		if (fragmentsource != null && !fragmentsource.equals(fragments)/* && execution instanceof ExecutionSpecification */) {
 			if (execution instanceof ExecutionSpecification) {
 				fragmentsource.remove(((ExecutionSpecification) execution).getStart());
 			}

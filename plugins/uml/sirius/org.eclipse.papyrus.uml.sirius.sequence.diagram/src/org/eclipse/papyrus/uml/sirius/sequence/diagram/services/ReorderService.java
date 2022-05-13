@@ -518,39 +518,43 @@ public class ReorderService {
 		final boolean executionStartPredecessorChanged = executionStartPredecessorChanged(execution,
 				startingEndPredecessorAfter);
 
-		OccurrenceSpecification start = execution.getStart();
-		OccurrenceSpecification finish = execution.getFinish();
+		OccurrenceSpecification oldExecStart = execution.getStart();
+		OccurrenceSpecification execStartToMove = null;
+		OccurrenceSpecification oldExecFinish = execution.getFinish();
+		OccurrenceSpecification execFinishToMove = null;
 
 		if (executionStartPredecessorChanged) {
-			if (start instanceof MessageOccurrenceSpecification) {
+			// move execution and start of execution
+			if (oldExecStart instanceof MessageOccurrenceSpecification) {
 				List<EObject> fragmentsource = FragmentsService.getInstance().getEnclosingFragments(execution);
-				replaceMessageOccByExecOcc(parentInteraction, fragmentsource, start, true);
-				start = execution.getStart();
-			}
-			fragments.remove(start);
+				replaceMessageOccByExecOcc(parentInteraction, fragmentsource, oldExecStart, true);
+			} 
+			execStartToMove = execution.getStart();
+			fragments.remove(oldExecStart);
 			fragments.remove(execution);
 			// manage start execution moving
 			if (ReorderSequenceRegistry.getInstance().containsKey(startingEndPredecessorAfter)) {
 				startingEndPredecessorAfter = ReorderSequenceRegistry.getInstance().get(startingEndPredecessorAfter);
 			}
-			addFragments(startingEndPredecessorAfter, fragments, start);
+			addFragments(startingEndPredecessorAfter, fragments, execStartToMove);
 
 			// manage execution moving
-			fragments.add(fragmentService.getFragmentIndex(start, fragments) + 1, execution);
+			fragments.add(fragmentService.getFragmentIndex(execStartToMove, fragments) + 1, execution);
 
 		}
 		if (executionFinishPredecessorChanged) {
-			if (finish instanceof MessageOccurrenceSpecification) {
+			// move end of execution
+			if (oldExecFinish instanceof MessageOccurrenceSpecification) {
 				List<EObject> fragmentsource = FragmentsService.getInstance().getEnclosingFragments(execution);
-				replaceMessageOccByExecOcc(parentInteraction, fragmentsource, finish, false);
-				finish = execution.getFinish();
+				replaceMessageOccByExecOcc(parentInteraction, fragmentsource, oldExecFinish, false);
 			}
-			fragments.remove(finish);
+			execFinishToMove = execution.getFinish();
+			fragments.remove(oldExecFinish);
 			// manage finish execution moving
 			if (ReorderSequenceRegistry.getInstance().containsKey(finishingEndPredecessorAfter)) {
 				finishingEndPredecessorAfter = ReorderSequenceRegistry.getInstance().get(finishingEndPredecessorAfter);
 			}
-			addFragments(finishingEndPredecessorAfter, fragments, finish);
+			addFragments(finishingEndPredecessorAfter, fragments, execFinishToMove);
 
 		}
 		fragmentService.updateFragmentList(
@@ -579,9 +583,8 @@ public class ReorderService {
 			ExecutionOccurrenceSpecification newExecOcc = ExecutionService.getInstance()
 					.createExecutionOccurrenceSpecification(assExec, isStartOcc);
 			ReorderSequenceRegistry.getInstance().put(occ, newExecOcc);
-			parentInteraction.getFragments().add(newExecOcc);
-			newExecOcc.setName(computeDefaultName(newExecOcc));
-			parentInteraction.getFragments().remove(newExecOcc);
+			String newExecOccName = getNewExecOccName(parentInteraction, newExecOcc, isStartOcc);
+			newExecOcc.setName(newExecOccName);
 			// 1.3 replace the opposite message occ by the ExecutionOcc
 			if (isStartOcc) {
 				assExec.setStart(newExecOcc);
@@ -601,6 +604,35 @@ public class ReorderService {
 				}
 			}
 		}
+	}
+
+	/**
+	 * Compute the name of a new {@link ExecutionOccurrenceSpecification} in its {@link Interaction}.
+	 * 
+	 * @param parentInteraction
+	 *           the {@link Interaction} which will contain the new {@link ExecutionOccurrenceSpecification},
+	 * @param newExecOcc 
+     *           the new {@link ExecutionOccurrenceSpecification} with the name to compute,
+	 * @param isStart 
+     *           <code>true</code> if the new {@link ExecutionOccurrenceSpecification} is the start of an {@link ExecutionSpecification}, <code>false</code> otherwise,
+	 * @return the name of a new {@link ExecutionOccurrenceSpecification} in its {@link Interaction}.
+	 */
+	private String getNewExecOccName(Interaction parentInteraction, ExecutionOccurrenceSpecification newExecOcc, boolean isStart) {		
+		String execOccName = null; 
+		boolean isExisting = true;
+		int i = 1;
+		int j = 2;
+		while (isExisting) {
+			if (isStart) {
+				execOccName = "ExecutionOccurrenceSpecification" + i + "start"; //$NON-NLS-1$ //$NON-NLS-2$
+				i = i+2;
+			} else {
+				execOccName = "ExecutionOccurrenceSpecification" + j + "finish"; //$NON-NLS-1$ //$NON-NLS-2$
+				j = j +2;
+			}
+			isExisting = parentInteraction.getFragment(execOccName)!=null;
+		}		;
+		return execOccName;
 	}
 
 	/**
@@ -629,128 +661,178 @@ public class ReorderService {
 	 *                                     before the beginning of reorder operation
 	 */
 	private void reorder(Message message, EObject startingEndPredecessorAfter, EObject finishingEndPredecessorAfter) {
-		if (isMoveAuthorized(message)) {
-			final Interaction interaction = message.getInteraction();
+		final Interaction interaction = message.getInteraction();
 
-			MessageEnd sendEvent = message.getSendEvent();
-			MessageEnd receiveEvent = message.getReceiveEvent();
+		MessageEnd sendEvent = message.getSendEvent();
+		MessageEnd receiveEvent = message.getReceiveEvent();
 
-			MessageEnd messageEndToMove = null;
-			if (sendEvent != null) {
-				messageEndToMove = sendEvent;
-			} else {
-				messageEndToMove = receiveEvent;
-			}
-			final List<EObject> fragments = fragmentService.computeFragments(messageEndToMove, startingEndPredecessorAfter,
-					interaction);
-
-			final boolean messageStartPredecessorChanged = messageStartPredecessorChanged(messageEndToMove,
-					startingEndPredecessorAfter);
-
-			if (sendEvent != null && ReorderSequenceRegistry.getInstance().containsKey(sendEvent)) {
-				ExecutionOccurrenceSpecification execOcc1 = (ExecutionOccurrenceSpecification) ReorderSequenceRegistry
-						.getInstance().get(sendEvent);
-				fragments.remove(sendEvent);
-				replaceExecByMessage(sendEvent, fragments, execOcc1);
-
-				if (ReorderSequenceRegistry.getInstance().containsKey(receiveEvent)) {
-					ExecutionOccurrenceSpecification execOcc2 = (ExecutionOccurrenceSpecification) ReorderSequenceRegistry
-							.getInstance().get(receiveEvent);
-					replaceExecByMessage(receiveEvent, fragments, execOcc2);
-				} else {
-
-					ExecutionSpecification executionFromMessageOccurence = getExecutionFromMessageOccurence(
-							(MessageOccurrenceSpecification) receiveEvent);
-					if (executionFromMessageOccurence != null) {
-						boolean isStart = executionFromMessageOccurence.getStart().equals(receiveEvent);
-						replaceMessageOccByExecOcc(interaction, fragments,
-								(MessageOccurrenceSpecification) receiveEvent, isStart);
-						int indexOfSendEvent = fragments.indexOf(sendEvent);
-						fragments.remove(receiveEvent);
-						if (indexOfSendEvent >= fragments.size() - 1) {
-							fragments.add(receiveEvent);
-						} else {
-							fragments.add(indexOfSendEvent + 1, receiveEvent);
-						}
-					}
-
-				}
-
-			} else if (receiveEvent != null && ReorderSequenceRegistry.getInstance().containsKey(receiveEvent)) {
-				ExecutionOccurrenceSpecification execOcc1 = (ExecutionOccurrenceSpecification) ReorderSequenceRegistry
-						.getInstance().get(receiveEvent);
-				fragments.remove(receiveEvent);
-				replaceExecByMessage(receiveEvent, fragments, execOcc1);
-
-				ExecutionSpecification executionFromMessageOccurence = getExecutionFromMessageOccurence(
-						(MessageOccurrenceSpecification) sendEvent);
-				if (executionFromMessageOccurence != null) {
-					boolean isStart = executionFromMessageOccurence.getStart().equals(sendEvent);
-					replaceMessageOccByExecOcc(interaction, fragments, (MessageOccurrenceSpecification) sendEvent,
-							isStart);
-					int indexOfSendEvent = fragments.indexOf(receiveEvent);
-					fragments.remove(sendEvent);
-					if (indexOfSendEvent >= fragments.size() - 1) {
-						fragments.add(sendEvent);
-					} else {
-						fragments.add(indexOfSendEvent, sendEvent);
-					}
-				}
-
-			}
-
-			else {
-				if (messageStartPredecessorChanged) {
-					boolean startOfExecution = isStartOfExecution(startingEndPredecessorAfter, fragments);
-					int fragmentIndex = fragmentService.getFragmentIndex(startingEndPredecessorAfter, fragments);
-					if (sendEvent!=null) {
-						int indexOfSend = fragments.indexOf(sendEvent);
-						if (indexOfSend <= fragmentIndex) {
-							fragmentIndex--;
-						}
-						fragments.remove(sendEvent);
-					}
-					if (receiveEvent!=null) {
-						int indexOfReceive = fragments.indexOf(receiveEvent);
-						if (indexOfReceive <= fragmentIndex) {
-							fragmentIndex--;
-						}
-						fragments.remove(receiveEvent);
-					}	
-
-					if (startOfExecution) {
-						fragments.add(fragmentIndex + 2, messageEndToMove);
-					} else {
-						fragments.add(fragmentIndex + 1, messageEndToMove);
-					}
-
-					fragments.add(fragmentService.getFragmentIndex(messageEndToMove, fragments) + 1, receiveEvent);
-				}
-			}
-
-			// Move reply for synchronous message
-			if (message.getMessageSort().equals(MessageSort.SYNCH_CALL_LITERAL)) {
-				final Message replyMessage = MessageService.getInstance().getReplyMessage(message);
-				if (replyMessage != null) {
-					fragments.remove(replyMessage.getSendEvent());
-					fragments.remove(replyMessage.getReceiveEvent());
-
-					if (isStartOfExecution(receiveEvent, fragments)) {
-						fragments.add(fragmentService.getFragmentIndex(receiveEvent, fragments) + 2,
-								replyMessage.getSendEvent());
-					} else {
-						fragments.add(fragmentService.getFragmentIndex(receiveEvent, fragments) + 1,
-								replyMessage.getSendEvent());
-					}
-
-					fragments.add(fragmentService.getFragmentIndex(replyMessage.getSendEvent(), fragments) + 1,
-							replyMessage.getReceiveEvent());
-				}
-			}
-			fragmentService.updateFragmentList(
-					startingEndPredecessorAfter != null ? startingEndPredecessorAfter : interaction, fragments);
+		MessageEnd messageEndToMove = null;
+		if (sendEvent != null) {
+			messageEndToMove = sendEvent;
+		} else {
+			messageEndToMove = receiveEvent;
 		}
 
+		List<EObject> fragments = null;
+		boolean messageStartPredecessorChanged;
+
+		if (sendEvent != null && message.getMessageSort().equals(MessageSort.REPLY_LITERAL) && ReorderSequenceRegistry.getInstance().containsKey(sendEvent)) {
+			// case reply in synchronous message
+			// sendEvent is unconnected to execution and is not contained in Interaction
+			fragments = fragmentService.computeFragments(receiveEvent, startingEndPredecessorAfter,
+					interaction);
+			messageStartPredecessorChanged = messageStartPredecessorChanged(receiveEvent,
+					startingEndPredecessorAfter);
+		} else {
+			fragments = fragmentService.computeFragments(messageEndToMove, startingEndPredecessorAfter,
+					interaction);
+			messageStartPredecessorChanged = messageStartPredecessorChanged(messageEndToMove,
+					startingEndPredecessorAfter);
+		}
+
+		if (sendEvent != null && ReorderSequenceRegistry.getInstance().containsKey(sendEvent)) {
+			connectMessageWithExecutionSpecAndMove(message, true, fragments);
+		} else if (receiveEvent != null && ReorderSequenceRegistry.getInstance().containsKey(receiveEvent)) {
+			connectMessageWithExecutionSpecAndMove(message, false, fragments);
+		} else if (messageStartPredecessorChanged) {
+			boolean startOfExecution = isStartOfExecution(startingEndPredecessorAfter, fragments);
+			int fragmentIndex = fragmentService.getFragmentIndex(startingEndPredecessorAfter, fragments);
+			if (sendEvent != null) {
+				int indexOfSend = fragments.indexOf(sendEvent);
+				if (indexOfSend <= fragmentIndex) {
+					fragmentIndex--;
+				}
+				fragments.remove(sendEvent);
+			}
+			if (receiveEvent != null) {
+				int indexOfReceive = fragments.indexOf(receiveEvent);
+				if (indexOfReceive <= fragmentIndex) {
+					fragmentIndex--;
+				}
+				fragments.remove(receiveEvent);
+			}
+
+			if (startOfExecution) {
+				fragments.add(fragmentIndex + 2, messageEndToMove);
+			} else {
+				fragments.add(fragmentIndex + 1, messageEndToMove);
+			}
+
+			if (sendEvent != null && messageEndToMove.equals(receiveEvent)) {
+				fragments.add(fragmentService.getFragmentIndex(messageEndToMove, fragments) + 1, sendEvent);
+			} else if (receiveEvent != null && messageEndToMove.equals(sendEvent)) {
+				fragments.add(fragmentService.getFragmentIndex(messageEndToMove, fragments) + 1, receiveEvent);
+
+			}
+		}
+
+
+		Message predecessorMessage = getPredecessorMessage(message, fragments);
+		moveMessageInInteraction(message, predecessorMessage);
+		fragmentService.updateFragmentList(
+				startingEndPredecessorAfter != null ? startingEndPredecessorAfter : interaction, fragments);
+
+	}
+
+	/**
+	 * Connect a given {@link Message} with its initial {@link ExecutionSpecification}.
+	 * 
+	 * @param messageToMove
+	 *            the message to reorder
+	 * @param isMessageSendToReconnect
+	 *            <code>true</code> if it is the MessageSend to reconnect with {@link ExecutionSpecification}, <code>false</code> if it is the MessageReceiver,
+	 * @param fragments
+	 *            list of interaction fragments
+	 */
+	private void connectMessageWithExecutionSpecAndMove(Message messageToMove, boolean isMessageSendToReconnect, List<EObject> fragments) {
+		MessageEnd messEndToConnect = null;
+		MessageEnd otherMessageEnd = null;
+		if (isMessageSendToReconnect) {
+			messEndToConnect = messageToMove.getSendEvent();
+			otherMessageEnd = messageToMove.getReceiveEvent();
+		} else {
+			messEndToConnect = messageToMove.getReceiveEvent();
+			otherMessageEnd = messageToMove.getSendEvent();
+		}
+
+		ExecutionOccurrenceSpecification execOcc1 = (ExecutionOccurrenceSpecification) ReorderSequenceRegistry
+				.getInstance().get(messEndToConnect);
+		fragments.remove(messEndToConnect);
+		replaceExecByMessage(messEndToConnect, fragments, execOcc1);
+		fragments.remove(otherMessageEnd);
+
+		if (isMessageSendToReconnect) {
+			fragments.add(fragments.indexOf(messEndToConnect) + 1, otherMessageEnd);
+		} else {
+			fragments.add(fragments.indexOf(messEndToConnect), otherMessageEnd);
+		}
+
+		ExecutionSpecification executionFromMessageOccurence = getExecutionFromMessageOccurence(
+				(MessageOccurrenceSpecification) otherMessageEnd);
+		if (executionFromMessageOccurence != null) {
+			boolean isStart = executionFromMessageOccurence.getStart().equals(otherMessageEnd);
+			replaceMessageOccByExecOcc(messageToMove.getInteraction(), fragments, (MessageOccurrenceSpecification) otherMessageEnd,
+					isStart);
+			int indexOfSendEvent = fragments.indexOf(messEndToConnect);
+			fragments.remove(otherMessageEnd);
+			if (indexOfSendEvent >= fragments.size() - 1) {
+				fragments.add(otherMessageEnd);
+			} else {
+				fragments.add(indexOfSendEvent, otherMessageEnd);
+			}
+		}
+	}
+	
+	
+	/**
+	 * Get the previous {@link Message} of a given {@link Message} from list of fragments.
+	 * 
+	 * @param message
+	 *           the {@link Message} to found,
+	 * @param fragments 
+     *           list of fragment with ends of the given {@link Message}
+	 * @return the previous {@link Message} of a given {@link Message} from list of fragments.
+	 */
+	private Message getPredecessorMessage(Message message, List<EObject> fragments) {
+		Message predecessorMessage = null;
+		MessageEnd sendEvent = message.getSendEvent();
+		MessageEnd reveiveEvent = message.getReceiveEvent();
+		for (EObject fragment : fragments) {
+			if (fragment.equals(sendEvent) || fragment.equals(reveiveEvent)) {
+				return predecessorMessage;
+			} else if (fragment instanceof MessageOccurrenceSpecification) {	
+				// case predecessor is Found Message
+				predecessorMessage = ((MessageOccurrenceSpecification) fragment).getMessage();
+			} 
+		}
+		return null;
+	}
+
+	/**
+     * Moves an element inside a list to another position, relative to a second element of the list.
+     * 
+     * @param element
+     *            the element to move. Must be present in the list.
+     * @param pred
+     *            the element which should become the new predecessor of <code>element</code> in the list. May be
+     *            <code>null</code> to indicate that <code>element</code> should be moved at the front.
+     * @param list
+     *            the list of elements to alter.
+     */
+	private void moveMessageInInteraction(Message messageToMove, Message predecessorMessage) {
+		Interaction interaction = messageToMove.getInteraction();
+		EList<Message> interactionMessages = interaction.getMessages();
+		if (predecessorMessage == null) {
+			interactionMessages.move(0, messageToMove);
+		} else {
+			int messageToMoveIndex = interactionMessages.indexOf(messageToMove);
+			int predecessorMessageIndex = interactionMessages.indexOf(predecessorMessage);
+			if (messageToMoveIndex > predecessorMessageIndex) {
+				interactionMessages.move(predecessorMessageIndex + 1, messageToMove);
+			} else {
+				interactionMessages.move(predecessorMessageIndex, messageToMove);
+			}
+		}
 	}
 
 	/**
@@ -770,7 +852,10 @@ public class ReorderService {
 			execution1.setFinish((OccurrenceSpecification) sendEvent);
 		}
 		fragments.remove(execOcc1);
-		fragments.add(indexOfExec1, sendEvent);
+		sendEvent.getMessage().getInteraction().getFragments().remove(execOcc1);
+		if (!fragments.contains(sendEvent)) {
+			fragments.add(indexOfExec1, sendEvent);
+		}
 	}
 
 	/**
@@ -857,19 +942,6 @@ public class ReorderService {
 		}
 
 		return false;
-	}
-
-	/**
-	 * Checks if is move authorized.
-	 *
-	 * @param message the message
-	 * @return true, if is move authorized
-	 */
-	private boolean isMoveAuthorized(Message message) {
-		if (message.getMessageSort().equals(MessageSort.REPLY_LITERAL)) {
-			return false;
-		}
-		return true;
 	}
 
 	/**
