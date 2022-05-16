@@ -17,15 +17,15 @@ location gmfRuntime "https://download.eclipse.org/modeling/gmp/gmf-runtime/updat
 
 //manualUpdate
 location "https://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/master/" Papyrus-nightly {
- org.eclipse.papyrus.junit.feature.feature.group lazy
- org.eclipse.papyrus.junit.framework lazy 
- org.eclipse.papyrus.sdk.feature.feature.group lazy
- org.eclipse.papyrus.toolsmiths.feature.feature.group lazy
+	org.eclipse.papyrus.junit.feature.feature.group lazy
+	org.eclipse.papyrus.junit.framework lazy
+	org.eclipse.papyrus.sdk.feature.feature.group lazy
+	org.eclipse.papyrus.toolsmiths.feature.feature.group lazy
 }
 
 
 // manualUpdate
-location release-2021-12 "http://download.eclipse.org/releases/2021-12" {
+location release-2021-12 "https://download.eclipse.org/releases/2021-12" {
 	org.eclipse.emf.workspace.feature.group
 	org.eclipse.swtbot.feature.group
 	org.eclipse.xwt.feature.feature.group
@@ -43,7 +43,7 @@ location platform "https://download.eclipse.org/eclipse/updates/4.22/R-4.22-2021
 }
 
 // updateFrom("Sirius",0)
-location sirius "https://download.eclipse.org/sirius/updates/milestones/7.0.0rc2/2021-06/" {
+location sirius "https://download.eclipse.org/sirius/updates/releases/7.0.0/2021-06/" {
 	org.eclipse.sirius.aql.feature.group
 	org.eclipse.sirius.doc.feature.feature.group
 	org.eclipse.sirius.interpreter.feature.feature.group
