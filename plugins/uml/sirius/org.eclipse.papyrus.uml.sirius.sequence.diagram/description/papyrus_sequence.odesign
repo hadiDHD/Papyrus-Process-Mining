@@ -208,7 +208,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings xsi:type="description_1:CombinedFragmentMapping" name="SD_CombinedFragment" label="Combined Fragment" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:fragment" createElements="false" domainClass="uml.CombinedFragment" dropDescriptions="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" startingEndFinderExpression="aql:self.getStart()" finishingEndFinderExpression="aql:self.getFinish()" coveredLifelinesExpression="feature:covered">
+        <containerMappings xsi:type="description_1:CombinedFragmentMapping" name="SD_CombinedFragment" label="Combined Fragment" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:eAllContents" synchronizationLock="true" domainClass="uml.CombinedFragment" dropDescriptions="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" startingEndFinderExpression="aql:self.getStart()" finishingEndFinderExpression="aql:self.getFinish()" coveredLifelinesExpression="feature:covered">
           <borderedNodeMappings name="GateBorder" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:cfragmentGate" domainClass="Gate">
             <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="2" height="2" color="//@userColorsPalettes[name='UMLPalette']/@entries[name='Execution%20Color']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -458,7 +458,7 @@
             <variable name="variable"/>
             <viewVariable name="viewVariable"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.interaction">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainerOrSelf(uml::Interaction)">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ExecutionOccurrenceSpecification" referenceName="fragment" variableName="start">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:self.computeDefaultName()+'start'"/>
                 </subModelOperations>
@@ -593,7 +593,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ObservationPointCreationTool" name="Time Constraint" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='TimeConstraint']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/TimeConstraint.gif" extraMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']">
+          <ownedTools xsi:type="tool:ObservationPointCreationTool" name="Time Constraint" precondition="aql:not(self.oclIsTypeOf(uml::Interaction))" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='TimeConstraint']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/TimeConstraint.gif" extraMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']">
             <variable name="variable"/>
             <viewVariable name="viewVariable"/>
             <initialOperation>
@@ -608,7 +608,7 @@
             <startingEndPredecessor name="startingEndPredecessor"/>
             <finishingEndPredecessor name="finishingEndPredecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:ObservationPointCreationTool" name="Time Observation" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='TimeObservation']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/TimeObservation.gif" extraMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']">
+          <ownedTools xsi:type="tool:ObservationPointCreationTool" name="Time Observation" precondition="aql:not(self.oclIsTypeOf(uml::Interaction))" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='TimeObservation']" iconPath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/TimeObservation.gif" extraMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_ExecutionSpecificationNode']">
             <variable name="variable"/>
             <viewVariable name="viewVariable"/>
             <initialOperation>
@@ -705,8 +705,11 @@
                   <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:isGateOrOcc">
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:target.createASynchronousMessage(source)"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:not (isGateOrOcc)">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:not (isGateOrOcc) and not(target.oclIsTypeOf(uml::ExecutionOccurrenceSpecification))">
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:target.createOperationAndAsynchMessage(source,startingEndPredecessor,finishingEndPredecessor)"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:not (isGateOrOcc) and target.oclIsTypeOf(uml::ExecutionOccurrenceSpecification)">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:target.createOperationAndAsynchMessageWithoutPredecessor(source)"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>

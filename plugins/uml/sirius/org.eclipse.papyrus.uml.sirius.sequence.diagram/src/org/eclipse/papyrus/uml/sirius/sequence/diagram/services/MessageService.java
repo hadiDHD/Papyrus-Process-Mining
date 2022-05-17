@@ -582,13 +582,13 @@ public class MessageService {
 	 */
 	public void createOperationAndAsynchMessage(NamedElement target, NamedElement source,
 			EventEnd startingEndPredecessor, EventEnd finishingEndPredecessor) {
-		Element startingEndPredecessorSemanticEnd = null;
+		EObject startingEndPredecessorSemanticEnd = null;
 		if (startingEndPredecessor != null) {
-			startingEndPredecessorSemanticEnd = (Element) startingEndPredecessor.getSemanticEnd();
+			startingEndPredecessorSemanticEnd = startingEndPredecessor.getSemanticEnd();
 		}
-		Element finishingEndPredecessorSemanticEnd = null;
+		EObject finishingEndPredecessorSemanticEnd = null;
 		if (finishingEndPredecessor != null) {
-			finishingEndPredecessorSemanticEnd = (Element) finishingEndPredecessor.getSemanticEnd();
+			finishingEndPredecessorSemanticEnd = finishingEndPredecessor.getSemanticEnd();
 		}
 		// Get associated class and interaction
 		org.eclipse.uml2.uml.Type type;
@@ -596,6 +596,11 @@ public class MessageService {
 		if (target instanceof Lifeline) {
 			type = LifelineService.getInstance().getType((Lifeline) target);
 			interaction = ((Lifeline) target).getInteraction();
+		} else  if (target instanceof ExecutionOccurrenceSpecification) {
+			ExecutionOccurrenceSpecification execOccSpec = (ExecutionOccurrenceSpecification) target;
+			Lifeline lifeline = execOccSpec.getCovered();
+			type = LifelineService.getInstance().getType(lifeline);
+			interaction = lifeline.getInteraction();
 		} else {
 			type = LifelineService.getInstance().getType(((ExecutionSpecification) target).getCovereds().get(0));
 			interaction = FragmentsService.getInstance().getEnclosingFragment(target);
@@ -1202,8 +1207,8 @@ public class MessageService {
 	 * @return the message
 	 */
 	private Message createAsynchronousMessage(InteractionFragment interaction, NamedElement sourceFragment,
-			NamedElement targetFragment, boolean createExecution, Element startingEndPredecessor,
-			Element finishingEndPredecessor, Operation operation) {
+			NamedElement targetFragment, boolean createExecution, EObject startingEndPredecessor,
+			EObject finishingEndPredecessor, Operation operation) {
 		final Lifeline target = LifelineService.getInstance().getLifeline(targetFragment);
 
 		final BehaviorExecutionSpecification predecessorExecution = ExecutionService.getInstance().getExecution(
@@ -1242,6 +1247,7 @@ public class MessageService {
 		final MessageOccurrenceSpecification receiverEventMessage = (MessageOccurrenceSpecification) message
 				.getReceiveEvent();
 
+		ExecutionSpecification sourceExecution = null;
 		ExecutionOccurrenceSpecification endExec = null;
 		if (execution != null) {
 			execution.setStart(receiverEventMessage);
@@ -1250,6 +1256,9 @@ public class MessageService {
 			endExec.getCovereds().add(target);
 			endExec.setExecution(execution);
 			execution.setFinish(endExec);
+		} else if (targetFragment instanceof ExecutionOccurrenceSpecification) {
+			ExecutionOccurrenceSpecification execOccSpec = (ExecutionOccurrenceSpecification) targetFragment;
+			sourceExecution = execOccSpec.getExecution();
 		}
 
 		// If predecessor is the beginning of an execution add message after the
@@ -1257,7 +1266,7 @@ public class MessageService {
 		if (sourceFragment instanceof OccurrenceSpecification) {
 			// List<EObject> enclosingFragments = FragmentsService.getInstance().getEnclosingFragments(sourceFragment);
 			MessageOccurrenceSpecification sendEvent = (MessageOccurrenceSpecification) message.getSendEvent();
-			ExecutionSpecification sourceExecution = ((ExecutionOccurrenceSpecification) sourceFragment).getExecution();
+			sourceExecution = ((ExecutionOccurrenceSpecification) sourceFragment).getExecution();
 			replaceByMessageOccurrence((ExecutionOccurrenceSpecification) sourceFragment, fragments, sendEvent, sourceExecution);
 		} else {
 			if (startingEndPredecessor != null && startingEndPredecessor instanceof OccurrenceSpecification
@@ -1272,11 +1281,17 @@ public class MessageService {
 		}
 
 		// fragments.add(receiverEventMessage);
-		if (targetFragment instanceof OccurrenceSpecification) {
+		if (targetFragment instanceof OccurrenceSpecification && sourceExecution == null) {
 			// List<EObject> enclosingFragments = FragmentsService.getInstance().getEnclosingFragments(sourceFragment);
 			MessageOccurrenceSpecification receiveEvent = (MessageOccurrenceSpecification) message.getReceiveEvent();
-			ExecutionSpecification sourceExecution = ((ExecutionOccurrenceSpecification) sourceFragment).getExecution();
+			sourceExecution = ((ExecutionOccurrenceSpecification) sourceFragment).getExecution();
 			replaceByMessageOccurrence((ExecutionOccurrenceSpecification) targetFragment, fragments, receiveEvent, sourceExecution);
+		} if (targetFragment instanceof OccurrenceSpecification && sourceExecution != null) {
+			ExecutionOccurrenceSpecification execOccSpec = (ExecutionOccurrenceSpecification) targetFragment;
+			sourceExecution = execOccSpec.getExecution();
+			replaceByMessageOccurrence((ExecutionOccurrenceSpecification) execOccSpec, fragments, receiverEventMessage, sourceExecution);
+			fragments.remove(senderEventMessage);
+			fragments.add(fragments.indexOf(receiverEventMessage), senderEventMessage);
 		} else {
 			fragments.add(fragments.indexOf(senderEventMessage) + 1, receiverEventMessage);
 		}

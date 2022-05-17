@@ -695,6 +695,18 @@ public class SequenceDiagramServices extends AbstractDiagramServices {
 		messageService.createOperationAndAsynchMessage(target, source, startingEndPredecessor, finishingEndPredecessor);
 	}
 
+	/**
+	 * Create an operation and an asynchronous message from a lifeline or an execution without predecessor defined. Create the operation
+	 * in the class and the asynchronous message in the interaction. It is mainly used when target is an {@link ExecutionOccurrenceSpecification}.
+	 *
+	 * @param target
+	 *            Target message element, it could be a lifeline or an execution
+	 * @param source
+	 *            Source message element, it could be a lifeline or an execution or an ExecutionOccurrenceSpecification
+	 */
+	public void createOperationAndAsynchMessageWithoutPredecessor(NamedElement target, NamedElement source) {
+		messageService.createOperationAndAsynchMessage(target, source, null, null);
+	}
 
 
 	/**

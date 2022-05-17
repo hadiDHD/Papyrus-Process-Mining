@@ -87,10 +87,8 @@ public class ExecutionService {
 			Lifeline lifeline = (Lifeline) object;
 			Interaction interaction = lifeline.getInteraction();
 			LifelineService.getInstance().getFragmentsFromLifeline(results, lifeline, interaction);
-		}
-		if (object instanceof ActionExecutionSpecification) {
-
-			List<ExecutionSpecification> containedNestedExecution = containedNestedExecution((ActionExecutionSpecification) object);
+		} else if (object instanceof ExecutionSpecification) {
+			List<ExecutionSpecification> containedNestedExecution = containedNestedExecution((ExecutionSpecification) object);
 			results.addAll(containedNestedExecution);
 		}
 		return results;
@@ -369,8 +367,8 @@ public class ExecutionService {
 			((Lifeline) context).getCoveredBys().add(exe);
 			((Lifeline) context).getCoveredBys().add(finish);
 		}
-		if (context instanceof ActionExecutionSpecification) {
-			EList<Lifeline> covereds = ((ActionExecutionSpecification) context).getCovereds();
+		if (context instanceof ExecutionSpecification) {
+			EList<Lifeline> covereds = ((ExecutionSpecification) context).getCovereds();
 			(covereds.get(0)).getCoveredBys().add(start);
 			(covereds.get(0)).getCoveredBys().add(exe);
 			(covereds.get(0)).getCoveredBys().add(finish);
