@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_Gf0YoPX2EeyGPc_cZKqovw" name="Papyrus_PackageDiagram_OnModel">
+  <ownedComment xmi:type="uml:Comment" xmi:id="_QvtUEPX2EeyGPc_cZKqovw"/>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_RPiDoPX2EeyGPc_cZKqovw"/>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_GgBM8PX2EeyGPc_cZKqovw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Constraint" xmi:id="_R4ycAPX2EeyGPc_cZKqovw" name="Constraint4" constrainedElement="_QvtUEPX2EeyGPc_cZKqovw">
+    <specification xmi:type="uml:OpaqueExpression" xmi:id="_R4ycAfX2EeyGPc_cZKqovw" name="constraintSpec">
+      <language>OCL</language>
+      <body>true</body>
+    </specification>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Constraint" xmi:id="_SlzTAPX2EeyGPc_cZKqovw" name="Constraint5" constrainedElement="_RPiDoPX2EeyGPc_cZKqovw">
+    <specification xmi:type="uml:OpaqueExpression" xmi:id="_Slz6EPX2EeyGPc_cZKqovw" name="constraintSpec">
+      <language>OCL</language>
+      <body>true</body>
+    </specification>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="_TUY3UPX2EeyGPc_cZKqovw" name="Model6">
+    <packagedElement xmi:type="uml:Package" xmi:id="_TzIBwPX2EeyGPc_cZKqovw" name="Package7">
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_Xj9PEPX2EeyGPc_cZKqovw" importedPackage="_TUY3UPX2EeyGPc_cZKqovw"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_ZKknkPX2EeyGPc_cZKqovw" client="_TzIBwPX2EeyGPc_cZKqovw" supplier="_TUY3UPX2EeyGPc_cZKqovw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Abstraction" xmi:id="_dIufMPX2EeyGPc_cZKqovw" client="_TUY3UPX2EeyGPc_cZKqovw" supplier="_TzIBwPX2EeyGPc_cZKqovw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="_USuu4PX2EeyGPc_cZKqovw" name="Model8">
+    <packagedElement xmi:type="uml:Package" xmi:id="_UtQuwPX2EeyGPc_cZKqovw" name="Package9">
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_WwzT0PX2EeyGPc_cZKqovw" importedPackage="_USuu4PX2EeyGPc_cZKqovw"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_YcGYAPX2EeyGPc_cZKqovw" client="_UtQuwPX2EeyGPc_cZKqovw" supplier="_USuu4PX2EeyGPc_cZKqovw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Abstraction" xmi:id="_cXkIAPX2EeyGPc_cZKqovw" client="_USuu4PX2EeyGPc_cZKqovw" supplier="_UtQuwPX2EeyGPc_cZKqovw"/>
+  </packagedElement>
+</uml:Model>

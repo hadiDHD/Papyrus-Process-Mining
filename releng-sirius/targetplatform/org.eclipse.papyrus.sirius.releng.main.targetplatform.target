@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Papyrus-Sirius - 2022-06" sequenceNumber="1659690089">
+<target name="Papyrus-Sirius - 2022-06" sequenceNumber="1663590410">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.apache.batik.anim" version="1.14.0.v20210324-0332"/>
       <unit id="org.apache.batik.dom" version="1.14.0.v20210324-0332"/>
       <unit id="org.apache.batik.dom.svg" version="1.14.0.v20210324-0332"/>
       <unit id="org.apache.batik.xml" version="1.14.0.v20210324-0332"/>
+      <unit id="org.apache.poi" version="4.1.1.v20200604-1524"/>
+      <unit id="org.apache.poi.ooxml" version="4.1.1.v20200820-1148"/>
+      <unit id="org.apache.poi.ooxml.schemas" version="4.1.1.v20200922-2105"/>
       <repository id="orbit" location="https://download.eclipse.org/tools/orbit/downloads/drops/R20220302172233/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">

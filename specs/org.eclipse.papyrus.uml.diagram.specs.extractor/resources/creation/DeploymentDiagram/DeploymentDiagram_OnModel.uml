@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_p_H0wPX0EeyGPc_cZKqovw" name="DeploymentDiagram_OnModel">
+  <ownedComment xmi:type="uml:Comment" xmi:id="_8IDwEPX0EeyGPc_cZKqovw"/>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_8iisoPX0EeyGPc_cZKqovw"/>
+  <ownedRule xmi:type="uml:Constraint" xmi:id="_8_V9YPX0EeyGPc_cZKqovw" name="Constraint6" constrainedElement="_8IDwEPX0EeyGPc_cZKqovw">
+    <specification xmi:type="uml:OpaqueExpression" xmi:id="_8_WkcPX0EeyGPc_cZKqovw" name="constraintSpec">
+      <language>OCL</language>
+      <body>true</body>
+    </specification>
+  </ownedRule>
+  <ownedRule xmi:type="uml:Constraint" xmi:id="_94cIkPX0EeyGPc_cZKqovw" name="Constraint7" constrainedElement="_8iisoPX0EeyGPc_cZKqovw">
+    <specification xmi:type="uml:OpaqueExpression" xmi:id="_94cvoPX0EeyGPc_cZKqovw" name="constraintSpec">
+      <language>OCL</language>
+      <body>true</body>
+    </specification>
+  </ownedRule>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_p_WeQPX0EeyGPc_cZKqovw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Artifact" xmi:id="_7Lh2YPX0EeyGPc_cZKqovw" name="Artifact2">
+    <manifestation xmi:type="uml:Manifestation" xmi:id="_oO-QUPX1EeyGPc_cZKqovw" client="_7Lh2YPX0EeyGPc_cZKqovw" supplier="__AwbgPX0EeyGPc_cZKqovw" utilizedElement="__AwbgPX0EeyGPc_cZKqovw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Artifact" xmi:id="_7vSqwPX0EeyGPc_cZKqovw" name="Artifact3">
+    <manifestation xmi:type="uml:Manifestation" xmi:id="_nZTMkPX1EeyGPc_cZKqovw" client="_7vSqwPX0EeyGPc_cZKqovw" supplier="__hS8wPX0EeyGPc_cZKqovw" utilizedElement="__hS8wPX0EeyGPc_cZKqovw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Device" xmi:id="__AwbgPX0EeyGPc_cZKqovw" name="Device8"/>
+  <packagedElement xmi:type="uml:Device" xmi:id="__hS8wPX0EeyGPc_cZKqovw" name="Device9"/>
+  <packagedElement xmi:type="uml:DeploymentSpecification" xmi:id="_APBlcPX1EeyGPc_cZKqovw" name="DeploymentSpecification10"/>
+  <packagedElement xmi:type="uml:DeploymentSpecification" xmi:id="_Avq0YPX1EeyGPc_cZKqovw" name="DeploymentSpecification11">
+    <generalization xmi:type="uml:Generalization" xmi:id="_igm_UPX1EeyGPc_cZKqovw" general="_CILfcPX1EeyGPc_cZKqovw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_BfaPQPX1EeyGPc_cZKqovw" name="ExecutionEnvironment12">
+    <generalization xmi:type="uml:Generalization" xmi:id="_jbBZIPX1EeyGPc_cZKqovw" general="_APBlcPX1EeyGPc_cZKqovw"/>
+    <deployment xmi:type="uml:Deployment" xmi:id="_hPLMoPX1EeyGPc_cZKqovw" client="_BfaPQPX1EeyGPc_cZKqovw" supplier="_APBlcPX1EeyGPc_cZKqovw" deployedArtifact="_APBlcPX1EeyGPc_cZKqovw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_CILfcPX1EeyGPc_cZKqovw" name="ExecutionEnvironment13">
+    <deployment xmi:type="uml:Deployment" xmi:id="_giFdIPX1EeyGPc_cZKqovw" client="_CILfcPX1EeyGPc_cZKqovw" supplier="_Avq0YPX1EeyGPc_cZKqovw" deployedArtifact="_Avq0YPX1EeyGPc_cZKqovw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="_H2VVEPX1EeyGPc_cZKqovw" name="Model14"/>
+  <packagedElement xmi:type="uml:Model" xmi:id="_KOKvIPX1EeyGPc_cZKqovw" name="Model15"/>
+  <packagedElement xmi:type="uml:Node" xmi:id="_Maqb4PX1EeyGPc_cZKqovw" name="Node16"/>
+  <packagedElement xmi:type="uml:Node" xmi:id="_N--HQPX1EeyGPc_cZKqovw" name="Node17"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_QKuNIPX1EeyGPc_cZKqovw" name="Package18"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_QqD0gPX1EeyGPc_cZKqovw" name="Package19"/>
+  <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_aswogPX1EeyGPc_cZKqovw" memberEnd="_asx2oPX1EeyGPc_cZKqovw _asydsPX1EeyGPc_cZKqovw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_asxPkPX1EeyGPc_cZKqovw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_asxPkfX1EeyGPc_cZKqovw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_asx2oPX1EeyGPc_cZKqovw" name="device8" type="__AwbgPX0EeyGPc_cZKqovw" association="_aswogPX1EeyGPc_cZKqovw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_asydsPX1EeyGPc_cZKqovw" name="device9" type="__hS8wPX0EeyGPc_cZKqovw" association="_aswogPX1EeyGPc_cZKqovw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_cALYMPX1EeyGPc_cZKqovw" memberEnd="_cAL_QvX1EeyGPc_cZKqovw _cAMmUPX1EeyGPc_cZKqovw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_cAL_QPX1EeyGPc_cZKqovw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_cAL_QfX1EeyGPc_cZKqovw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_cAL_QvX1EeyGPc_cZKqovw" name="executionenvironment12" type="_BfaPQPX1EeyGPc_cZKqovw" association="_cALYMPX1EeyGPc_cZKqovw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_cAMmUPX1EeyGPc_cZKqovw" name="executionenvironment13" type="_CILfcPX1EeyGPc_cZKqovw" association="_cALYMPX1EeyGPc_cZKqovw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_cyzvAPX1EeyGPc_cZKqovw" client="_Avq0YPX1EeyGPc_cZKqovw" supplier="__hS8wPX0EeyGPc_cZKqovw"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_dg6yMPX1EeyGPc_cZKqovw" client="_APBlcPX1EeyGPc_cZKqovw" supplier="__AwbgPX0EeyGPc_cZKqovw"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_e1f_gPX1EeyGPc_cZKqovw" client="__hS8wPX0EeyGPc_cZKqovw" supplier="_Avq0YPX1EeyGPc_cZKqovw"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_fiscsPX1EeyGPc_cZKqovw" client="__AwbgPX0EeyGPc_cZKqovw" supplier="_APBlcPX1EeyGPc_cZKqovw"/>
+</uml:Model>

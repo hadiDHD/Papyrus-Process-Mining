@@ -8,6 +8,9 @@ location orbit "https://download.eclipse.org/tools/orbit/downloads/drops/R202203
 	org.apache.batik.dom [1.14.0,1.15.0)
 	org.apache.batik.dom.svg [1.14.0,1.15.0)
 	org.apache.batik.xml [1.14.0,1.15.0)
+	org.apache.poi [4.1.0,5.0.0)
+    org.apache.poi.ooxml [4.1.0,5.0.0)
+    org.apache.poi.ooxml.schemas [4.1.0,5.0.0)
 }
 
 // updateFrom("GMF Runtime 1.14.2 for SimRel 2022-06",0)

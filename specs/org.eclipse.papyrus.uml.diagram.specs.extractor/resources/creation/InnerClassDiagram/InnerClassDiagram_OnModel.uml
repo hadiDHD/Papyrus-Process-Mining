@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="__mCSgPw5EeywZJY7P9H-Ew" name="InnerClassDiagram_OnModel">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="__o3kEPw5EeywZJY7P9H-Ew">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_NH8e0P0rEeylU8zObXbf7A" name="Class1"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_TQOrsP0rEeylU8zObXbf7A" name="Class2">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_W5aY4P0rEeylU8zObXbf7A"/>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_eDG_cP0rEeylU8zObXbf7A"/>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_WeleEP0rEeylU8zObXbf7A" name="Class1"/>
+    <nestedClassifier xmi:type="uml:Interface" xmi:id="_YjhKQP0rEeylU8zObXbf7A" name="Interface3"/>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_dpYQ0P0rEeylU8zObXbf7A" name="Class4">
+      <generalization xmi:type="uml:Generalization" xmi:id="_iwUVcP0rEeylU8zObXbf7A" general="_hN5gcP0rEeylU8zObXbf7A" generalizationSet="_jzjUEP0rEeylU8zObXbf7A"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Interface" xmi:id="_fNXMEP0rEeylU8zObXbf7A" name="Interface6">
+      <generalization xmi:type="uml:Generalization" xmi:id="_lsqKwP0rEeylU8zObXbf7A" general="_kXLlkP0rEeylU8zObXbf7A" generalizationSet="_nIq1wP0rEeylU8zObXbf7A"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_hN5gcP0rEeylU8zObXbf7A" name="Class7">
+      <generalization xmi:type="uml:Generalization" xmi:id="_iDoOkP0rEeylU8zObXbf7A" general="_hkv6MP0rEeylU8zObXbf7A" generalizationSet="_jzjUEP0rEeylU8zObXbf7A"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_hkv6MP0rEeylU8zObXbf7A" name="Class8"/>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_kXLlkP0rEeylU8zObXbf7A" name="Class9">
+      <generalization xmi:type="uml:Generalization" xmi:id="_lA3bwP0rEeylU8zObXbf7A" general="_kmLq4P0rEeylU8zObXbf7A" generalizationSet="_nIq1wP0rEeylU8zObXbf7A"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_kmLq4P0rEeylU8zObXbf7A" name="Class10"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:DurationObservation" xmi:id="_XzkUAP0rEeylU8zObXbf7A" name="DurationObservation4"/>
+  <packagedElement xmi:type="uml:TimeObservation" xmi:id="_ZCzHQP0rEeylU8zObXbf7A" name="TimeObservation5"/>
+  <packagedElement xmi:type="uml:DurationObservation" xmi:id="_elpr0P0rEeylU8zObXbf7A" name="DurationObservation6"/>
+  <packagedElement xmi:type="uml:TimeObservation" xmi:id="_e7fY8P0rEeylU8zObXbf7A" name="TimeObservation7"/>
+  <packagedElement xmi:type="uml:Abstraction" xmi:id="_f6jpQP0rEeylU8zObXbf7A" client="_WeleEP0rEeylU8zObXbf7A" supplier="_dpYQ0P0rEeylU8zObXbf7A"/>
+  <packagedElement xmi:type="uml:Abstraction" xmi:id="_gpTloP0rEeylU8zObXbf7A" client="_YjhKQP0rEeylU8zObXbf7A" supplier="_fNXMEP0rEeylU8zObXbf7A"/>
+  <packagedElement xmi:type="uml:GeneralizationSet" xmi:id="_jzjUEP0rEeylU8zObXbf7A" name="GeneralizationSet_Class4_Class7" generalization="_iwUVcP0rEeylU8zObXbf7A _iDoOkP0rEeylU8zObXbf7A"/>
+  <packagedElement xmi:type="uml:GeneralizationSet" xmi:id="_nIq1wP0rEeylU8zObXbf7A" name="GeneralizationSet_Interface6_Class9" generalization="_lsqKwP0rEeylU8zObXbf7A _lA3bwP0rEeylU8zObXbf7A"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_owaPoP0rEeylU8zObXbf7A" memberEnd="_owcE0P0rEeylU8zObXbf7A _owdS8P0rEeylU8zObXbf7A">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_owa2sP0rEeylU8zObXbf7A" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_owa2sf0rEeylU8zObXbf7A" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_owcE0P0rEeylU8zObXbf7A" name="class4" type="_dpYQ0P0rEeylU8zObXbf7A" association="_owaPoP0rEeylU8zObXbf7A"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_owdS8P0rEeylU8zObXbf7A" name="class1" type="_WeleEP0rEeylU8zObXbf7A" association="_owaPoP0rEeylU8zObXbf7A"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_pmVyEP0rEeylU8zObXbf7A" memberEnd="_pmWZIv0rEeylU8zObXbf7A _pmWZI_0rEeylU8zObXbf7A">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pmWZIP0rEeylU8zObXbf7A" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pmWZIf0rEeylU8zObXbf7A" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_pmWZIv0rEeylU8zObXbf7A" name="interface6" type="_fNXMEP0rEeylU8zObXbf7A" association="_pmVyEP0rEeylU8zObXbf7A"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_pmWZI_0rEeylU8zObXbf7A" name="interface3" type="_YjhKQP0rEeylU8zObXbf7A" association="_pmVyEP0rEeylU8zObXbf7A"/>
+  </packagedElement>
+</uml:Model>
