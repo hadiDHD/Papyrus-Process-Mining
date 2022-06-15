@@ -674,7 +674,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="SD_createEdgeGroup" label="Edges" icon="/org.eclipse.gmf.runtime.diagram.ui/icons/group.gif">
-          <ownedTools xsi:type="tool:MessageCreationTool" documentation="Create a new synchronous operation" name="CR_Synchronous_Operation" label="Synchronous Message" precondition="service:preTarget.isValidMessageEnd" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='SD_Message']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Message_synchCall.gif" extraSourceMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" connectionStartPrecondition="service:preSource.isValidMessageEnd">
+          <ownedTools xsi:type="tool:MessageCreationTool" documentation="Create a Synchronous Message" name="CR_Synchronous_Operation" label="Synchronous Message" precondition="service:preTarget.isValidMessageEnd" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='SD_Message']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Message_synchCall.gif" extraSourceMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" connectionStartPrecondition="service:preSource.isValidMessageEnd">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -694,7 +694,7 @@
             <startingEndPredecessor name="startingEndPredecessor"/>
             <finishingEndPredecessor name="finishingEndPredecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:MessageCreationTool" documentation="Create a new asynchronous operation" name="CR_Asynchronous_Operation" label="Asynchronous Message" precondition="service:preTarget.isValidMessageEnd" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='SD_Message']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Message_asynchCall.gif" extraSourceMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']">
+          <ownedTools xsi:type="tool:MessageCreationTool" documentation="Create an Asynchronous Message" name="CR_Asynchronous_Operation" label="Asynchronous Message" precondition="service:preTarget.isValidMessageEnd" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='SD_Message']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Message_asynchCall.gif" extraSourceMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -717,7 +717,7 @@
             <startingEndPredecessor name="startingEndPredecessor"/>
             <finishingEndPredecessor name="finishingEndPredecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:MessageCreationTool" name="Message Create" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='CreateMessage']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']">
+          <ownedTools xsi:type="tool:MessageCreationTool" documentation="Create a Message Create" name="Message Create" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='CreateMessage']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Message_createMessage.gif" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']">
             <sourceVariable name="sourceVariable"/>
             <targetVariable name="targetVariable"/>
             <sourceViewVariable name="sourceViewVariable"/>
@@ -735,7 +735,7 @@
             <startingEndPredecessor name="startingEndPredecessor"/>
             <finishingEndPredecessor name="finishingEndPredecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:MessageCreationTool" name="Message Delete" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='DeleteMessage']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']">
+          <ownedTools xsi:type="tool:MessageCreationTool" documentation="Create a Message Delete " name="Message Delete" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='DeleteMessage']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Message_deleteMessage.gif" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']">
             <sourceVariable name="sourceVariable"/>
             <targetVariable name="targetVariable"/>
             <sourceViewVariable name="sourceViewVariable"/>
@@ -750,7 +750,7 @@
             <startingEndPredecessor name="startingEndPredecessor"/>
             <finishingEndPredecessor name="finishingEndPredecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:MessageCreationTool" name="Message Reply" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='MessageReply']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']">
+          <ownedTools xsi:type="tool:MessageCreationTool" documentation="Create a Message Reply" name="Message Reply" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@edgeMappings[name='MessageReply']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Message_reply.gif" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']">
             <sourceVariable name="sourceVariable"/>
             <targetVariable name="targetVariable"/>
             <sourceViewVariable name="sourceViewVariable"/>
@@ -761,7 +761,7 @@
             <startingEndPredecessor name="startingEndPredecessor"/>
             <finishingEndPredecessor name="finishingEndPredecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ToolDescription" name="Message Lost" precondition="aql:element.isLostFoundTargetValid()" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Message.gif">
+          <ownedTools xsi:type="tool_1:ToolDescription" documentation="Create a Message Lost" name="Message Lost" precondition="aql:element.isLostFoundTargetValid()" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Message.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -781,7 +781,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ToolDescription" name="Message Found" precondition="aql:element.isLostFoundTargetValid()" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Message.gif">
+          <ownedTools xsi:type="tool_1:ToolDescription" documentation="Create a Message Found" name="Message Found" precondition="aql:element.isLostFoundTargetValid()" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Message.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
