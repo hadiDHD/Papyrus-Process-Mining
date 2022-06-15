@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" documentation="Copyright (c) 2009, 2014, 2021-2022 Obeo, CEA LIST, Artal Technologies&#xD;&#xA;&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License 2.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;https://www.eclipse.org/legal/epl-2.0/&#xD;&#xA;&#xD;&#xA;SPDX-License-Identifier: EPL-2.0&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;     Obeo - initial API and implementation&#xD;&#xA;     Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - adaptation to integrate in Papyrus&#xD;&#xA;     Vincent Lorenzo (CEA LIST) - vincent.lorenzo@cea.fr  - adaptation to integrate in Papyrus" name="papyrus" version="12.0.0.2017041100">
   <ownedViewpoints name="ClassDiagram" modelFileExtension="uml">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='PrimitiveType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Attributes%20or%20Operations'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticPackageDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Interface%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='InstanceSpecification%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='InformationItem%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Signal%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Class%20Primitive%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Interface%20Primitive%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticClassDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='to%20Package%20%26%26%20Diagram'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticModelDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticEnumerationDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticDataTypeDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='GraphicalEnumerationDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticComponentDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticDurationObservationDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticTimeObservationDrop']" documentation="Representation to edit class diagrams" name="ClassDiagram" titleExpression="aql:self.name +' Class Diagram'" domainClass="uml::Package" preconditionExpression="" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='PrimitiveType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Attributes%20or%20Operations'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticPackageDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Interface%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='InstanceSpecification%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='InformationItem%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Signal%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Class%20Primitive%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Interface%20Primitive%20from%20Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticClassDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='to%20Package%20%26%26%20Diagram'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticModelDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticEnumerationDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticDataTypeDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='GraphicalEnumerationDrop'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='SemanticComponentDrop']" documentation="Representation to edit class diagrams" name="ClassDiagram" titleExpression="aql:self.name +' Class Diagram'" domainClass="uml::Package" preconditionExpression="" enablePopupBars="true">
       <metamodel href="platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#/"/>
       <filters xsi:type="filter:CompositeFilterDescription" name="Show Stereotypes"/>
       <filters xsi:type="filter:CompositeFilterDescription" name="Show Bendpoint"/>
@@ -28,12 +28,6 @@
         </nodeMappings>
         <nodeMappings name="CD_DataTypeLabelNode" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Element%20Name']" semanticCandidatesExpression="aql:if(self.oclIsKindOf(uml::Classifier)) then self.nestedClassifier else null endif" createElements="false" domainClass="uml.DataType">
           <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/DataType.gif" labelAlignment="LEFT" sizeComputationExpression="" labelPosition="node" width="16" height="5" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="CD_DurationObservation" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.DurationObservation">
-          <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/DurationObservation.gif" sizeComputationExpression="2" workspacePath="/org.eclipse.uml2.uml.edit/icons/full/obj16/DurationObservation.gif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -94,12 +88,6 @@
         </nodeMappings>
         <nodeMappings name="CD_SlotLabelNode" semanticCandidatesExpression="aql:if(self.oclIsTypeOf(uml::InstanceSpecification)) then self.slot else null endif" createElements="false" domainClass="uml.Slot">
           <style xsi:type="style:SquareDescription" labelSize="9" labelExpression="service:computeUmlLabel()" labelAlignment="LEFT" sizeComputationExpression="1" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="CD_TimeObservation" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.TimeObservation">
-          <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/TimeObservation.gif" sizeComputationExpression="2" workspacePath="/org.eclipse.uml2.uml.edit/icons/full/obj16/TimeObservation.gif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -676,17 +664,6 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateDurationObservationTool" label="DurationObservation" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_DurationObservation']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/DurationObservation.gif">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.DurationObservation" referenceName="packagedElement">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool:ToolDescription" name="CreateEnumerationTool" label="Enumeration" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Enumeration.gif">
             <element name="element"/>
             <elementView name="elementView"/>
@@ -948,17 +925,6 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation/>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateTimeObservationTool" label="TimeObservation" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_TimeObservation']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/DurationObservation.gif">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.TimeObservation" referenceName="packagedElement">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name="Edges" icon="/org.eclipse.gmf.runtime.diagram.ui/icons/group.gif">
@@ -1927,21 +1893,6 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticDurationObservationDrop" precondition="aql:self.oclIsTypeOf(uml::DurationObservation)" mappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_DurationObservation']" dragSource="PROJECT_EXPLORER">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:elementView">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(diagram::DDiagram)">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                    <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_DurationObservation']" containerViewExpression="aql:newContainerView"/>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticEnumerationDrop" precondition="aql:self.oclIsTypeOf(uml::Enumeration)" mappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_EnumerationLabelNode']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
@@ -2039,21 +1990,6 @@
                 <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(diagram::DNodeContainer)">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" containerViewExpression="aql:newContainerView"/>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticTimeObservationDrop" precondition="aql:self.oclIsTypeOf(uml::TimeObservation)" mappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_TimeObservation']" dragSource="PROJECT_EXPLORER">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:elementView">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(diagram::DDiagram)">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                    <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_TimeObservation']" containerViewExpression="aql:newContainerView"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>

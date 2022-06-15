@@ -31,14 +31,12 @@ public class CreationToolsIds {
 	public static final String CREATE__CLASSIFIER_TEMPLATE_PARAMETER__TOOL = "CreateClassifierTemplateParameterTool"; //$NON-NLS-1$
 
 	public static final String CREATE__COMMENT__TOOL = "CreateCommentTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__COMPONENT__TOOL = "CreateComponentTool"; //$NON-NLS-1$
 
 	public static final String CREATE__CONSTRAINT__TOOL = "CreateConstraintTool"; //$NON-NLS-1$
 
 	public static final String CREATE__DATATYPE__TOOL = "CreateDataTypeTool"; //$NON-NLS-1$
-
-	public static final String CREATE__DURATION_OBSERVATION__TOOL = "CreateDurationObservationTool"; //$NON-NLS-1$
 
 	public static final String CREATE__ENUMERATION__TOOL = "CreateEnumerationTool"; //$NON-NLS-1$
 
@@ -75,56 +73,54 @@ public class CreationToolsIds {
 
 	public static final String CREATE__TEMPLATE_SIGNATURE__TOOL = "CreateTemplateSignatureTool"; //$NON-NLS-1$
 
-	public static final String CREATE__TIME_OBSERVATION__TOOL = "CreateTimeObservationTool"; //$NON-NLS-1$
-
 	/*----------------------------------------------The Edge creation tools IDs----------------------------------------------*/
 
 	public static final String CREATE__ABSTRACTION__TOOL = "CreateAbstractionTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__ASSOCIATION_DIRECTED__TOOL = "CreateAssociation_Directed_Tool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__ASSOCIATION__TOOL = "CreateAssociationTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__COMPOSITE_ASSOCIATION_DIRECTED__TOOL = "CreateCompositeAssociation_Directed_Tool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__SHARE_ASSOCIATION_DIRECTED__TOOL = "CreateSharedAssociation_Directed_Tool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__ASSOCIATION_CLASS__TOOL = "CreateAssociationClassTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__CONTAINMENT_LINK__TOOL = "CreateCreateContainmentLinkTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__CONTEXT_LINK__TOOL__TOOL = "CreateContextLinkTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__DEPENDENCY__TOOL = "CreateDependencyTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__ELEMENT_IMPORT__TOOL = "CreateElementImportTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__GENERALISATION__TOOL = "CreateGeneralizationTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__GENERALISATION_SET__TOOL = "CreateGeneralizationSetTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__INFORMATION_FLOW__TOOL = "CreateInformationFlowTool"; //$NON-NLS-1$
 	/**
 	 * ID of the creation tool for Instance Specification Link (we add Link to avoid mistake with the creation tool for InstanceSpecification Node)
 	 */
 	public static final String CREATE__INSTANCE_SPECIFICATION__LINK_TOOL = "CreateInstanceSpecificationLinkTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__INTERFACE_REALIZATION__TOOL = "CreateInterfaceRealizationTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__LINK__TOOL = "CreateLinkTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__PACKAGE_IMPORT__TOOL = "CreatePackageImportTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__PACKAGE_MERGE__TOOL = "CreatePackageMergeTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__PROFILE_APPLICATION__TOOL = "CreateProfileApplicationTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__REALIZATION__TOOL = "CreateRealizationTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__SUBSTITUTION__TOOL = "CreateSubstitutionTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__TEMPLATE_BINDING__TOOL = "CreateTemplateBindingTool"; //$NON-NLS-1$
-	
+
 	public static final String CREATE__USAGE__TOOL = "CreateUsageTool"; //$NON-NLS-1$
 
 }

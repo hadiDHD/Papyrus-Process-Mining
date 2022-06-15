@@ -34,7 +34,6 @@ import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
@@ -76,7 +75,6 @@ import org.eclipse.uml2.uml.Comment;
 import org.eclipse.uml2.uml.Constraint;
 import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.Dependency;
-import org.eclipse.uml2.uml.DurationObservation;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.ElementImport;
 import org.eclipse.uml2.uml.Enumeration;
@@ -91,7 +89,6 @@ import org.eclipse.uml2.uml.InterfaceRealization;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
-import org.eclipse.uml2.uml.Observation;
 import org.eclipse.uml2.uml.OpaqueExpression;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Package;
@@ -104,7 +101,6 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Realization;
 import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.Substitution;
-import org.eclipse.uml2.uml.TimeObservation;
 import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.Usage;
@@ -770,34 +766,19 @@ public class ClassDiagramServices {
 		} else if (source instanceof Constraint) {
 			((Constraint) source).getConstrainedElements().add(target);
 		}
-		if (source instanceof TimeObservation && !(target instanceof Comment)) {
-			((TimeObservation) source).setEvent((NamedElement) target);
-		} else if (source instanceof DurationObservation && !(target instanceof Comment)) {
-			((DurationObservation) source).getEvents().add((NamedElement) target);
-		}
 	}
 
 	/**
 	 * Get the target element of the Link link.
 	 */
 	public static EList<?> getLinkTarget(Element source) {
-		EList<NamedElement> target = new BasicEList<NamedElement>();
-
 		if (source instanceof Constraint) {
 			Constraint sourceElement = (Constraint) source;
 			return sourceElement.getConstrainedElements();
 		} else if (source instanceof Comment) {
 			Comment sourceElement = (Comment) source;
 			return sourceElement.getAnnotatedElements();
-		} else if (source instanceof TimeObservation) {
-			TimeObservation sourceElement = (TimeObservation) source;
-			target.add(sourceElement.getEvent());
-			return target;
-		} else if (source instanceof DurationObservation) {
-			DurationObservation sourceElement = (DurationObservation) source;
-			return sourceElement.getEvents();
 		}
-
 		return null;
 	}
 
@@ -1215,7 +1196,7 @@ public class ClassDiagramServices {
 	 * @return true if the edge could be reconnected
 	 */
 	public boolean reconnectLinkSourcePrecondition(Element context, Element newSource) {
-		return newSource instanceof Constraint || newSource instanceof Comment || newSource instanceof Observation;
+		return newSource instanceof Constraint || newSource instanceof Comment;
 	}
 
 	/**
@@ -1230,7 +1211,7 @@ public class ClassDiagramServices {
 	 * @return true if the edge could be reconnected
 	 */
 	public boolean reconnectLinkTargetPrecondition(Element context, Element newSource) {
-		return newSource instanceof Constraint || newSource instanceof Comment || newSource instanceof Observation
+		return newSource instanceof Constraint || newSource instanceof Comment
 				|| newSource instanceof PrimitiveType || newSource instanceof Enumeration
 				|| newSource instanceof Package || newSource instanceof Interface || newSource instanceof Class;
 	}
@@ -1951,10 +1932,6 @@ public class ClassDiagramServices {
 			((Comment) oldSource).getAnnotatedElements().remove(target);
 		} else if (oldSource instanceof Constraint) {
 			((Constraint) oldSource).getConstrainedElements().remove(target);
-		} else if (oldSource instanceof TimeObservation) {
-			((TimeObservation) oldSource).setEvent(null);
-		} else if (oldSource instanceof DurationObservation) {
-			((DurationObservation) oldSource).getEvents().remove((NamedElement) target);
 		}
 
 		// add the target to the new source
@@ -1962,10 +1939,6 @@ public class ClassDiagramServices {
 			((Comment) newSource).getAnnotatedElements().add(target);
 		} else if (newSource instanceof Constraint) {
 			((Constraint) newSource).getConstrainedElements().add(target);
-		} else if (newSource instanceof TimeObservation && !(target instanceof Comment)) {
-			((TimeObservation) newSource).setEvent((NamedElement) target);
-		} else if (newSource instanceof DurationObservation && !(target instanceof Comment)) {
-			((DurationObservation) newSource).getEvents().add((NamedElement) target);
 		}
 	}
 
@@ -1993,11 +1966,6 @@ public class ClassDiagramServices {
 		} else if (source instanceof Constraint) {
 			((Constraint) source).getConstrainedElements().remove(oldTarget);
 			((Constraint) source).getConstrainedElements().add(newTarget);
-		} else if (source instanceof TimeObservation && !(newTarget instanceof Comment)) {
-			((TimeObservation) source).setEvent((NamedElement) newTarget);
-		} else if (source instanceof DurationObservation && !(newTarget instanceof Comment)) {
-			((DurationObservation) source).getEvents().remove((NamedElement) oldTarget);
-			((DurationObservation) source).getEvents().add((NamedElement) newTarget);
 		}
 	}
 

@@ -22,7 +22,6 @@ import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphica
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphical.CD_ComponentCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphical.CD_ConstraintCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphical.CD_DataTypeCreationChecker;
-import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphical.CD_DurationObservationCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphical.CD_EnumerationCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphical.CD_InformationItemCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphical.CD_InstanceSpecificationCreationChecker;
@@ -31,13 +30,11 @@ import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphica
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphical.CD_PackageCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphical.CD_PrimitiveTypeCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphical.CD_SignalCreationChecker;
-import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphical.CD_TimeObservationCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.semantic.ClassSemanticCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.semantic.CommentSemanticCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.semantic.ComponentSemanticCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.semantic.ConstraintSemanticCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.semantic.DataTypeSemanticCreationChecker;
-import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.semantic.DurationObservationSemanticCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.semantic.EnumerationSemanticCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.semantic.InformationItemSemanticCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.semantic.InstanceSpecificationSemanticCreationChecker;
@@ -46,7 +43,6 @@ import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.semantic
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.semantic.PackageSemanticCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.semantic.PrimitiveTypeSemanticCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.semantic.SignalSemanticCreationChecker;
-import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.semantic.TimeObservationSemanticCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.internal.api.IGraphicalNodeCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.internal.api.ISemanticNodeCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.internal.api.SemanticAndGraphicalCreationChecker;
@@ -102,15 +98,6 @@ public class CreateTopNodeOnClassDiagram_ModelOwner_Test extends AbstractCreateT
 		final ISemanticNodeCreationChecker semanticChecker = new DataTypeSemanticCreationChecker(getSemanticOwner());
 		final IGraphicalNodeCreationChecker graphicalNodeCreationChecker = new CD_DataTypeCreationChecker(diagram, getTopGraphicalContainer());
 		createNode(CreationToolsIds.CREATE__DATATYPE__TOOL, new SemanticAndGraphicalCreationChecker(semanticChecker, graphicalNodeCreationChecker));
-	}
-
-	@Test
-	@ActiveDiagram(DIAGRAM_NAME)
-	public void createDurationObservationNodeTest() {
-		final Diagram diagram = getDiagram();
-		final ISemanticNodeCreationChecker semanticChecker = new DurationObservationSemanticCreationChecker(getSemanticOwner());
-		final IGraphicalNodeCreationChecker graphicalNodeCreationChecker = new CD_DurationObservationCreationChecker(diagram, getTopGraphicalContainer());
-		createNode(CreationToolsIds.CREATE__DURATION_OBSERVATION__TOOL, new SemanticAndGraphicalCreationChecker(semanticChecker, graphicalNodeCreationChecker));
 	}
 
 	@Test
@@ -183,15 +170,6 @@ public class CreateTopNodeOnClassDiagram_ModelOwner_Test extends AbstractCreateT
 		final ISemanticNodeCreationChecker semanticChecker = new SignalSemanticCreationChecker(getSemanticOwner());
 		final IGraphicalNodeCreationChecker graphicalNodeCreationChecker = new CD_SignalCreationChecker(diagram, getTopGraphicalContainer());
 		createNode(CreationToolsIds.CREATE__SIGNAL__TOOL, new SemanticAndGraphicalCreationChecker(semanticChecker, graphicalNodeCreationChecker));
-	}
-
-	@Test
-	@ActiveDiagram(DIAGRAM_NAME)
-	public void createTimeObservationNodeTest() {
-		final Diagram diagram = getDiagram();
-		final ISemanticNodeCreationChecker semanticChecker = new TimeObservationSemanticCreationChecker(getSemanticOwner());
-		final IGraphicalNodeCreationChecker graphicalNodeCreationChecker = new CD_TimeObservationCreationChecker(diagram, getTopGraphicalContainer());
-		createNode(CreationToolsIds.CREATE__TIME_OBSERVATION__TOOL, new SemanticAndGraphicalCreationChecker(semanticChecker, graphicalNodeCreationChecker));
 	}
 
 }
