@@ -19,6 +19,6 @@
 	<description>Container of the Papyrus-Sirius Core Plugins</description>
 
 	<modules>
-		<module>org.eclipse.papyrus.sirius.core.log</module>
+		<module>org.eclipse.papyrus.sirius.log</module>
 	</modules>
 </project>

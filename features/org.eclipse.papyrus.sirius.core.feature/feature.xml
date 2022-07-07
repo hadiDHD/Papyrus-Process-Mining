@@ -20,7 +20,7 @@
    </license>
 
    <plugin
-         id="org.eclipse.papyrus.sirius.core.log"
+         id="org.eclipse.papyrus.sirius.log"
          download-size="0"
          install-size="0"
          version="0.0.0"

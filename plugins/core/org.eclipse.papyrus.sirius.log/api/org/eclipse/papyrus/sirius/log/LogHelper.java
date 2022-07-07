@@ -13,7 +13,7 @@
  *   Christian W. Damus - bugs 465416, 485220
  *   Vincent LORENZO (CEA) - duplicated from Papyrus
  *******************************************************************************/
-package org.eclipse.papyrus.sirius.core.log;
+package org.eclipse.papyrus.sirius.log;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
@@ -94,7 +94,7 @@ public class LogHelper {
 		this.pluginId = bundle.getSymbolicName();
 		this.bundle = bundle;
 
-		this.tracing = Boolean.valueOf(Platform.getDebugOption(String.format("%s/debug", pluginId))); //$NON-NLS-1$
+		this.tracing = Boolean.getBoolean(Platform.getDebugOption(String.format("%s/debug", pluginId))); //$NON-NLS-1$
 		if (tracing) {
 			this.traceOptions = new ConcurrentHashMap<>(32, 0.75f, 4);
 		}
@@ -158,7 +158,7 @@ public class LogHelper {
 				}
 			}
 
-			return result;
+			return result.booleanValue();
 		}
 
 		return false;
