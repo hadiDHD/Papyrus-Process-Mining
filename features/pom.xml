@@ -21,7 +21,7 @@
 
 	<modules>
 		<module>org.eclipse.papyrus.infra.siriusdiag.feature</module>
-		<module>org.eclipse.papyrus.sirius.core.feature</module>
+		<module>org.eclipse.papyrus.sirius.feature</module>
 		<module>org.eclipse.papyrus.sirius.tests.bundles.feature</module>	
 		<module>org.eclipse.papyrus.tests.uml.siriusdiag.feature</module>
 		<module>org.eclipse.papyrus.toolsmiths.sirius.feature</module>

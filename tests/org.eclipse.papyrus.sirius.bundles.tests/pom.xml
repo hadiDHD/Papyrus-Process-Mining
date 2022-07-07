@@ -38,7 +38,7 @@
 							</requirement>
 							<requirement>
 								<type>eclipse-feature</type>
-								<id>org.eclipse.papyrus.sirius.core.feature</id>
+								<id>org.eclipse.papyrus.sirius.feature</id>
 								<versionRange>0.0.0</versionRange>
 							</requirement>
 							<requirement>

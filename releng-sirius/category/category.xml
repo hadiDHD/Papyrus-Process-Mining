@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.papyrus.sirius.core.feature_0.7.0.qualifier.jar" id="org.eclipse.papyrus.sirius.core.feature" version="0.7.0.qualifier">
+   <feature url="features/org.eclipse.papyrus.sirius.feature_0.7.0.qualifier.jar" id="org.eclipse.papyrus.sirius.feature" version="0.7.0.qualifier">
       <category name="org.eclipse.papyrus.sirius.category"/>
    </feature>
-   <feature url="features/org.eclipse.papyrus.sirius.core.feature.source_0.7.0.qualifier.jar" id="org.eclipse.papyrus.sirius.core.feature.source" version="0.7.0.qualifier">
+   <feature url="features/org.eclipse.papyrus.sirius.feature.source_0.7.0.qualifier.jar" id="org.eclipse.papyrus.sirius.feature.source" version="0.7.0.qualifier">
       <category name="org.eclipse.papyrus.sirius.category"/>
    </feature>
    <feature url="features/org.eclipse.papyrus.uml.siriusdiag.feature_0.7.0.qualifier.jar" id="org.eclipse.papyrus.uml.siriusdiag.feature" version="0.7.0.qualifier">
