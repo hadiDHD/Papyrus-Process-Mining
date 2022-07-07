@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<toc label="Papyrus-Sirius">
+  <topic label="Sirius Diagram Developer Documentation">
+       <anchor id="Papyrus-Sirius-DevDocAnchor"/>
+  </topic>
+  <topic href="src/site/mediawiki/papyrus-sirius-userDoc.html" label="Sirius Diagram User Documentation">
+     <anchor id="Papyrus-Sirius-UserDocAnchor"/>
+  </topic>
+</toc>

@@ -5,5 +5,5 @@ Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-Version: 0.7.0.qualifier
 Bundle-Localization: plugin
-Bundle-SymbolicName: org.eclipse.papyrus.siriusdiag.doc;singleton:=true
-Automatic-Module-Name: org.eclipse.papyrus.siriusdiag.doc
+Bundle-SymbolicName: org.eclipse.papyrus.sirius.doc;singleton:=true
+Automatic-Module-Name: org.eclipse.papyrus.sirius.doc

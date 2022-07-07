@@ -19,7 +19,7 @@
 	<description>Container of the Papyrus-Sirius Documentation Plugins</description>
 
 	<modules>
-		<module>org.eclipse.papyrus.siriusdiag.doc</module>
+		<module>org.eclipse.papyrus.sirius.doc</module>
 	</modules>
 
 

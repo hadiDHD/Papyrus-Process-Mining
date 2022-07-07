@@ -10,7 +10,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>org.eclipse.papyrus.siriusdiag.doc</artifactId>
+	<artifactId>org.eclipse.papyrus.sirius.doc</artifactId>
 	<version>0.7.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	<name>Papyrus-Sirius Diagram Doc</name>

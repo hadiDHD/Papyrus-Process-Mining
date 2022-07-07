@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            category="org.eclipse.papyrus-sirius"
+            file="target/site/generated-eclipse-help/papyrus-sirius-main-toc.xml"
+            primary="true">
+      </toc>
+      <toc
+            category="org.eclipse.papyrus-sirius"
+            file="target/site/generated-eclipse-help/papyrus-sirius-devDoc-main-toc.xml"
+            primary="false">
+      </toc>
+      <toc
+            category="org.eclipse.papyrus-sirius"
+            file="target/site/generated-eclipse-help/papyrus-sirius-devDoc-toc.xml"
+            primary="false">
+      </toc>
+      <toc
+            category="org.eclipse.papyrus-sirius"
+            file="target/site/generated-eclipse-help/papyrus-sirius-userDoc-main-toc.xml"
+            primary="false">
+      </toc>
+      <toc
+            category="org.eclipse.papyrus-sirius"
+            file="target/site/generated-eclipse-help/papyrus-sirius-userDoc-toc.xml"
+            primary="false">
+      </toc>
+      </extension>
+
+</plugin>

@@ -35,7 +35,7 @@ Rules:
 *the dependencies are sorted by alphabetical order
 
 
-= Architecture of Papyrus-SiriusDiag =
+= Architecture of Papyrus-Sirius =
 This framework has been developed to be used only when a sirius diagram is opened.
 
 ==Git Architecture==
