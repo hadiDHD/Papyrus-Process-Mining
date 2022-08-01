@@ -66,7 +66,7 @@ public class ComplexSequenceDiagramTest {
 		final Diagram diagram = diagramView;
 		Assert.assertEquals("The diagram must be empty before creating the top node", 0, diagram.getChildren().size());
 
-		// Create a lifeline from odesign tool -/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign -  (id) 
+		// Create a lifeline from odesign tool -/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign -  (id) 
 		DDiagram diagramRepresentation = (DDiagram) diagram.getElement();
 		// we need the sirius diagram representation
 		fixture.applyNodeCreationToolFromPalette("Lifeline", diagramRepresentation, diagramRepresentation, new Point(100, 100), null);
@@ -88,7 +88,7 @@ public class ComplexSequenceDiagramTest {
 
 		
         // Create a message between 2 lifelines
-		// from odesign tool -/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign -  (id)
+		// from odesign tool -/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign -  (id)
 		final var lifeline1DRep = (EdgeTarget)lifeLine1.getNotationNode().getElement();
 		final var lifeline2DRep = (EdgeTarget)lifeLine2.getNotationNode().getElement();
 		IGraphicalEditPart lifelineAEditPart = (IGraphicalEditPart) fixture.findEditPart(lifeline1DRep);

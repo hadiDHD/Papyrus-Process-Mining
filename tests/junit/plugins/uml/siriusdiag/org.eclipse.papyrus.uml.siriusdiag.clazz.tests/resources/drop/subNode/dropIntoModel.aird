@@ -9,7 +9,7 @@
     <semanticResources>pathmap://UML_METAMODELS/UML.metamodel.uml</semanticResources>
     <semanticResources>pathmap://UML_METAMODELS/Ecore.metamodel.uml</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_2YmdkJ76EeyF49nN-xvxfg">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_2ZQk4J76EeyF49nN-xvxfg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.clazz/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
@@ -25,7 +25,7 @@
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.eclipse.papyrus.sirius.uml.diagram.clazz/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_dCl_QK6rEeyceYKOdTWcvQ">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_dCvwQK6rEeyceYKOdTWcvQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']"/>

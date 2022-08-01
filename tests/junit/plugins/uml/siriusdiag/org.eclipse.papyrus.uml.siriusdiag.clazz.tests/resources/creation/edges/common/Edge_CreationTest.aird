@@ -19,7 +19,7 @@
       </ownedRepresentationDescriptors>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_7XERQDc0Eey6QLfFGXOJpw">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
     </ownedViews>
   </viewpoint:DAnalysis>
   <diagram:DSemanticDiagram uid="_m7ijgInOEey4m6SbQ_ztBA">

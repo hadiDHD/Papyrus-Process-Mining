@@ -28,7 +28,7 @@
       <owningRules xmi:type="representation_1:OwningRule" xmi:id="__pWwYhnpEey3SZW9Qc4G9Q" permit="true" multiplicity="-1">
         <element xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement"/>
       </owningRules>
-      <diagramDescription xmi:type="description_1:SequenceDiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']"/>
+      <diagramDescription xmi:type="description_1:SequenceDiagramDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']"/>
     </representationKinds>
     <metamodel xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
   </contexts>

@@ -9,7 +9,7 @@
     <semanticResources>pathmap://UML_METAMODELS/UML.metamodel.uml</semanticResources>
     <semanticResources>pathmap://UML_METAMODELS/Ecore.metamodel.uml</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_sBnbUEh5EeyZTZejBwLctg">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_sCF8cEh5EeyZTZejBwLctg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.clazz/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>

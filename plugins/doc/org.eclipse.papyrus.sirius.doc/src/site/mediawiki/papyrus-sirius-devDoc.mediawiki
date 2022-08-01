@@ -228,11 +228,11 @@ The State Machine layer defines all the mapping and tools specific to the state 
 = Sequence Diagram =
 
 The Sequence diagram code is located in the 
-org.eclipse.papyrus.uml.sirius.sequence.diagram plugin.
+org.eclipse.papyrus.sirius.uml.diagram.sequence plugin.
 
 == Services ==
 
-* Each services available in org.eclipse.papyrus.uml.sirius.sequence.diagram.services refers to one kind of element and handles the creation, reconnection and precondition for tools linked to this element.
+* Each services available in org.eclipse.papyrus.sirius.uml.diagram.sequence.services refers to one kind of element and handles the creation, reconnection and precondition for tools linked to this element.
 
 * ReorderSequenceRegistry, ReorderService and RefreshSequenceExtensionProvider are used to handle the reordering of all the diagram when moving elements.
 

@@ -9,9 +9,9 @@
     <semanticResources>pathmap://UML_METAMODELS/UML.metamodel.uml</semanticResources>
     <semanticResources>pathmap://UML_METAMODELS/Ecore.metamodel.uml</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_vuSdALsaEeyINaWWAu1mpA">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_vw_ywLsaEeyINaWWAu1mpA" name="SequenceDiagram" repPath="#_vw_LsLsaEeyINaWWAu1mpA" changeId="aed8b730-086e-41ec-8718-444925939833">
-        <description xmi:type="description_1:SequenceDiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']"/>
+        <description xmi:type="description_1:SequenceDiagramDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']"/>
         <target xmi:type="uml:Interaction" href="InteractionOperand_CreationTest.uml#_vspeQLsaEeyINaWWAu1mpA"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
@@ -105,61 +105,61 @@
         <target xmi:type="uml:Lifeline" href="InteractionOperand_CreationTest.uml#_z5J68LsaEeyINaWWAu1mpA"/>
         <semanticElements xmi:type="uml:Lifeline" href="InteractionOperand_CreationTest.uml#_z5J68LsaEeyINaWWAu1mpA"/>
         <ownedStyle xmi:type="diagram:Square" uid="_z5LJErsaEeyINaWWAu1mpA" showIcon="false" borderSize="1" borderSizeComputationExpression="1" width="1" height="40" color="0,0,0">
-          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@style"/>
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']/@style"/>
         </ownedStyle>
-        <actualMapping xmi:type="description_1:ExecutionMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']"/>
+        <actualMapping xmi:type="description_1:ExecutionMapping" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@borderedNodeMappings[name='SD_Lifeline']"/>
       </ownedBorderedNodes>
       <ownedStyle xmi:type="diagram:Square" uid="_z5KiAbsaEeyINaWWAu1mpA" labelSize="9" labelPosition="node" width="10" height="4" color="255,255,255">
-        <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@style"/>
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:InstanceRoleMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']"/>
+      <actualMapping xmi:type="description_1:InstanceRoleMapping" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='SD_LifelineRole']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_2KfrcLsaEeyINaWWAu1mpA" name="seq" width="1" height="1">
       <target xmi:type="uml:CombinedFragment" href="InteractionOperand_CreationTest.uml#_2Kd2QLsaEeyINaWWAu1mpA"/>
       <semanticElements xmi:type="uml:CombinedFragment" href="InteractionOperand_CreationTest.uml#_2Kd2QLsaEeyINaWWAu1mpA"/>
       <graphicalFilters xmi:type="diagram:AbsoluteBoundsFilter" uid="_2KgSgbsaEeyINaWWAu1mpA" x="61" y="166" height="265" width="100"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2KfrcbsaEeyINaWWAu1mpA" labelSize="12" showIcon="false" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@style"/>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:CombinedFragmentMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']"/>
+      <actualMapping xmi:type="description_1:CombinedFragmentMapping" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']"/>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_2Kj847saEeyINaWWAu1mpA" name="InteractionOperand1" width="1" height="1">
         <target xmi:type="uml:InteractionOperand" href="InteractionOperand_CreationTest.uml#_2KedUrsaEeyINaWWAu1mpA"/>
         <semanticElements xmi:type="uml:InteractionOperand" href="InteractionOperand_CreationTest.uml#_2KedUrsaEeyINaWWAu1mpA"/>
         <graphicalFilters xmi:type="diagram:AbsoluteBoundsFilter" uid="_2K1CoLsaEeyINaWWAu1mpA" x="61" y="196" height="60" width="100"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2Kj85LsaEeyINaWWAu1mpA" labelSize="12" showIcon="false" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
-          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@subContainerMappings[name='SD_Operand']/@style"/>
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@subContainerMappings[name='SD_Operand']/@style"/>
         </ownedStyle>
-        <actualMapping xmi:type="description_1:OperandMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@subContainerMappings[name='SD_Operand']"/>
+        <actualMapping xmi:type="description_1:OperandMapping" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@subContainerMappings[name='SD_Operand']"/>
       </ownedDiagramElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_2KjV0rsaEeyINaWWAu1mpA" visible="false" width="1" height="1">
       <target xmi:type="ecore:EAnnotation" href="InteractionOperand_CreationTest.uml#_2KedULsaEeyINaWWAu1mpA"/>
       <semanticElements xmi:type="ecore:EAnnotation" href="InteractionOperand_CreationTest.uml#_2KedULsaEeyINaWWAu1mpA"/>
       <graphicalFilters xmi:type="diagram:AppliedCompositeFilters" uid="_2KzNcLsaEeyINaWWAu1mpA">
-        <compositeFilterDescriptions xmi:type="filter:CompositeFilterDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@filters[name='Hide%20Observation%20Point']"/>
+        <compositeFilterDescriptions xmi:type="filter:CompositeFilterDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@filters[name='Hide%20Observation%20Point']"/>
       </graphicalFilters>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_2KjV07saEeyINaWWAu1mpA" labelSize="12" showIcon="false" workspacePath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/observation_opaque.svg">
-        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']/@style"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_2KjV07saEeyINaWWAu1mpA" labelSize="12" showIcon="false" workspacePath="/org.eclipse.papyrus.sirius.uml.diagram.sequence/icons/observation_opaque.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:ObservationPointMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']"/>
+      <actualMapping xmi:type="description_1:ObservationPointMapping" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_2KjV1bsaEeyINaWWAu1mpA" visible="false" width="1" height="1">
       <target xmi:type="ecore:EAnnotation" href="InteractionOperand_CreationTest.uml#_2KedUbsaEeyINaWWAu1mpA"/>
       <semanticElements xmi:type="ecore:EAnnotation" href="InteractionOperand_CreationTest.uml#_2KedUbsaEeyINaWWAu1mpA"/>
       <graphicalFilters xmi:type="diagram:AppliedCompositeFilters" uid="_2KzNcbsaEeyINaWWAu1mpA">
-        <compositeFilterDescriptions xmi:type="filter:CompositeFilterDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@filters[name='Hide%20Observation%20Point']"/>
+        <compositeFilterDescriptions xmi:type="filter:CompositeFilterDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@filters[name='Hide%20Observation%20Point']"/>
       </graphicalFilters>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_2KjV1rsaEeyINaWWAu1mpA" labelSize="12" showIcon="false" workspacePath="/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/observation_opaque.svg">
-        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']/@style"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_2KjV1rsaEeyINaWWAu1mpA" labelSize="12" showIcon="false" workspacePath="/org.eclipse.papyrus.sirius.uml.diagram.sequence/icons/observation_opaque.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:ObservationPointMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']"/>
+      <actualMapping xmi:type="description_1:ObservationPointMapping" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer/@nodeMappings[name='Observation']"/>
     </ownedDiagramElements>
-    <description xmi:type="description_1:SequenceDiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']"/>
-    <activatedFilters xmi:type="filter:CompositeFilterDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@filters[name='Hide%20Observation%20Point']"/>
+    <description xmi:type="description_1:SequenceDiagramDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']"/>
+    <activatedFilters xmi:type="filter:CompositeFilterDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@filters[name='Hide%20Observation%20Point']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_vw_LsbsaEeyINaWWAu1mpA"/>
-    <activatedLayers xmi:type="description_2:Layer" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']"/>
-    <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Comment']"/>
+    <activatedLayers xmi:type="description_2:Layer" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Common']"/>
+    <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='SequenceDiagram']/@additionalLayers[name='Comment']"/>
     <target xmi:type="uml:Interaction" href="InteractionOperand_CreationTest.uml#_vspeQLsaEeyINaWWAu1mpA"/>
   </sequence:SequenceDDiagram>
 </xmi:XMI>

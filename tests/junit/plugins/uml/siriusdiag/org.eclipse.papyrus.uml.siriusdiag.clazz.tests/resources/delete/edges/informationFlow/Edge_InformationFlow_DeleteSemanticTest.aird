@@ -19,7 +19,7 @@
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']"/>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_pKT40DcnEey1v5ZgfkSlPg">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
     </ownedViews>
   </viewpoint:DAnalysis>
   <diagram:DSemanticDiagram uid="_pKh7QDcnEey1v5ZgfkSlPg">

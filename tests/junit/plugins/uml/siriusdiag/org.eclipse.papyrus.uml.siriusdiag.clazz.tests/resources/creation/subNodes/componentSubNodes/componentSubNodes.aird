@@ -14,7 +14,7 @@
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']"/>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_mI864JhyEey4H9pK03zhCg">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_mJRrAJhyEey4H9pK03zhCg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.eclipse.papyrus.sirius.uml.diagram.clazz/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
@@ -27,7 +27,7 @@
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']"/>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_4QDDIJhyEeyQtOVL0KZfWg">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_4Qd54JhyEeyQtOVL0KZfWg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.clazz/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
