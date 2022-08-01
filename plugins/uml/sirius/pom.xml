@@ -18,7 +18,7 @@
 
 	<name>Sirius diagrams for Papyrus</name>
 	<modules>
-		<module>org.eclipse.papyrus.uml.sirius.clazz.diagram</module>
+		<module>org.eclipse.papyrus.sirius.uml.diagram.clazz</module>
 		<module>org.eclipse.papyrus.uml.sirius.common.diagram</module>
 		<module>org.eclipse.papyrus.uml.sirius.diagram.architecture</module>
 		<module>org.eclipse.papyrus.uml.sirius.sequence.diagram</module>

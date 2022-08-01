@@ -188,7 +188,7 @@ To override this behavior, we have used the following extension point org.eclips
 = Class Diagram =
 
 The class diagram code is located in the 
-org.eclipse.papyrus.uml.sirius.clazz.diagram plugin.
+org.eclipse.papyrus.sirius.uml.diagram.clazz plugin.
 
 == Services==
 

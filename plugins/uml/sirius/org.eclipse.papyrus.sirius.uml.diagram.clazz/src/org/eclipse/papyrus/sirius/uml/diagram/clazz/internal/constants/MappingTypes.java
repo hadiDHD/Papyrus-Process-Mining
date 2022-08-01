@@ -11,7 +11,7 @@
  * Contributors:
  *  Vincent Lorenzo (CEA LIST) <vincent.lorenzo@cea.fr> - Initial API and implementation
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants;
+package org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.constants;
 
 /**
  * This class provides mapping types for Sirius Class Diagram odesign

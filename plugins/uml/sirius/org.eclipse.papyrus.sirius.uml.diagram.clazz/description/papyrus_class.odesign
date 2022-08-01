@@ -1049,7 +1049,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createInformationFlowLink(sourceView, source, target)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="CreateInstanceSpecificationLinkTool" label="Instance Specification" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_InstanceSpecification_Link']" iconPath="/org.eclipse.papyrus.uml.sirius.clazz.diagram/icons/obj16/InstanceLink.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="CreateInstanceSpecificationLinkTool" label="Instance Specification" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_InstanceSpecification_Link']" iconPath="/org.eclipse.papyrus.sirius.uml.diagram.clazz/icons/obj16/InstanceLink.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1075,7 +1075,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="CreateLinkTool" label="Link" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Link']" iconPath="/org.eclipse.papyrus.uml.sirius.clazz.diagram/icons/obj16/Link.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="CreateLinkTool" label="Link" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Link']" iconPath="/org.eclipse.papyrus.sirius.uml.diagram.clazz/icons/obj16/Link.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -2121,7 +2121,7 @@
         </toolSections>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.clazz.diagram.services.ClassDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.clazz.services.ClassDiagramServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.common.diagram.core.services.AbstractDiagramServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.common.diagram.services.SemanticDeletionService"/>
   </ownedViewpoints>

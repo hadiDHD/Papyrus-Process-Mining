@@ -4,8 +4,8 @@
    <extension
          point="org.eclipse.sirius.componentization">
       <component
-            class="org.eclipse.papyrus.uml.sirius.clazz.diagram.Activator"
-            id="org.eclipse.papyrus.uml.sirius.clazz.diagram"
+            class="org.eclipse.papyrus.sirius.uml.diagram.clazz.Activator"
+            id="org.eclipse.papyrus.sirius.uml.diagram.clazz"
             name="Class Diagram">
       </component>
    </extension>

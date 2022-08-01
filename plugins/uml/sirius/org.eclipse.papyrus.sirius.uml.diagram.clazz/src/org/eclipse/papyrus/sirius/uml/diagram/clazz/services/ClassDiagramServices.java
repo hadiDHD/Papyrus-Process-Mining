@@ -12,7 +12,7 @@
  *  Obeo - initial API and implementation
  *  Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - adaptation to integrate in Papyrus
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.clazz.diagram.services;
+package org.eclipse.papyrus.sirius.uml.diagram.clazz.services;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;

@@ -15,7 +15,7 @@ package org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphic
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
-import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.MappingTypes;
+import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.constants.MappingTypes;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.internal.api.AbstractDNodeCreationChecker;
 
 /**

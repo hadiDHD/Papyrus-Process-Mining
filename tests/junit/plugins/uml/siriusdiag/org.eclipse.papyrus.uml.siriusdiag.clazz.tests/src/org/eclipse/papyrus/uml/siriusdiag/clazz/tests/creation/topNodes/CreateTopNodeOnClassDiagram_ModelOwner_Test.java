@@ -16,7 +16,7 @@ package org.eclipse.papyrus.uml.siriusdiag.clazz.tests.creation.topNodes;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
-import org.eclipse.papyrus.uml.sirius.clazz.diagram.internal.constants.CreationToolsIds;
+import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.constants.CreationToolsIds;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphical.CD_ClassCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphical.CD_CommentCreationChecker;
 import org.eclipse.papyrus.uml.siriusdiag.clazz.tests.checkers.creation.graphical.CD_ComponentCreationChecker;

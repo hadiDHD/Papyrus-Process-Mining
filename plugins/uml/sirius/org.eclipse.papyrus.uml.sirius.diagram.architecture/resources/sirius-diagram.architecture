@@ -10,7 +10,7 @@
       <owningRules xmi:type="representation_1:OwningRule" xmi:id="_zeWKoCi7EeuXVsN3JsOSRg" permit="true" multiplicity="-1">
         <element xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
       </owningRules>
-      <diagramDescription xmi:type="description:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']"/>
+      <diagramDescription xmi:type="description:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.clazz/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']"/>
     </representationKinds>
     <representationKinds xmi:type="representation:SiriusDiagramPrototype" xmi:id="_Lt0sUA68EeyT-6l_Qn7xWQ" id="org.eclipse.papyrus.sirius.uml.diagram.statemachine" name="New State Machine Diagram" description="Create a new state machine diagram." icon="platform:/plugin/org.eclipse.papyrus.uml.sirius.diagram.architecture/resources/icons/Diagram_StateMachine.png" grayedIcon="" implementationID="Sirius" creationCommandClass="org.eclipse.papyrus.infra.siriusdiag.representation.architecture.CreatePapyrusSiriusStateMachineDiagramEditorCommand">
       <modelRules xmi:type="representation_1:ModelRule" xmi:id="_Lt0sUQ68EeyT-6l_Qn7xWQ" permit="true" elementMultiplicity="1" multiplicity="-1">
