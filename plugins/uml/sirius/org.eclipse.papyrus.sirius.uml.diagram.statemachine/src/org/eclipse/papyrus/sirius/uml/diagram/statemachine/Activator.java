@@ -11,7 +11,7 @@
  * Contributors:
  *    Yann Binot (Artal Technologies) <yann.binot@artal.fr>
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.statemachine.diagram;
+package org.eclipse.papyrus.sirius.uml.diagram.statemachine;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -28,7 +28,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	/** The Constant PLUGIN_ID. */
-	public static final String PLUGIN_ID = "org.eclipse.papyrus.uml.sirius.statemachine.diagram";
+	public static final String PLUGIN_ID = "org.eclipse.papyrus.sirius.uml.diagram.statemachine";
 
 	/** The plugin. */
 	private static Activator plugin;

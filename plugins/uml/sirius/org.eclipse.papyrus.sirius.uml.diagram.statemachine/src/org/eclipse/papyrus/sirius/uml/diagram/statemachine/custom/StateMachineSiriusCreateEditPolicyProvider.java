@@ -11,7 +11,7 @@
  * Contributors:
  *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.statemachine.diagram.custom;
+package org.eclipse.papyrus.sirius.uml.diagram.statemachine.custom;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;

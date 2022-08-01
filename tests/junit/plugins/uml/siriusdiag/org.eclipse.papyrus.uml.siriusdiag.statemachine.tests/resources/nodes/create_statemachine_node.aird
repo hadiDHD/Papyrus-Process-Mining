@@ -15,13 +15,13 @@
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.clazz/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_sDdOYEh5EeyZTZejBwLctg">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']"/>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_sE3joEh5EeyZTZejBwLctg" name="create_statemachine_node" repPath="#_sDnmcEh5EeyZTZejBwLctg" changeId="01cc61c6-7070-4d90-b8b2-bf43aac3a6b8">
-        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']"/>
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']"/>
         <target xmi:type="uml:StateMachine" href="create_statemachine_node.uml#_66nywBU7Eeyoy_nckgy9qg"/>
       </ownedRepresentationDescriptors>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_-h6PQEiQEeyw8bkdlqqp6g" name="create_state_subnode" repPath="#_-gNmIEiQEeyw8bkdlqqp6g" changeId="b82fdc4e-e4e0-4e96-bb7a-b3b00a6dc73b">
-        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']"/>
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']"/>
         <target xmi:type="uml:StateMachine" href="create_statemachine_node.uml#_eGoB4BrsEeyUYZmtMIggwg"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
@@ -60,7 +60,7 @@
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@userColorsPalettes[name=null]/@entries[name='StateMachine_Gray']"/>
+          <foregroundColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@userColorsPalettes[name=null]/@entries[name='StateMachine_Gray']"/>
           <labelBorderStyle xmi:type="style_1:LabelBorderStyleDescription" href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.2"/>
         </computedStyleDescriptions>
       </data>
@@ -69,20 +69,20 @@
       <target xmi:type="uml:StateMachine" href="create_statemachine_node.uml#_66nywBU7Eeyoy_nckgy9qg"/>
       <semanticElements xmi:type="uml:StateMachine" href="create_statemachine_node.uml#_66nywBU7Eeyoy_nckgy9qg"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_sE6m8Uh5EeyZTZejBwLctg" labelSize="12" showIcon="false" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" foregroundColor="195,209,213">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@style"/>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']"/>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_sE-RUEh5EeyZTZejBwLctg" name="Region1">
         <target xmi:type="uml:Region" href="create_statemachine_node.uml#_9DKMkBU7Eeyoy_nckgy9qg"/>
         <semanticElements xmi:type="uml:Region" href="create_statemachine_node.uml#_9DKMkBU7Eeyoy_nckgy9qg"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" uid="_sE-RUUh5EeyZTZejBwLctg"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_sS9qAEh5EeyZTZejBwLctg" labelSize="12" showIcon="false" description="_sS9C8kh5EeyZTZejBwLctg" borderSize="1" borderSizeComputationExpression="1" borderLineStyle="dot" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,209,213"/>
-        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']"/>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']"/>
       </ownedDiagramElements>
     </ownedDiagramElements>
-    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']"/>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_sE2VgEh5EeyZTZejBwLctg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer"/>
     <target xmi:type="uml:StateMachine" href="create_statemachine_node.uml#_66nywBU7Eeyoy_nckgy9qg"/>
   </diagram:DSemanticDiagram>
   <diagram:DSemanticDiagram uid="_-gNmIEiQEeyw8bkdlqqp6g">
@@ -138,7 +138,7 @@
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@userColorsPalettes[name=null]/@entries[name='StateMachine_Gray']"/>
+          <foregroundColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@userColorsPalettes[name=null]/@entries[name='StateMachine_Gray']"/>
           <labelBorderStyle xmi:type="style_1:LabelBorderStyleDescription" href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.2"/>
         </computedStyleDescriptions>
       </data>
@@ -150,15 +150,15 @@
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_-i_NUEiQEeyw8bkdlqqp6g" labelSize="12" showIcon="false" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" foregroundColor="195,209,213">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@style"/>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']"/>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_-j8PkEiQEeyw8bkdlqqp6g" name="Region1">
         <target xmi:type="uml:Region" href="create_statemachine_node.uml#_f0YkMBrsEeyUYZmtMIggwg"/>
         <semanticElements xmi:type="uml:Region" href="create_statemachine_node.uml#_f0YkMBrsEeyUYZmtMIggwg"/>
         <graphicalFilters xmi:type="diagram:HideLabelFilter" uid="_-j8PkUiQEeyw8bkdlqqp6g"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_-v7dIEiQEeyw8bkdlqqp6g" labelSize="12" showIcon="false" description="_-v62EEiQEeyw8bkdlqqp6g" borderSize="1" borderSizeComputationExpression="1" borderLineStyle="dot" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,209,213"/>
-        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']"/>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']"/>
         <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="__hCJ8EiQEeyw8bkdlqqp6g" name="State1" childrenPresentation="VerticalStack">
           <target xmi:type="uml:State" href="create_statemachine_node.uml#_htI1kBrsEeyUYZmtMIggwg"/>
           <semanticElements xmi:type="uml:State" href="create_statemachine_node.uml#_htI1kBrsEeyUYZmtMIggwg"/>
@@ -166,22 +166,22 @@
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
           <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="__hCxAEiQEeyw8bkdlqqp6g" labelSize="12" showIcon="false" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" foregroundColor="195,209,213">
-            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@style"/>
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@style"/>
           </ownedStyle>
-          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']"/>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']"/>
           <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_AIKbYEiREeyw8bkdlqqp6g" name="Region1">
             <target xmi:type="uml:Region" href="create_statemachine_node.uml#_iR6WkBrsEeyUYZmtMIggwg"/>
             <semanticElements xmi:type="uml:Region" href="create_statemachine_node.uml#_iR6WkBrsEeyUYZmtMIggwg"/>
             <graphicalFilters xmi:type="diagram:HideLabelFilter" uid="_AILpgEiREeyw8bkdlqqp6g"/>
             <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_AILCcEiREeyw8bkdlqqp6g" labelSize="12" showIcon="false" description="_-v62EEiQEeyw8bkdlqqp6g" borderSize="1" borderSizeComputationExpression="1" borderLineStyle="dot" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="195,209,213"/>
-            <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']"/>
+            <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']"/>
           </ownedDiagramElements>
         </ownedDiagramElements>
       </ownedDiagramElements>
     </ownedDiagramElements>
-    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']"/>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_-hsz4EiQEeyw8bkdlqqp6g"/>
-    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer"/>
     <target xmi:type="uml:StateMachine" href="create_statemachine_node.uml#_eGoB4BrsEeyUYZmtMIggwg"/>
   </diagram:DSemanticDiagram>
 </xmi:XMI>

@@ -119,32 +119,32 @@
                 </style>
               </conditionnalStyles>
               <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::choice)">
-                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Choice.svg">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.sirius.uml.diagram.statemachine/icons/Choice.svg">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </conditionnalStyles>
               <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::terminate)">
-                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Terminate.svg">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.sirius.uml.diagram.statemachine/icons/Terminate.svg">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </conditionnalStyles>
               <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::join)">
-                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Join.svg">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.sirius.uml.diagram.statemachine/icons/Join.svg">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </conditionnalStyles>
               <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::fork)">
-                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Fork.svg">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.sirius.uml.diagram.statemachine/icons/Fork.svg">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </conditionnalStyles>
             </subNodeMappings>
             <subNodeMappings name="FinalState" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="feature:subvertex" createElements="false" domainClass="FinalState">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/FinalState.svg">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.eclipse.papyrus.sirius.uml.diagram.statemachine/icons/FinalState.svg">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
@@ -152,13 +152,13 @@
             <subContainerMappings name="State" preconditionExpression="aql:not self.oclIsTypeOf(uml::FinalState)" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="feature:subvertex" createElements="false" domainClass="uml.State" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='RegionDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='PseudostateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='BorderPseudoStateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Constraint%20from%20Model'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='Comment%20from%20Model']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='Constraint']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='HorizontalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']/@subContainerMappings[name='State']/@subContainerMappings[name='VerticalRegions']" childrenPresentation="VerticalStack">
               <borderedNodeMappings name="BorderPseudoState" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:eContents" synchronizationLock="true" domainClass="uml.Pseudostate">
                 <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::entryPoint)">
-                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" workspacePath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Entry.svg">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" workspacePath="/org.eclipse.papyrus.sirius.uml.diagram.statemachine/icons/Entry.svg">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   </style>
                 </conditionnalStyles>
                 <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::exitPoint)">
-                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" workspacePath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Exit.svg">
+                  <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" workspacePath="/org.eclipse.papyrus.sirius.uml.diagram.statemachine/icons/Exit.svg">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   </style>
@@ -772,7 +772,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Link" precondition="aql:true" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='Link']" iconPath="/org.eclipse.papyrus.uml.sirius.statemachine.diagram/icons/Link.gif" extraTargetMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Link" precondition="aql:true" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='Link']" iconPath="/org.eclipse.papyrus.sirius.uml.diagram.statemachine/icons/Link.gif" extraTargetMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateMachine']/@subContainerMappings[name='Region']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -974,7 +974,7 @@
         </toolSections>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.statemachine.diagram.StateMachineServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.statemachine.StateMachineServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.common.diagram.core.services.AbstractDiagramServices"/>
   </ownedViewpoints>
   <userColorsPalettes>

@@ -11,7 +11,7 @@
  * Contributors:
  *    Yann Binot (Artal Technologies) <yann.binot@artal.fr>
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.statemachine.diagram;
+package org.eclipse.papyrus.sirius.uml.diagram.statemachine;
 
 import java.util.Map.Entry;
 

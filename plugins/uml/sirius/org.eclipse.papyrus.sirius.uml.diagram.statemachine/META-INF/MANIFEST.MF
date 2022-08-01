@@ -1,22 +1,22 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.eclipse.papyrus.uml.sirius.statemachine.diagram;singleton:=true
+Bundle-SymbolicName: org.eclipse.papyrus.sirius.uml.diagram.statemachine;singleton:=true
 Bundle-Version: 0.7.0.qualifier
-Bundle-Activator: org.eclipse.papyrus.uml.sirius.statemachine.diagram.Activator
+Bundle-Activator: org.eclipse.papyrus.sirius.uml.diagram.statemachine.Activator
 Bundle-Localization: plugin
-Require-Bundle: org.eclipse.ui;bundle-version="[3.200.0,4.0.0)",
- org.eclipse.core.runtime;bundle-version="[3.24.0,4.0.0)",
+Require-Bundle: org.eclipse.ui;bundle-version="[3.119.0,4.0.0)",
+ org.eclipse.core.runtime;bundle-version="[3.23.0,4.0.0)",
  org.eclipse.core.resources;bundle-version="[3.16.0,4.0.0)",
- org.eclipse.sirius,
- org.eclipse.sirius.common.acceleo.aql,
+ org.eclipse.sirius;bundle-version="[7.0.0,8.0.0)",
+ org.eclipse.sirius.common.acceleo.aql;bundle-version="[7.0.0,8.0.0)",
  org.eclipse.uml2.uml;bundle-version="[5.5.0,6.0.0)",
  org.eclipse.uml2.uml.edit;bundle-version="[5.5.0,6.0.0)",
  org.eclipse.papyrus.uml.sirius.common.diagram;bundle-version="[0.7.0,1.0.0)",
  org.eclipse.sirius.diagram;bundle-version="[7.0.0,8.0.0)",
  org.eclipse.gmf.runtime.diagram.ui;bundle-version="[1.9.0,2.0.0)",
  org.eclipse.papyrus.infra.emf.gmf;bundle-version="[2.1.0,3.0.0)",
- org.eclipse.papyrus.infra.gmfdiag.common;bundle-version="[4.2.0,5.0.0)",
+ org.eclipse.papyrus.infra.gmfdiag.common;bundle-version="[4.3.0,5.0.0)",
  org.eclipse.sirius.diagram.ui;bundle-version="[7.0.0,8.0.0)",
  org.eclipse.papyrus.uml.diagram.statemachine;bundle-version="[5.0.0,6.0.0)",
  org.eclipse.sirius.ext.base;bundle-version="[7.0.0,8.0.0)",
@@ -30,4 +30,4 @@ Require-Bundle: org.eclipse.ui;bundle-version="[3.200.0,4.0.0)",
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-Vendor: %providerName
-Automatic-Module-Name: org.eclipse.papyrus.uml.sirius.statemachine.diagram
+Automatic-Module-Name: org.eclipse.papyrus.sirius.uml.diagram.statemachine

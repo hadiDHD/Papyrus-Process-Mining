@@ -11,7 +11,7 @@
  * Contributors:
  *    Yann Binot (Artal Technologies) <yann.binot@artal.fr>
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.statemachine.diagram;
+package org.eclipse.papyrus.sirius.uml.diagram.statemachine;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -46,8 +46,8 @@ import org.eclipse.papyrus.uml.diagram.statemachine.custom.preferences.Preferenc
 import org.eclipse.papyrus.uml.diagram.statemachine.custom.util.TriggerUtil;
 import org.eclipse.papyrus.uml.diagram.statemachine.part.UMLDiagramEditorPlugin;
 import org.eclipse.papyrus.uml.internationalization.utils.utils.UMLLabelInternationalization;
-import org.eclipse.papyrus.uml.sirius.statemachine.diagram.custom.StateMachineRegionPolicy;
-import org.eclipse.papyrus.uml.sirius.statemachine.diagram.custom.StateMachineRegionPolicy.Zone;
+import org.eclipse.papyrus.sirius.uml.diagram.statemachine.custom.StateMachineRegionPolicy;
+import org.eclipse.papyrus.sirius.uml.diagram.statemachine.custom.StateMachineRegionPolicy.Zone;
 import org.eclipse.papyrus.uml.tools.utils.ValueSpecificationUtil;
 import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.diagram.AbstractDNode;

@@ -19,7 +19,7 @@
       <owningRules xmi:type="representation_1:OwningRule" xmi:id="_Lt0sUg68EeyT-6l_Qn7xWQ" permit="true" multiplicity="-1">
         <element xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement"/>
       </owningRules>
-      <diagramDescription xmi:type="description:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.uml.sirius.statemachine.diagram/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']"/>
+      <diagramDescription xmi:type="description:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']"/>
     </representationKinds>
     <representationKinds xmi:type="representation:SiriusDiagramPrototype" xmi:id="__pWwYBnpEey3SZW9Qc4G9Q" id="org.eclipse.papyrus.sirius.uml.diagram.sequence" name="New Sequence Diagram" description="Create a new sequence diagram." icon="platform:/plugin/org.eclipse.papyrus.uml.sirius.diagram.architecture/resources/icons/Diagram_Sequence.png" grayedIcon="" implementationID="Sirius" creationCommandClass="org.eclipse.papyrus.infra.siriusdiag.representation.architecture.CreatePapyrusSiriusSequenceDiagramEditorCommand">
       <modelRules xmi:type="representation_1:ModelRule" xmi:id="__pWwYRnpEey3SZW9Qc4G9Q" permit="true" elementMultiplicity="1" multiplicity="-1">

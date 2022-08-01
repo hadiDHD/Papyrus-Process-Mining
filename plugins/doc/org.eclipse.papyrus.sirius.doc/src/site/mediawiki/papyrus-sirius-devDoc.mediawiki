@@ -209,7 +209,7 @@ The Class layer defines all the mapping and tools specific to the class diagram:
 = State Machine Diagram =
 
 The State Machine diagram code is located in the 
-org.eclipse.papyrus.uml.sirius.statemachine.diagram plugin.
+org.eclipse.papyrus.sirius.uml.diagram.statemachine plugin.
 
 == Services ==
 

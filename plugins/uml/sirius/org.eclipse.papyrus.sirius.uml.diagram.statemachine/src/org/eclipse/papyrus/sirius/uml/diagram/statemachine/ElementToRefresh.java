@@ -11,7 +11,7 @@
  * Contributors:
  *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.statemachine.diagram;
+package org.eclipse.papyrus.sirius.uml.diagram.statemachine;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -2,15 +2,15 @@
 <?eclipse version="3.0"?>
 <plugin>
   <extension point="org.eclipse.sirius.componentization">
-    <component class="org.eclipse.papyrus.uml.sirius.statemachine.diagram.Activator"
-               id="org.eclipse.papyrus.uml.sirius.statemachine.diagram"
+    <component class="org.eclipse.papyrus.sirius.uml.diagram.statemachine.Activator"
+               id="org.eclipse.papyrus.sirius.uml.diagram.statemachine"
 	       name="papyrus_statemachine">
     </component>
   </extension>
   <extension
         point="org.eclipse.gmf.runtime.diagram.ui.editpolicyProviders">
      <editpolicyProvider
-           class="org.eclipse.papyrus.uml.sirius.statemachine.diagram.custom.StateMachineSiriusCreateEditPolicyProvider">
+           class="org.eclipse.papyrus.sirius.uml.diagram.statemachine.custom.StateMachineSiriusCreateEditPolicyProvider">
         <Priority
               name="High">
         </Priority>
@@ -20,14 +20,14 @@
         point="org.eclipse.sirius.refreshExtensionProvider">
      <refreshExtensionProvider
            priority="lowest"
-           providerClass="org.eclipse.papyrus.uml.sirius.statemachine.diagram.StateMachineRefreshExtensionProvider">
+           providerClass="org.eclipse.papyrus.sirius.uml.diagram.statemachine.StateMachineRefreshExtensionProvider">
      </refreshExtensionProvider>
   </extension>
   <extension
         point="org.eclipse.sirius.diagram.ui.formatDataManager">
      <formatDataManagerProvider
-           class="org.eclipse.papyrus.uml.sirius.statemachine.diagram.layout.StateMachineDataManagerProvider"
-           id="org.eclipse.papyrus.uml.sirius.statemachine.diagram.stateFormatDataManager">
+           class="org.eclipse.papyrus.sirius.uml.diagram.statemachine.layout.StateMachineDataManagerProvider"
+           id="org.eclipse.papyrus.sirius.uml.diagram.statemachine.stateFormatDataManager">
      </formatDataManagerProvider>
   </extension>
 </plugin>
