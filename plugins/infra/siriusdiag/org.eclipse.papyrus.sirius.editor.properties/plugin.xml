@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="TreeOutlinePage">
+         <propertySection
+               class="org.eclipse.papyrus.sirius.editor.properties.internal.emf.SiriusDiagramPropertySection"
+               filter="org.eclipse.papyrus.sirius.editor.properties.internal.emf.SiriusDiagramPackageSectionFilter"
+               id="org.eclipse.papyrus.sirius.editor.properties.propertySection"
+               tab="advanced">
+            <input
+                  type="java.lang.Object">
+            </input>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+</plugin>

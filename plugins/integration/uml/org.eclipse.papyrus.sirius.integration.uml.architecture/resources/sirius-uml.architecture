@@ -6,7 +6,7 @@
     <metamodel xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     <treeViewerConfigurations xmi:type="customizationconfiguration:EMFFacetTreeViewerConfiguration" xmi:id="_CumAsCmwEeugfKShn9DTcQ">
       <customizationReferences xmi:type="customizationconfiguration:CustomizationReference" xmi:id="_DLqXMCmwEeugfKShn9DTcQ">
-        <referencedCustomization xmi:type="custom:Customization" href="platform:/plugin/org.eclipse.papyrus.infra.siriusdiag.modelexplorer/resources/SiriusDiagram.custom#/"/>
+        <referencedCustomization xmi:type="custom:Customization" href="platform:/plugin/org.eclipse.papyrus.sirius.editor.modelexplorer/resources/SiriusDiagram.custom#/"/>
         <applicationRule xmi:type="customizationconfiguration:AbsoluteOrder" xmi:id="_QVkzwCmwEeugfKShn9DTcQ" order="10"/>
       </customizationReferences>
     </treeViewerConfigurations>

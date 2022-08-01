@@ -31,49 +31,49 @@
    </requires>
 
    <plugin
-         id="org.eclipse.papyrus.infra.siriusdiag.representation.architecture"
+         id="org.eclipse.papyrus.sirius.editor.representation.architecture"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.infra.siriusdiag.sirius"
+         id="org.eclipse.papyrus.sirius.editor.sirius"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.infra.siriusdiag.representation.edit"
+         id="org.eclipse.papyrus.sirius.editor.representation.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.infra.siriusdiag.properties"
+         id="org.eclipse.papyrus.sirius.editor.properties"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.infra.siriusdiag.ui"
+         id="org.eclipse.papyrus.sirius.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.infra.siriusdiag.modelexplorer"
+         id="org.eclipse.papyrus.sirius.editor.modelexplorer"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.infra.siriusdiag.representation"
+         id="org.eclipse.papyrus.sirius.editor.representation"
          download-size="0"
          install-size="0"
          version="0.0.0"

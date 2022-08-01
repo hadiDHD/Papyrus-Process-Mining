@@ -16,7 +16,7 @@ package org.eclipse.papyrus.uml.siriusdiag.clazz.tests.drop.subNodes;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramConstants;
+import org.eclipse.papyrus.sirius.editor.representation.SiriusDiagramConstants;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.constants.MappingTypes;

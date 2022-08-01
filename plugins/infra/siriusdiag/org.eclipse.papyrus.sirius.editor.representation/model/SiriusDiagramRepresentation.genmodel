@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2021 CEA LIST, Artal Technologies&#xA;&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License 2.0&#xA;which accompanies this distribution, and is available at&#xA;https://www.eclipse.org/legal/epl-2.0/&#xA;&#xA;SPDX-License-Identifier: EPL-2.0&#xA;&#xA;Contributors:&#xA; Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation"
+    modelDirectory="/org.eclipse.papyrus.sirius.editor.representation/src-gen"
+    creationIcons="false" editDirectory="/org.eclipse.papyrus.sirius.editor.representation.edit/src-gen"
+    editorDirectory="/org.eclipse.papyrus.sirius.editor.representation.editor/src-gen"
+    modelPluginID="org.eclipse.papyrus.sirius.editor.representation" modelName="SiriusDiagramRepresentation"
+    nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" commentFormatting="true" testsDirectory="/org.eclipse.papyrus.sirius.editor.representation.tests/src-gen"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    testsPluginID="org.eclipse.papyrus.sirius.editor.representation.tests" usedGenPackages="platform:/plugin/org.eclipse.papyrus.infra.core.architecture/model/Architecture.genmodel#//architecture platform:/plugin/org.eclipse.papyrus.infra.constraints/Model/Constraints.genmodel#//constraints platform:/plugin/org.eclipse.sirius.diagram/model/diagram.genmodel#//diagram platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/plugin/org.eclipse.papyrus.infra.types/model/ElementTypesConfigurations.genmodel#//types platform:/plugin/org.eclipse.papyrus.infra.architecture.representation/model/Representation.genmodel#//representation platform:/plugin/org.eclipse.sirius/model/viewpoint.genmodel#//viewpoint"
+    operationReflection="true" importOrganizing="true" cleanup="true" oSGiCompatible="true">
+  <foreignModel>SiriusDiagramRepresentation.ecore</foreignModel>
+  <genPackages prefix="Representation" basePackage="org.eclipse.papyrus.sirius.editor"
+      disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
+      extensibleProviderFactory="true" childCreationExtenders="true" ecorePackage="SiriusDiagramRepresentation.ecore#/">
+    <genClasses ecoreClass="SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/diagramDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/creationCommandClass"/>
+      <genOperations ecoreOperation="SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/isValidClass">
+        <genParameters ecoreParameter="SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/isValidClass/chain"/>
+        <genParameters ecoreParameter="SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/isValidClass/context"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

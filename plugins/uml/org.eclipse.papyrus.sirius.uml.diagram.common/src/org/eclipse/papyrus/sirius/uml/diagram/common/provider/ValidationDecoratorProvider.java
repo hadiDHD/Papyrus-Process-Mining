@@ -46,8 +46,8 @@ import org.eclipse.papyrus.infra.services.decoration.DecorationChange.Decoration
 import org.eclipse.papyrus.infra.services.decoration.DecorationService;
 import org.eclipse.papyrus.infra.services.decoration.util.Decoration;
 import org.eclipse.papyrus.infra.services.decoration.util.IPapyrusDecoration;
-import org.eclipse.papyrus.infra.siriusdiag.ui.internal.decorations.DiagramDecorationAdapter;
-import org.eclipse.papyrus.infra.siriusdiag.ui.utils.ServiceUtilsForSirius;
+import org.eclipse.papyrus.sirius.editor.internal.decorations.DiagramDecorationAdapter;
+import org.eclipse.papyrus.sirius.editor.utils.ServiceUtilsForSirius;
 import org.eclipse.papyrus.sirius.uml.diagram.common.Activator;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.ui.PlatformUI;

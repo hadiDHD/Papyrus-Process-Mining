@@ -128,7 +128,7 @@ This shall be done for both Analysis and Design viewpoint.
 
 == Adding the creation command==
 
-In the org.eclipse.papyrus.infra.siriusdiag.representation.architecture plugin, a new class extending the AbstractCreateSiriusDiagramEditorCommand shall be created. This class will manage the condition of the creation of the diagram and the action to execute before creating it depending on the context.
+In the org.eclipse.papyrus.sirius.editor.representation.architecture plugin, a new class extending the AbstractCreateSiriusDiagramEditorCommand shall be created. This class will manage the condition of the creation of the diagram and the action to execute before creating it depending on the context.
 
 For example, a sequence diagram can be created directly under an interaction without prior action, but if we want to create it under a Model, an interaction shall be created before and defined as the root of the diagram.
 
@@ -136,7 +136,7 @@ For example, a sequence diagram can be created directly under an interaction wit
 
 To use the same transactional editing domain than other papyrus services, we had to override the default sirius session and creation. This is done by the PapyrusSessionFactory which allows to create PapyrusSession (which are just sirius session with the right TransactionalEditingDomain).
 
-For new services using session, it is recommanded to use the SessionService provided in the org.eclipse.papyrus.infra.siriusdiag.ui plugin. 
+For new services using session, it is recommanded to use the SessionService provided in the org.eclipse.papyrus.sirius.editor plugin. 
 
 = API To find creatable Sirius Diagram Prototype =
 From a selected EObject, we want to find all SiriusDiagramViewPrototype and store them into a list:

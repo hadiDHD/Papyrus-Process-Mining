@@ -25,7 +25,7 @@ import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorProvider;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.infra.siriusdiag.sirius.utils.SiriusDiagramUtils;
+import org.eclipse.papyrus.sirius.editor.sirius.utils.SiriusDiagramUtils;
 import org.eclipse.papyrus.sirius.uml.diagram.common.provider.ValidationDecoratorProvider;
 import org.eclipse.sirius.diagram.ui.tools.api.editor.DDiagramEditor;
 

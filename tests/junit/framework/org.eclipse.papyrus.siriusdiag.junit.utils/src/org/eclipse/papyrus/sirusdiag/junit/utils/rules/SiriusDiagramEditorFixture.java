@@ -128,10 +128,10 @@ import org.eclipse.papyrus.infra.nattable.common.editor.AbstractEMFNattableEdito
 import org.eclipse.papyrus.infra.nattable.common.modelresource.PapyrusNattableModel;
 import org.eclipse.papyrus.infra.nattable.manager.table.INattableModelManager;
 import org.eclipse.papyrus.infra.nattable.model.nattable.Table;
-import org.eclipse.papyrus.infra.siriusdiag.sirius.ISiriusSessionService;
-import org.eclipse.papyrus.infra.siriusdiag.ui.internal.sessions.SessionService;
-import org.eclipse.papyrus.infra.siriusdiag.ui.internal.sessions.SiriusConstants;
-import org.eclipse.papyrus.infra.siriusdiag.ui.modelresource.SiriusDiagramModel;
+import org.eclipse.papyrus.sirius.editor.sirius.ISiriusSessionService;
+import org.eclipse.papyrus.sirius.editor.internal.sessions.SessionService;
+import org.eclipse.papyrus.sirius.editor.internal.sessions.SiriusConstants;
+import org.eclipse.papyrus.sirius.editor.modelresource.SiriusDiagramModel;
 import org.eclipse.papyrus.infra.tools.util.PlatformHelper;
 import org.eclipse.papyrus.infra.tools.util.TypeUtils;
 import org.eclipse.papyrus.infra.ui.editor.IMultiDiagramEditor;
