@@ -11,7 +11,7 @@
  * Contributors:
  *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.diagram.architecture;
+package org.eclipse.papyrus.sirius.uml.diagram.architecture;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -22,7 +22,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.eclipse.papyrus.uml.sirius.diagram.architecture"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.eclipse.papyrus.sirius.uml.diagram.architecture"; //$NON-NLS-1$
 
 	// The shared instance
 	private static Activator plugin;

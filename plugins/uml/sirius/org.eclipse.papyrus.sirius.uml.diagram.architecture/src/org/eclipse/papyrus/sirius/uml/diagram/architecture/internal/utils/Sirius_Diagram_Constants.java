@@ -11,7 +11,7 @@
  * Contributors:
  *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.diagram.architecture.internal.utils;
+package org.eclipse.papyrus.sirius.uml.diagram.architecture.internal.utils;
 
 /**
  * Constants used by Papyrus Sirius Diagram

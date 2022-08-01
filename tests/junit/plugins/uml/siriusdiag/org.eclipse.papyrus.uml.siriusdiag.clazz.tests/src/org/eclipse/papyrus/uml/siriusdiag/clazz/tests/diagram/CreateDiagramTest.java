@@ -14,7 +14,7 @@
 package org.eclipse.papyrus.uml.siriusdiag.clazz.tests.diagram;
 
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
-import org.eclipse.papyrus.uml.sirius.diagram.architecture.internal.utils.Sirius_Diagram_Constants;
+import org.eclipse.papyrus.sirius.uml.diagram.architecture.internal.utils.Sirius_Diagram_Constants;
 import org.junit.Test;
 
 @PluginResource("resources/createDiagram/createDiagram.di")

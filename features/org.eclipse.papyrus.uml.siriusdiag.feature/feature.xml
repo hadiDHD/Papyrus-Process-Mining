@@ -38,7 +38,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.uml.sirius.diagram.architecture"
+         id="org.eclipse.papyrus.sirius.uml.diagram.architecture"
          download-size="0"
          install-size="0"
          version="0.0.0"

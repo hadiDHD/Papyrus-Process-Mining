@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
-Bundle-SymbolicName: org.eclipse.papyrus.uml.sirius.diagram.architecture;singleton:=true
+Bundle-SymbolicName: org.eclipse.papyrus.sirius.uml.diagram.architecture;singleton:=true
 Bundle-Version: 0.7.0.qualifier
-Bundle-Activator: org.eclipse.papyrus.uml.sirius.diagram.architecture.Activator
+Bundle-Activator: org.eclipse.papyrus.sirius.uml.diagram.architecture.Activator
 Bundle-Vendor: %Bundle-Vendor
-Require-Bundle: org.eclipse.ui;bundle-version="[3.200.0,4.0.0)",
- org.eclipse.core.runtime;bundle-version="[3.24.0,4.0.0)",
- org.eclipse.papyrus.infra.architecture;bundle-version="[3.1.0,4.0.0)",
+Require-Bundle: org.eclipse.ui;bundle-version="[3.119.0,4.0.0)",
+ org.eclipse.core.runtime;bundle-version="[3.23.0,4.0.0)",
+ org.eclipse.papyrus.infra.architecture;bundle-version="[3.2.0,4.0.0)",
  org.eclipse.papyrus.infra.siriusdiag.representation.architecture;bundle-version="[0.7.0,1.0.0)",
  org.eclipse.papyrus.infra.siriusdiag.representation;bundle-version="[0.7.0,1.0.0)",
  org.eclipse.sirius.diagram;bundle-version="[7.0.0,8.0.0)",
@@ -26,6 +26,6 @@ Require-Bundle: org.eclipse.ui;bundle-version="[3.200.0,4.0.0)",
  org.eclipse.papyrus.uml.diagram.usecase;bundle-version="[6.0.0,7.0.0)",
  org.eclipse.papyrus.infra.siriusdiag.modelexplorer;bundle-version="[0.7.0,1.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Automatic-Module-Name: org.eclipse.papyrus.uml.sirius.diagram.architecture
+Automatic-Module-Name: org.eclipse.papyrus.sirius.uml.diagram.architecture
 Bundle-ActivationPolicy: lazy
-Export-Package: org.eclipse.papyrus.uml.sirius.diagram.architecture.internal.utils
+Export-Package: org.eclipse.papyrus.sirius.uml.diagram.architecture.internal.utils

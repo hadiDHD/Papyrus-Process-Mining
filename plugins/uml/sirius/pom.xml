@@ -20,7 +20,7 @@
 	<modules>
 		<module>org.eclipse.papyrus.sirius.uml.diagram.clazz</module>
 		<module>org.eclipse.papyrus.sirius.uml.diagram.common</module>
-		<module>org.eclipse.papyrus.uml.sirius.diagram.architecture</module>
+		<module>org.eclipse.papyrus.sirius.uml.diagram.architecture</module>
 		<module>org.eclipse.papyrus.sirius.uml.diagram.sequence</module>
 		<module>org.eclipse.papyrus.sirius.uml.diagram.statemachine</module>
 		<module>org.eclipse.papyrus.uml.sirius.xtext.integration.ui</module>
