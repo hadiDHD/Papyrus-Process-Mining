@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.LabelServices;
+import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.LabelServices;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeSpec;
 import org.eclipse.sirius.diagram.description.style.Side;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;

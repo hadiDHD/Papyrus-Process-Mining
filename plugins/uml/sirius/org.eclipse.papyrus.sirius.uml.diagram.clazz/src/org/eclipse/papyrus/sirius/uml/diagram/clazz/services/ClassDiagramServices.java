@@ -41,17 +41,17 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
-import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.AssociationServices;
-import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.DirectEditLabelSwitch;
-import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.DisplayLabelSwitch;
-import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.EditLabelSwitch;
-import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.ElementServices;
-import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.ILabelConstants;
-import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.LabelServices;
-import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.NodeInverseRefsServices;
-import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.OperationServices;
-import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.StereotypeServices;
-import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.UIServices;
+import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.AssociationServices;
+import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.DirectEditLabelSwitch;
+import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.DisplayLabelSwitch;
+import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.EditLabelSwitch;
+import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.ElementServices;
+import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.ILabelConstants;
+import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.LabelServices;
+import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.NodeInverseRefsServices;
+import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.OperationServices;
+import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.StereotypeServices;
+import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.UIServices;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
@@ -2635,7 +2635,7 @@ public class ClassDiagramServices {
 	 * @return Stereotype applications
 	 */
 	public Collection<Object> getAllStereotypeApplications(DDiagram diagram) {
-		return org.eclipse.papyrus.uml.sirius.common.diagram.core.services.StereotypeServices.INSTANCE
+		return org.eclipse.papyrus.sirius.uml.diagram.common.core.services.StereotypeServices.INSTANCE
 				.getAllStereotypeApplications(diagram);
 	}
 

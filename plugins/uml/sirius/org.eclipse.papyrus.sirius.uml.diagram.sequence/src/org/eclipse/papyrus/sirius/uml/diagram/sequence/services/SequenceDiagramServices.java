@@ -22,8 +22,8 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.AbstractDiagramServices;
-import org.eclipse.papyrus.uml.sirius.common.diagram.core.services.LabelServices;
+import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.AbstractDiagramServices;
+import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.LabelServices;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.description.style.Side;
 import org.eclipse.sirius.diagram.sequence.SequenceDDiagram;

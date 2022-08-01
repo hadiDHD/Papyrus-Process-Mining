@@ -47,7 +47,7 @@ Require-Bundle: org.eclipse.ui;bundle-version="[3.119.0,4.0.0)",
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: org.eclipse.papyrus.infra.siriusdiag.ui
 Bundle-ActivationPolicy: lazy
-Export-Package: org.eclipse.papyrus.infra.siriusdiag.ui.internal.decorations;x-friends:="org.eclipse.papyrus.uml.sirius.common.diagram",
+Export-Package: org.eclipse.papyrus.infra.siriusdiag.ui.internal.decorations;x-friends:="org.eclipse.papyrus.sirius.uml.diagram.common",
  org.eclipse.papyrus.infra.siriusdiag.ui.internal.sessions;x-friends:="org.eclipse.papyrus.siriusdiag.junit.utils",
  org.eclipse.papyrus.infra.siriusdiag.ui.internal.viewpoint,
  org.eclipse.papyrus.infra.siriusdiag.ui.modelresource,

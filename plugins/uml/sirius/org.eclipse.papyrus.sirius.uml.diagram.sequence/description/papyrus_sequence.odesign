@@ -980,7 +980,7 @@
       </additionalLayers>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.sequence.services.SequenceDiagramServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.common.diagram.core.services.AbstractDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.common.core.services.AbstractDiagramServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.sequence.services.LifelineService"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.sequence.services.FragmentsService"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.sequence.services.GeneralOrderingService"/>

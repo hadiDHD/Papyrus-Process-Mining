@@ -975,7 +975,7 @@
       </additionalLayers>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.statemachine.StateMachineServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.common.diagram.core.services.AbstractDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.common.core.services.AbstractDiagramServices"/>
   </ownedViewpoints>
   <userColorsPalettes>
     <entries xsi:type="description:UserFixedColor" red="239" green="239" blue="239" name="StateMachine_Gray_Min"/>
