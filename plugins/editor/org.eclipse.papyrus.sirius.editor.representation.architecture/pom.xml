@@ -5,12 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.eclipse.papyrus.plugins.infra-siriusdiag</groupId>
-		<artifactId>org.eclipse.papyrus.plugins.infra.siriusdiag</artifactId>
+		<groupId>org.eclipse.papyrus.sirius.plugins-editor</groupId>
+		<artifactId>org.eclipse.papyrus.sirius.plugins.editor</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>org.eclipse.papyrus.sirius.editor.representation.edit</artifactId>
+	<artifactId>org.eclipse.papyrus.sirius.editor.representation.architecture</artifactId>
 	<version>0.7.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 

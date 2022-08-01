@@ -5,27 +5,26 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.eclipse.papyrus.sirius.plugins-infra</groupId>
-		<artifactId>org.eclipse.papyrus.sirius.plugins.infra</artifactId>
+		<groupId>org.eclipse.papyrus.sirius-plugins</groupId>
+		<artifactId>org.eclipse.papyrus.sirius.plugins</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<groupId>org.eclipse.papyrus.plugins.infra-siriusdiag</groupId>
-	<artifactId>org.eclipse.papyrus.plugins.infra.siriusdiag</artifactId>
+	<groupId>org.eclipse.papyrus.sirius.plugins-editor</groupId>
+	<artifactId>org.eclipse.papyrus.sirius.plugins.editor</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
 	<packaging>pom</packaging>
 
-	<name>Papyrus Sirius Editor Papyrus Integration</name>
-	<description>Common language-agnostic frameworks for Sirius editor integration into Papyrus.</description>
+	<name>Papyrus-Sirius Editor Plugins</name>
+	<description>Container of the Papyrus-Sirius Editor Plugins</description>
 
 	<modules>
+		<module>org.eclipse.papyrus.sirius.editor</module>
 		<module>org.eclipse.papyrus.sirius.editor.modelexplorer</module>
 		<module>org.eclipse.papyrus.sirius.editor.properties</module>
 		<module>org.eclipse.papyrus.sirius.editor.representation</module>
 		<module>org.eclipse.papyrus.sirius.editor.representation.architecture</module>
 		<module>org.eclipse.papyrus.sirius.editor.representation.edit</module>
 		<module>org.eclipse.papyrus.sirius.editor.sirius</module>
-		<module>org.eclipse.papyrus.sirius.editor</module>
 	</modules>
 </project>

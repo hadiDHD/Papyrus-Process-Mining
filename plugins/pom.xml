@@ -20,7 +20,7 @@
 
 	<modules>
 		<module>doc</module>
-		<module>infra</module>
+		<module>editor</module>
 		<module>integration</module>
 		<module>uml</module>
 		<module>org.eclipse.papyrus.sirius.log</module>
