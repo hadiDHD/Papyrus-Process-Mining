@@ -20,6 +20,7 @@
 
 	<modules>
 		<module>sirius</module>
+		<module>org.eclipse.papyrus.sirius.uml</module>
 		<module>org.eclipse.papyrus.sirius.uml.diagram.architecture</module>
 		<module>org.eclipse.papyrus.sirius.uml.diagram.clazz</module>
 		<module>org.eclipse.papyrus.sirius.uml.diagram.common</module>
