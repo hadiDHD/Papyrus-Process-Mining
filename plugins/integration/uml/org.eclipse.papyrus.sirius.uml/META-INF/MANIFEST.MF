@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
-Bundle-SymbolicName: org.eclipse.papyrus.sirius.integration.uml.architecture;singleton:=true
+Bundle-SymbolicName: org.eclipse.papyrus.sirius.uml;singleton:=true
 Bundle-Version: 0.7.0.qualifier
-Bundle-Activator: org.eclipse.papyrus.sirius.integration.uml.architecture.Activator
+Bundle-Activator: org.eclipse.papyrus.sirius.uml.Activator
 Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.23.0,4.0.0)",
  org.eclipse.papyrus.infra.architecture;bundle-version="[3.2.0,4.0.0)",
@@ -16,5 +16,5 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.23.0,4.0.0)",
  org.eclipse.papyrus.uml.modelexplorer;bundle-version="[3.1.0,4.0.0)",
  org.eclipse.ui;bundle-version="[3.119.0,4.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Automatic-Module-Name: org.eclipse.papyrus.sirius.integration.uml.architecture
+Automatic-Module-Name: org.eclipse.papyrus.sirius.uml
 Bundle-ActivationPolicy: lazy

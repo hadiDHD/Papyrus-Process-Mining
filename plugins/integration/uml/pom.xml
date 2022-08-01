@@ -19,6 +19,6 @@
 	<description>Container of the Papyrus-Sirius Plugins in charge of the integration with the UML part of Papyrus</description>
 
 	<modules>
-		<module>org.eclipse.papyrus.sirius.integration.uml.architecture</module>
+		<module>org.eclipse.papyrus.sirius.uml</module>
 	</modules>
 </project>

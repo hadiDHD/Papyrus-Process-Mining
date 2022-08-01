@@ -1,4 +1,4 @@
-#org.eclipse.papyrus.sirius.integration.uml.architecture
+#org.eclipse.papyrus.sirius.uml
 This plugin is in charge to provide the required UML Architecture configuration to support Sirius Diagram
 
 - Sirius Diagram EMFFacet customization, to display Sirius Diagram into the ModelExplorer
