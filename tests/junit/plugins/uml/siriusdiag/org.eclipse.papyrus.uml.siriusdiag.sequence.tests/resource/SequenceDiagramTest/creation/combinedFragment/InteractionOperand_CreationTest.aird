@@ -24,7 +24,7 @@
   </viewpoint:DAnalysis>
   <sequence:SequenceDDiagram uid="_vw_LsLsaEeyINaWWAu1mpA">
     <eAnnotations xmi:type="description:DAnnotation" uid="_vzFdcLsaEeyINaWWAu1mpA" source="Papyrus-SiriusDiagram">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vzFdcbsaEeyINaWWAu1mpA" key="Papyrus-SiriusDiagram-ImplementationId" value="org.eclipse.papyrus.infra.siriusdiag.sequence"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vzFdcbsaEeyINaWWAu1mpA" key="Papyrus-SiriusDiagram-ImplementationId" value="org.eclipse.papyrus.sirius.uml.diagram.sequence"/>
     </eAnnotations>
     <eAnnotations xmi:type="description:DAnnotation" uid="_2KhgoLsaEeyINaWWAu1mpA" source="Observation Point Filter Deactivation"/>
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_vxVxALsaEeyINaWWAu1mpA" source="GMF_DIAGRAMS">

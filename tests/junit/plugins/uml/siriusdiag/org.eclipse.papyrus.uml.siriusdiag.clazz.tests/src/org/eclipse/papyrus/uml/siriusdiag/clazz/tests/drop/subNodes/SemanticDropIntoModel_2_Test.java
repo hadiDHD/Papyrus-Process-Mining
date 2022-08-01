@@ -112,7 +112,7 @@ public class SemanticDropIntoModel_2_Test extends AbstractSubNodeSemanticDropTes
 		final DSemanticDiagram ddiagram = (DSemanticDiagram) diagram.getElement();
 		DAnnotation dAnnotation = ddiagram.getDAnnotation(SiriusDiagramConstants.PAPYRUS_SIRIUS_DIAGRAM_IMPLEMENTATION_DANNOTATION_SOURCE);
 		String detail = dAnnotation.getDetails().get(SiriusDiagramConstants.PAPYRUS_SIRIUS_DIAGRAM_IMPLEMENTATION_DANNOTATION_KEY);
-		Assert.assertEquals("org.eclipse.papyrus.infra.siriusdiag.class", detail); // TODO : create a constant for this field when the code will be refactored
+		Assert.assertEquals("org.eclipse.papyrus.sirius.uml.diagram.class", detail); // TODO : create a constant for this field when the code will be refactored
 
 		return diagram;
 	}

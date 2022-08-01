@@ -22,6 +22,6 @@ public final class Sirius_Diagram_Constants {
 		// to prevent instantiation
 	}
 
-	public static final String SIRIUS_CLASS_DIAGRAM_TYPE = "org.eclipse.papyrus.infra.siriusdiag.class"; //$NON-NLS-1$
+	public static final String SIRIUS_CLASS_DIAGRAM_TYPE = "org.eclipse.papyrus.sirius.uml.diagram.class"; //$NON-NLS-1$
 
 }

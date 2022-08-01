@@ -24,7 +24,7 @@
   </viewpoint:DAnalysis>
   <diagram:DSemanticDiagram uid="_SAlm8J4vEey_eICVHohATA">
     <eAnnotations xmi:type="description:DAnnotation" uid="_SC7JQJ4vEey_eICVHohATA" source="Papyrus-SiriusDiagram">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SC7JQZ4vEey_eICVHohATA" key="Papyrus-SiriusDiagram-ImplementationId" value="org.eclipse.papyrus.infra.siriusdiag.class"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SC7JQZ4vEey_eICVHohATA" key="Papyrus-SiriusDiagram-ImplementationId" value="org.eclipse.papyrus.sirius.uml.diagram.class"/>
     </eAnnotations>
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_SA2ssJ4vEey_eICVHohATA" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="_SA2ssZ4vEey_eICVHohATA" type="Sirius" element="_SAlm8J4vEey_eICVHohATA" measurementUnit="Pixel">
