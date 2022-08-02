@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.papyrus.toolsmiths.sirius.feature"
+      id="org.eclipse.papyrus.sirius.toolsmiths.feature"
       label="%featureName"
       version="0.7.0.qualifier"
       provider-name="Eclipse Modeling Project"
@@ -20,11 +20,11 @@
    </license>
 
    <includes
-         id="org.eclipse.papyrus.infra.siriusdiag.feature"
+         id="org.eclipse.papyrus.sirius.editor.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.papyrus.uml.siriusdiag.feature"
+         id="org.eclipse.papyrus.sirius.uml.feature"
          version="0.0.0"/>
 
    <requires>

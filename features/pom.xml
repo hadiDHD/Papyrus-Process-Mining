@@ -20,12 +20,12 @@
 	<description>Container of the Papyrus Sirius features</description>
 
 	<modules>
-		<module>org.eclipse.papyrus.infra.siriusdiag.feature</module>
+		<module>org.eclipse.papyrus.sirius.editor.feature</module>
 		<module>org.eclipse.papyrus.sirius.feature</module>
 		<module>org.eclipse.papyrus.sirius.tests.bundles.feature</module>	
-		<module>org.eclipse.papyrus.tests.uml.siriusdiag.feature</module>
-		<module>org.eclipse.papyrus.toolsmiths.sirius.feature</module>
-		<module>org.eclipse.papyrus.uml.siriusdiag.feature</module>
+		<module>org.eclipse.papyrus.sirius.tests.uml.feature</module>
+		<module>org.eclipse.papyrus.sirius.toolsmiths.feature</module>
+		<module>org.eclipse.papyrus.sirius.uml.feature</module>
 	</modules>
 
 </project>

@@ -6,16 +6,16 @@
    <feature url="features/org.eclipse.papyrus.sirius.feature.source_0.7.0.qualifier.jar" id="org.eclipse.papyrus.sirius.feature.source" version="0.7.0.qualifier">
       <category name="org.eclipse.papyrus.sirius.category"/>
    </feature>
-   <feature url="features/org.eclipse.papyrus.uml.siriusdiag.feature_0.7.0.qualifier.jar" id="org.eclipse.papyrus.uml.siriusdiag.feature" version="0.7.0.qualifier">
+   <feature url="features/org.eclipse.papyrus.sirius.uml.feature_0.7.0.qualifier.jar" id="org.eclipse.papyrus.sirius.uml.feature" version="0.7.0.qualifier">
       <category name="org.eclipse.papyrus.sirius.category"/>
    </feature>
-   <feature url="features/org.eclipse.papyrus.uml.siriusdiag.feature.source_0.7.0.qualifier.jar" id="org.eclipse.papyrus.uml.siriusdiag.feature.source" version="0.7.0.qualifier">
+   <feature url="features/org.eclipse.papyrus.sirius.uml.feature.source_0.7.0.qualifier.jar" id="org.eclipse.papyrus.sirius.uml.feature.source" version="0.7.0.qualifier">
       <category name="org.eclipse.papyrus.sirius.category"/>
    </feature>
-   <feature url="features/org.eclipse.papyrus.toolsmiths.sirius.feature_0.7.0.jar" id="org.eclipse.papyrus.toolsmiths.sirius.feature" version="0.7.0">
+   <feature url="features/org.eclipse.papyrus.sirius.toolsmiths.feature_0.7.0.jar" id="org.eclipse.papyrus.sirius.toolsmiths.feature" version="0.7.0">
       <category name="org.eclipse.papyrus.sirius.toolsmiths.category"/>
    </feature>
-   <feature url="features/org.eclipse.papyrus.toolsmiths.sirius.feature.source_0.7.0.jar" id="org.eclipse.papyrus.toolsmiths.sirius.feature.source" version="0.7.0">
+   <feature url="features/org.eclipse.papyrus.sirius.toolsmiths.feature.source_0.7.0.jar" id="org.eclipse.papyrus.sirius.toolsmiths.feature.source" version="0.7.0">
       <category name="org.eclipse.papyrus.sirius.toolsmiths.category"/>
    </feature>
    <category-def name="org.eclipse.papyrus.sirius.category" label="Papyrus-Sirius">

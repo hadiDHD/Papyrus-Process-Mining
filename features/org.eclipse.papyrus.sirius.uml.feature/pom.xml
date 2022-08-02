@@ -10,7 +10,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	
-	<artifactId>org.eclipse.papyrus.infra.siriusdiag.feature</artifactId>
+	<artifactId>org.eclipse.papyrus.sirius.uml.feature</artifactId>
 	<version>0.7.0-SNAPSHOT</version>
 	<packaging>eclipse-feature</packaging>
 </project>

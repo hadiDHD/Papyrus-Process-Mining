@@ -41,7 +41,7 @@
 
 							<requirement>
 								<type>eclipse-feature</type>
-								<id>org.eclipse.papyrus.uml.siriusdiag.feature</id>
+								<id>org.eclipse.papyrus.sirius.uml.feature</id>
 								<versionRange>0.0.0</versionRange>
 							</requirement>
 						</extraRequirements>

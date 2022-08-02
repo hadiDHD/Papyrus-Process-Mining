@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.papyrus.infra.siriusdiag.feature"
+      id="org.eclipse.papyrus.sirius.editor.feature"
       label="%featureName"
       version="0.7.0.qualifier"
       provider-name="Eclipse Modeling Project"
