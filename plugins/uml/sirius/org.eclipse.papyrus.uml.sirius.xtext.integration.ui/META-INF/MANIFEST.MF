@@ -28,7 +28,7 @@ Require-Bundle: org.eclipse.ui;bundle-version="[3.200.0,4.0.0)",
  org.eclipse.papyrus.extensionpoints.editors;bundle-version="[4.0.0,5.0.0)",
  org.eclipse.papyrus.infra.core.log;bundle-version="[2.0.0,3.0.0)",
  org.eclipse.sirius.ext.base;bundle-version="[7.0.0,8.0.0)",
- org.eclipse.papyrus.infra.gmfdiag.common;bundle-version="[4.2.0,5.0.0)",
+ org.eclipse.papyrus.infra.gmfdiag.common;bundle-version="[4.1.0,5.0.0)",
  org.eclipse.sirius.diagram.sequence.ui;bundle-version="[7.0.0,8.0.0)",
  org.eclipse.sirius.diagram.sequence;bundle-version="[7.0.0,8.0.0)"
 Bundle-Activator: org.eclipse.papyrus.uml.sirius.xtext.integration.ui.Activator

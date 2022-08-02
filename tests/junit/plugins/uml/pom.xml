@@ -19,6 +19,8 @@
 	<description>Container of the Papyrus-Sirius JUnit UML Tests Plugins</description>
 
 	<modules>
-		<module>siriusdiag</module>
+		<module>org.eclipse.papyrus.sirius.uml.diagram.clazz.tests</module>
+		<module>org.eclipse.papyrus.sirius.uml.diagram.sequence.tests</module>
+		<module>org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests</module>
 	</modules>
 </project>

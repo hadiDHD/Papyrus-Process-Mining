@@ -19,6 +19,6 @@
 	<description>Container of the Papyrus-Sirius JUnit Tests Framework Plugins</description>
 
 	<modules>
-		<module>org.eclipse.papyrus.siriusdiag.junit.utils</module>
+		<module>org.eclipse.papyrus.sirius.junit.utils</module>
 	</modules>
 </project>

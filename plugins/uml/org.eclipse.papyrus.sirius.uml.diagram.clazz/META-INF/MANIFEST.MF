@@ -21,5 +21,5 @@ Require-Bundle: com.google.guava;bundle-version="[30.1.0,31.0.0)",
 Bundle-Activator: org.eclipse.papyrus.sirius.uml.diagram.clazz.Activator
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %providerName
-Export-Package: org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.constants;x-friends:="org.eclipse.papyrus.uml.siriusdiag.clazz.tests"
+Export-Package: org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.constants;x-friends:="org.eclipse.papyrus.sirius.uml.diagram.clazz.tests"
 Bundle-Localization: plugin

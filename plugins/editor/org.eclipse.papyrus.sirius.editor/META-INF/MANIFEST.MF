@@ -48,7 +48,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: org.eclipse.papyrus.sirius.editor
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.papyrus.sirius.editor.internal.decorations;x-friends:="org.eclipse.papyrus.sirius.uml.diagram.common",
- org.eclipse.papyrus.sirius.editor.internal.sessions;x-friends:="org.eclipse.papyrus.siriusdiag.junit.utils",
+ org.eclipse.papyrus.sirius.editor.internal.sessions;x-friends:="org.eclipse.papyrus.sirius.junit.utils",
  org.eclipse.papyrus.sirius.editor.internal.viewpoint,
  org.eclipse.papyrus.sirius.editor.modelresource,
  org.eclipse.papyrus.sirius.editor.utils

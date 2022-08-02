@@ -253,7 +253,7 @@ Code in org.eclipse.papyrus.uml.sirius.xtext.integration.ui override classic edi
 
 = Test coverage =
 
-The common method to create new tests for sirius diagram is located in org.eclipse.papyrus.siriusdiag.junit.utils. In this plugin, the SiriusDiagramEditorFixture provide all the method to load model, ope session, tests tools that will be used in the several test case.
+The common method to create new tests for sirius diagram is located in org.eclipse.papyrus.sirius.junit.utils. In this plugin, the SiriusDiagramEditorFixture provide all the method to load model, ope session, tests tools that will be used in the several test case.
 
 Each specific diagram is tested in a specific plugin. Those tests include:
 * Diagram creation

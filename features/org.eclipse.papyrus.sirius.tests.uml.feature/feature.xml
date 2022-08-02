@@ -24,28 +24,28 @@
          version="0.0.0"/>
 
    <plugin
-         id="org.eclipse.papyrus.uml.siriusdiag.clazz.tests"
+         id="org.eclipse.papyrus.sirius.uml.diagram.clazz.tests"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.uml.siriusdiag.sequence.tests"
+         id="org.eclipse.papyrus.sirius.uml.diagram.sequence.tests"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.uml.siriusdiag.statemachine.tests"
+         id="org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.siriusdiag.junit.utils"
+         id="org.eclipse.papyrus.sirius.junit.utils"
          download-size="0"
          install-size="0"
          version="0.0.0"
