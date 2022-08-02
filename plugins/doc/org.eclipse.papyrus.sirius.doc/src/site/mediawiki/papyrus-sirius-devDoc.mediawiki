@@ -39,21 +39,23 @@ Rules:
 This framework has been developed to be used only when a sirius diagram is opened.
 
 ==Git Architecture==
-*'''plugins/infra/siriusdiag'''
+*'''plugins/editor'''
+**'''org.eclipse.papyrus.sirius.editor''': plugin handling sirius diagram views and session management
 **'''modelexplorer''':contains code allowing to display and use sirius diagram in the papyrus model explorer
 **'''properties''': contains code to visualize the properties of sirius diagrams 
 **'''representation''': contains the code to create sirius diagram views
 **'''representation.architecture''': contains the code to create specific sirius diagram
 **'''representation.edit''': plugin defining sirius diagram prototype
 **'''sirius''': plugin containing sirius services to handle session
-**'''siriusdiag.ui''': plugin handling sirius diagram views and session management
 
-*'''plugins\uml\sirius'''
-**'''clazz.diagram''': contains class diagram description and services
-**'''common.diagram''': contains all the common services that can be used by all diagrams 
-**'''diagram.architecture''': contains all the common services that can be used by all diagrams
-**'''sequence.diagram''': contains sequence diagram description and services
-**'''statemachine.diagram''': contains statemachine diagram description and services
+
+*'''plugins/uml/'''
+**'''org.eclipse.papyrus.sirius.uml''': contains Papyrus Architecture contributions for UML and Sirius: elementTypes and EMF-Facet customization for Sirius Diagram
+**'''org.eclipse.papyrus.sirius.uml.diagram.architecture''': contains the UML Sirius diagram contributions for the Papyrus Architecture Framework
+**'''org.eclipse.papyrus.sirius.uml.diagram.clazz''': contains class diagram description and services
+**'''org.eclipse.papyrus.sirius.uml.diagram.common''': contains all the common services that can be used by all diagrams 
+**'''org.eclipse.papyrus.sirius.uml.diagram.sequence''': contains sequence diagram description and services
+**'''org.eclipse.papyrus.sirius.uml.diagram.statemachine''': contains statemachine diagram description and services
 **'''xtext.integration.ui''': contains customization to add xtext on label edition
 
 = odesign file conception rules =

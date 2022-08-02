@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests
 Bundle-Version: 0.7.0.qualifier
-Bundle-Activator: org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.StateMachineTestPlugin
+Bundle-Activator: org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.Activator
 Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: org.eclipse.papyrus.junit.utils;bundle-version="[3.2.0,4.0.0)",
  org.eclipse.papyrus.junit.framework;bundle-version="[2.1.0,3.0.0)",

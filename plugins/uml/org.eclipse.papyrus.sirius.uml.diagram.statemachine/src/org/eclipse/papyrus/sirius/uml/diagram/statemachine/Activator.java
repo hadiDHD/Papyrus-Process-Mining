@@ -28,7 +28,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	/** The Constant PLUGIN_ID. */
-	public static final String PLUGIN_ID = "org.eclipse.papyrus.sirius.uml.diagram.statemachine";
+	public static final String PLUGIN_ID = "org.eclipse.papyrus.sirius.uml.diagram.statemachine"; //$NON-NLS-1$
 
 	/** The plugin. */
 	private static Activator plugin;

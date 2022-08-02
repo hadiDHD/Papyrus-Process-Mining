@@ -17,20 +17,20 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 /**
- * The StateMachineTestPlugin class controls the plug-in life cycle
+ * The Activator class controls the plug-in life cycle
  */
-public class StateMachineTestPlugin extends AbstractUIPlugin {
+public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests"; //$NON-NLS-1$
 
 	// The shared instance
-	private static StateMachineTestPlugin plugin;
+	private static Activator plugin;
 
 	/**
 	 * The constructor
 	 */
-	public StateMachineTestPlugin() {
+	public Activator() {
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class StateMachineTestPlugin extends AbstractUIPlugin {
 	 *
 	 * @return the shared instance
 	 */
-	public static StateMachineTestPlugin getDefault() {
+	public static Activator getDefault() {
 		return plugin;
 	}
 
