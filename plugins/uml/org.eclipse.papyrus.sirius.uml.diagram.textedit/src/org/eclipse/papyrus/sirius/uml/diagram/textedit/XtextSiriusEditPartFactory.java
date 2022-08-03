@@ -11,19 +11,19 @@
  * Contributors:
  *    Yann Binot (Artal Technologies) <yann.binot@artal.fr>
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.xtext.integration.ui;
+package org.eclipse.papyrus.sirius.uml.diagram.textedit;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.uml.sirius.xtext.integration.ui.editpart.XtextDEdgeNameEditPart;
-import org.eclipse.papyrus.uml.sirius.xtext.integration.ui.editpart.XtextSiriusDNode3EditPart;
-import org.eclipse.papyrus.uml.sirius.xtext.integration.ui.editpart.XtextSiriusDNodeContainerName2EditPart;
-import org.eclipse.papyrus.uml.sirius.xtext.integration.ui.editpart.XtextSiriusDNodeContainerNameEditPart;
-import org.eclipse.papyrus.uml.sirius.xtext.integration.ui.editpart.XtextSiriusDNodeListElementEditPart;
-import org.eclipse.papyrus.uml.sirius.xtext.integration.ui.editpart.XtextSiriusDNodeNameEditPart;
+import org.eclipse.papyrus.sirius.uml.diagram.textedit.editpart.XtextDEdgeNameEditPart;
+import org.eclipse.papyrus.sirius.uml.diagram.textedit.editpart.XtextSiriusDNode3EditPart;
+import org.eclipse.papyrus.sirius.uml.diagram.textedit.editpart.XtextSiriusDNodeContainerName2EditPart;
+import org.eclipse.papyrus.sirius.uml.diagram.textedit.editpart.XtextSiriusDNodeContainerNameEditPart;
+import org.eclipse.papyrus.sirius.uml.diagram.textedit.editpart.XtextSiriusDNodeListElementEditPart;
+import org.eclipse.papyrus.sirius.uml.diagram.textedit.editpart.XtextSiriusDNodeNameEditPart;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DiagramPackage;
 import org.eclipse.sirius.diagram.sequence.business.internal.elements.CombinedFragment;

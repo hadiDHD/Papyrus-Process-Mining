@@ -9,9 +9,9 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *    Yann Binot (Artal Technologies) <yann.binot@artal.fr>
+ *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.xtext.integration.ui.editpart;
+package org.eclipse.papyrus.sirius.uml.diagram.textedit.editpart;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.Request;
@@ -24,48 +24,44 @@ import org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.configuration.I
 import org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.configuration.IDirectEditorConfiguration;
 import org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.utils.DirectEditorsUtil;
 import org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.utils.IDirectEditorsIds;
-import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeSpec;
-import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeNameEditPart;
+import org.eclipse.sirius.diagram.DNodeListElement;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListElementEditPart;
 import org.eclipse.swt.custom.BusyIndicator;
 import org.eclipse.swt.widgets.Display;
 
 /**
- * The Class XtextSiriusDNodeNameEditPart.
- * 
+ * The Class XtextSiriusDNodeListElementEditPart.
+ *
  * @author Yann Binot (Artal Technologies) <yann.binot@artal.fr>
  */
 @SuppressWarnings("restriction")
-public class XtextSiriusDNodeNameEditPart extends DNodeNameEditPart implements ITextAwareEditPart {
+public class XtextSiriusDNodeListElementEditPart extends DNodeListElementEditPart implements ITextAwareEditPart {
 
-	
 	/** The configuration. */
 	protected IDirectEditorConfiguration configuration;
-	
-	
+
 	/**
-	 * Instantiates a new xtext sirius D node name edit part.
+	 * Instantiates a new xtext sirius D node list element edit part.
 	 *
 	 * @param view the view
 	 */
-	public XtextSiriusDNodeNameEditPart(View view) {
+	public XtextSiriusDNodeListElementEditPart(View view) {
 		super(view);
 	}
+
+	/**
+	 * Perform direct edit request.
+	 *
+	 * @param request the request
+	 * @see org.eclipse.sirius.diagram.ui.internal.edit.parts.AbstractGeneratedDiagramNameEditPart#performDirectEditRequest(org.eclipse.gef.Request)
+	 */
 	
-	
-    /**
-     * Perform direct edit request.
-     *
-     * @param request the request
-     * @see org.eclipse.sirius.diagram.ui.internal.edit.parts.AbstractGeneratedDiagramNameEditPart#performDirectEditRequest(org.eclipse.gef.Request)
-     */
-    
-    @Override
-    protected void performDirectEditRequest(final Request request) {
-    	
-    	
-    	EObject resolveSemanticElement = resolveSemanticElement();
-		if(resolveSemanticElement instanceof DNodeSpec) {
-    		EObject target = ((DNodeSpec) resolveSemanticElement).getTarget();
+	@Override
+	protected void performDirectEditRequest(final Request request) {
+
+		EObject resolveSemanticElement = resolveSemanticElement();
+		if (resolveSemanticElement instanceof DNodeListElement) {
+			EObject target = ((DNodeListElement) resolveSemanticElement).getTarget();
 			final String languagePreferred = Activator.getDefault().getPreferenceStore().getString(IDirectEditorsIds.EDITOR_FOR_ELEMENT + target.eClass().getInstanceClassName());
 			if (languagePreferred != null && !languagePreferred.equals("")) {
 				configuration = DirectEditorsUtil.findEditorConfiguration(languagePreferred, target, this);
@@ -73,22 +69,19 @@ public class XtextSiriusDNodeNameEditPart extends DNodeNameEditPart implements I
 				configuration = DirectEditorsUtil.findEditorConfiguration(IDirectEditorsIds.UML_LANGUAGE, target, this);
 			}
 			configuration.preEditAction(target);
-    	}
-    	
-    	
-    	
-    	if (configuration instanceof ICustomDirectEditorConfiguration) {
-    		setManager(((ICustomDirectEditorConfiguration) configuration).createDirectEditManager(this));
-    		initializeDirectEditManager(request);
-    	}
-    }
+		}
 
-    
+		if (configuration instanceof ICustomDirectEditorConfiguration) {
+			setManager(((ICustomDirectEditorConfiguration) configuration).createDirectEditManager(this));
+			initializeDirectEditManager(request);
+		}
+	}
 
 	/**
 	 * Initialize direct edit manager.
 	 *
-	 * @param request the request
+	 * @param request
+	 *            the request
 	 */
 	protected void initializeDirectEditManager(final Request request) {
 		// initialize the direct edit manager
@@ -97,9 +90,10 @@ public class XtextSiriusDNodeNameEditPart extends DNodeNameEditPart implements I
 				@Override
 				public void run() {
 					if (isActive() && isEditable()) {
-						if (request.getExtendedData().get(
-								RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
-							Character initialChar = (Character) request.getExtendedData().get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
+						if (request.getExtendedData()
+								.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
+							Character initialChar = (Character) request.getExtendedData()
+									.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
 							performDirectEdit(initialChar.charValue());
 						} else {
 							performDirectEdit();
@@ -112,11 +106,11 @@ public class XtextSiriusDNodeNameEditPart extends DNodeNameEditPart implements I
 		}
 	}
 
-
 	/**
 	 * Perform direct edit.
 	 *
-	 * @param initialCharacter the initial character
+	 * @param initialCharacter
+	 *            the initial character
 	 */
 	protected void performDirectEdit(char initialCharacter) {
 		if (getManager() instanceof TextDirectEditManager) {
@@ -125,13 +119,13 @@ public class XtextSiriusDNodeNameEditPart extends DNodeNameEditPart implements I
 			performDirectEdit();
 		}
 	}
-	
+
 	/**
 	 * Perform direct edit.
 	 *
 	 * @see org.eclipse.sirius.diagram.ui.internal.edit.parts.AbstractGeneratedDiagramNameEditPart#performDirectEdit()
 	 */
-	
+
 	@Override
 	protected void performDirectEdit() {
 		BusyIndicator.showWhile(Display.getDefault(), new java.lang.Runnable() {

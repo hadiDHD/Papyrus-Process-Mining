@@ -11,7 +11,7 @@
  * Contributors:
  *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.xtext.integration.ui.editpart;
+package org.eclipse.papyrus.sirius.uml.diagram.textedit.editpart;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.draw2d.IFigure;

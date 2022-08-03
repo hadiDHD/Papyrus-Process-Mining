@@ -11,7 +11,7 @@
  * Contributors:
  *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.xtext.integration.ui;
+package org.eclipse.papyrus.sirius.uml.diagram.textedit;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;

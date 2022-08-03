@@ -19,12 +19,12 @@
 	<description>Container of the Papyrus-Sirius UML Plugins</description>
 
 	<modules>
-		<module>sirius</module>
 		<module>org.eclipse.papyrus.sirius.uml</module>
 		<module>org.eclipse.papyrus.sirius.uml.diagram.architecture</module>
 		<module>org.eclipse.papyrus.sirius.uml.diagram.clazz</module>
 		<module>org.eclipse.papyrus.sirius.uml.diagram.common</module>
 		<module>org.eclipse.papyrus.sirius.uml.diagram.sequence</module>
 		<module>org.eclipse.papyrus.sirius.uml.diagram.statemachine</module>
+		<module>org.eclipse.papyrus.sirius.uml.diagram.textedit</module>
 	</modules>
 </project>

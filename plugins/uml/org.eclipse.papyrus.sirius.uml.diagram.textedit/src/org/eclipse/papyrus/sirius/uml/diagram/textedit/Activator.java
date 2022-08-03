@@ -11,7 +11,7 @@
  * Contributors:
  *    Yann Binot (Artal Technologies) <yann.binot@artal.fr>
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.xtext.integration.ui;
+package org.eclipse.papyrus.sirius.uml.diagram.textedit;
 
 import org.eclipse.papyrus.infra.core.log.LogHelper;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -29,7 +29,7 @@ public class Activator extends AbstractUIPlugin {
 
 	/** The Constant PLUGIN_ID. */
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.eclipse.papyrus.uml.sirius.xtext.integration.ui"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.eclipse.papyrus.sirius.uml.diagram.textedit"; //$NON-NLS-1$
 
 	/** The plugin. */
 	// The shared instance

@@ -66,7 +66,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.uml.sirius.xtext.integration.ui"
+         id="org.eclipse.papyrus.sirius.uml.diagram.textedit"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -11,7 +11,7 @@
  * Contributors:
  *    Yann Binot (Artal Technologies) <yann.binot@artal.fr>
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.xtext.integration.ui;
+package org.eclipse.papyrus.sirius.uml.diagram.textedit;
 
 import org.eclipse.sirius.diagram.ui.internal.providers.SiriusEditPartProvider;
 

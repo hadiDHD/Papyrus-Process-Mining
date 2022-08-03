@@ -11,7 +11,7 @@
  * Contributors:
  *    Yann Binot (Artal Technologies) <yann.binot@artal.fr>
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.xtext.integration.ui.editpart;
+package org.eclipse.papyrus.sirius.uml.diagram.textedit.editpart;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.Request;
@@ -24,46 +24,48 @@ import org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.configuration.I
 import org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.configuration.IDirectEditorConfiguration;
 import org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.utils.DirectEditorsUtil;
 import org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.utils.IDirectEditorsIds;
-import org.eclipse.sirius.diagram.DNodeContainer;
-import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeContainerSpec;
-import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerName2EditPart;
+import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeSpec;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeNameEditPart;
 import org.eclipse.swt.custom.BusyIndicator;
 import org.eclipse.swt.widgets.Display;
 
 /**
- * The Class XtextSiriusDNodeContainerName2EditPart.
- *
+ * The Class XtextSiriusDNodeNameEditPart.
+ * 
  * @author Yann Binot (Artal Technologies) <yann.binot@artal.fr>
  */
 @SuppressWarnings("restriction")
-public class XtextSiriusDNodeContainerName2EditPart extends DNodeContainerName2EditPart implements ITextAwareEditPart/*,IControlParserForDirectEdit*/ {
+public class XtextSiriusDNodeNameEditPart extends DNodeNameEditPart implements ITextAwareEditPart {
 
+	
 	/** The configuration. */
 	protected IDirectEditorConfiguration configuration;
-
+	
+	
 	/**
-	 * Instantiates a new {@link XtextSiriusDNodeContainerName2EditPart}.
+	 * Instantiates a new xtext sirius D node name edit part.
 	 *
-	 * @param view
-	 *            the view
+	 * @param view the view
 	 */
-	public XtextSiriusDNodeContainerName2EditPart(View view) {
+	public XtextSiriusDNodeNameEditPart(View view) {
 		super(view);
 	}
-
-	/**
-	 * Perform direct edit request.
-	 *
-	 * @param request the request
-	 * @see org.eclipse.sirius.diagram.ui.internal.edit.parts.AbstractGeneratedDiagramNameEditPart#performDirectEditRequest(org.eclipse.gef.Request)
-	 */
 	
-	@Override
-	protected void performDirectEditRequest(final Request request) {
-
-		EObject resolveSemanticElement = /*super.*/resolveSemanticElement();
-		if (resolveSemanticElement instanceof DNodeContainerSpec) {
-			EObject target = ((DNodeContainer) resolveSemanticElement).getTarget();
+	
+    /**
+     * Perform direct edit request.
+     *
+     * @param request the request
+     * @see org.eclipse.sirius.diagram.ui.internal.edit.parts.AbstractGeneratedDiagramNameEditPart#performDirectEditRequest(org.eclipse.gef.Request)
+     */
+    
+    @Override
+    protected void performDirectEditRequest(final Request request) {
+    	
+    	
+    	EObject resolveSemanticElement = resolveSemanticElement();
+		if(resolveSemanticElement instanceof DNodeSpec) {
+    		EObject target = ((DNodeSpec) resolveSemanticElement).getTarget();
 			final String languagePreferred = Activator.getDefault().getPreferenceStore().getString(IDirectEditorsIds.EDITOR_FOR_ELEMENT + target.eClass().getInstanceClassName());
 			if (languagePreferred != null && !languagePreferred.equals("")) {
 				configuration = DirectEditorsUtil.findEditorConfiguration(languagePreferred, target, this);
@@ -71,13 +73,17 @@ public class XtextSiriusDNodeContainerName2EditPart extends DNodeContainerName2E
 				configuration = DirectEditorsUtil.findEditorConfiguration(IDirectEditorsIds.UML_LANGUAGE, target, this);
 			}
 			configuration.preEditAction(target);
-		}
+    	}
+    	
+    	
+    	
+    	if (configuration instanceof ICustomDirectEditorConfiguration) {
+    		setManager(((ICustomDirectEditorConfiguration) configuration).createDirectEditManager(this));
+    		initializeDirectEditManager(request);
+    	}
+    }
 
-		if (configuration instanceof ICustomDirectEditorConfiguration) {
-			setManager(((ICustomDirectEditorConfiguration) configuration).createDirectEditManager(this));
-			initializeDirectEditManager(request);
-		}
-	}
+    
 
 	/**
 	 * Initialize direct edit manager.
@@ -91,10 +97,9 @@ public class XtextSiriusDNodeContainerName2EditPart extends DNodeContainerName2E
 				@Override
 				public void run() {
 					if (isActive() && isEditable()) {
-						if (request.getExtendedData()
-								.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
-							Character initialChar = (Character) request.getExtendedData()
-									.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
+						if (request.getExtendedData().get(
+								RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
+							Character initialChar = (Character) request.getExtendedData().get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
 							performDirectEdit(initialChar.charValue());
 						} else {
 							performDirectEdit();
@@ -106,6 +111,7 @@ public class XtextSiriusDNodeContainerName2EditPart extends DNodeContainerName2E
 			Activator.log.error(e);
 		}
 	}
+
 
 	/**
 	 * Perform direct edit.
@@ -119,7 +125,7 @@ public class XtextSiriusDNodeContainerName2EditPart extends DNodeContainerName2E
 			performDirectEdit();
 		}
 	}
-
+	
 	/**
 	 * Perform direct edit.
 	 *

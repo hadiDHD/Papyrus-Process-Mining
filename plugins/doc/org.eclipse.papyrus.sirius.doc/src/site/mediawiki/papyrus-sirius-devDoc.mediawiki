@@ -56,7 +56,7 @@ This framework has been developed to be used only when a sirius diagram is opene
 **'''org.eclipse.papyrus.sirius.uml.diagram.common''': contains all the common services that can be used by all diagrams 
 **'''org.eclipse.papyrus.sirius.uml.diagram.sequence''': contains sequence diagram description and services
 **'''org.eclipse.papyrus.sirius.uml.diagram.statemachine''': contains statemachine diagram description and services
-**'''xtext.integration.ui''': contains customization to add xtext on label edition
+**'''org.eclipse.papyrus.sirius.uml.diagram.textedit''': contains customization to use Papyrus XText grammar inside Papyrus Sirius Diagram
 
 = odesign file conception rules =
 To ease development and review, we decided to follow conception rules for odesign file: 
@@ -251,7 +251,7 @@ The Sequence layer defines all the mapping and tools specific to the Sequence di
 
 = Xtext integration =
 
-Code in org.eclipse.papyrus.uml.sirius.xtext.integration.ui override classic editpart to add an xtext parser on each label edition.
+Code in org.eclipse.papyrus.sirius.uml.diagram.textedit override classic editpart to add an xtext parser on each label edition.
 
 = Test coverage =
 

@@ -9,9 +9,9 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
+ *    Yann Binot (Artal Technologies) <yann.binot@artal.fr>
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.xtext.integration.ui.editpart;
+package org.eclipse.papyrus.sirius.uml.diagram.textedit.editpart;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.Request;
@@ -24,28 +24,30 @@ import org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.configuration.I
 import org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.configuration.IDirectEditorConfiguration;
 import org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.utils.DirectEditorsUtil;
 import org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.utils.IDirectEditorsIds;
-import org.eclipse.sirius.diagram.DNodeListElement;
-import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListElementEditPart;
+import org.eclipse.sirius.diagram.DNodeContainer;
+import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeContainerSpec;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerName2EditPart;
 import org.eclipse.swt.custom.BusyIndicator;
 import org.eclipse.swt.widgets.Display;
 
 /**
- * The Class XtextSiriusDNodeListElementEditPart.
+ * The Class XtextSiriusDNodeContainerName2EditPart.
  *
  * @author Yann Binot (Artal Technologies) <yann.binot@artal.fr>
  */
 @SuppressWarnings("restriction")
-public class XtextSiriusDNodeListElementEditPart extends DNodeListElementEditPart implements ITextAwareEditPart {
+public class XtextSiriusDNodeContainerName2EditPart extends DNodeContainerName2EditPart implements ITextAwareEditPart/*,IControlParserForDirectEdit*/ {
 
 	/** The configuration. */
 	protected IDirectEditorConfiguration configuration;
 
 	/**
-	 * Instantiates a new xtext sirius D node list element edit part.
+	 * Instantiates a new {@link XtextSiriusDNodeContainerName2EditPart}.
 	 *
-	 * @param view the view
+	 * @param view
+	 *            the view
 	 */
-	public XtextSiriusDNodeListElementEditPart(View view) {
+	public XtextSiriusDNodeContainerName2EditPart(View view) {
 		super(view);
 	}
 
@@ -59,9 +61,9 @@ public class XtextSiriusDNodeListElementEditPart extends DNodeListElementEditPar
 	@Override
 	protected void performDirectEditRequest(final Request request) {
 
-		EObject resolveSemanticElement = resolveSemanticElement();
-		if (resolveSemanticElement instanceof DNodeListElement) {
-			EObject target = ((DNodeListElement) resolveSemanticElement).getTarget();
+		EObject resolveSemanticElement = /*super.*/resolveSemanticElement();
+		if (resolveSemanticElement instanceof DNodeContainerSpec) {
+			EObject target = ((DNodeContainer) resolveSemanticElement).getTarget();
 			final String languagePreferred = Activator.getDefault().getPreferenceStore().getString(IDirectEditorsIds.EDITOR_FOR_ELEMENT + target.eClass().getInstanceClassName());
 			if (languagePreferred != null && !languagePreferred.equals("")) {
 				configuration = DirectEditorsUtil.findEditorConfiguration(languagePreferred, target, this);
@@ -80,8 +82,7 @@ public class XtextSiriusDNodeListElementEditPart extends DNodeListElementEditPar
 	/**
 	 * Initialize direct edit manager.
 	 *
-	 * @param request
-	 *            the request
+	 * @param request the request
 	 */
 	protected void initializeDirectEditManager(final Request request) {
 		// initialize the direct edit manager
@@ -109,8 +110,7 @@ public class XtextSiriusDNodeListElementEditPart extends DNodeListElementEditPar
 	/**
 	 * Perform direct edit.
 	 *
-	 * @param initialCharacter
-	 *            the initial character
+	 * @param initialCharacter the initial character
 	 */
 	protected void performDirectEdit(char initialCharacter) {
 		if (getManager() instanceof TextDirectEditManager) {
@@ -125,7 +125,7 @@ public class XtextSiriusDNodeListElementEditPart extends DNodeListElementEditPar
 	 *
 	 * @see org.eclipse.sirius.diagram.ui.internal.edit.parts.AbstractGeneratedDiagramNameEditPart#performDirectEdit()
 	 */
-
+	
 	@Override
 	protected void performDirectEdit() {
 		BusyIndicator.showWhile(Display.getDefault(), new java.lang.Runnable() {
