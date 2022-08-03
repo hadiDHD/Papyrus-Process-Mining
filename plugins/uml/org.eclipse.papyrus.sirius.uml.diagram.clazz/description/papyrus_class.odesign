@@ -150,7 +150,7 @@
             </endLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="CD_ContainmentLink" preconditionExpression="service:containmentLink_isValidSourceAndTarget(sourceView,targetView,source,target)" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" createElements="false" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Component'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Package']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Component'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Package'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Signal']" targetFinderExpression="service:getContainmentLinkTarget()" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='ReconnectContainmentLinkTarget'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='ReconnectContainmentLinkSource']">
+        <edgeMappings name="CD_ContainmentLink" preconditionExpression="service:containmentLink_isValidSourceAndTarget(sourceView,targetView,source,target)" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Component'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Package']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Component'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Package'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Signal']" targetFinderExpression="service:containmentLink_getTarget()" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='ReconnectContainmentLinkTarget'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='ReconnectContainmentLinkSource']">
           <style sourceArrow="OutputClosedArrow" targetArrow="NoDecoration">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <beginLabelStyleDescription labelSize="9" iconPath="/org.eclipse.papyrus.sirius.uml.diagram.common/icons/uml/ContainmentLink.gif">
@@ -992,7 +992,7 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:containmentLinkCreation_moveIntoOwner(source,target)">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:containmentLink_creation(source,target)">
                 <subModelOperations xsi:type="tool_1:CreateEdgeView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_ContainmentLink']" containerViewExpression="aql:sourceView.getParentDiagram()" sourceExpression="var:source" targetExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
@@ -1230,25 +1230,25 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Relationships">
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectContainmentLinkSource" precondition="service:reconnectContainmentLinkPrecondition(target)" reconnectionKind="RECONNECT_SOURCE">
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectContainmentLinkSource" precondition="service:containmentLink_canReconnectSource(targetView,target,otherEnd)" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.reconnectContainementLinkSource(edgeView, sourceView, targetView, source, target)"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.containmentLink_reconnectSource(edgeView, sourceView, targetView, source, target)"/>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectContainmentLinkTarget" precondition="service:reconnectContainmentLinkPrecondition(target)">
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectContainmentLinkTarget" precondition="service:containmentLink_canReconnectTarget(targetView,target,otherEnd)">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.reconnectContainementLinkTarget(edgeView, sourceView, targetView, source, target)"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.containmentLink_reconnectTarget(edgeView, sourceView, targetView, source, target)"/>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>

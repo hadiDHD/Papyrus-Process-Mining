@@ -34,6 +34,7 @@ import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
@@ -55,6 +56,7 @@ import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.UIServices;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
+import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DNodeList;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.EdgeTarget;
@@ -222,9 +224,8 @@ public class ClassDiagramServices {
 	 *            the source element
 	 * @param target
 	 *            the target element
-	 * 
 	 */
-	public static void containmentLinkCreation_moveIntoOwner(final EObject context, final Element source, final Element target) {
+	public static void containmentLink_creation(final EObject context, final Element source, final Element target) {
 		if (source instanceof Package && target instanceof PackageableElement) {
 			((Package) source).getPackagedElements().add((PackageableElement) target);
 		} else if (source instanceof Class && target instanceof Classifier) {
@@ -233,7 +234,7 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Check if the source and target are valid
+	 * Check if the source and target are valid for a ContainmentLink
 	 * 
 	 * @param context
 	 *            the current context
@@ -248,58 +249,135 @@ public class ClassDiagramServices {
 	 * @return true if the source and target are valid
 	 */
 	public boolean containmentLink_isValidSourceAndTarget(final EObject context, final EObject sourceView, final EObject targetView, final Element source, final Element target) {
+		boolean isValid = false;
 		if (source == target) {
-			// we forbid reflexive ContainmentLink of course
+			// 1. we forbid reflexive ContainmentLink of course
 			return false;
 		}
-		if (source instanceof Package || source instanceof Class) {
-			if (target instanceof Package || target instanceof Classifier) {
-				if (((Namespace) source).allNamespaces().contains(target)) {
-					// it will create a loop of containment
-					return false;
-				}
-				return true;
-			}
+
+		// 2. semantic condition
+		if (source instanceof Package) {
+			isValid = target instanceof PackageableElement;
+		} else if (source instanceof Class) {
+			isValid = target instanceof Classifier;
 		}
-		return false;
+
+		if (isValid) {
+			// 3. to avoid a loop of containment
+			isValid = !((Namespace) source).allNamespaces().contains(target);
+		}
+
+		// 4. we only allow to target an element on the diagram background (to ease Diagram development)
+		final EObject graphicalParent = ((DNodeContainer) targetView).eContainer();
+		isValid = graphicalParent instanceof DSemanticDiagram;
+
+		return isValid;
 
 	}
 
 	/**
-	 * Service used to determine if the selected containment edge target could be
-	 * reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param target
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectContainmentLinkPrecondition(Element context, Element target) {
-		// context is previous value
-		// target is newValue
-		// TODO we must validate condition on source/target to forbid the containment of a Package inside a Class for example.
-		// it is not yet possible, see forum https://www.eclipse.org/forums/index.php/m/1853006/#msg_1853006
-		// see bug 580155
-		return (target instanceof Class || target instanceof Interface || target instanceof Model
-				|| target instanceof Package || target instanceof DataType);
-	}
-
-	/**
-	 * Get the target element for the containment link.
+	 * Get the target elements for the containment link.
 	 * 
 	 * @param context
 	 *            the current context
 	 * @return containment link lists
 	 */
-	public static List<?> getContainmentLinkTarget(final Element source) {
+	public static List<?> containmentLink_getTarget(final Element source) {
 		if (source instanceof Class) {
 			return ((Class) source).getNestedClassifiers();
 		} else if (source instanceof Package) {
 			return ((Package) source).getPackagedElements();
 		}
 		return null;
+	}
+
+	/**
+	 * This is the reconnect source precondition method.
+	 * 
+	 * @param oldSource
+	 *            the old source element
+	 * @param newSourceView
+	 *            the new source view
+	 * @param newSource
+	 *            the new source element
+	 * @param otherEnd
+	 *            the other end view (the target View)
+	 * @return
+	 *         <code>true</code> if we can change the source of the ContainmentLink
+	 */
+	public boolean containmentLink_canReconnectSource(final Element oldSource, final DNodeContainer newSourceView, final Element newSource, final DNodeContainer otherEnd) {
+		final Element target = (Element) otherEnd.getTarget();
+		return containmentLink_isValidSourceAndTarget(null, null, otherEnd, newSource, target);
+	}
+
+	/**
+	 * This is the reconnect target precondition method.
+	 * 
+	 * @param oldTarget
+	 *            the old target element
+	 * @param newTargetView
+	 *            the new target view
+	 * @param newTarget
+	 *            the new target element
+	 * @param otherEnd
+	 *            the other end view (the source View)
+	 * @return
+	 *         <code>true</code> if we can change the target of the ContainmentLink
+	 */
+	public boolean containmentLink_canReconnectTarget(final Element oldTarget, final DNodeContainer newTargetView, final Element newTarget, final DNodeContainer otherEnd) {
+		final Element source = (Element) otherEnd.getTarget();
+		return containmentLink_isValidSourceAndTarget(null, null, newTargetView, source, newTarget);
+	}
+
+	/**
+	 * Service used to reconnect a Containment Link source.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param edgeView
+	 *            Represents the graphical new edge
+	 * @param oldSourceView
+	 *            Represents the graphical element pointed by the edge before reconnecting
+	 * @param newSourceView
+	 *            Represents the graphical element pointed by the edge after reconnecting
+	 * @param oldSource
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void containmentLink_reconnectSource(final Element context, final DEdge edgeView, final EdgeTarget oldSourceView, final EdgeTarget newSourceView, final Element oldSource, final Element newSource) {
+		// 1. get the target element of the ContainmentLink and move it into its new container
+		final Element targetElement = (Element) ((DNodeContainer) edgeView.getTargetNode()).getTarget();
+		// 2. move the element in its new owner
+		containmentLink_creation(null, newSource, targetElement);
+	}
+
+	/**
+	 * Service used to reconnect a Containment Link target.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param edgeView
+	 *            Represents the graphical new edge
+	 * @param oldTargetView
+	 *            Represents the graphical element pointed by the edge before reconnecting
+	 * @param newTargetView
+	 *            Represents the graphical element pointed by the edge after reconnecting
+	 * @param oldTarget
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void containmentLink_reconnectTarget(final Element context, final DEdge edgeView, final EdgeTarget oldTargetView, final EdgeTarget newTargetView, final Element oldTarget, final Element newTarget) {
+		// 1. reparent the old target element at the semantic level to get a consistent diagram
+		final EObject graphicalParent = ((DNodeContainer) oldTargetView).eContainer();
+		Assert.isTrue(graphicalParent instanceof DSemanticDiagram); // always true with the current configuration
+		final EObject semanticGraphicalParent = ((DSemanticDiagram) graphicalParent).getTarget();
+		Assert.isTrue(semanticGraphicalParent instanceof Package && oldTarget instanceof PackageableElement); // always true in with current odesign configuration
+		((Package) semanticGraphicalParent).getPackagedElements().add((PackageableElement) oldTarget);
+
+		// 2. move the element in its new parent
+		containmentLink_creation(null, context, newTarget);
 	}
 
 	/**
@@ -1242,103 +1320,6 @@ public class ClassDiagramServices {
 	public boolean reconnectAbstractionLinkPrecondition(Element context, Element target) {
 		return target instanceof Class || target instanceof Interface || target instanceof Enumeration
 				|| target instanceof PrimitiveType;
-	}
-
-	/**
-	 * Service used to reconnect a Containment Link source.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param edgeView
-	 *            Represents the graphical new edge
-	 * @param sourceView
-	 *            Represents the graphical element pointed by the edge before
-	 *            reconnecting
-	 * @param targetView
-	 *            Represents the graphical element pointed by the edge after
-	 *            reconnecting
-	 * @param oldSource
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newSource
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectContainementLinkSource(Element context, DEdge edgeView, EdgeTarget sourceView, EdgeTarget targetView, Element oldSource, Element newSource) {
-		if (oldSource instanceof Class) { // if the old source is a Class
-
-			// remove the target from the old source class and add it to the new source
-			// class
-			Classifier target = (Classifier) ((DNodeContainerSpec) edgeView.getTargetNode()).getTarget();
-			((Class) oldSource).getNestedClassifiers().remove(target);
-			if (newSource instanceof Class) {
-				((Class) newSource).getNestedClassifiers().add(target);
-			} else if (newSource instanceof Package) {
-				((Package) newSource).getPackagedElements().add(target);
-			}
-		} else if (oldSource instanceof Package) {// if the old source is a Package
-			// remove the target from the old source package and add it to the new source
-			// package
-			PackageableElement target = (PackageableElement) ((DNodeContainerSpec) edgeView.getTargetNode())
-					.getTarget();
-			((Package) oldSource).getPackagedElements().remove(target);
-
-			if (newSource instanceof Class) {
-				((Class) newSource).getNestedClassifiers().add((Classifier) target);
-			} else if (newSource instanceof Package) {
-				((Package) newSource).getPackagedElements().add(target);
-			}
-		}
-	}
-
-	/**
-	 * Service used to reconnect a Containment Link target.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param edgeView
-	 *            Represents the graphical new edge
-	 * @param sourceView
-	 *            Represents the graphical element pointed by the edge before
-	 *            reconnecting
-	 * @param targetView
-	 *            Represents the graphical element pointed by the edge after
-	 *            reconnecting
-	 * @param oldTarget
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newTarget
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectContainementLinkTarget(Element context, DEdge edgeView, EdgeTarget sourceView,
-			EdgeTarget targetView, Element oldTarget, Element newTarget) {
-		// get the root model of the diagram
-		Model rootModel = getRootModel(oldTarget);
-
-		// if the old target element is a Class
-		if (oldTarget instanceof Class) {
-			// remove old target from the class source and add the new target
-			Class source = (Class) ((DNodeContainerSpec) edgeView.getSourceNode()).getTarget();
-			((Class) source).getNestedClassifiers().remove(oldTarget);
-			((Class) source).getNestedClassifiers().add((Classifier) newTarget);
-		}
-		// if the old target element is a Package
-		else if (oldTarget instanceof Package) {
-			// remove old target from the package source and add the new target
-			Package source = (Package) ((DNodeContainerSpec) edgeView.getSourceNode()).getTarget();
-			source.getPackagedElements().remove(oldTarget);
-			source.getPackagedElements().add((PackageableElement) newTarget);
-		}
-
-		// keep the old target (Class or Package) in the root model
-		if (oldTarget instanceof Class) {
-			rootModel.getPackagedElements().add((Class) oldTarget);
-		} else if (oldTarget instanceof Package) {
-			rootModel.getPackagedElements().add((Package) oldTarget);
-		}
 	}
 
 	/**
