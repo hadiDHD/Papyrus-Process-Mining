@@ -19,7 +19,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated siriusdiagramRepresentation -->
       <package
-            uri="http://www.eclipse.org/papyrus/sirius/integration/1.0.0/emf/siriusdiagram/representation"
+            uri="http://www.eclipse.org/papyrus/sirius/1.0.0/emf/siriusdiagram/representation"
             class="org.eclipse.papyrus.sirius.editor.representation.RepresentationPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
@@ -28,7 +28,7 @@
          point="org.eclipse.emf.ecore.factory_override">
       <factory
             class="org.eclipse.papyrus.sirius.editor.representation.internal.custom.CustomRepresentationFactoryImpl"
-            uri="http://www.eclipse.org/papyrus/sirius/integration/1.0.0/emf/siriusdiagram/representation">
+            uri="http://www.eclipse.org/papyrus/sirius/1.0.0/emf/siriusdiagram/representation">
       </factory>
    </extension>
 

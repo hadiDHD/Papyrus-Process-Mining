@@ -20,7 +20,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated siriusdiagramRepresentation -->
       <factory
-            uri="http://www.eclipse.org/papyrus/sirius/integration/1.0.0/emf/siriusdiagram/representation"
+            uri="http://www.eclipse.org/papyrus/sirius/1.0.0/emf/siriusdiagram/representation"
             class="org.eclipse.papyrus.sirius.editor.representation.provider.RepresentationItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

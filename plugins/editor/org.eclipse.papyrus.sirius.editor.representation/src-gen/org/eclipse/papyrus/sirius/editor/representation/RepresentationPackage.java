@@ -56,7 +56,7 @@ public interface RepresentationPackage extends EPackage {
 	 *
 	 * @generated
 	 */
-	String eNS_URI = "http://www.eclipse.org/papyrus/sirius/integration/1.0.0/emf/siriusdiagram/representation"; //$NON-NLS-1$
+	String eNS_URI = "http://www.eclipse.org/papyrus/sirius/1.0.0/emf/siriusdiagram/representation"; //$NON-NLS-1$
 
 	/**
 	 * The package namespace name.
