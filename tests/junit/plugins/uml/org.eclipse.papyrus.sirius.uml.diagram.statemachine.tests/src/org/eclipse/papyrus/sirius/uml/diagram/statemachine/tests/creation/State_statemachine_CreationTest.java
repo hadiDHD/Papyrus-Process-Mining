@@ -30,7 +30,7 @@ public class State_statemachine_CreationTest extends AbstractStatemachineTopNode
 	private static final String STATEMACHINE_TAB = "create_statemachine_node";
 
 	private static final String STATE_SUB_NODE_TAB = "create_state_subnode";
-	
+
 
 	@Test
 	@ActiveDiagram(STATE_SUB_NODE_TAB) // open the diagram
@@ -38,7 +38,7 @@ public class State_statemachine_CreationTest extends AbstractStatemachineTopNode
 		final var subStateContainer = checkAndGetEmptyStateNodeRegion();
 		createAndCheckStateNode("State", DNodeContainer.class, State.class, subStateContainer);
 	}
-	
+
 	@Test
 	@ActiveDiagram(STATEMACHINE_TAB) // open the diagram
 	public void test_create_statemachine_state() {

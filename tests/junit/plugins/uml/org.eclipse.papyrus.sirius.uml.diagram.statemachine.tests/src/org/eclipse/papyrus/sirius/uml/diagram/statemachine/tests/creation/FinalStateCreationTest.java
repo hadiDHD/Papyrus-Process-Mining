@@ -30,7 +30,7 @@ public class FinalStateCreationTest extends AbstractStatemachineTopNodeCreationT
 	private static final String STATEMACHINE_TAB = "create_statemachine_node";
 
 	private static final String STATE_SUB_NODE_TAB = "create_state_subnode";
-	
+
 	@Test
 	@ActiveDiagram(STATE_SUB_NODE_TAB) // open the diagram
 	public void test_create_state_subnode_final_state() {

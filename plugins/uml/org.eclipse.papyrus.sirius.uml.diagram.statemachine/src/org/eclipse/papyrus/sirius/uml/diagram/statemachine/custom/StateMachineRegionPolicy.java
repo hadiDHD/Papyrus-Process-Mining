@@ -89,7 +89,8 @@ public class StateMachineRegionPolicy extends CreationEditPolicy {
 	/**
 	 * Gets the reparent command.
 	 *
-	 * @param changeBoundsRequest the change bounds request
+	 * @param changeBoundsRequest
+	 *            the change bounds request
 	 * @return the reparent command
 	 * @see org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy#getReparentCommand(org.eclipse.gef.requests.ChangeBoundsRequest)
 	 */
@@ -122,14 +123,14 @@ public class StateMachineRegionPolicy extends CreationEditPolicy {
 					if (semantic instanceof State) {
 						// State state = (State) semantic;
 						// correct container of transitions
-//						for (Transition transition : state.getOutgoings()) {
-//							cc.compose(new EMFtoGMFCommandWrapper(
-//									new EMFCustomTransitionRetargetContainerCommand(transition)));
-//						}
-//						for (Transition transition : state.getIncomings()) {
-//							cc.compose(new EMFtoGMFCommandWrapper(
-//									new EMFCustomTransitionRetargetContainerCommand(transition)));
-//						}
+						// for (Transition transition : state.getOutgoings()) {
+						// cc.compose(new EMFtoGMFCommandWrapper(
+						// new EMFCustomTransitionRetargetContainerCommand(transition)));
+						// }
+						// for (Transition transition : state.getIncomings()) {
+						// cc.compose(new EMFtoGMFCommandWrapper(
+						// new EMFCustomTransitionRetargetContainerCommand(transition)));
+						// }
 					}
 				}
 			}
@@ -223,20 +224,22 @@ public class StateMachineRegionPolicy extends CreationEditPolicy {
 		}
 		return null;
 	}
-	
+
 
 
 
 	/**
 	 * Gets the element type by unique id.
 	 *
-	 * @param id the id
+	 * @param id
+	 *            the id
 	 * @return the element type by unique id
-	 * @generated 
+	 * @generated
 	 */
 	private static IElementType getElementTypeByUniqueId(String id) {
 		return ElementTypeRegistry.getInstance().getType(id);
 	}
+
 	/**
 	 * Gets the size on drop feedback.
 	 *
@@ -280,7 +283,8 @@ public class StateMachineRegionPolicy extends CreationEditPolicy {
 				List<?> elementTypes = createUnspecifiedTypeRequest.getElementTypes();
 				// Treat the case where only one element type is listed
 				// Only take EntryPoint or ExitPoint element type into account
-				if ((elementTypes.size() == 1) && (((IElementType) (elementTypes.get(0)) == getElementTypeByUniqueId("org.eclipse.papyrus.umldi.Pseudostate_EntryPointShape")) || ((IElementType) (elementTypes.get(0)) ==getElementTypeByUniqueId("org.eclipse.papyrus.umldi.Pseudostate_ExitPointShape")))) {
+				if ((elementTypes.size() == 1) && (((IElementType) (elementTypes.get(0)) == getElementTypeByUniqueId("org.eclipse.papyrus.umldi.Pseudostate_EntryPointShape"))
+						|| ((IElementType) (elementTypes.get(0)) == getElementTypeByUniqueId("org.eclipse.papyrus.umldi.Pseudostate_ExitPointShape")))) {
 					// If the target is a compartment replace by its grand parent edit part
 					if ((getHost() instanceof ShapeCompartmentEditPart)) {
 						return getHost().getParent().getParent().getParent();
@@ -305,7 +309,7 @@ public class StateMachineRegionPolicy extends CreationEditPolicy {
 		if (request instanceof CreateRequest) {
 			Object newObject = ((CreateRequest) request).getNewObject();
 			if (newObject instanceof ContainerCreationDescription) {
-				if (((ContainerCreationDescription) newObject).getName().equals("Region")) {
+				if (((ContainerCreationDescription) newObject).getName().equals("SMD_RegionCompartment")) {
 					// CreateUnspecifiedTypeRequest unspecReq = (CreateUnspecifiedTypeRequest) request;
 					// for (Iterator<?> iter = unspecReq.getElementTypes().iterator(); iter.hasNext();) {
 					// IElementType elementType = (IElementType) iter.next();
@@ -339,8 +343,8 @@ public class StateMachineRegionPolicy extends CreationEditPolicy {
 				}
 			}
 
-//		} else {
-//			super.showTargetFeedback(request);
+			// } else {
+			// super.showTargetFeedback(request);
 		}
 	}
 

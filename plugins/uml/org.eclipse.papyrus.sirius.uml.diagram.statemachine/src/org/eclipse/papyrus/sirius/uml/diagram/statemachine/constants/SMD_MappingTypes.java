@@ -26,9 +26,14 @@ public class SMD_MappingTypes {
 	public static final String CONSTRAINT_NODE_TYPE = "SMD_Constraint"; //$NON-NLS-1$
 	public static final String CONTEXTLINK_EDGE_TYPE = "SMD_ContextLink"; //$NON-NLS-1$
 	public static final String LINK_EDGE_TYPE = "SMD_Link"; //$NON-NLS-1$
+	public static final String REGION_COMPARTMENT = "SMD_RegionCompartment"; //$NON-NLS-1$
+	public static final String REGION_COMPARTMENT_FINALSTATE = "SMD_FinalState"; //$NON-NLS-1$
+	public static final String REGION_COMPARTMENT_PSEUDOSTATE = "SMD_Pseudostate"; //$NON-NLS-1$
+	public static final String REGION_COMPARTMENT_STATE = "SMD_State"; //$NON-NLS-1$
 	public static final String STATEMACHINE_NODE_TYPE = "SMD_StateMachine"; //$NON-NLS-1$
 	public static final String STATEROOT_NODE_TYPE = "SMD_StateRoot"; //$NON-NLS-1$
 	public static final String TRANSITION_EDGE_TYPE = "SMD_Transition"; //$NON-NLS-1$
+
 
 
 

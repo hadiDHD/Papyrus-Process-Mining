@@ -256,7 +256,8 @@ public class CreatePapyrusSiriusStateMachineDiagramEditorCommand extends Abstrac
 
 	protected void initializeDiagram(DDiagram diagram, DiagramDescription desc, Element sm) {
 		Region region = null;
-		var regionMapping = "Region";
+		// TODO refactore this code / use the constant defined in the diagram
+		final String regionMapping = "SMD_RegionCompartment"; //$NON-NLS-1$
 		if (sm instanceof StateMachine) {
 			StateMachine stateMachine = (StateMachine) sm;
 			region = stateMachine.getRegions().get(0);
@@ -273,7 +274,6 @@ public class CreatePapyrusSiriusStateMachineDiagramEditorCommand extends Abstrac
 			// Zone.setHeight(regionNode, defaultHeight - defaultHeader);
 			// }
 		} else if (sm instanceof State) {
-			regionMapping = "Region";
 			State state = (State) sm;
 			region = state.getRegions().get(0);
 

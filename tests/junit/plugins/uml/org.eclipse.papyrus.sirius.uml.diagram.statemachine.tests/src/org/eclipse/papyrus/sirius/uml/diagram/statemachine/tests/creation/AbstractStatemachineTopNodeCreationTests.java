@@ -53,20 +53,20 @@ public abstract class AbstractStatemachineTopNodeCreationTests extends AbstractP
 	public DNodeContainer getRootSiriusRegion() {
 		final DiagramEditPart diagramEditpart = fixture.getActiveDiagram();
 
-		Assert.assertNotNull("The diagram edit part has not been found", diagramEditpart);
+		Assert.assertNotNull("The diagram edit part has not been found", diagramEditpart); //$NON-NLS-1$
 		final Diagram diagram = diagramEditpart.getDiagramView();
 
-		Assert.assertEquals("The diagram must contain one element (region)", 1, diagram.getChildren().size());
+		Assert.assertEquals("The diagram must contain one element (region)", 1, diagram.getChildren().size()); //$NON-NLS-1$
 		Object node = diagram.getChildren().get(0);
-		Assert.assertTrue("The created element must be a View", node instanceof View);
+		Assert.assertTrue("The created element must be a View", node instanceof View); //$NON-NLS-1$
 		EObject siriusElement = ((View) node).getElement();
-		Assert.assertTrue("The root element must be a DNodeContainer", siriusElement instanceof DNodeContainer);
+		Assert.assertTrue("The root element must be a DNodeContainer", siriusElement instanceof DNodeContainer); //$NON-NLS-1$
 		DNodeContainer container = (DNodeContainer) siriusElement;
 		EObject stateMachine = container.getSemanticElements().iterator().next();
-		Assert.assertTrue("The root element must be a UML state machine", stateMachine instanceof org.eclipse.uml2.uml.StateMachine);
+		Assert.assertTrue("The root element must be a UML state machine", stateMachine instanceof org.eclipse.uml2.uml.StateMachine); //$NON-NLS-1$
 
 		DNodeContainer regionSirius = (DNodeContainer) container.getOwnedDiagramElements().get(0);
-		Assert.assertTrue("The root region semantic element is not an uml region", regionSirius.getSemanticElements().get(0) instanceof Region);
+		Assert.assertTrue("The root region semantic element is not an uml region", regionSirius.getSemanticElements().get(0) instanceof Region); //$NON-NLS-1$
 		return regionSirius;
 	}
 
@@ -89,7 +89,7 @@ public abstract class AbstractStatemachineTopNodeCreationTests extends AbstractP
 
 			if (!found) {
 				if (newOne != null) {
-					Assert.assertEquals("More than one item created after node creation command", newOne, newItem);
+					Assert.assertEquals("More than one item created after node creation command", newOne, newItem); //$NON-NLS-1$
 
 				}
 				newOne = newItem;
@@ -103,16 +103,16 @@ public abstract class AbstractStatemachineTopNodeCreationTests extends AbstractP
 	 */
 	protected DNodeContainer checkAndGetEmptyStateNodeRegion() {
 		final var regionSirius = getRootSiriusRegion();
-		Assert.assertEquals("To create sub nodes the statemachine root region should conain one state node", 1, regionSirius.getOwnedDiagramElements().size());
-	
+		Assert.assertEquals("To create sub nodes the statemachine root region should conain one state node", 1, regionSirius.getOwnedDiagramElements().size()); //$NON-NLS-1$
+
 		AbstractDNode existingNode = getExistingStateNode();
-		Assert.assertTrue("The existing node should be state container node", existingNode instanceof DNodeContainer);
+		Assert.assertTrue("The existing node should be state container node", existingNode instanceof DNodeContainer); //$NON-NLS-1$
 		DNodeContainer stateSiriusElement = (DNodeContainer) existingNode;
-		Assert.assertEquals("The existing state should contain a region", 1, stateSiriusElement.getOwnedDiagramElements().size());
+		Assert.assertEquals("The existing state should contain a region", 1, stateSiriusElement.getOwnedDiagramElements().size()); //$NON-NLS-1$
 		DDiagramElement existingStateRegion = stateSiriusElement.getOwnedDiagramElements().get(0);
-		Assert.assertTrue("The existing node region should be container node", existingStateRegion instanceof DNodeContainer);
+		Assert.assertTrue("The existing node region should be container node", existingStateRegion instanceof DNodeContainer); //$NON-NLS-1$
 		final var subStateContainer = (DNodeContainer) existingStateRegion;
-		Assert.assertEquals("The state region should be empty before sub state createion", 0, subStateContainer.getOwnedDiagramElements().size());
+		Assert.assertEquals("The state region should be empty before sub state createion", 0, subStateContainer.getOwnedDiagramElements().size()); //$NON-NLS-1$
 		return subStateContainer;
 	}
 
@@ -136,10 +136,10 @@ public abstract class AbstractStatemachineTopNodeCreationTests extends AbstractP
 		fixture.flushDisplayEvents();
 
 		// check UI via sirius
-		Assert.assertEquals("The diagram must contain one element after creating a top node", nbElements + 1, container.getOwnedDiagramElements().size());
+		Assert.assertEquals("The diagram must contain one element after creating a top node", nbElements + 1, container.getOwnedDiagramElements().size()); //$NON-NLS-1$
 		Object[] newOnes = container.getOwnedDiagramElements().toArray();
 		Object newOne = findUniqueDiffs(oldOnes, newOnes);
-		Assert.assertTrue("No new created item found in the diagram", newOne instanceof AbstractDNode);
+		Assert.assertTrue("No new created item found in the diagram", newOne instanceof AbstractDNode); //$NON-NLS-1$
 		return (AbstractDNode) newOne; // from getOwnedDiagramElements
 	}
 
@@ -161,42 +161,42 @@ public abstract class AbstractStatemachineTopNodeCreationTests extends AbstractP
 		Object[] oldOnes = container.getOwnedDiagramElements().toArray();
 
 		DDiagramElement ownedDiagramElement = createStateNode(container, toolName);
-		Assert.assertTrue("The created element must be a " + siriusExpectedClazz.getSimpleName() + " and not of type " + classname(ownedDiagramElement), siriusExpectedClazz.isInstance(ownedDiagramElement));
+		Assert.assertTrue("The created element must be a " + siriusExpectedClazz.getSimpleName() + " and not of type " + classname(ownedDiagramElement), siriusExpectedClazz.isInstance(ownedDiagramElement)); //$NON-NLS-1$ //$NON-NLS-2$
 		AbstractDNode element = siriusExpectedClazz.cast(ownedDiagramElement);
 
 		// check uml semantic
 		EObject containerSemantic = container.getSemanticElements().get(0);
-		Assert.assertTrue("Semantic Container should be an uml element", containerSemantic instanceof Element);
+		Assert.assertTrue("Semantic Container should be an uml element", containerSemantic instanceof Element); //$NON-NLS-1$
 		Element containerUml = (Element) containerSemantic;
-		Assert.assertEquals("The root must only contains one additional element after the creation", nbElements + 1, containerUml.getOwnedElements().size());
+		Assert.assertEquals("The root must only contains one additional element after the creation", nbElements + 1, containerUml.getOwnedElements().size()); //$NON-NLS-1$
 		var umlElement = element.getSemanticElements().get(0);
-		Assert.assertTrue("he newly created semantic element should be attached to the newly created sirius element", containerUml.getOwnedElements().contains(umlElement));
+		Assert.assertTrue("he newly created semantic element should be attached to the newly created sirius element", containerUml.getOwnedElements().contains(umlElement)); //$NON-NLS-1$
 		Element semmanticElement = (Element) umlElement;
-		Assert.assertTrue("The created element must be a " + umlExpectedClazz.getSimpleName() + " and not of type " + classname(semmanticElement), umlExpectedClazz.isInstance(semmanticElement));
+		Assert.assertTrue("The created element must be a " + umlExpectedClazz.getSimpleName() + " and not of type " + classname(semmanticElement), umlExpectedClazz.isInstance(semmanticElement)); //$NON-NLS-1$ //$NON-NLS-2$
 
 		// undo
 		this.fixture.getEditingDomain().getCommandStack().undo();
 		fixture.flushDisplayEvents();
 
-		Assert.assertEquals("The region must be empty after undoing the creation", nbElements, container.getOwnedDiagramElements().size());
-		Assert.assertEquals("The root must contains the same number of elements as initially", nbElements, containerUml.getOwnedElements().size());
+		Assert.assertEquals("The region must be empty after undoing the creation", nbElements, container.getOwnedDiagramElements().size()); //$NON-NLS-1$
+		Assert.assertEquals("The root must contains the same number of elements as initially", nbElements, containerUml.getOwnedElements().size()); //$NON-NLS-1$
 
 		// redo
 		this.fixture.getEditingDomain().getCommandStack().redo();
 		fixture.flushDisplayEvents();
 
-		Assert.assertEquals("The diagram must contain one element after creating a top node", nbElements + 1, container.getOwnedDiagramElements().size());
+		Assert.assertEquals("The diagram must contain one element after creating a top node", nbElements + 1, container.getOwnedDiagramElements().size()); //$NON-NLS-1$
 		Object[] newOnes = container.getOwnedDiagramElements().toArray();
 		ownedDiagramElement = (DDiagramElement) findUniqueDiffs(oldOnes, newOnes);
 
-		Assert.assertTrue("The created element must be a " + siriusExpectedClazz.getSimpleName(), siriusExpectedClazz.isInstance(ownedDiagramElement));
+		Assert.assertTrue("The created element must be a " + siriusExpectedClazz.getSimpleName(), siriusExpectedClazz.isInstance(ownedDiagramElement)); //$NON-NLS-1$
 		element = siriusExpectedClazz.cast(ownedDiagramElement);
 		// check uml semantic
-		Assert.assertEquals("The root must only contains one additional element after the creation", nbElements + 1, containerUml.getOwnedElements().size());
+		Assert.assertEquals("The root must only contains one additional element after the creation", nbElements + 1, containerUml.getOwnedElements().size()); //$NON-NLS-1$
 		umlElement = element.getSemanticElements().get(0);
-		Assert.assertTrue("he newly created semantic element should be attached to the newly created sirius element", containerUml.getOwnedElements().contains(umlElement));
+		Assert.assertTrue("he newly created semantic element should be attached to the newly created sirius element", containerUml.getOwnedElements().contains(umlElement)); //$NON-NLS-1$
 		semmanticElement = (Element) element.getSemanticElements().get(0);
-		Assert.assertTrue("The created element must be a " + umlExpectedClazz.getSimpleName(), umlExpectedClazz.isInstance(semmanticElement));
+		Assert.assertTrue("The created element must be a " + umlExpectedClazz.getSimpleName(), umlExpectedClazz.isInstance(semmanticElement)); //$NON-NLS-1$
 
 		fixture.flushDisplayEvents();
 		return element;

@@ -39,6 +39,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
 import org.eclipse.papyrus.infra.gmfdiag.common.model.NotationUtils;
+import org.eclipse.papyrus.sirius.uml.diagram.statemachine.custom.StateMachineRegionPolicy;
+import org.eclipse.papyrus.sirius.uml.diagram.statemachine.custom.StateMachineRegionPolicy.Zone;
 import org.eclipse.papyrus.uml.diagram.statemachine.custom.parsers.Messages;
 import org.eclipse.papyrus.uml.diagram.statemachine.custom.parsers.OpaqueBehaviorViewUtil;
 import org.eclipse.papyrus.uml.diagram.statemachine.custom.preferences.CSSOptionsConstants;
@@ -46,8 +48,6 @@ import org.eclipse.papyrus.uml.diagram.statemachine.custom.preferences.Preferenc
 import org.eclipse.papyrus.uml.diagram.statemachine.custom.util.TriggerUtil;
 import org.eclipse.papyrus.uml.diagram.statemachine.part.UMLDiagramEditorPlugin;
 import org.eclipse.papyrus.uml.internationalization.utils.utils.UMLLabelInternationalization;
-import org.eclipse.papyrus.sirius.uml.diagram.statemachine.custom.StateMachineRegionPolicy;
-import org.eclipse.papyrus.sirius.uml.diagram.statemachine.custom.StateMachineRegionPolicy.Zone;
 import org.eclipse.papyrus.uml.tools.utils.ValueSpecificationUtil;
 import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.diagram.AbstractDNode;
@@ -78,6 +78,7 @@ import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.OpaqueBehavior;
 import org.eclipse.uml2.uml.OpaqueExpression;
 import org.eclipse.uml2.uml.Operation;
+import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Pseudostate;
 import org.eclipse.uml2.uml.PseudostateKind;
 import org.eclipse.uml2.uml.Region;
@@ -593,17 +594,17 @@ public class StateMachineServices {
 		Option<GraphicalEditPart> editPart = GMFHelper.getGraphicalEditPart(element);
 		if (editPart.some()) {
 			editPart.get();
-				List<?> children = editPart.get().getChildren();
-				for (Object object : children) {
-					if (object instanceof EditPart) {
-						EditPart part = (EditPart) object;
-						EditPolicy editPolicy = part.getEditPolicy(EditPolicyRoles.CREATION_ROLE);
-						if (editPolicy instanceof StateMachineRegionPolicy) {
-							return ((StateMachineRegionPolicy) editPolicy).getDropLocation();
-						}
+			List<?> children = editPart.get().getChildren();
+			for (Object object : children) {
+				if (object instanceof EditPart) {
+					EditPart part = (EditPart) object;
+					EditPolicy editPolicy = part.getEditPolicy(EditPolicyRoles.CREATION_ROLE);
+					if (editPolicy instanceof StateMachineRegionPolicy) {
+						return ((StateMachineRegionPolicy) editPolicy).getDropLocation();
 					}
 				}
 			}
+		}
 		return null;
 	}
 
@@ -704,7 +705,7 @@ public class StateMachineServices {
 			DDiagram parentDiagram = ((DNodeContainer) containerView).getParentDiagram();
 			EList<DDiagramElement> diagramElements = parentDiagram.getDiagramElements();
 			for (DDiagramElement dDiagramElement : diagramElements) {
-				if ((dDiagramElement instanceof DNodeContainer) && ((DNodeContainer) dDiagramElement).getActualMapping().getName().equals("Region")) {
+				if ((dDiagramElement instanceof DNodeContainer) && ((DNodeContainer) dDiagramElement).getActualMapping().getName().equals("SMD_RegionCompartment")) {
 					continue;
 				}
 				if (ElementToRefresh.toReposition.containsKey(dDiagramElement)) {
@@ -735,7 +736,7 @@ public class StateMachineServices {
 			ownedDiagramElements.addAll(ownedBorderedNodes);
 
 			for (DDiagramElement dDiagramElement : ownedDiagramElements) {
-				// if ((dDiagramElement instanceof DNodeContainer) && ((DNodeContainer) dDiagramElement).getActualMapping().getName().equals("Region")) {
+				// if ((dDiagramElement instanceof DNodeContainer) && ((DNodeContainer) dDiagramElement).getActualMapping().getName().equals("SMD_RegionCompartment")) {
 				// manageSubLayoutData(dDiagramElement);
 				// continue;
 				// }
@@ -763,7 +764,8 @@ public class StateMachineServices {
 
 		if (object instanceof DNodeContainer) {
 			DDiagramElement f;
-			List<DDiagramElement> ownedDiagramElements = ((DNodeContainer) object).getOwnedDiagramElements().stream().filter(d -> (d instanceof DNodeContainer)).map(d -> (DNodeContainer) d).filter(d -> d.getActualMapping().getName().equals("Region"))
+			List<DDiagramElement> ownedDiagramElements = ((DNodeContainer) object).getOwnedDiagramElements().stream().filter(d -> (d instanceof DNodeContainer)).map(d -> (DNodeContainer) d)
+					.filter(d -> d.getActualMapping().getName().equals("SMD_RegionCompartment"))
 					.collect(Collectors.toList());
 			return ownedDiagramElements;
 		}
@@ -990,7 +992,7 @@ public class StateMachineServices {
 	 * @return the pre condition
 	 */
 	public boolean getPreCondition(EObject object) {
-		if (object instanceof Model) {
+		if (object instanceof Package) {
 			return true;
 		}
 		if (object instanceof StateMachine) {
@@ -1031,7 +1033,7 @@ public class StateMachineServices {
 	 */
 	public int computeBorderLineSize(EObject context, EObject view) {
 		if (view instanceof DNodeContainer) {
-			if (((DNodeContainer) view).getActualMapping().getName().equals("Region")) {
+			if (((DNodeContainer) view).getActualMapping().getName().equals("SMD_RegionCompartment")) {
 				if (((DNodeContainer) view).getElements().size() > 0) {
 					return 0;
 				}
@@ -1111,7 +1113,8 @@ public class StateMachineServices {
 	/**
 	 * Gets the type name.
 	 *
-	 * @param object the object
+	 * @param object
+	 *            the object
 	 * @return the type name
 	 */
 	public String getTypeName(EObject object) {
@@ -1124,7 +1127,8 @@ public class StateMachineServices {
 	/**
 	 * Gets the name.
 	 *
-	 * @param object the object
+	 * @param object
+	 *            the object
 	 * @return the name
 	 */
 	public String getName(EObject object) {
@@ -1139,7 +1143,8 @@ public class StateMachineServices {
 	/**
 	 * get the text concerning guard.
 	 *
-	 * @param trans the trans
+	 * @param trans
+	 *            the trans
 	 * @return the text for guard
 	 */
 	public String getTextForGuard(Transition trans) {
@@ -1166,8 +1171,10 @@ public class StateMachineServices {
 	/**
 	 * Gets the value string.
 	 *
-	 * @param trans the trans
-	 * @param containerView the container view
+	 * @param trans
+	 *            the trans
+	 * @param containerView
+	 *            the container view
 	 * @return the value string
 	 */
 	public String getValueString(Transition trans, EObject containerView) {
@@ -1192,7 +1199,8 @@ public class StateMachineServices {
 	/**
 	 * Line break before effect.
 	 *
-	 * @param view the view
+	 * @param view
+	 *            the view
 	 * @return true, if the presence of parameters should be indicated by (...)
 	 */
 	public boolean lineBreakBeforeEffect(View view) {
@@ -1204,8 +1212,10 @@ public class StateMachineServices {
 	/**
 	 * get the text concerning Effects.
 	 *
-	 * @param view the view
-	 * @param trans the trans
+	 * @param view
+	 *            the view
+	 * @param trans
+	 *            the trans
 	 * @return the text for effect
 	 */
 	protected String getTextForEffect(View view, Transition trans) {
@@ -1231,8 +1241,10 @@ public class StateMachineServices {
 	/**
 	 * Get the text concerning Trigger.
 	 *
-	 * @param view the view
-	 * @param trans the trans
+	 * @param view
+	 *            the view
+	 * @param trans
+	 *            the trans
 	 * @return the text for trigger
 	 */
 	protected String getTextForTrigger(View view, Transition trans) {
@@ -1305,8 +1317,10 @@ public class StateMachineServices {
 	/**
 	 * Gets the text for trigger.
 	 *
-	 * @param view the view
-	 * @param trigger the trigger
+	 * @param view
+	 *            the view
+	 * @param trigger
+	 *            the trigger
 	 * @return the text for trigger
 	 */
 	public String getTextForTrigger(View view, Trigger trigger) {
@@ -1370,8 +1384,10 @@ public class StateMachineServices {
 	/**
 	 * Gets the text trigger.
 	 *
-	 * @param trigger the trigger
-	 * @param containerView the container view
+	 * @param trigger
+	 *            the trigger
+	 * @param containerView
+	 *            the container view
 	 * @return the text trigger
 	 */
 	public String getTextTrigger(Trigger trigger, EObject containerView) {
@@ -1388,7 +1404,8 @@ public class StateMachineServices {
 	/**
 	 * Checks for graphical region.
 	 *
-	 * @param containerView the container view
+	 * @param containerView
+	 *            the container view
 	 * @return true, if successful
 	 */
 	public boolean hasGraphicalRegion(DNodeContainer containerView) {
@@ -1406,8 +1423,10 @@ public class StateMachineServices {
 	/**
 	 * Dnd border pseudo state.
 	 *
-	 * @param context the context
-	 * @param newContainer the new container
+	 * @param context
+	 *            the context
+	 * @param newContainer
+	 *            the new container
 	 */
 	public void dndBorderPseudoState(EObject context, EObject newContainer) {
 		if (context instanceof Pseudostate) {
