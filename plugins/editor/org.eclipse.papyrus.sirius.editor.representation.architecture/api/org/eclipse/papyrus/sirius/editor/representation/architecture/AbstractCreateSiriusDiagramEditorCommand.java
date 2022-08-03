@@ -25,10 +25,10 @@ import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.infra.emf.utils.ServiceUtilsForEObject;
-import org.eclipse.papyrus.sirius.editor.architecture.internal.messages.Messages;
 import org.eclipse.papyrus.sirius.editor.representation.ICreateSiriusDiagramEditorCommand;
 import org.eclipse.papyrus.sirius.editor.representation.SiriusDiagramPrototype;
 import org.eclipse.papyrus.sirius.editor.representation.architecture.commands.CreateSiriusDiagramEditorViewCommand;
+import org.eclipse.papyrus.sirius.editor.representation.architecture.internal.messages.Messages;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.swt.widgets.Display;
 

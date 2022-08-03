@@ -12,7 +12,7 @@
  *  Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
  *****************************************************************************/
 
-package org.eclipse.papyrus.sirius.editor.architecture.internal.messages;
+package org.eclipse.papyrus.sirius.editor.representation.architecture.internal.messages;
 
 import org.eclipse.osgi.util.NLS;
 
