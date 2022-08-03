@@ -124,7 +124,6 @@ public class PseudostateCreationTest extends AbstractStatemachineTopNodeCreation
 	public void test_create_statemachine_join() {
 		createAndCheckStateNode("Join", DNode.class, Pseudostate.class);
 	}
-	
 
 	@Test
 	@ActiveDiagram(STATE_SUB_NODE_TAB) // open the diagram
@@ -132,30 +131,30 @@ public class PseudostateCreationTest extends AbstractStatemachineTopNodeCreation
 		final var subStateContainer = checkAndGetEmptyStateNodeRegion();
 		createAndCheckStateNode("Junction", DNode.class, Pseudostate.class, subStateContainer);
 	}
-	
+
 	@Test
 	@ActiveDiagram(STATEMACHINE_TAB) // open the diagram
 	public void test_create_statemachine_junction() {
 		createAndCheckStateNode("Junction", DNode.class, Pseudostate.class);
 	}
-	
-	
+
+
 	@Test
 	@ActiveDiagram(STATE_SUB_NODE_TAB) // open the diagram
 	public void test_create_state_subnode_shallow_history() {
 		final var subStateContainer = checkAndGetEmptyStateNodeRegion();
 		createAndCheckStateNode("ShallowHistory", DNode.class, Pseudostate.class, subStateContainer);
 	}
-	
+
 	@Test
 	@ActiveDiagram(STATEMACHINE_TAB) // open the diagram
 	public void test_create_statemachine_shallow_history() {
 		createAndCheckStateNode("ShallowHistory", DNode.class, Pseudostate.class);
 	}
-	
+
 	@Test
 	@ActiveDiagram(STATE_SUB_NODE_TAB) // open the diagram
 	public void test_all_subnodes() {
-		
+
 	}
 }

@@ -38,14 +38,14 @@ public class TransitionLinksTest extends AbstractStatemachineTopNodeCreationTest
 		checkTransitionLink(stateEP, pseudostateEP);
 	}
 
-	
+
 	@Test
 	@ActiveDiagram(STATEMACHINE_TAB) // open the diagram
 	public void testTransitionLinkWithSameSourceAndTarget() {
 		AbstractDNode stateEP = createStateNode("State");
 		checkTransitionLink(stateEP, stateEP);
 	}
-	
+
 	@Test
 	@ActiveDiagram(STATE_SUB_NODE_TAB) // open the diagram
 	public void testTransitionLinkSub() {
@@ -57,7 +57,7 @@ public class TransitionLinksTest extends AbstractStatemachineTopNodeCreationTest
 	}
 
 
-	
+
 	@Test
 	@ActiveDiagram(STATE_SUB_NODE_TAB) // open the diagram
 	public void testTransitionLinkWithSameSourceAndTargetSub() {
@@ -70,7 +70,7 @@ public class TransitionLinksTest extends AbstractStatemachineTopNodeCreationTest
 
 
 	private DEdge checkTransitionLink(AbstractDNode source, AbstractDNode target) {
-		return checkTransitionLink((EdgeTarget)source, (EdgeTarget)target, 1);
+		return checkTransitionLink((EdgeTarget) source, (EdgeTarget) target, 1);
 	}
 
 	private DEdge checkTransitionLink(EdgeTarget source, EdgeTarget target, int expectedConnections) {
@@ -79,7 +79,7 @@ public class TransitionLinksTest extends AbstractStatemachineTopNodeCreationTest
 		Assert.assertTrue(endCommand);
 		Assert.assertEquals(expectedConnections, diagram.getEdges().size());
 		DEdge transitionConnection = diagram.getEdges().get(expectedConnections - 1);
-		Assert.assertEquals(transitionConnection.getSemanticElements().get(0).eContainer(), ((AbstractDNode)source).getSemanticElements().get(0).eContainer());
+		Assert.assertEquals(transitionConnection.getSemanticElements().get(0).eContainer(), ((AbstractDNode) source).getSemanticElements().get(0).eContainer());
 		return transitionConnection;
 	}
 }

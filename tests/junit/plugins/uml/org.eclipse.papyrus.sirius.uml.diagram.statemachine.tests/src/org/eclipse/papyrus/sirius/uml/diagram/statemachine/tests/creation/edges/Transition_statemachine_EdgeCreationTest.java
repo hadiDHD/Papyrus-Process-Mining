@@ -65,14 +65,14 @@ public class Transition_statemachine_EdgeCreationTest extends AbstractStatemachi
 			String name = null;
 			if (semantic instanceof NamedElement) {
 				name = ((NamedElement) semantic).getName();
-			}
-			else if(semantic instanceof Comment) {
+			} else if (semantic instanceof Comment) {
 				name = ((Comment) semantic).getBody();
 			}
 			return name != null && name.equals(text);
 		}
 		return false;
 	}
+
 	private static final String DIAGRAM_NAME = "test_create_sm_edges";
 
 	@Test
@@ -83,16 +83,16 @@ public class Transition_statemachine_EdgeCreationTest extends AbstractStatemachi
 		DDiagramElement entyPoint100 = findNodeWithText("EntryPoint100");
 		DDiagramElement comment0 = findNodeWithText("Comment0");
 
-		fixture.applyEdgeCreationTool("Transition", getSirusDiagram(), (EdgeTarget)init00, (EdgeTarget)entyPoint100);
+		fixture.applyEdgeCreationTool("Transition", getSirusDiagram(), (EdgeTarget) init00, (EdgeTarget) entyPoint100);
 		fixture.flushDisplayEvents();
 
-		fixture.applyEdgeCreationTool("Transition", getSirusDiagram(), (EdgeTarget)init00, (EdgeTarget)entyPoint100);
+		fixture.applyEdgeCreationTool("Transition", getSirusDiagram(), (EdgeTarget) init00, (EdgeTarget) entyPoint100);
 		fixture.flushDisplayEvents();
 
-		fixture.applyEdgeCreationTool("Transition", getSirusDiagram(), (EdgeTarget)entyPoint100, (EdgeTarget)init10);
+		fixture.applyEdgeCreationTool("Transition", getSirusDiagram(), (EdgeTarget) entyPoint100, (EdgeTarget) init10);
 		fixture.flushDisplayEvents();
-		
-		fixture.applyEdgeCreationTool("Link", getSirusDiagram(), (EdgeTarget)comment0, (EdgeTarget)init10);
+
+		fixture.applyEdgeCreationTool("Link", getSirusDiagram(), (EdgeTarget) comment0, (EdgeTarget) init10);
 		fixture.flushDisplayEvents();
 		fixture.flushDisplayEvents();
 
