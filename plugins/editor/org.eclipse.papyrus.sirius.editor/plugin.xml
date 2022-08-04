@@ -79,4 +79,15 @@
             override="org.eclipse.sirius.business.internal.session.SessionFactoryImpl">
       </sessionFactory>
    </extension>
+   <extension
+         point="org.eclipse.papyrus.infra.emf.readonly.readOnlyHandler">
+      <readOnlyHandler
+            class="org.eclipse.papyrus.sirius.editor.internal.readonly.SiriusReadOnlyHandler"
+            id="org.eclipse.papyrus.sirius.editor.internal.readonly.SiriusReadOnlyHandler"
+            priority="25">
+         <affinity
+               axis="permission">
+         </affinity>
+      </readOnlyHandler>
+   </extension>
 </plugin>
