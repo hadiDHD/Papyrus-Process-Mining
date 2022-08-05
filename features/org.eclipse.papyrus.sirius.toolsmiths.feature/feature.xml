@@ -28,7 +28,6 @@
          version="0.0.0"/>
 
    <requires>
-      <import feature="org.eclipse.acceleo" version="3.7.0" match="compatible"/>
       <import feature="org.eclipse.sirius.doc.feature" version="7.0.0" match="compatible"/>
       <import feature="org.eclipse.sirius.runtime.acceleo" version="7.0.0" match="compatible"/>
       <import feature="org.eclipse.sirius.runtime.ide.ui.acceleo" version="7.0.0" match="compatible"/>
