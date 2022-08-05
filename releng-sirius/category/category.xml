@@ -28,7 +28,8 @@
          Papyrus-Sirius : Toolsmiths plugins
       </description>
    </category-def>
-   <repository-reference location="https://download.eclipse.org/sirius/updates/releases/7.0.0/2021-06/" enabled="true" />
-   <repository-reference location="https://download.eclipse.org/modeling/gmp/gmf-runtime/updates/releases/R202202190902" enabled="true" />
-   <repository-reference location="https://download.eclipse.org/tools/orbit/downloads/drops/R20211213173813/repository/" enabled="true" />
+   <repository-reference location="https://download.eclipse.org/sirius/updates/releases/7.0.2/2021-06/" enabled="true" />
+   <repository-reference location="https://download.eclipse.org/modeling/gmp/gmf-runtime/updates/releases/R202204130739" enabled="true" />
+   <repository-reference location="https://download.eclipse.org/tools/orbit/downloads/drops/R20220302172233/repository/" enabled="true" />
+   <repository-reference location="https://download.eclipse.org/technology/swtbot/releases/3.1.0/" enabled="true" />
 </site>
