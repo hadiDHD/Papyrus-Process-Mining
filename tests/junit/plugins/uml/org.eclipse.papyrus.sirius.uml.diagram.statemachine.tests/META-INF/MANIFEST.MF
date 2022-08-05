@@ -5,16 +5,15 @@ Bundle-SymbolicName: org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests
 Bundle-Version: 0.7.0.qualifier
 Bundle-Activator: org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.Activator
 Bundle-Vendor: %Bundle-Vendor
-Require-Bundle: org.eclipse.papyrus.junit.utils;bundle-version="[3.2.0,4.0.0)",
- org.eclipse.papyrus.junit.framework;bundle-version="[2.1.0,3.0.0)",
- org.junit;bundle-version="[4.13.0,5.0.0)",
- org.eclipse.uml2.uml;bundle-version="[5.5.0,6.0.0)",
- org.eclipse.sirius.tests.junit;bundle-version="[7.0.0,8.0.0)",
- org.eclipse.sirius.diagram.ui;bundle-version="[7.0.0,8.0.0)",
- org.eclipse.papyrus.sirius.junit.utils;bundle-version="[0.7.0,1.0.0)",
+Require-Bundle: org.eclipse.papyrus.infra.emf.gmf;bundle-version="[2.1.0,3.0.0)",
  org.eclipse.papyrus.infra.gmfdiag.commands;bundle-version="[4.0.0,5.0.0)",
- org.eclipse.papyrus.infra.emf.gmf;bundle-version="[2.1.0,3.0.0)"
+ org.eclipse.papyrus.junit.framework;bundle-version="[2.2.0,3.0.0)",
+ org.eclipse.papyrus.junit.utils;bundle-version="[3.3.0,4.0.0)",
+ org.eclipse.papyrus.sirius.junit.utils;bundle-version="[0.7.0,1.0.0)",
+ org.eclipse.sirius.diagram.ui;bundle-version="[7.0.2,8.0.0)",
+ org.eclipse.sirius.tests.junit;bundle-version="[7.0.2,8.0.0)",
+ org.eclipse.uml2.uml;bundle-version="[5.5.0,6.0.0)",
+ org.junit;bundle-version="[4.13.0,5.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests
 Bundle-ActivationPolicy: lazy
-
