@@ -27,7 +27,7 @@
       <import feature="org.eclipse.sirius.aql" version="7.0.0" match="compatible"/>
       <import feature="org.eclipse.sirius.interpreter.feature" version="7.0.0" match="compatible"/>
       <import feature="org.eclipse.sirius.runtime.ocl" version="7.0.0" match="compatible"/>
-      <import feature="org.eclipse.papyrus.sdk.feature" version="6.1.0" match="compatible"/>
+      <import feature="org.eclipse.papyrus.sdk.feature" version="6.2.0" match="compatible"/>
    </requires>
 
    <plugin

@@ -28,15 +28,15 @@
          version="0.0.0"/>
 
    <requires>
-      <import feature="org.eclipse.sirius.specifier" version="6.4.2"/>
-      <import feature="org.eclipse.sirius.specifier.properties.feature" version="6.4.2"/>
-      <import feature="org.eclipse.sirius.doc.feature" version="6.4.2"/>
-      <import feature="org.eclipse.sirius.runtime.acceleo" version="6.4.2"/>
-      <import feature="org.eclipse.sirius.runtime.ide.ui.acceleo" version="6.4.2"/>
-      <import feature="org.eclipse.sirius.specifier.ide.ui.acceleo" version="6.4.2"/>
-      <import feature="org.eclipse.sirius.specifier.ide.ui.aql" version="6.4.2"/>
-      <import feature="org.eclipse.sirius.specifier.ide.ui" version="6.4.2"/>
-      <import feature="org.eclipse.acceleo" version="3.7.0"/>
+      <import feature="org.eclipse.acceleo" version="3.7.0" match="compatible"/>
+      <import feature="org.eclipse.sirius.doc.feature" version="7.0.0" match="compatible"/>
+      <import feature="org.eclipse.sirius.runtime.acceleo" version="7.0.0" match="compatible"/>
+      <import feature="org.eclipse.sirius.runtime.ide.ui.acceleo" version="7.0.0" match="compatible"/>
+      <import feature="org.eclipse.sirius.specifier.ide.ui" version="7.0.0" match="compatible"/>
+      <import feature="org.eclipse.sirius.specifier.ide.ui.acceleo" version="7.0.0" match="compatible"/>
+      <import feature="org.eclipse.sirius.specifier.ide.ui.aql" version="7.0.0" match="compatible"/>
+      <import feature="org.eclipse.sirius.specifier" version="7.0.0" match="compatible"/>
+      <import feature="org.eclipse.sirius.specifier.properties.feature" version="7.0.0" match="compatible"/>
    </requires>
 
 </feature>

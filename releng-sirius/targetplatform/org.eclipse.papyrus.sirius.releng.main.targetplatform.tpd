@@ -1,8 +1,8 @@
-target "Papyrus-Sirius - 2021-12" with source requirements
+target "Papyrus-Sirius - 2022-06" with source requirements
 // build with simrel commit e014ee7948cbdea3d3eea7591de339b4bc25d0ed
 
 //manualUpdate
-location orbit "https://download.eclipse.org/tools/orbit/downloads/drops/R20211213173813/repository/" {
+location orbit "https://download.eclipse.org/tools/orbit/downloads/drops/R20220302172233/repository/" {
 	// update batik to be in adequation with latest gmf runtime https://www.eclipse.org/lists/mdt-papyrus.dev/msg04486.html 
 	org.apache.batik.anim [1.14.0,1.15.0)
 	org.apache.batik.dom [1.14.0,1.15.0)
@@ -10,8 +10,8 @@ location orbit "https://download.eclipse.org/tools/orbit/downloads/drops/R202112
 	org.apache.batik.xml [1.14.0,1.15.0)
 }
 
-//updateFrom("GMF Runtime 1.14.1 for SimRel 2022-03",0)
-location gmfRuntime "https://download.eclipse.org/modeling/gmp/gmf-runtime/updates/releases/R202202190902" {
+// updateFrom("GMF Runtime 1.14.2 for SimRel 2022-06",0)
+location gmfRuntime "https://download.eclipse.org/modeling/gmp/gmf-runtime/updates/releases/R202204130739" {
 	org.eclipse.gmf.runtime.sdk.feature.group
 }
 
@@ -25,10 +25,14 @@ location "https://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/mast
 
 
 // manualUpdate
-location release-2021-12 "https://download.eclipse.org/releases/2021-12" {
+location release-2022-06 "https://download.eclipse.org/releases/2022-06" {
 	org.eclipse.emf.workspace.feature.group
-	org.eclipse.swtbot.feature.group
 	org.eclipse.xwt.feature.feature.group
+}
+
+// manualUpdate Sirius uses this version
+location swtbot-3.1 "https://download.eclipse.org/technology/swtbot/releases/3.1.0/"{
+	org.eclipse.swtbot.feature.group
 }
 
 // updateFrom("M2T ACCELEO",0)
@@ -38,12 +42,12 @@ location acceleo "https://download.eclipse.org/acceleo/updates/releases/3.7/R202
 }
 
 // updateFrom("Eclipse",0)
-location platform "https://download.eclipse.org/eclipse/updates/4.22/R-4.22-202111241800/" {
+location platform "https://download.eclipse.org/eclipse/updates/4.24/R-4.24-202206070700/" {
 	org.eclipse.sdk.feature.group
 }
 
 // updateFrom("Sirius",0)
-location sirius "https://download.eclipse.org/sirius/updates/releases/7.0.0/2021-06/" {
+location sirius "https://download.eclipse.org/sirius/updates/releases/7.0.2/2021-06/" {
 	org.eclipse.sirius.aql.feature.group
 	org.eclipse.sirius.doc.feature.feature.group
 	org.eclipse.sirius.interpreter.feature.feature.group
