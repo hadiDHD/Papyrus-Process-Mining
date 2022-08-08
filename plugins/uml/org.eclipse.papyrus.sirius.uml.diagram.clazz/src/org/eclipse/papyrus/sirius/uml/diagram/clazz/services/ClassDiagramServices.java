@@ -26,6 +26,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -298,6 +299,45 @@ public class ClassDiagramServices {
 	}
 
 	/**
+	 * 
+	 * @param semanticContext
+	 *            the context in which we are looking for {@link Constraint}
+	 * @param diagram
+	 *            the current diagram
+	 * @return
+	 *         the Constraints available in the context
+	 */
+	public Collection<EObject> constraint_getSemanticCandidates(final EObject semanticContext, final DDiagram diagram) {
+		final Collection<EObject> constraints = new HashSet<EObject>();
+
+		// we show in the diagram all Constraint owned directly by the diagram
+		if (semanticContext instanceof Namespace) {
+			constraints.addAll(((Namespace) semanticContext).getOwnedRules());
+		}
+		if (semanticContext instanceof Package) {
+			final Package pack = (Package) semanticContext;
+			constraints.addAll(pack.getPackagedElements().stream().filter(Constraint.class::isInstance).collect(Collectors.toList()));
+		}
+
+		// we show in the diagram all Constraint owned by a element represented in the diagram
+		// this behavior avoid to make disappear the constraint of the diagram when the user create a ContextLink between the Constraint and a Namespace
+		for (final DDiagramElement diagramElement : diagram.getOwnedDiagramElements()) {
+			final EObject current = diagramElement.getTarget();
+
+			if (current instanceof Namespace) {
+				// a context link has been created
+				constraints.addAll(((Namespace) current).getOwnedRules());
+			}
+			if (current instanceof Package) {
+				// a context link has not yet been created Contraint#context==null
+				constraints.addAll(((Package) current).getPackagedElements().stream().filter(Constraint.class::isInstance).collect(Collectors.toList()));
+			}
+		}
+
+		return constraints;
+	}
+
+	/**
 	 * This method is in charge to move semantically the target element inside the source element
 	 * 
 	 * @param context
@@ -460,6 +500,36 @@ public class ClassDiagramServices {
 
 		// 2. move the element in its new parent
 		containmentLink_creation(null, context, newTarget);
+	}
+
+	/**
+	 * Check if the source and target are valid for a ContextLink
+	 * 
+	 * @param context
+	 *            the current context
+	 * @param sourceView
+	 *            the source view
+	 * @param targetView
+	 *            the target view
+	 * @param source
+	 *            the semantic source element
+	 * @param target
+	 *            the semantic target element
+	 * @return true if the source and target are valid
+	 */
+	public boolean contextLink_isValidSourceAndTarget(final EObject context, final EObject sourceView, final EObject targetView, final Element source, final Element target) {
+		boolean isValid = false;
+		if (source == target) {
+			// 1. we forbid reflexive Context of course
+			return false;
+		}
+
+		// 2. semantic condition
+		if (source instanceof Constraint) {
+			isValid = target instanceof Namespace;
+		}
+
+		return isValid;
 	}
 
 	/**

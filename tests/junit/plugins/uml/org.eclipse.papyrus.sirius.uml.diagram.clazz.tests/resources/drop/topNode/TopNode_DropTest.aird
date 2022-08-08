@@ -10,7 +10,7 @@
     <semanticResources>pathmap://UML_METAMODELS/Ecore.metamodel.uml</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_WmGeIDckEey1v5ZgfkSlPg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.clazz/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_WpgXcDckEey1v5ZgfkSlPg" name="TopNode_Drop_ClassDiagram" repPath="#_WottQDckEey1v5ZgfkSlPg" changeId="1b032818-d19e-4f2e-b1bd-4d19a339fda1">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_WpgXcDckEey1v5ZgfkSlPg" name="TopNode_Drop_ClassDiagram" repPath="#_WottQDckEey1v5ZgfkSlPg" changeId="d918da8f-a846-4ee4-a4f5-d08d5a8ca45e">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.clazz/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']"/>
         <target xmi:type="uml:Model" href="TopNode_DropTest.uml#_uMtEsB1JEeylJZ1m55N5Sw"/>
       </ownedRepresentationDescriptors>
@@ -22,7 +22,7 @@
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram uid="_WottQDckEey1v5ZgfkSlPg">
+  <diagram:DSemanticDiagram uid="_WottQDckEey1v5ZgfkSlPg" synchronized="false">
     <eAnnotations xmi:type="description:DAnnotation" uid="_WqtRUjckEey1v5ZgfkSlPg" source="Papyrus-SiriusDiagram">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WqtRUzckEey1v5ZgfkSlPg" key="Papyrus-SiriusDiagram-ImplementationId" value="org.eclipse.papyrus.sirius.uml.diagram.class"/>
     </eAnnotations>

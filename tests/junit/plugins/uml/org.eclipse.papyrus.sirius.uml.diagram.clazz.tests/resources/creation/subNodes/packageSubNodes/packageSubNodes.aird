@@ -13,7 +13,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_6-qv8LTWEeylGurFtVKGTw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.clazz/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_7ApF4LTWEeylGurFtVKGTw" name="PackageSubNodesDiagram" repPath="#_7AmpoLTWEeylGurFtVKGTw" changeId="5a3a345b-302b-4c81-9b0b-a51525a9433d">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_7ApF4LTWEeylGurFtVKGTw" name="PackageSubNodesDiagram" repPath="#_7AmpoLTWEeylGurFtVKGTw" changeId="d6c783b7-54b2-4060-99c2-75974fa15e94">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.clazz/description/papyrus_class.odesign#//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']"/>
         <target xmi:type="uml:Model" href="packageSubNodes.uml#_68PHALTWEeylGurFtVKGTw"/>
       </ownedRepresentationDescriptors>
@@ -22,7 +22,7 @@
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.sequence/description/papyrus_sequence.odesign#//@ownedViewpoints[name='SequenceDiagram']"/>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram uid="_7AmpoLTWEeylGurFtVKGTw">
+  <diagram:DSemanticDiagram uid="_7AmpoLTWEeylGurFtVKGTw" synchronized="false">
     <eAnnotations xmi:type="description:DAnnotation" uid="_7DHyIrTWEeylGurFtVKGTw" source="Papyrus-SiriusDiagram">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7DHyI7TWEeylGurFtVKGTw" key="Papyrus-SiriusDiagram-ImplementationId" value="org.eclipse.papyrus.sirius.uml.diagram.class"/>
     </eAnnotations>
