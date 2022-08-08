@@ -21,7 +21,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -176,32 +178,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Create a new Abstraction Link between the source and the target.
-	 * 
-	 * @param context,
-	 *            the current context
-	 * @param sourceview,
-	 *            the source view
-	 * @param source,
-	 *            the semantic source element
-	 * @param target,
-	 *            the semantic target element
-	 * @return nothing
-	 */
-	public static void createAbstractionLink(EObject context, EObject sourceView, Element source, Element target) {
-		if (sourceView instanceof DDiagramElement) {
-			EObject root = getDiagramRoot(sourceView);
-			if (root instanceof Package) {
-				Package model = (Package) root;
-				Abstraction abstraction = UMLFactory.eINSTANCE.createAbstraction();
-				model.getPackagedElements().add(abstraction);
-				abstraction.getClients().add((NamedElement) source);
-				abstraction.getSuppliers().add((NamedElement) target);
-			}
-		}
-	}
-
-	/**
 	 * Get diagram root.
 	 * 
 	 * @param context
@@ -213,6 +189,112 @@ public class ClassDiagramServices {
 		DSemanticDiagram diagram = (DSemanticDiagram) diagramElement.getParentDiagram();
 		EObject root = diagram.getTarget();
 		return root;
+	}
+
+	/**
+	 * 
+	 * @param semanticContext
+	 *            the context in which we are looking for {@link Abstraction}
+	 * @return
+	 *         {@link Abstraction} available in the context
+	 */
+	public Collection<Abstraction> abstraction_getSemanticCandidates(final EObject semanticContext) {
+		if (semanticContext instanceof Package) {
+			final Package pack = (Package) semanticContext;
+			return getAllAbstractions(pack);
+		}
+		return Collections.emptyList();
+	}
+
+	/**
+	 * 
+	 * @param pack
+	 *            a UML {@link Package}
+	 * @return
+	 *         all {@link Abstraction} recursively
+	 */
+	private static final Collection<Abstraction> getAllAbstractions(final Package pack) {
+		final Collection<Abstraction> abstractions = new HashSet<Abstraction>();
+		final Iterator<NamedElement> iter = pack.getMembers().iterator();
+		while (iter.hasNext()) {
+			final NamedElement current = iter.next();
+			if (current instanceof Package) {
+				abstractions.addAll(getAllAbstractions((Package) current));
+			}
+			if (current instanceof Abstraction) {
+				abstractions.add((Abstraction) current);
+			}
+		}
+		return abstractions;
+	}
+
+	/**
+	 * Service used to determinate if the selected {@link Abstraction} source could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean abstraction_canReconnectSource(final Element context, final Element newSource) {
+		return newSource instanceof Class
+				|| newSource instanceof Enumeration
+				|| newSource instanceof Interface
+				|| newSource instanceof PrimitiveType;
+	}
+
+	/**
+	 * Service used to determine if the selected {@link Abstraction} target could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean abstraction_canReconnectTarget(final Element context, final Element newTarget) {
+		// same conditions for source and target
+		return abstraction_canReconnectSource(context, newTarget);
+	}
+
+	/**
+	 * Service used to reconnect a {@link Abstraction} source.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldSource
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void abstraction_reconnectSource(final Element context, final Element oldSource, final Element newSource) {
+		final Abstraction abstraction = (Abstraction) context;
+		// 1. change the client of the abstraction
+		abstraction.getClients().remove(oldSource);
+		abstraction.getClients().add((NamedElement) newSource);
+
+		// 2. the abstraction is owned by the nearest package of the source
+		final Package newOwner = newSource.getNearestPackage();
+		if (abstraction.getOwner() != newOwner) {
+			newOwner.getPackagedElements().add(abstraction);
+		}
+	}
+
+	/**
+	 * Service used to reconnect a {@link Abstraction} target.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldTarget
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void abstraction_reconnectTarget(final Element context, final Element oldTarget, final Element newTarget) {
+		final Abstraction abstraction = (Abstraction) context;
+		abstraction.getSuppliers().remove(oldTarget);
+		abstraction.getSuppliers().add((NamedElement) newTarget);
 	}
 
 	/**
@@ -432,34 +514,6 @@ public class ClassDiagramServices {
 		}
 
 		return "packagedElement";
-	}
-
-	/**
-	 * Create a new Dependency Link.
-	 * 
-	 * @param sourceView
-	 *            the source view
-	 * @param target
-	 *            the semantic target element
-	 * @param targetView
-	 *            the target view
-	 */
-	public void createDependencyLink(EObject context, EObject sourceView, Element source, Element target) {
-		if (sourceView instanceof DDiagramElement) {
-			EObject root = getDiagramRoot(sourceView);
-			if (root instanceof Package) {
-				Package model = (Package) root;
-				Dependency dependency = UMLFactory.eINSTANCE.createDependency();
-				dependency.getClients().add((NamedElement) source);
-				dependency.getSuppliers().add((NamedElement) target);
-
-				if (source instanceof Class) {
-					model.getPackagedElements().add(dependency);
-				} else if (source instanceof Package) {
-					((Package) source).getPackagedElements().add(dependency);
-				}
-			}
-		}
 	}
 
 	/**
@@ -1307,22 +1361,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Service used to determine if the selected Abstraction edge source/target
-	 * could be reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param target
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectAbstractionLinkPrecondition(Element context, Element target) {
-		return target instanceof Class || target instanceof Interface || target instanceof Enumeration
-				|| target instanceof PrimitiveType;
-	}
-
-	/**
 	 * Get the root model of the diagram
 	 */
 	private Model getRootModel(Element element) {
@@ -1929,44 +1967,6 @@ public class ClassDiagramServices {
 			((Constraint) source).getConstrainedElements().remove(oldTarget);
 			((Constraint) source).getConstrainedElements().add(newTarget);
 		}
-	}
-
-	/**
-	 * Service used to reconnect a Abstraction edge source.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldSource
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newSource
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectAbstractionEdgeSource(Element context, Element oldSource, Element newSource) {
-		Abstraction abstractionEdge = (Abstraction) context;
-		abstractionEdge.getClients().remove(oldSource);
-		abstractionEdge.getClients().add((NamedElement) newSource);
-	}
-
-	/**
-	 * Service used to reconnect a Abstraction edge target.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldTarget
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newTarget
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectAbstractionEdgeTarget(Element context, Element oldTarget, Element newTarget) {
-		Abstraction abstractionEdge = (Abstraction) context;
-		abstractionEdge.getSuppliers().remove(oldTarget);
-		abstractionEdge.getSuppliers().add((NamedElement) newTarget);
 	}
 
 	/**
