@@ -725,6 +725,104 @@ public class ClassDiagramServices {
 	}
 
 	/**
+	 * 
+	 * @param semanticContext
+	 *            the context in which we are looking for {@link Generalization}
+	 * @return
+	 *         {@link Generalization} available in the context
+	 */
+	public Collection<Generalization> generalization_getSemanticCandidates(final EObject semanticContext) {
+		if (semanticContext instanceof Namespace) {
+			final Namespace namespace = (Namespace) semanticContext;
+			return getAllGeneralizations(namespace);
+		}
+		return Collections.emptyList();
+	}
+
+	/**
+	 * 
+	 * @param namespace
+	 *            a UML {@link Namespace}
+	 * @return
+	 *         all {@link Generalization} recursively
+	 */
+	private static final Collection<Generalization> getAllGeneralizations(final Namespace namespace) {
+		final Collection<Generalization> generalizations = new HashSet<Generalization>();
+		final Iterator<NamedElement> iter = namespace.getOwnedMembers().iterator();
+		while (iter.hasNext()) {
+			final NamedElement current = iter.next();
+			if (current instanceof Classifier) {
+				generalizations.addAll(((Classifier) current).getGeneralizations());
+			}
+			if (current instanceof Namespace) {
+				generalizations.addAll(getAllGeneralizations((Namespace) current));
+			}
+		}
+		return generalizations;
+	}
+
+	/**
+	 * Service used to determine if the selected Generalization edge source could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean generalization_canReconnectSource(final Element context, final Element newSource) {
+		return (newSource instanceof Class 
+				|| newSource instanceof Interface 
+				|| newSource instanceof Enumeration
+				|| newSource instanceof PrimitiveType);
+	}
+
+	/**
+	 * Service used to determine if the selected Generalization edge target could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean generalization_canReconnectTarget(final Element context, final Element newTarget) {
+		// same condition for source and target
+		return generalization_canReconnectSource(context, newTarget);
+	}
+
+	/**
+	 * Service used to reconnect a Generalization source.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldSource
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void generalization_reconnectSource(final Element context, final Element oldSource, final Element newSource) {
+		final Generalization generalization = (Generalization) context;
+		((Classifier) oldSource).getGeneralizations().remove(generalization);
+		((Classifier) newSource).getGeneralizations().add(generalization);
+	}
+
+	/**
+	 * Service used to reconnect a Generalization target.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldTarget
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void generalization_reconnectTarget(final Element context, final Element oldTarget, final Element newTarget) {
+		final Generalization generalizationEdge = (Generalization) context;
+		generalizationEdge.setGeneral((Classifier) newTarget);
+	}
+
+	/**
 	 * Precondition test if sirius diagram or not.
 	 * 
 	 * @param context
@@ -815,29 +913,6 @@ public class ClassDiagramServices {
 			}
 		}
 		return associationClass;
-	}
-
-	/**
-	 * Create a new Generalization Link.
-	 * 
-	 * @param sourceView
-	 *            the source view
-	 * @param target
-	 *            the semantic target element
-	 * @param targetView
-	 *            the target view
-	 */
-	public void createGeneralizationLink(EObject context, EObject sourceView, Element source, Element target) {
-		if (sourceView instanceof DDiagramElement) {
-			EObject root = getDiagramRoot(sourceView);
-			if (root instanceof Package) {
-				Classifier sourceElement = (Classifier) source;
-				Classifier targetElement = (Classifier) target;
-				Generalization generalization = UMLFactory.eINSTANCE.createGeneralization();
-				generalization.setGeneral(targetElement);
-				sourceElement.getGeneralizations().add(generalization);
-			}
-		}
 	}
 
 	/**
@@ -1347,22 +1422,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Service used to determine if the selected Generalization edge target could be
-	 * reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param target
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectGeneralizationLinkPrecondition(Element context, Element target) {
-		return (target instanceof Class || target instanceof Interface || target instanceof Enumeration
-				|| target instanceof PrimitiveType);
-	}
-
-	/**
 	 * Service used to determine if the selected GeneralizationSet edge target could
 	 * be reconnected to an element.
 	 *
@@ -1575,43 +1634,6 @@ public class ClassDiagramServices {
 		}
 
 		return currentModel;
-	}
-
-	/**
-	 * Service used to reconnect a Generalization edge source.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param source
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param target
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectGeneralizationEdgeSource(Element context, Element source, Element target) {
-		Generalization generalizationEdge = (Generalization) context;
-		((Classifier) source).getGeneralizations().remove(generalizationEdge);
-		((Classifier) target).getGeneralizations().add(generalizationEdge);
-	}
-
-	/**
-	 * Service used to reconnect a Generalization edge source.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param source
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param target
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectGeneralizationEdgeTarget(Element context, Element source, Element target) {
-		Generalization generalizationEdge = (Generalization) context;
-		generalizationEdge.setGeneral((Classifier) target);
 	}
 
 	/**

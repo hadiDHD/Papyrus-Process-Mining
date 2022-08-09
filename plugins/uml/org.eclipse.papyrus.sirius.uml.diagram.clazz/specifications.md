@@ -17,3 +17,6 @@ The *semantic candidate expression* must return all **Dependency** existing in t
 
 #ElementImport
 The **ElementImport** is owned by the source element.
+
+#Generalization
+The **Generalization** is owned by the source element.
