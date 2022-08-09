@@ -572,7 +572,7 @@ public class ClassDiagramServices {
 				|| newSource instanceof Package
 				|| newSource instanceof PrimitiveType;
 	}
-	
+
 	/**
 	 * Service used to determine if the selected {@link Dependency} target could be reconnected to an element.
 	 *
@@ -586,7 +586,7 @@ public class ClassDiagramServices {
 		// same condition than for source
 		return dependency_canReconnectSource(context, newTarget);
 	}
-	
+
 	/**
 	 * Service used to reconnect a {@link Dependency} source.
 	 *
@@ -602,7 +602,7 @@ public class ClassDiagramServices {
 		// 1. change the client of the dependency
 		dependency.getClients().remove(oldSource);
 		dependency.getClients().add((NamedElement) newSource);
-	
+
 		// 2. the dependency is owned by the nearest package of the source
 		final Package newOwner = newSource.getNearestPackage();
 		if (dependency.getOwner() != newOwner) {
@@ -625,6 +625,105 @@ public class ClassDiagramServices {
 		dependencyEdge.getSuppliers().add((NamedElement) newTarget);
 	}
 	
+	/**
+	 * 
+	 * @param semanticContext
+	 *            the context in which we are looking for {@link ElementImport}
+	 * @return
+	 *         {@link ElementImport} available in the context
+	 */
+	public Collection<ElementImport> elementImport_getSemanticCandidates(final EObject semanticContext) {
+		if (semanticContext instanceof Namespace) {
+			final Namespace namespace = (Namespace) semanticContext;
+			return getAllElementImports(namespace);
+		}
+		return Collections.emptyList();
+	}
+
+	/**
+	 * 
+	 * @param namespace
+	 *            a UML {@link Namespace}
+	 * @return
+	 *         all {@link ElementImport} recursively
+	 */
+	private static final Collection<ElementImport> getAllElementImports(final Namespace namespace) {
+		final Collection<ElementImport> elementImports = new HashSet<ElementImport>();
+		elementImports.addAll(namespace.getElementImports());
+		final Iterator<NamedElement> iter = namespace.getOwnedMembers().iterator();
+		while (iter.hasNext()) {
+			final NamedElement current = iter.next();
+			if (current instanceof Namespace) {
+				elementImports.addAll(getAllElementImports((Namespace) current));
+			}
+		}
+		return elementImports;
+	}
+
+	/**
+	 * Service used to determine if the selected ElementImport source edge target could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean elementImport_canReconnectSource(Element context, Element newSource) {
+		return newSource instanceof Class
+				|| newSource instanceof Enumeration
+				|| newSource instanceof Interface
+				|| newSource instanceof Package
+				|| newSource instanceof PrimitiveType;
+	}
+
+	/**
+	 * Service used to determine if the selected ElementImport target edge target could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean elementImport_canReconnectTarget(Element context, Element newTarget) {
+		// same conditions for source and target
+		return elementImport_canReconnectSource(context, newTarget);
+	}
+
+	/**
+	 * Service used to reconnect an ElementImport edge source.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldSource
+	 *            Represents the semantic element pointed by the edge before
+	 *            reconnecting
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after
+	 *            reconnecting
+	 */
+	public void elementImport_reconnectSource(final Element context, final Element oldSource, final Element newSource) {
+		final ElementImport elementImport = (ElementImport) context;
+		((Namespace) oldSource).getElementImports().remove(elementImport);
+		((Namespace) newSource).getElementImports().add(elementImport);
+	}
+
+	/**
+	 * Service used to reconnect an ElementImport edge target.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge reconnecting
+	 * @param oldTarget
+	 *            Represents the semantic element pointer by the edge before reconnecting
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void elementImport_reconnectTarget(final Element context, final Element oldTarget, final Element newTarget) {
+		final ElementImport elementImportEdge = (ElementImport) context;
+		elementImportEdge.setImportedElement((PackageableElement) newTarget);
+	}
+
 	/**
 	 * Precondition test if sirius diagram or not.
 	 * 
@@ -716,29 +815,6 @@ public class ClassDiagramServices {
 			}
 		}
 		return associationClass;
-	}
-
-	/**
-	 * Create a new Element Import Link.
-	 * 
-	 * @param sourceView
-	 *            the source view
-	 * @param target
-	 *            the semantic target element
-	 * @param targetView
-	 *            the target view
-	 */
-	public void createElementImportLink(EObject context, EObject sourceView, Element source, Element target) {
-		if (sourceView instanceof DDiagramElement) {
-			EObject root = getDiagramRoot(sourceView);
-			if (root instanceof Package) {
-				PackageableElement sourceElement = (PackageableElement) source;
-				PackageableElement targetElement = (PackageableElement) target;
-				ElementImport elemImport = UMLFactory.eINSTANCE.createElementImport();
-				elemImport.setImportedElement(targetElement);
-				((Namespace) sourceElement).getElementImports().add(elemImport);
-			}
-		}
 	}
 
 	/**
@@ -1271,22 +1347,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Service used to determine if the selected ElementImport edge target could be
-	 * reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param target
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectElementImportLinkPrecondition(Element context, Element target) {
-		return (target instanceof Class || target instanceof Package || target instanceof Interface
-				|| target instanceof Enumeration || target instanceof PrimitiveType);
-	}
-
-	/**
 	 * Service used to determine if the selected Generalization edge target could be
 	 * reconnected to an element.
 	 *
@@ -1515,49 +1575,6 @@ public class ClassDiagramServices {
 		}
 
 		return currentModel;
-	}
-
-	/**
-	 * Service used to reconnect an ElementImport edge source.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param edgeView
-	 *            Represents the graphical new edge
-	 * @param sourceView
-	 *            Represents the graphical element pointed by the edge before
-	 *            reconnecting
-	 * @param targetView
-	 *            Represents the graphical element pointed by the edge after
-	 *            reconnecting
-	 * @param source
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param target
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectElementImportEdgeSource(Element context, Element source, Element target) {
-		ElementImport elementImportEdge = (ElementImport) context;
-		((Namespace) source).getElementImports().remove(elementImportEdge);
-		((Namespace) target).getElementImports().add(elementImportEdge);
-	}
-
-	/**
-	 * Service used to reconnect an ElementImport edge target.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 *            reconnecting
-	 * @param target
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectElementImportEdgeTarget(Element context, Element source, Element target) {
-		ElementImport elementImportEdge = (ElementImport) context;
-		elementImportEdge.setImportedElement((PackageableElement) target);
 	}
 
 	/**

@@ -174,12 +174,9 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="CD_ElementImport" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Element%20Alias']" semanticElements="service:getSemanticElements" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Package']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Package']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" targetExpression="var:self" domainClass="uml.ElementImport" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Source%20of%20ElementImport%20Edge'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Target%20of%20ElementImport%20Edge']">
+        <edgeMappings name="CD_ElementImport" preconditionExpression="aql:self.oclIsTypeOf(uml::ElementImport)" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Element%20Alias']" semanticCandidatesExpression="service:elementImport_getSemanticCandidates()" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Package'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Package'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" targetExpression="var:self" domainClass="uml.ElementImport" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='ReconnectElementImportSource'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='ReconnectElementImportTarget']">
           <style lineStyle="dash">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <beginLabelStyleDescription labelSize="9" showIcon="false" labelExpression="feature:alias">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </beginLabelStyleDescription>
             <centerLabelStyleDescription labelSize="9" showIcon="false" labelExpression="service:computeUmlLabel">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
@@ -1032,13 +1029,17 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="CreateElementImportTool" label="Element Import" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_ElementImport']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/ElementImport.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Create an ElementImport." name="CreateElementImportTool" label="Element Import" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_ElementImport']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/ElementImport.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createElementImportLink(sourceView, source, target)"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.oclAsType(uml::Namespace)">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.ElementImport" referenceName="elementImport">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="importedElement" valueExpression="var:target"/>
+                </subModelOperations>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="CreateGeneralizationTool" label="Generalization" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Generalization']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Generalization.gif">
@@ -1315,25 +1316,25 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconnect Source of ElementImport Edge" precondition="service:reconnectElementImportLinkPrecondition(target)" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectElementImportSource" precondition="service:elementImport_canReconnectSource(target)" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.reconnectElementImportEdgeSource(source, target)"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.elementImport_reconnectSource(source, target)"/>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconnect Target of ElementImport Edge" precondition="service:reconnectElementImportLinkPrecondition(target)" forceRefresh="true">
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectElementImportTarget" precondition="service:elementImport_canReconnectTarget(target)" forceRefresh="true">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.reconnectElementImportEdgeTarget(source, target)"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.elementImport_reconnectTarget(source, target)"/>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
