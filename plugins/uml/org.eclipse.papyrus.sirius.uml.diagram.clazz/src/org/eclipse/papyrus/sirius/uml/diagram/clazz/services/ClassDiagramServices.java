@@ -270,16 +270,7 @@ public class ClassDiagramServices {
 	 *            Represents the semantic element pointed by the edge after reconnecting
 	 */
 	public void abstraction_reconnectSource(final Element context, final Element oldSource, final Element newSource) {
-		final Abstraction abstraction = (Abstraction) context;
-		// 1. change the client of the abstraction
-		abstraction.getClients().remove(oldSource);
-		abstraction.getClients().add((NamedElement) newSource);
-
-		// 2. the abstraction is owned by the nearest package of the source
-		final Package newOwner = newSource.getNearestPackage();
-		if (abstraction.getOwner() != newOwner) {
-			newOwner.getPackagedElements().add(abstraction);
-		}
+		dependency_reconnectSource(context, oldSource, newSource);
 	}
 
 	/**
@@ -293,9 +284,7 @@ public class ClassDiagramServices {
 	 *            Represents the semantic element pointed by the edge after reconnecting
 	 */
 	public void abstraction_reconnectTarget(final Element context, final Element oldTarget, final Element newTarget) {
-		final Abstraction abstraction = (Abstraction) context;
-		abstraction.getSuppliers().remove(oldTarget);
-		abstraction.getSuppliers().add((NamedElement) newTarget);
+		dependency_reconnectTarget(context, oldTarget, newTarget);
 	}
 
 	/**
@@ -532,6 +521,110 @@ public class ClassDiagramServices {
 		return isValid;
 	}
 
+	/**
+	 * 
+	 * @param semanticContext
+	 *            the context in which we are looking for {@link Dependency}
+	 * @return
+	 *         all {@link Dependency} available in the context
+	 */
+	public Collection<Dependency> dependency_getSemanticCandidates(final EObject semanticContext) {
+		if (semanticContext instanceof Package) {
+			final Package pack = (Package) semanticContext;
+			return getAllDependencies(pack);
+		}
+		return Collections.emptyList();
+	}
+	/**
+	 * 
+	 * @param pack
+	 *            a UML {@link Package}
+	 * @return
+	 *         all owned {@link Dependency} recursively
+	 */
+	private static final Collection<Dependency> getAllDependencies(final Package pack) {
+		final Collection<Dependency> dependencies = new HashSet<Dependency>();
+		final Iterator<NamedElement> iter = pack.getMembers().iterator();
+		while (iter.hasNext()) {
+			final NamedElement current = iter.next();
+			if (current instanceof Package) {
+				dependencies.addAll(getAllDependencies((Package) current));
+			}
+			if (current instanceof Dependency) {
+				dependencies.add((Dependency) current);
+			}
+		}
+		return dependencies;
+	}
+	/**
+	 * Service used to determinate if the selected {@link Dependency} source could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean dependency_canReconnectSource(final Element context, final Element newSource) {
+		return newSource instanceof Class
+				|| newSource instanceof Enumeration
+				|| newSource instanceof Interface
+				|| newSource instanceof Package
+				|| newSource instanceof PrimitiveType;
+	}
+	
+	/**
+	 * Service used to determine if the selected {@link Dependency} target could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean dependency_canReconnectTarget(final Element context, final Element newTarget) {
+		// same condition than for source
+		return dependency_canReconnectSource(context, newTarget);
+	}
+	
+	/**
+	 * Service used to reconnect a {@link Dependency} source.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldSource
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void dependency_reconnectSource(final Element context, final Element oldSource, final Element newSource) {
+		final Dependency dependency = (Dependency) context;
+		// 1. change the client of the dependency
+		dependency.getClients().remove(oldSource);
+		dependency.getClients().add((NamedElement) newSource);
+	
+		// 2. the dependency is owned by the nearest package of the source
+		final Package newOwner = newSource.getNearestPackage();
+		if (dependency.getOwner() != newOwner) {
+			newOwner.getPackagedElements().add(dependency);
+		}
+	}
+	/**
+	 * Service used to reconnect a Containment target.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldTarget
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void dependency_reconnectTarget(final Element context, final Element oldTarget, final Element newTarget) {
+		final Dependency dependencyEdge = (Dependency) context;
+		dependencyEdge.getSuppliers().remove(oldTarget);
+		dependencyEdge.getSuppliers().add((NamedElement) newTarget);
+	}
+	
 	/**
 	 * Precondition test if sirius diagram or not.
 	 * 
@@ -1177,24 +1270,6 @@ public class ClassDiagramServices {
 		}
 	}
 
-
-
-	/**
-	 * Service used to determine if the selected Dependency edge target could be
-	 * reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param target
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectDependencyLinkPrecondition(Element context, Element target) {
-		return (target instanceof Class || target instanceof Package || target instanceof Interface
-				|| target instanceof Enumeration || target instanceof PrimitiveType);
-	}
-
 	/**
 	 * Service used to determine if the selected ElementImport edge target could be
 	 * reconnected to an element.
@@ -1440,69 +1515,6 @@ public class ClassDiagramServices {
 		}
 
 		return currentModel;
-	}
-
-	/**
-	 * Service used to reconnect a Dependency edge source.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldSource
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newSource
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectDependencyEdgeSource(Element context, Element oldSource, Element newSource) {
-		// get the root model of the diagram
-		Model rootModel = getRootModel(oldSource);
-
-		// remove the old source from the Dependency edge and to it the new source
-		Dependency dependencyEdge = (Dependency) context;
-		dependencyEdge.getClients().remove(oldSource);
-		dependencyEdge.getClients().add((NamedElement) newSource);
-
-		if (oldSource instanceof Package && !(newSource instanceof Package)) {
-			// remove the dependencyEdge from the old source Package and keep it in the root
-			// model
-			((Package) oldSource).getPackagedElements().remove(dependencyEdge);
-			rootModel.getPackagedElements().add(dependencyEdge);
-		} else if (newSource instanceof Package && !(oldSource instanceof Package)) {
-			// add the dependencyEdge to the new source Package and remove it from the root
-			// model
-			((Package) newSource).getPackagedElements().add(dependencyEdge);
-			rootModel.getPackagedElements().remove(dependencyEdge);
-		}
-	}
-
-	/**
-	 * Service used to reconnect a Containment edge target.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param edgeView
-	 *            Represents the graphical new edge
-	 * @param sourceView
-	 *            Represents the graphical element pointed by the edge before
-	 *            reconnecting
-	 * @param targetView
-	 *            Represents the graphical element pointed by the edge after
-	 *            reconnecting
-	 * @param source
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param target
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectDependencyEdgeTarget(Element context, DEdge edgeView, EdgeTarget sourceView,
-			EdgeTarget targetView, Element source, Element target) {
-		Dependency dependencyEdge = (Dependency) context;
-		dependencyEdge.getSuppliers().remove(source);
-		dependencyEdge.getSuppliers().add((NamedElement) target);
 	}
 
 	/**

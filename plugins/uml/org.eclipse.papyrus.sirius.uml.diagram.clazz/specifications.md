@@ -10,3 +10,7 @@ The **ContextLink** changes the owner of the **Constraint**, so creating a **Con
 
 #ContainmentLink
 technical requirement: The target view of the **ContainmentLink** must be located on the diagram background to ease the development of the diagram.  
+
+#Dependency
+The **Dependency** is owned by the nearest Package of the source.
+The *semantic candidate expression* must return all **Dependency** existing in the Package and in its children.
