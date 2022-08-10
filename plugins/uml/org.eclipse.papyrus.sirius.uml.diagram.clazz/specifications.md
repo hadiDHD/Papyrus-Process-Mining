@@ -23,3 +23,6 @@ The **Generalization** is owned by the source element.
 
 ##GeneralizationSet
 The **GeneralizationSet** is owned by the nearest Package of the source **Generalization**.
+
+##InformationFlow
+The **InformationFlow** is owned by the nearest Package of the source **InformationFlow**.

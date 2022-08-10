@@ -950,6 +950,111 @@ public class ClassDiagramServices {
 	}
 
 	/**
+	 * 
+	 * @param semanticContext
+	 *            the context in which we are looking for {@link Generalization}
+	 * @return
+	 *         all {@link InformationFlow} available in the context
+	 */
+	public Collection<InformationFlow> informationFlow_getSemanticCandidates(final EObject semanticContext) {
+		if (semanticContext instanceof Package) {
+			final Package namespace = (Package) semanticContext;
+			return getAllInformationFlows(namespace);
+		}
+		return Collections.emptyList();
+	}
+
+	/**
+	 * 
+	 * @param namespace
+	 *            a UML {@link Namespace}
+	 * @return
+	 *         all {@link InformationFlow} recursively
+	 */
+	private static final Collection<InformationFlow> getAllInformationFlows(final Package namespace) {
+		final Collection<InformationFlow> informationFlows = new HashSet<InformationFlow>();
+		final Iterator<PackageableElement> iter = namespace.getPackagedElements().iterator();
+		while (iter.hasNext()) {
+			final NamedElement current = iter.next();
+			if (current instanceof InformationFlow) {
+				informationFlows.add((InformationFlow) current);
+			}
+			if (current instanceof Package) {
+				informationFlows.addAll(getAllInformationFlows((Package) current));
+			}
+		}
+		return informationFlows;
+	}
+
+	/**
+	 * Service used to determine if the selected InformationFlow source could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * 
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean informationFlow_canReconnectSource(final InformationFlow context, final Element newSource) {
+		return newSource instanceof Class
+				|| newSource instanceof Enumeration
+				|| newSource instanceof Interface
+				|| newSource instanceof Package
+				|| newSource instanceof PrimitiveType;
+	}
+
+	/**
+	 * Service used to determine if the selected InformationFlow target could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * 
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean informationFlow_canReconnectTarget(final InformationFlow context, final Element newTarget) {
+		// same condition for source and target
+		return informationFlow_canReconnectSource(context, newTarget);
+	}
+
+	/**
+	 * Service used to reconnect an InformationFlow source.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldSource
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void informationFlow_reconnectSource(final InformationFlow context, final NamedElement oldSource, final NamedElement newSource) {
+		// 1. update source
+		context.getInformationSources().remove(oldSource);
+		context.getInformationSources().add(newSource);
+
+		// 2. update container
+		final Package owner = newSource.getNearestPackage();
+		owner.getPackagedElements().add(context);
+	}
+
+	/**
+	 * Service used to reconnect an informationFlow target.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldTarget
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void informationFlow_reconnectTarget(final InformationFlow context, final NamedElement oldTarget, final NamedElement newTarget) {
+		context.getInformationTargets().remove(oldTarget);
+		context.getInformationTargets().add(newTarget);
+	}
+
+	/**
 	 * Precondition test if sirius diagram or not.
 	 * 
 	 * @param context
@@ -1040,34 +1145,6 @@ public class ClassDiagramServices {
 			}
 		}
 		return associationClass;
-	}
-
-	/**
-	 * Create a new Information Flow Link.
-	 * 
-	 * @param sourceView
-	 *            the source view
-	 * @param target
-	 *            the semantic target element
-	 * @param targetView
-	 *            the target view
-	 */
-	public void createInformationFlowLink(EObject context, EObject sourceView, Element source, Element target) {
-		if (sourceView instanceof DDiagramElement) {
-			EObject root = getDiagramRoot(sourceView);
-			if (root instanceof Package) {
-				Package model = (Package) root;
-				InformationFlow informationFlow = UMLFactory.eINSTANCE.createInformationFlow();
-				informationFlow.getInformationSources().add((NamedElement) source);
-				informationFlow.getInformationTargets().add((NamedElement) target);
-
-				if (source instanceof Classifier) {
-					model.getPackagedElements().add(informationFlow);
-				} else if (source instanceof Package) {
-					((Package) source).getPackagedElements().add(informationFlow);
-				}
-			}
-		}
 	}
 
 	/**
@@ -1491,22 +1568,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Service used to determine if the selected InformationFlow edge target could
-	 * be reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param target
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectInformationFlowLinkPrecondition(Element context, Element target) {
-		return (target instanceof Class || target instanceof Package || target instanceof Interface
-				|| target instanceof Enumeration || target instanceof PrimitiveType);
-	}
-
-	/**
 	 * Service used to determine if the selected InstanceSpecification edge target
 	 * could be reconnected to an element.
 	 *
@@ -1688,59 +1749,6 @@ public class ClassDiagramServices {
 		}
 
 		return currentModel;
-	}
-
-
-	/**
-	 * Service used to reconnect an InformationFlow edge source.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldSource
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newSource
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectInformationFlowEdgeSource(Element context, Element oldSource, Element newSource) {
-		// get the root model of the diagram
-		Model rootModel = getRootModel(oldSource);
-
-		// remove the old source from the information flow element and add to it the new
-		// source
-		InformationFlow informationFlow = (InformationFlow) context;
-		informationFlow.getInformationSources().remove(oldSource);
-		informationFlow.getInformationSources().add((NamedElement) newSource);
-
-		// keep the removed old source in the root model
-		if (oldSource instanceof Package && !(newSource instanceof Package)) {
-			((Package) oldSource).getPackagedElements().remove(informationFlow);
-			rootModel.getPackagedElements().add(informationFlow);
-		} else if (newSource instanceof Package && !(oldSource instanceof Package)) {
-			((Package) newSource).getPackagedElements().add(informationFlow);
-			rootModel.getPackagedElements().remove(informationFlow);
-		}
-	}
-
-	/**
-	 * Service used to reconnect an informationFlow edge target.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldTarget
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newTarget
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectInformationFlowEdgeTarget(Element context, Element oldTarget, Element newTarget) {
-		InformationFlow informationFlow = (InformationFlow) context;
-		informationFlow.getInformationTargets().remove(oldTarget);
-		informationFlow.getInformationTargets().add((NamedElement) newTarget);
 	}
 
 	/**
