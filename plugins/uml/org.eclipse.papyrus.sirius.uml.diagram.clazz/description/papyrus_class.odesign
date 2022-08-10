@@ -190,7 +190,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="CD_GeneralizationSet" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticElements="service:getSemanticElements" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Generalization']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Generalization']" targetFinderExpression="service:getTargetGeneralization()" sourceFinderExpression="service:getSourceGeneralization()" targetExpression="var:self" domainClass="uml.GeneralizationSet" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Source%20of%20GeneralizationSet%20Edge'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Target%20of%20GeneralizationSet%20Edge']">
+        <edgeMappings name="CD_GeneralizationSet" preconditionExpression="aql:self.oclIsTypeOf(uml::GeneralizationSet)" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:generalizationSet_getSemanticCandidates()" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Generalization']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Generalization']" targetFinderExpression="service:generalizationSet_getTarget()" sourceFinderExpression="service:generalizationSet_getSource()" targetExpression="var:self" domainClass="uml.GeneralizationSet" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='ReconnectGeneralizationSetSource'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='ReconnectGeneralizationSetTarget']">
           <style lineStyle="dash" targetArrow="NoDecoration">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelSize="9" showIcon="false" labelExpression="service:computeUmlLabel">
@@ -1063,7 +1063,13 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createGeneralizationSetLink(sourceView, source, target)"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.oclAsType(uml::Element).getNearestPackage()">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.GeneralizationSet" referenceName="packagedElement">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool:Let" variableName="coll" valueExpression="aql:OrderedSet{source,target}"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="generalization" valueExpression="var:coll"/>
+                </subModelOperations>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="CreateInformationFlowTool" label="Information Flow" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_InformationFlow']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/InformationFlow.gif">
@@ -1366,25 +1372,25 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconnect Source of GeneralizationSet Edge" precondition="service:reconnectGeneralizationSetLinkPrecondition(target)" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectGeneralizationSetSource" precondition="aql:target.oclIsTypeOf(uml::Generalization)" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.reconnectGeneralizationSetEdgeSource(source, target)"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:generalizationSet_reconnectSource(source, target)"/>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconnect Target of GeneralizationSet Edge" precondition="service:reconnectGeneralizationSetLinkPrecondition(target)" forceRefresh="true">
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectGeneralizationSetTarget" precondition="aql:target.oclIsTypeOf(uml::Generalization)" forceRefresh="true">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.reconnectGeneralizationSetEdgeTarget(source, target)"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:generalizationSet_reconnectTarget(source, target)"/>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>

@@ -153,6 +153,16 @@ public class ClassDiagramServices {
 	private String _selectedAssosType = "";
 
 	/**
+	 * index used to find the source of the {@link GeneralizationSet}
+	 */
+	private static final int GENERALIZATION_SET__SOURCE_INDEX = 0;
+
+	/**
+	 * index used to find the target of the {@link GeneralizationSet}
+	 */
+	private static final int GENERALIZATION_SET__TARGET_INDEX = 1;
+
+	/**
 	 * Move the given Element
 	 * 
 	 * @param semanticObjectToDrop
@@ -535,6 +545,7 @@ public class ClassDiagramServices {
 		}
 		return Collections.emptyList();
 	}
+
 	/**
 	 * 
 	 * @param pack
@@ -556,6 +567,7 @@ public class ClassDiagramServices {
 		}
 		return dependencies;
 	}
+
 	/**
 	 * Service used to determinate if the selected {@link Dependency} source could be reconnected to an element.
 	 *
@@ -609,6 +621,7 @@ public class ClassDiagramServices {
 			newOwner.getPackagedElements().add(dependency);
 		}
 	}
+
 	/**
 	 * Service used to reconnect a Containment target.
 	 *
@@ -624,7 +637,7 @@ public class ClassDiagramServices {
 		dependencyEdge.getSuppliers().remove(oldTarget);
 		dependencyEdge.getSuppliers().add((NamedElement) newTarget);
 	}
-	
+
 	/**
 	 * 
 	 * @param semanticContext
@@ -771,8 +784,8 @@ public class ClassDiagramServices {
 	 * @return true if the edge could be reconnected
 	 */
 	public boolean generalization_canReconnectSource(final Element context, final Element newSource) {
-		return (newSource instanceof Class 
-				|| newSource instanceof Interface 
+		return (newSource instanceof Class
+				|| newSource instanceof Interface
 				|| newSource instanceof Enumeration
 				|| newSource instanceof PrimitiveType);
 	}
@@ -820,6 +833,120 @@ public class ClassDiagramServices {
 	public void generalization_reconnectTarget(final Element context, final Element oldTarget, final Element newTarget) {
 		final Generalization generalizationEdge = (Generalization) context;
 		generalizationEdge.setGeneral((Classifier) newTarget);
+	}
+
+	/**
+	 * 
+	 * @param semanticContext
+	 *            the context in which we are looking for {@link Generalization}
+	 * @return
+	 *         {@link Generalization} available in the context
+	 */
+	public Collection<GeneralizationSet> generalizationSet_getSemanticCandidates(final EObject semanticContext) {
+		if (semanticContext instanceof Package) {
+			final Package pack = (Package) semanticContext;
+			return getAllGeneralizationSets(pack);
+		}
+		return Collections.emptyList();
+	}
+
+	/**
+	 * 
+	 * @param pack
+	 *            a UML {@link Package}
+	 * @return
+	 *         all {@link GeneralizationSet} recursively
+	 */
+	private static final Collection<GeneralizationSet> getAllGeneralizationSets(final Package pack) {
+		final Collection<GeneralizationSet> generalizationSets = new HashSet<GeneralizationSet>();
+		final Iterator<PackageableElement> iter = pack.getPackagedElements().iterator();
+		while (iter.hasNext()) {
+			final NamedElement current = iter.next();
+			if (current instanceof GeneralizationSet) {
+				generalizationSets.add(((GeneralizationSet) current));
+			}
+			if (current instanceof Package) {
+				generalizationSets.addAll(getAllGeneralizationSets((Package) current));
+			}
+		}
+		return generalizationSets;
+	}
+
+	/**
+	 * 
+	 * @param generalizationSet
+	 *            a {@link GeneralizationSet}
+	 * @return
+	 *         the {@link Generalization} to use as source or <code>null</code>
+	 */
+	public Generalization generalizationSet_getSource(final GeneralizationSet generalizationSet) {
+		if (generalizationSet.getGeneralizations().size() >= 1) {
+			return generalizationSet.getGeneralizations().get(GENERALIZATION_SET__SOURCE_INDEX);
+		}
+		return null;
+	}
+
+	/**
+	 * 
+	 * @param generalizationSet
+	 *            a {@link GeneralizationSet}
+	 * @return
+	 *         the {@link Generalization} to use as target or <code>null</code>
+	 */
+	public Generalization generalizationSet_getTarget(final GeneralizationSet generalizationSet) {
+		if (generalizationSet.getGeneralizations().size() >= 2) {
+			return generalizationSet.getGeneralizations().get(GENERALIZATION_SET__TARGET_INDEX);
+		}
+		return null;
+	}
+
+	/**
+	 * Service used to reconnect a GeneralizationSet edge source.
+	 *
+	 * @param generalizationSet
+	 *            {@link GeneralizationSet} attached to the existing edge
+	 * @param oldSource
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void generalizationSet_reconnectSource(final GeneralizationSet generalizationSet, final Generalization oldSource, final Generalization newSource) {
+		// 1. update the source
+		generalizationSet.getGeneralizations().remove(oldSource);
+		generalizationSet.getGeneralizations().add(GENERALIZATION_SET__SOURCE_INDEX, newSource);
+
+		// 2. update the parent
+		newSource.getNearestPackage().getPackagedElements().add(generalizationSet);
+
+		// 3. build new name for the generalization set
+		final String oldSourceName = oldSource.getGeneral().getName();
+		final String newSourceName = newSource.getGeneral().getName();
+
+		final String newName = generalizationSet.getName().replace(oldSourceName, newSourceName);
+		generalizationSet.setName(newName);
+	}
+
+	/**
+	 * Service used to reconnect a GeneralizationSet edge target.
+	 *
+	 * @param generalizationSet
+	 *            {@link GeneralizationSet} attached to the existing edge
+	 * @param oldTarget
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void generalizationSet_reconnectTarget(final GeneralizationSet generalizationSet, final Generalization oldTarget, final Generalization newTarget) {
+		// 1. update the target
+		generalizationSet.getGeneralizations().remove(oldTarget);
+		generalizationSet.getGeneralizations().add(GENERALIZATION_SET__TARGET_INDEX, newTarget);
+
+		// 2. build new name for the generalization set
+		final String oldTargetName = oldTarget.getGeneral().getName();
+		final String newTargetName = newTarget.getGeneral().getName();
+
+		final String newName = generalizationSet.getName().replace(oldTargetName, newTargetName);
+		generalizationSet.setName(newName);
 	}
 
 	/**
@@ -1120,64 +1247,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Create a new Generalization Set link.
-	 * 
-	 * @param sourceView
-	 *            the source view
-	 * @param target
-	 *            the semantic target element
-	 * @param targetView
-	 *            the target view
-	 */
-	public void createGeneralizationSetLink(EObject context, EObject sourceView, Element source, Element target) {
-		if (sourceView instanceof DDiagramElement) {
-			EObject root = getDiagramRoot(sourceView);
-			if (root instanceof Package) {
-				Package model = (Package) root;
-				Generalization generalization1 = (Generalization) source;
-				Generalization generalization2 = (Generalization) target;
-
-				GeneralizationSet generalizationSet = UMLFactory.eINSTANCE.createGeneralizationSet();
-				model.getPackagedElements().add(generalizationSet);
-
-				// build name
-				String name = LabelServices.INSTANCE.computeDefaultName(generalizationSet);
-				String firstGeneralisationClassName = ((Classifier) generalization1.getGeneral()).getName();
-				String secondGeneralisationClassName = ((Classifier) generalization2.getGeneral()).getName();
-				name = name + UNDERSCORE + firstGeneralisationClassName + UNDERSCORE + secondGeneralisationClassName;
-				generalizationSet.setName(name);
-
-				generalizationSet.getGeneralizations().add(generalization1);
-				generalizationSet.getGeneralizations().add(generalization2);
-			}
-		}
-	}
-
-	/**
-	 * Get the source element of the Generalization link.
-	 */
-	public EObject getSourceGeneralization(EObject elem) {
-		if (elem instanceof GeneralizationSet) {
-			GeneralizationSet generalizationSet = (GeneralizationSet) elem;
-			return generalizationSet.getGeneralizations().get(0);
-		}
-
-		return null;
-	}
-
-	/**
-	 * Get the target element of the Generalization link.
-	 */
-	public EObject getTargetGeneralization(EObject elem) {
-		if (elem instanceof GeneralizationSet) {
-			GeneralizationSet generalizationSet = (GeneralizationSet) elem;
-			return generalizationSet.getGeneralizations().get(1);
-		}
-
-		return null;
-	}
-
-	/**
 	 * Create a new Link link.
 	 * 
 	 * @param sourceView
@@ -1422,21 +1491,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Service used to determine if the selected GeneralizationSet edge target could
-	 * be reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param target
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectGeneralizationSetLinkPrecondition(Element context, Element target) {
-		return target instanceof Generalization;
-	}
-
-	/**
 	 * Service used to determine if the selected InformationFlow edge target could
 	 * be reconnected to an element.
 	 *
@@ -1636,66 +1690,6 @@ public class ClassDiagramServices {
 		return currentModel;
 	}
 
-	/**
-	 * Service used to reconnect a GeneralizationSet edge source.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldSource
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newSource
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectGeneralizationSetEdgeSource(Element context, Element oldSource, Element newSource) {
-		// get the old and new source generalization elements
-		GeneralizationSet generalizationSet = (GeneralizationSet) context;
-		Generalization oldSourceGeneralization = (Generalization) oldSource;
-		Generalization newSourceGeneralization = (Generalization) newSource;
-
-		// delete the old source generalization from the generalizations set and add the
-		// new source one
-		generalizationSet.getGeneralizations().add(0, newSourceGeneralization);
-		generalizationSet.getGeneralizations().remove(oldSource);
-
-		// build new name for the generalization set
-		String newSourceName = newSourceGeneralization.getGeneral().getName();
-		String oldSourceName = oldSourceGeneralization.getGeneral().getName();
-
-		String newName = generalizationSet.getName().replace(oldSourceName, newSourceName);
-		generalizationSet.setName(newName);
-	}
-
-	/**
-	 * Service used to reconnect a GeneralizationSet edge target.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldTarget
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newTarget
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectGeneralizationSetEdgeTarget(Element context, Element oldTarget, Element newTarget) {
-		GeneralizationSet generalizationSet = (GeneralizationSet) context;
-		Generalization oldTargetGeneralization = (Generalization) oldTarget;
-		Generalization newTargetGeneralization = (Generalization) newTarget;
-
-		generalizationSet.getGeneralizations().add(1, newTargetGeneralization);
-		generalizationSet.getGeneralizations().remove(oldTargetGeneralization);
-
-		// build new name
-		String newTargetName = newTargetGeneralization.getGeneral().getName();
-		String oldTargetName = oldTargetGeneralization.getGeneral().getName();
-
-		String newName = generalizationSet.getName().replace(oldTargetName, newTargetName);
-		generalizationSet.setName(newName);
-	}
 
 	/**
 	 * Service used to reconnect an InformationFlow edge source.

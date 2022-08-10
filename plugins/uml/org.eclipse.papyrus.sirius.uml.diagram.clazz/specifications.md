@@ -20,3 +20,6 @@ The **ElementImport** is owned by the source element.
 
 #Generalization
 The **Generalization** is owned by the source element.
+
+##GeneralizationSet
+The **GeneralizationSet** is owned by the nearest Package of the source **Generalization**.
