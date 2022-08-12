@@ -16,6 +16,7 @@ package org.eclipse.papyrus.sirius.uml.diagram.clazz;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.eclipse.papyrus.infra.core.log.LogHelper;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -34,6 +35,9 @@ public class Activator extends AbstractUIPlugin {
 	private static Activator plugin;
 
 	private static Set<Viewpoint> viewpoints;
+	
+	/** Logging helper */
+	public static LogHelper log;
 
 	/**
 	 * The constructor
@@ -53,6 +57,7 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		log = new LogHelper(this);
 		viewpoints = new HashSet<Viewpoint>();
 		viewpoints.addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/papyrus_class.odesign")); //$NON-NLS-1$
 	}
@@ -71,6 +76,7 @@ public class Activator extends AbstractUIPlugin {
 			viewpoints.clear();
 			viewpoints = null;
 		}
+		log = null;
 		super.stop(context);
 	}
 

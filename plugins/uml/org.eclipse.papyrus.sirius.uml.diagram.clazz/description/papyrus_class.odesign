@@ -206,7 +206,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="CD_InstanceSpecification_Link" preconditionExpression="service:isInstanceSpecificationEdge()" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticElements="service:getSemanticElements" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_InstanceSpecification_Node']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_InstanceSpecification_Node']" targetFinderExpression="service:getTargetOfInstanceSpecification()" sourceFinderExpression="service:getSourceOfInstanceSpecification()" targetExpression="var:self" domainClass="uml.InstanceSpecification" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Source%20of%20InstanceSpec%20Edge'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Target%20of%20InstanceSpec%20Edge']">
+        <edgeMappings name="CD_InstanceSpecification_Link" preconditionExpression="service:instanceSpecification_isLink()" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:instanceSpecificationLink_getSemanticCandidates()" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_InstanceSpecification_Node']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_InstanceSpecification_Node']" targetFinderExpression="service:instanceSpecificationLink_getTarget()" sourceFinderExpression="service:instanceSpecificationLink_getSource()" targetExpression="var:self" domainClass="uml.InstanceSpecification" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='ReconnectInstanceSpecificationLinkSource'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='ReconnectInstanceSpecificationLinkTarget']">
           <style targetArrow="NoDecoration">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <beginLabelStyleDescription labelSize="9" showIcon="false" labelExpression="aql:self.computeInstanceSpecBeginLabel()">
@@ -426,7 +426,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <containerMappings name="CD_InstanceSpecification_Node" preconditionExpression="aql:self.isNotInstanceSpecificationLink()" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Element%20Name']" semanticCandidatesExpression="feature:packagedElement" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.InstanceSpecification" childrenPresentation="VerticalStack">
+        <containerMappings name="CD_InstanceSpecification_Node" preconditionExpression="aql:self.instanceSpecification_isNode()" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Element%20Name']" semanticCandidatesExpression="feature:packagedElement" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.InstanceSpecification" childrenPresentation="VerticalStack">
           <subContainerMappings name="CD_InstanceSpecificationSlotsCompartment" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.InstanceSpecification" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_SlotLabelNode']" childrenPresentation="List">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" showIcon="false" labelExpression="slots" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1086,13 +1086,13 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="CreateInstanceSpecificationLinkTool" label="Instance Specification" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_InstanceSpecification_Link']" iconPath="/org.eclipse.papyrus.sirius.uml.diagram.clazz/icons/obj16/InstanceLink.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new InstanceSpecification link." name="CreateInstanceSpecificationLinkTool" label="Instance Specification" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_InstanceSpecification_Link']" iconPath="/org.eclipse.papyrus.sirius.uml.diagram.clazz/icons/obj16/InstanceLink.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:createInstanceSpecification(sourceView, source, target)">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:instanceSpecificationLink_createInstanceSpecificationLink(sourceView, source, target)">
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:addInstanceSpecificationToModel(sourceView)"/>
               </firstModelOperations>
             </initialOperation>
@@ -1421,25 +1421,25 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconnect Source of InstanceSpec Edge" precondition="service:reconnectInstanceSpecLinkPrecondition(target)" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectInstanceSpecificationLinkSource" precondition="service:instanceSpecificationLink_canReconnectSource(target)" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.reconnectInstanceSpecEdge(source, target)"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.instanceSpecificationLink_reconnectSource(source, target)"/>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconnect Target of InstanceSpec Edge" precondition="service:reconnectInstanceSpecLinkPrecondition(target)" forceRefresh="true">
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectInstanceSpecificationLinkTarget" precondition="service:instanceSpecificationLink_canReconnectSource(target)" forceRefresh="true">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.reconnectInstanceSpecEdge(source, target)"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.instanceSpecificationLink_reconnectTarget(source, target)"/>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>

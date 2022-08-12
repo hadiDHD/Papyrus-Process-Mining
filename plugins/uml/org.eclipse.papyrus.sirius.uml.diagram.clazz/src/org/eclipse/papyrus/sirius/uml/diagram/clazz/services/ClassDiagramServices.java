@@ -14,10 +14,6 @@
  *****************************************************************************/
 package org.eclipse.papyrus.sirius.uml.diagram.clazz.services;
 
-import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -28,15 +24,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAnnotation;
@@ -45,6 +32,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
+import org.eclipse.papyrus.infra.core.services.ServiceException;
+import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
+import org.eclipse.papyrus.infra.emf.utils.ServiceUtilsForEObject;
+import org.eclipse.papyrus.sirius.uml.diagram.clazz.Activator;
+import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.ui.dialog.AssociationSelectionDialog;
+import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.utils.InstanceSpecificationLinkUtils;
 import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.AssociationServices;
 import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.DirectEditLabelSwitch;
 import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.DisplayLabelSwitch;
@@ -67,6 +60,7 @@ import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeContainerSpe
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeListSpec;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.FontFormat;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.dialogs.ListDialog;
 import org.eclipse.uml2.uml.Abstraction;
@@ -122,9 +116,6 @@ public class ClassDiagramServices {
 	 */
 	public static final ClassDiagramServices INSTANCE = new ClassDiagramServices();
 
-	/** INSTANCE_END for instance specification eAnnotation */
-	protected static final String INSTANCE_END = "InstanceEnd";
-
 	/** Dialog CANCEL button label */
 	private static final String CANCEL_LABEL = "Cancel";
 
@@ -135,7 +126,17 @@ public class ClassDiagramServices {
 	private static final String ANNOTATION_GENERIC_SOURCE = "org.eclipse.papyrus";
 
 	/** Annotation InstanceEnd source name */
-	private static final String ANNOTATION_INSTANCE_END_SOURCE = "InstanceEnd";
+	private static final String ANNOTATION_INSTANCE_END_SOURCE = InstanceSpecificationLinkUtils.INSTANCE_END;
+
+	/**
+	 * index used to find the source of an {@link InstanceSpecification} link
+	 */
+	private static final int INSTANCE_SPECIFICATION_LINK__SOURCE_INDEX = 0;
+
+	/**
+	 * index used to find the target of an {@link InstanceSpecification} link
+	 */
+	private static final int INSTANCE_SPECIFICATION_LINK__TARGET_INDEX = 1;
 
 	/** Annotation detail key */
 	private static final String ANNOTATION_DETAIL_KEY = "nature";
@@ -145,12 +146,6 @@ public class ClassDiagramServices {
 
 	/** underscore separator */
 	private static final String UNDERSCORE = "_";
-
-	/** InstanceSpecification edge */
-	private InstanceSpecification _instanceSpec;
-
-	/** Association type for a new created InstanceSpecification */
-	private String _selectedAssosType = "";
 
 	/**
 	 * index used to find the source of the {@link GeneralizationSet}
@@ -1055,6 +1050,185 @@ public class ClassDiagramServices {
 	}
 
 	/**
+	 * 
+	 * @param semanticContext
+	 *            the context in which we are looking for {@link Generalization}
+	 * @return
+	 *         All {@link InstanceSpecification} available in the context
+	 */
+	public Collection<InstanceSpecification> instanceSpecificationLink_getSemanticCandidates(final EObject semanticContext) {
+		if (semanticContext instanceof Package) {
+			final Package namespace = (Package) semanticContext;
+			return getAllInstanceSpecificationLinks(namespace);
+		}
+		return Collections.emptyList();
+	}
+
+	/**
+	 * 
+	 * @param pack
+	 *            a UML {@link Namespace}
+	 * @return
+	 *         all {@link InstanceSpecification} recursively
+	 */
+	private final Collection<InstanceSpecification> getAllInstanceSpecificationLinks(final Package pack) {
+		final Collection<InstanceSpecification> instanceSpecifications = new HashSet<InstanceSpecification>();
+		final Iterator<PackageableElement> iter = pack.getPackagedElements().iterator();
+		while (iter.hasNext()) {
+			final NamedElement current = iter.next();
+			if (instanceSpecification_isLink(current)) {
+				instanceSpecifications.add((InstanceSpecification) current);
+			}
+			if (current instanceof Package) {
+				instanceSpecifications.addAll(getAllInstanceSpecificationLinks((Package) current));
+			}
+		}
+		return instanceSpecifications;
+	}
+
+	/**
+	 * Check if the current element is instance of instance specification Link or
+	 * Class.
+	 * 
+	 * @param elem
+	 *            the current element to be checked
+	 * @return true if instance specification Class, otherwise return false
+	 */
+	public boolean instanceSpecification_isLink(final EObject elem) {
+		if (elem instanceof InstanceSpecification) {
+			final InstanceSpecification instanceSpecification = (InstanceSpecification) elem;
+			return instanceSpecification.getEAnnotation(ANNOTATION_INSTANCE_END_SOURCE) != null;
+		}
+		return false;
+	}
+
+	/**
+	 * Check if the current element is instance of instance specification Link or
+	 * Class.
+	 * 
+	 * @param elem
+	 *            the current element to be checked
+	 * @return true if instance specification Class, otherwise return false
+	 */
+	public boolean instanceSpecification_isNode(Element elem) {
+		return !instanceSpecification_isLink(elem);
+	}
+
+	/**
+	 * Create a new Instance Specification link.
+	 * This code is adapted/duplicated from the Papyrus Service Edit
+	 * see org.eclipse.papyrus.uml.service.types.internal.ui.commands.InstanceSpecificationLinkCreateCommand and
+	 * see org.eclipse.papyrus.uml.service.types.internal.ui.advice.InstanceSpecificationLinkEditHelperAdvice
+	 * 
+	 * @param context
+	 *            the context element
+	 * @param sourceView
+	 *            the source view
+	 * @param source
+	 *            the semantic source element
+	 * @param target
+	 *            the semantic target element
+	 * @return the created {@link InstanceSpecification}
+	 */
+	public InstanceSpecification instanceSpecificationLink_createInstanceSpecificationLink(EObject context, EObject sourceView, InstanceSpecification source, InstanceSpecification target) {
+		final ServicesRegistry registry = getServiceRegistry(context);
+		InstanceSpecification instanceSpecification = null;
+		if (registry != null) {
+			final AssociationSelectionDialog dialog = new AssociationSelectionDialog(Display.getCurrent().getActiveShell(), SWT.NATIVE, InstanceSpecificationLinkUtils.getModelAssociations(source, target), registry);
+			dialog.open();
+			final Association selectedAssociation = dialog.getSelectedAssociation();
+			if (selectedAssociation != null && !dialog.isCanceled()) {
+				instanceSpecification = UMLFactory.eINSTANCE.createInstanceSpecification();
+				Set<Classifier> sourceSpecificationClassifiersSet = InstanceSpecificationLinkUtils.getSpecificationClassifier(source);
+				Set<Classifier> targetSpecificationClassifiersSet = InstanceSpecificationLinkUtils.getSpecificationClassifier(target);
+				boolean revertEnds = false;
+				if (selectedAssociation != null) {
+					instanceSpecification.getClassifiers().add(selectedAssociation);
+					Type sourceType = selectedAssociation.getMemberEnds().get(0).getType();
+					revertEnds = false == sourceSpecificationClassifiersSet.contains(sourceType);
+				}
+				if (revertEnds) {
+					InstanceSpecificationLinkUtils.addEnd(instanceSpecification, target);
+					InstanceSpecificationLinkUtils.addEnd(instanceSpecification, source);
+				} else {
+					InstanceSpecificationLinkUtils.addEnd(instanceSpecification, source);
+					InstanceSpecificationLinkUtils.addEnd(instanceSpecification, target);
+				}
+				InstanceSpecificationLinkUtils.setupSlots(selectedAssociation, instanceSpecification, source, target, sourceSpecificationClassifiersSet, targetSpecificationClassifiersSet);
+
+			}
+		}
+
+		// add the created instance specification into the nearest package of the source
+		source.getNearestPackage().getPackagedElements().add(instanceSpecification);
+
+		return instanceSpecification;
+	}
+
+	/**
+	 * Service used to determine if the selected {@link InstanceSpecification} source could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean instanceSpecificationLink_canReconnectSource(final Element context, final Element newSource) {
+		return newSource instanceof InstanceSpecification;
+	}
+
+	/**
+	 * Service used to determine if the selected {@link InstanceSpecification} target could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean instanceSpecificationLink_canReconnectTarget(final Element context, final Element newTarget) {
+		return newTarget instanceof InstanceSpecification;
+	}
+
+	/**
+	 * Service used to reconnect an InstanceSpecifictaion source
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldSource
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @return the Element attached to the edge once it has been modified
+	 */
+	public void instanceSpecificationLink_reconnectSource(final InstanceSpecification context, final Element oldSource, final Element newSource) {
+		final EAnnotation eAnnotation = context.getEAnnotation(ANNOTATION_INSTANCE_END_SOURCE);
+		eAnnotation.getReferences().remove(oldSource);
+		eAnnotation.getReferences().add(INSTANCE_SPECIFICATION_LINK__SOURCE_INDEX, (InstanceSpecification) newSource);
+
+		final Package newOwner = newSource.getNearestPackage();
+		newOwner.getPackagedElements().add(context);
+	}
+
+	/**
+	 * Service used to reconnect an InstanceSpecifictaion target
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldTarget
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @return the Element attached to the edge once it has been modified
+	 */
+	public void instanceSpecificationLink_reconnectTarget(final InstanceSpecification context, final Element oldTarget, final Element newTarget) {
+		final EAnnotation eAnnotation = context.getEAnnotation(ANNOTATION_INSTANCE_END_SOURCE);
+		eAnnotation.getReferences().remove(oldTarget);
+		eAnnotation.getReferences().add(INSTANCE_SPECIFICATION_LINK__TARGET_INDEX, (InstanceSpecification) newTarget);
+	}
+
+	/**
 	 * Precondition test if sirius diagram or not.
 	 * 
 	 * @param context
@@ -1460,127 +1634,24 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Create a new Instance Specification link.
 	 * 
-	 * @param context
-	 *            the context element
-	 * @param sourceView
-	 *            the source view
-	 * @param source
-	 *            the semantic source element
-	 * @param target
-	 *            the semantic target element
-	 * @return the instance specification to create
+	 * @param eobject
+	 *            an eobject
+	 * @return
+	 *         the Papyrus {@link ServicesRegistry} associated to the current eobject
 	 */
-	public InstanceSpecification createInstanceSpecification(EObject context, EObject sourceView, Element source,
-			Element target) {
-		JDialog dialog = new JDialog();
-		GridLayout layout = new GridLayout(3, 1);
-		layout.setVgap(5);
-		dialog.setLayout(layout);
-		dialog.setModal(true);
-		dialog.setAlwaysOnTop(true);
-		dialog.setTitle("AssociationSelection");
-		dialog.setSize(new Dimension(350, 200));
-
-		dialog.add(new JLabel("Select the association for this instanceSpecification"));
-
-		// create OK button for the dialog
-		JButton okButton = new JButton(OK_LABEL);
-		okButton.setEnabled(false);
-
-		// create associationType list for the dialog
-		DefaultListModel<String> assosTypesList = new DefaultListModel<String>();
-		assosTypesList.addElement("<untyped>");
-		JList<String> list = new JList<String>(assosTypesList);
-		list.addListSelectionListener(new ListSelectionListener() {
-			public void valueChanged(ListSelectionEvent e) {
-				if (e.getValueIsAdjusting() == false) {
-					_selectedAssosType = list.getSelectedValue();
-					okButton.setEnabled(true);
-				}
-			}
-		});
-
-		dialog.add(list);
-
-		// add listener to OK button
-		okButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				if (sourceView instanceof DDiagramElement) {
-					EObject root = getDiagramRoot(sourceView);
-					if (root instanceof Package) {
-						if (source instanceof InstanceSpecification && target instanceof InstanceSpecification) {
-							_instanceSpec = UMLFactory.eINSTANCE.createInstanceSpecification();
-							EAnnotation endtypes = _instanceSpec.createEAnnotation(ANNOTATION_INSTANCE_END_SOURCE);
-							endtypes.getReferences().add(source);
-							endtypes.getReferences().add(target);
-						}
-					}
-				}
-				dialog.setVisible(false);
-
-			}
-		});
-
-		// create Cancel button for the dialog
-		JButton cancelButton = new JButton(CANCEL_LABEL);
-		cancelButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dialog.setVisible(false);
-
-			}
-		});
-
-		JPanel buttonsPane = new JPanel();
-		buttonsPane.setLayout(new GridLayout(1, 2));
-		buttonsPane.add(okButton);
-		buttonsPane.add(cancelButton);
-		dialog.add(buttonsPane);
-		dialog.setVisible(true);
-
-		return _instanceSpec;
-	}
-
-	/**
-	 * Add the new created instance specification to the model
-	 * 
-	 * @param context
-	 *            the new created instance specification
-	 * @param sourceView
-	 *            the source view
-	 */
-	public void addInstanceSpecificationToModel(EObject context, EObject sourceView) {
-		if (sourceView instanceof DDiagramElement) {
-			EObject root = getDiagramRoot(sourceView);
-			if (root instanceof Package) {
-				Package model = (Package) root;
-				InstanceSpecification createdInstanceSpec = (InstanceSpecification) context;
-				model.getPackagedElements().add(createdInstanceSpec);
-				createdInstanceSpec.setName(LabelServices.INSTANCE.computeDefaultName(createdInstanceSpec));
-			}
+	private final ServicesRegistry getServiceRegistry(final EObject eobject) {
+		ServicesRegistry registry = null;
+		try {
+			registry = ServiceUtilsForEObject.getInstance().getServiceRegistry(eobject);
+		} catch (ServiceException e) {
+			Activator.log.error(e);
 		}
+		return registry;
 	}
 
-	/**
-	 * Service used to determine if the selected InstanceSpecification edge target
-	 * could be reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param target
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectInstanceSpecLinkPrecondition(Element context, Element target) {
-		return target instanceof InstanceSpecification;
-	}
+
+
 
 	/**
 	 * Service used to determine if the selected PackageImport/PackageMerge edge
@@ -1751,25 +1822,6 @@ public class ClassDiagramServices {
 		return currentModel;
 	}
 
-	/**
-	 * Service used to reconnect an InstanceSpecifictaion edge source/target.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldSource
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newSource
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectInstanceSpecEdge(Element context, Element oldSource, Element newSource) {
-		InstanceSpecification instanceSpec = (InstanceSpecification) context;
-		EAnnotation eAnnotation = instanceSpec.getEAnnotations().get(0);
-		eAnnotation.getReferences().remove(oldSource);
-		eAnnotation.getReferences().add((InstanceSpecification) newSource);
-	}
 
 	/**
 	 * Service used to reconnect an PacakgeImport edge source.
@@ -2239,42 +2291,13 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Check if the current element is instance of instance specification Link or
-	 * Class.
-	 * 
-	 * @param elem
-	 *            the current element to be checked
-	 * @return true if instance specification Class, otherwise return false
-	 */
-	public boolean isNotInstanceSpecificationLink(Element elem) {
-		return elem.getEAnnotations().isEmpty();
-	}
-
-	/**
-	 * Check if the current element is instance of instance specification Link or
-	 * Class.
-	 * 
-	 * @param elem
-	 *            the current element to be checked
-	 * @return true if instance specification Class, otherwise return false
-	 */
-	public boolean isInstanceSpecificationEdge(EObject elem) {
-		if (elem instanceof InstanceSpecification) {
-			InstanceSpecification instanceSpecification = (InstanceSpecification) elem;
-			return !instanceSpecification.getEAnnotations().isEmpty();
-		}
-
-		return false;
-	}
-
-	/**
 	 * Get the target element of the instance specification link.
 	 * 
 	 * @param elem
 	 *            the instance specification Link
 	 * @return the target element of the current instance specification link
 	 */
-	public EObject getTargetOfInstanceSpecification(EObject elem) {
+	public EObject instanceSpecificationLink_getTarget(EObject elem) {
 		if (elem instanceof InstanceSpecification) {
 			InstanceSpecification instanceSpecification = (InstanceSpecification) elem;
 			if (!instanceSpecification.getEAnnotations().isEmpty()) {
@@ -2295,7 +2318,7 @@ public class ClassDiagramServices {
 	 *            the instance specification Link
 	 * @return the source element of the current instance specification link
 	 */
-	public EObject getSourceOfInstanceSpecification(EObject elem) {
+	public EObject instanceSpecificationLink_getSource(EObject elem) {
 		if (elem instanceof InstanceSpecification) {
 			InstanceSpecification instanceSpecification = (InstanceSpecification) elem;
 			if (!instanceSpecification.getEAnnotations().isEmpty()) {
