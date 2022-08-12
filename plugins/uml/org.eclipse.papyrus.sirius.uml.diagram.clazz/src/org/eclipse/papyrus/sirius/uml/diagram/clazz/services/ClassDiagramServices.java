@@ -1188,7 +1188,7 @@ public class ClassDiagramServices {
 	 *            Represents the semantic element pointed by the edge after reconnecting
 	 * @return true if the edge could be reconnected
 	 */
-	public boolean instanceSpecificationLink_canReconnectTarget(final Element context, final Element newTarget) {
+	public boolean instanceSpecificationlink_canReconnectSource(final Element context, final Element newTarget) {
 		return newTarget instanceof InstanceSpecification;
 	}
 
@@ -1354,6 +1354,145 @@ public class ClassDiagramServices {
 		interfaceRealization.getSuppliers().remove(oldTarget);
 		interfaceRealization.getSuppliers().add((NamedElement) newTarget);
 		interfaceRealization.setContract(newTarget);
+	}
+
+	/**
+	 * Create a new Link link.
+	 * 
+	 * @param sourceView
+	 *            the source view
+	 * @param source
+	 *            the semantic source element
+	 * @param target
+	 *            the semantic target element
+	 */
+	public void link_creation(EObject context, EObject sourceView, Element source, Element target) {
+		if (source instanceof Comment) {
+			((Comment) source).getAnnotatedElements().add(target);
+		} else if (source instanceof Constraint) {
+			((Constraint) source).getConstrainedElements().add(target);
+		}
+	}
+
+	/**
+	 * Get the target element of the Link.
+	 * 
+	 * @param source
+	 *            the element ({@link Comment} or {@link Constraint}
+	 * @return
+	 *         the list of annotated elements if source if a {@link Comment} and the list of constrained elements if the source is a {@link Constraint} and <code>null</code> in other cases
+	 */
+	public static Collection<Element> link_getTarget(final Element source) {
+		if (source instanceof Constraint) {
+			final Constraint sourceElement = (Constraint) source;
+			return sourceElement.getConstrainedElements();
+		} else if (source instanceof Comment) {
+			final Comment sourceElement = (Comment) source;
+			return sourceElement.getAnnotatedElements();
+		}
+		return null;
+	}
+
+	/**
+	 * Service used to determine if the selected Link edge source could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newSource
+	 *            Represents the source element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean link_canReconnectSource(final Element context, final Element newSource) {
+		// we want to avoid to change the semantic of a link : either is works on Constraint, either it works on Comment
+		if (context instanceof Constraint && newSource instanceof Constraint) {
+			return true;
+		}
+		if (context instanceof Comment && newSource instanceof Comment) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Service used to determine if the selected Link edge target could be
+	 * reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newSource
+	 *            Represents the source element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean link_canReconnectTarget(Element context, Element newSource) {
+		return newSource instanceof Class
+				|| newSource instanceof Comment
+				|| newSource instanceof Constraint
+				|| newSource instanceof Enumeration
+				|| newSource instanceof Interface
+				|| newSource instanceof Package
+				|| newSource instanceof PrimitiveType;
+	}
+
+
+
+	/**
+	 * Service used to reconnect a Link source.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldsource
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @param otherEnd
+	 *            Represents the view attached to the target of the link
+	 */
+	public void link_reconnectSource(final Element context, final Element oldSource, final Element newSource, final EObject otherEnd) {
+		Element target = null;
+		if (otherEnd instanceof DSemanticDecorator) {
+			target = (Element) ((DSemanticDecorator) otherEnd).getTarget();
+		}
+
+		// remove the target from the old source
+		if (oldSource instanceof Comment) {
+			((Comment) oldSource).getAnnotatedElements().remove(target);
+		} else if (oldSource instanceof Constraint) {
+			((Constraint) oldSource).getConstrainedElements().remove(target);
+		}
+
+		// add the target to the new source
+		if (newSource instanceof Comment) {
+			((Comment) newSource).getAnnotatedElements().add(target);
+		} else if (newSource instanceof Constraint) {
+			((Constraint) newSource).getConstrainedElements().add(target);
+		}
+	}
+
+	/**
+	 * Service used to reconnect a Link edge target.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldTarget
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @param otherEnd
+	 *            Represents the view attached to the source of the link
+	 */
+	public void link_reconnectTarget(final Element context, final Element oldTarget, final Element newTarget, final EObject otherEnd) {
+		Element source = null;
+		if (otherEnd instanceof DSemanticDecorator) {
+			source = (Element) ((DSemanticDecorator) otherEnd).getTarget();
+		}
+
+		if (source instanceof Comment) {
+			((Comment) source).getAnnotatedElements().remove(oldTarget);
+			((Comment) source).getAnnotatedElements().add(newTarget);
+		} else if (source instanceof Constraint) {
+			((Constraint) source).getConstrainedElements().remove(oldTarget);
+			((Constraint) source).getConstrainedElements().add(newTarget);
+		}
 	}
 
 	/**
@@ -1589,38 +1728,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Create a new Link link.
-	 * 
-	 * @param sourceView
-	 *            the source view
-	 * @param source
-	 *            the semantic source element
-	 * @param target
-	 *            the semantic target element
-	 */
-	public void createLink(EObject context, EObject sourceView, Element source, Element target) {
-		if (source instanceof Comment) {
-			((Comment) source).getAnnotatedElements().add(target);
-		} else if (source instanceof Constraint) {
-			((Constraint) source).getConstrainedElements().add(target);
-		}
-	}
-
-	/**
-	 * Get the target element of the Link link.
-	 */
-	public static EList<?> getLinkTarget(Element source) {
-		if (source instanceof Constraint) {
-			Constraint sourceElement = (Constraint) source;
-			return sourceElement.getConstrainedElements();
-		} else if (source instanceof Comment) {
-			Comment sourceElement = (Comment) source;
-			return sourceElement.getAnnotatedElements();
-		}
-		return null;
-	}
-
-	/**
 	 * Get the Constraint label.
 	 */
 	public String getConstraintLabel(Element elem) {
@@ -1806,38 +1913,6 @@ public class ClassDiagramServices {
 	public boolean reconnectUsageLinkPrecondition(Element context, Element newSource) {
 		return newSource instanceof Class || newSource instanceof Package || newSource instanceof Interface
 				|| newSource instanceof Enumeration || newSource instanceof PrimitiveType;
-	}
-
-	/**
-	 * Service used to determine if the selected Link edge source could be
-	 * reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param newSource
-	 *            Represents the source element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectLinkSourcePrecondition(Element context, Element newSource) {
-		return newSource instanceof Constraint || newSource instanceof Comment;
-	}
-
-	/**
-	 * Service used to determine if the selected Link edge target could be
-	 * reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param newSource
-	 *            Represents the source element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectLinkTargetPrecondition(Element context, Element newSource) {
-		return newSource instanceof Constraint || newSource instanceof Comment
-				|| newSource instanceof PrimitiveType || newSource instanceof Enumeration
-				|| newSource instanceof Package || newSource instanceof Interface || newSource instanceof Class;
 	}
 
 	/**
@@ -2101,66 +2176,6 @@ public class ClassDiagramServices {
 		Usage usageEdge = (Usage) context;
 		usageEdge.getSuppliers().remove(source);
 		usageEdge.getSuppliers().add((NamedElement) target);
-	}
-
-	/**
-	 * Service used to reconnect a Link edge source.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param edgeView
-	 *            Represents the graphical new edge
-	 * @param oldsource
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newSource
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectLinkEdgeSource(Element context, DEdge edgeView, Element oldSource, Element newSource) {
-		Element target = (Element) ((DNodeContainerSpec) edgeView.getTargetNode()).getTarget();
-
-		// remove the target from the old source
-		if (oldSource instanceof Comment) {
-			((Comment) oldSource).getAnnotatedElements().remove(target);
-		} else if (oldSource instanceof Constraint) {
-			((Constraint) oldSource).getConstrainedElements().remove(target);
-		}
-
-		// add the target to the new source
-		if (newSource instanceof Comment) {
-			((Comment) newSource).getAnnotatedElements().add(target);
-		} else if (newSource instanceof Constraint) {
-			((Constraint) newSource).getConstrainedElements().add(target);
-		}
-	}
-
-	/**
-	 * Service used to reconnect a Link edge target.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param edgeView
-	 *            Represents the graphical new edge
-	 * @param oldTarget
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newTarget
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectLinkEdgeTarget(Element context, DEdge edgeView, Element oldTarget, Element newTarget) {
-		Element source = (Element) ((DNodeContainerSpec) edgeView.getSourceNode()).getTarget();
-
-		if (source instanceof Comment) {
-			((Comment) source).getAnnotatedElements().remove(oldTarget);
-			((Comment) source).getAnnotatedElements().add(newTarget);
-		} else if (source instanceof Constraint) {
-			((Constraint) source).getConstrainedElements().remove(oldTarget);
-			((Constraint) source).getConstrainedElements().add(newTarget);
-		}
 	}
 
 	/**

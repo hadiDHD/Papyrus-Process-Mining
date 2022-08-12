@@ -32,3 +32,6 @@ The **InstanceSpecification** is owned by the nearest Package of the source **In
 
 ##InterfaceRealization
 The **InterfaceRealization** is owned by the source of the link which is a **BehavioredClassifier**.
+
+##Link (Constaint#constrainedElements and Comment#annotatedElement)
+technical requirement: We forbid to change the semantic of a link by changing its source from a Comment to a Constraint (and vice-versa).
