@@ -29,3 +29,6 @@ The **InformationFlow** is owned by the nearest Package of the source **Informat
 
 ##InstanceSpecification Link
 The **InstanceSpecification** is owned by the nearest Package of the source **InstanceSpecification**. (unlike in GMF Diagram). In GMF Diagram they are always inside the Package at the root of the UML model.
+
+##InterfaceRealization
+The **InterfaceRealization** is owned by the source of the link which is a **BehavioredClassifier**.

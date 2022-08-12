@@ -67,6 +67,7 @@ import org.eclipse.uml2.uml.Abstraction;
 import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Association;
 import org.eclipse.uml2.uml.AssociationClass;
+import org.eclipse.uml2.uml.BehavioredClassifier;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Comment;
@@ -1229,6 +1230,133 @@ public class ClassDiagramServices {
 	}
 
 	/**
+	 * 
+	 * @param semanticContext
+	 *            the context in which we are looking for {@link InterfaceRealization}
+	 * @return
+	 *         the {@link InterfaceRealization} available in the context
+	 */
+	public Collection<InterfaceRealization> interfaceRealization_getSemanticCandidates(final EObject semanticContext) {
+		if (semanticContext instanceof Package) {
+			final Package pack = (Package) semanticContext;
+			return getAllInterfaceRealizations(pack);
+		}
+		return Collections.emptyList();
+	}
+
+	/**
+	 * 
+	 * @param pack
+	 *            a UML {@link Package}
+	 * @return
+	 *         all {@link InterfaceRealization} recursively
+	 */
+	private final Collection<InterfaceRealization> getAllInterfaceRealizations(final Package pack) {
+		final Collection<InterfaceRealization> interfaceRealizations = new HashSet<InterfaceRealization>();
+		final Iterator<PackageableElement> iter = pack.getPackagedElements().iterator();
+		while (iter.hasNext()) {
+			final NamedElement current = iter.next();
+			if (current instanceof Package) {
+				interfaceRealizations.addAll(getAllInterfaceRealizations((Package) current));
+			}
+			if (current instanceof BehavioredClassifier) {
+				interfaceRealizations.addAll(((BehavioredClassifier) current).getInterfaceRealizations());
+			}
+		}
+		return interfaceRealizations;
+	}
+
+	/**
+	 * Create a new {@link InterfaceRealization}
+	 * 
+	 * @param context
+	 *            the context element
+	 * @param sourceView
+	 *            the source view
+	 * @param source
+	 *            the source element
+	 * @param target
+	 *            the target element
+	 * @return
+	 *         the created {@link InterfaceRealization}
+	 */
+	public InterfaceRealization interfaceRealization_createInterfaceRealization(final EObject context, final EObject sourceView, final Element source, final Element target) {
+		InterfaceRealization interfaceRealization = null;
+		if (sourceView instanceof DDiagramElement) {
+			if (source instanceof BehavioredClassifier && target instanceof Interface) {
+				final BehavioredClassifier sourceElement = (BehavioredClassifier) source;
+				final Interface targetElement = (Interface) target;
+				interfaceRealization = UMLFactory.eINSTANCE.createInterfaceRealization();
+				interfaceRealization.getClients().add(sourceElement);
+				interfaceRealization.getSuppliers().add(targetElement);
+				interfaceRealization.setContract(targetElement);
+				sourceElement.getInterfaceRealizations().add(interfaceRealization);
+			}
+		}
+		return interfaceRealization;
+	}
+
+	/**
+	 * Service used to determine if the selected {@link InterfaceRealization} source could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newSource
+	 *            Represents the source element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean interfaceRealization_canReconnectSource(Element context, Element newSource) {
+		return newSource instanceof BehavioredClassifier;
+	}
+
+	/**
+	 * Service used to determine if the selected {@link InterfaceRealization} target could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newTarget
+	 *            Represents the target element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean interfaceRealization_canReconnectTarget(final Element context, final Element newTarget) {
+		return newTarget instanceof Interface;
+	}
+
+	/**
+	 * Service used to reconnect a {@link InterfaceRealization} source.
+	 *
+	 * @param interfaceRealization
+	 *            {@link InterfaceRealization} attached to the existing edge
+	 * @param oldSource
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void interfaceRealization_reconnectSource(final InterfaceRealization interfaceRealization, final BehavioredClassifier oldSource, final BehavioredClassifier newSource) {
+		interfaceRealization.getClients().remove(oldSource);
+		interfaceRealization.getClients().add((NamedElement) newSource);
+
+		oldSource.getInterfaceRealizations().remove(interfaceRealization);
+		newSource.getInterfaceRealizations().add(interfaceRealization);
+	}
+
+	/**
+	 * Service used to reconnect a {@link InterfaceRealization} target.
+	 *
+	 * @param interfaceRealization
+	 *            {@link InterfaceRealization} attached to the existing edge
+	 * @param oldTarget
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void interfaceRealization_reconnectTarget(final InterfaceRealization interfaceRealization, final Interface oldTarget, final Interface newTarget) {
+		interfaceRealization.getSuppliers().remove(oldTarget);
+		interfaceRealization.getSuppliers().add((NamedElement) newTarget);
+		interfaceRealization.setContract(newTarget);
+	}
+
+	/**
 	 * Precondition test if sirius diagram or not.
 	 * 
 	 * @param context
@@ -1319,43 +1447,6 @@ public class ClassDiagramServices {
 			}
 		}
 		return associationClass;
-	}
-
-	/**
-	 * Check if the target element is an Interface or not.
-	 */
-	public boolean isNotInterfaceTarget(EObject elem) {
-		return elem instanceof InterfaceRealization;
-	}
-
-	/**
-	 * Create a new Interface Realization Link.
-	 * 
-	 * @param sourceView
-	 *            the source view
-	 * @param target
-	 *            the semantic target element
-	 * @param targetView
-	 *            the target view
-	 */
-	public InterfaceRealization createInterfaceRealizationLink(EObject context, EObject sourceView, Element source,
-			Element target) {
-		InterfaceRealization interfaceRealization = null;
-		if (sourceView instanceof DDiagramElement) {
-			EObject root = getDiagramRoot(sourceView);
-			if (root instanceof Package) {
-				if (source instanceof Class && target instanceof Interface) {
-					Class sourceElement = (Class) source;
-					Interface targetElement = (Interface) target;
-					interfaceRealization = UMLFactory.eINSTANCE.createInterfaceRealization();
-					interfaceRealization.getClients().add(sourceElement);
-					interfaceRealization.getSuppliers().add(targetElement);
-					interfaceRealization.setContract(targetElement);
-					sourceElement.getInterfaceRealizations().add(interfaceRealization);
-				}
-			}
-		}
-		return interfaceRealization;
 	}
 
 	/**
@@ -1702,36 +1793,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Service used to determine if the selected InterfaceRealization edge source
-	 * could be reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param newSource
-	 *            Represents the source element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectInterfaceRealizationLinkSourcePrecondition(Element context, Element newSource) {
-		return newSource instanceof Class;
-	}
-
-	/**
-	 * Service used to determine if the selected InterfaceRealization edge target
-	 * could be reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param newTarget
-	 *            Represents the target element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectInterfaceRealizationLinkTargetPrecondition(Element context, Element newTarget) {
-		return newTarget instanceof Interface;
-	}
-
-	/**
 	 * Service used to determine if the selected Usage edge target could be
 	 * reconnected to an element.
 	 *
@@ -1989,48 +2050,6 @@ public class ClassDiagramServices {
 		substitutionEdge.getSuppliers().remove(oldTarget);
 		substitutionEdge.getSuppliers().add((NamedElement) newTarget);
 		substitutionEdge.setContract((Classifier) newTarget);
-	}
-
-	/**
-	 * Service used to reconnect a InterfaceRealization edge source.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldSource
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newSource
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectInterfaceRealizationEdgeSource(Element context, Element oldSource, Element newSource) {
-		InterfaceRealization interfaceRealizationEdge = (InterfaceRealization) context;
-		interfaceRealizationEdge.getClients().remove(oldSource);
-		interfaceRealizationEdge.getClients().add((NamedElement) newSource);
-
-		((Class) oldSource).getInterfaceRealizations().remove(interfaceRealizationEdge);
-		((Class) newSource).getInterfaceRealizations().add(interfaceRealizationEdge);
-	}
-
-	/**
-	 * Service used to reconnect a InterfaceRealization edge target.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldTarget
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newTarget
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectInterfaceRealizationEdgeTarget(Element context, Element oldTarget, Element newTarget) {
-		InterfaceRealization interfaceRealizationEdge = (InterfaceRealization) context;
-		interfaceRealizationEdge.getSuppliers().remove(oldTarget);
-		interfaceRealizationEdge.getSuppliers().add((NamedElement) newTarget);
-		interfaceRealizationEdge.setContract((Interface) newTarget);
 	}
 
 	/**
