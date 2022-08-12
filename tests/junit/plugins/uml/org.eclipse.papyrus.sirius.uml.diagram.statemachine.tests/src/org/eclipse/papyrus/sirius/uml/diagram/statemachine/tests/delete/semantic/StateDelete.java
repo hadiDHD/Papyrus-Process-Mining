@@ -16,7 +16,7 @@ package org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.delete.semanti
 import org.eclipse.gef.EditPart;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
-import org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.creation.AbstractStatemachineTopNodeCreationTest;
+import org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.creation.AbstractStatemachineTopNodeCreationTests;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.uml2.uml.Region;
 import org.junit.Assert;
@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 @PluginResource("resources/nodes/create_statemachine_node.di") // the resource to import for the test in the workspace
 @SuppressWarnings("nls")
-public class StateDelete extends AbstractStatemachineTopNodeCreationTest {
+public class StateDelete extends AbstractStatemachineTopNodeCreationTests {
 
 
 	private static final String STATE_SUB_NODE_TAB = "create_state_subnode";

@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
-import org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.creation.AbstractStatemachineTopNodeCreationTest;
+import org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.creation.AbstractStatemachineTopNodeCreationTests;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DDiagramElementContainer;
@@ -27,7 +27,7 @@ import org.eclipse.uml2.uml.NamedElement;
 import org.junit.Test;
 
 @PluginResource("resources/edges/test_create_sm_edges.di")
-public class Transition_statemachine_EdgeCreation extends AbstractStatemachineTopNodeCreationTest {
+public class Transition_statemachine_EdgeCreationTest extends AbstractStatemachineTopNodeCreationTests {
 
 	protected DDiagramElement findNodeWithText(String text) {
 		DDiagramElementContainer rootNode = getRootSiriusRegion();

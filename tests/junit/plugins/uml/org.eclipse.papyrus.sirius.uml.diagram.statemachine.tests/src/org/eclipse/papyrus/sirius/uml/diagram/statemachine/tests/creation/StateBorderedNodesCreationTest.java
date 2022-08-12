@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 @PluginResource("resources/nodes/create_statemachine_node.di") // the resource to import for the test in the workspace
 @SuppressWarnings("nls")
-public class StateBorderedNodesCreationTest extends AbstractStatemachineTopNodeCreationTest {
+public class StateBorderedNodesCreationTest extends AbstractStatemachineTopNodeCreationTests {
 
 	private static final String STATEMACHINE_TAB = "create_statemachine_node";
 

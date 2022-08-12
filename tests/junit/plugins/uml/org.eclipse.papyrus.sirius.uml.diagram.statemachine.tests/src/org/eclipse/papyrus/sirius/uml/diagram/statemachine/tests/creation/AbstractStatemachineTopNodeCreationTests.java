@@ -30,7 +30,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Rule;
 
-public abstract class AbstractStatemachineTopNodeCreationTest extends AbstractPapyrusTest {
+public abstract class AbstractStatemachineTopNodeCreationTests extends AbstractPapyrusTest {
 
 
 	/**
@@ -40,7 +40,7 @@ public abstract class AbstractStatemachineTopNodeCreationTest extends AbstractPa
 	public final SiriusDiagramEditorFixture fixture = new SiriusDiagramEditorFixture();
 
 
-	public AbstractStatemachineTopNodeCreationTest() {
+	public AbstractStatemachineTopNodeCreationTests() {
 		super();
 	}
 

@@ -16,7 +16,7 @@ package org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.creation.edges
 
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
-import org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.creation.AbstractStatemachineTopNodeCreationTest;
+import org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.creation.AbstractStatemachineTopNodeCreationTests;
 import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.EdgeTarget;
@@ -24,7 +24,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @PluginResource("resources/nodes/create_statemachine_node.di") // the resource to import for the test in the workspace
-public class TestTransitionLinks extends AbstractStatemachineTopNodeCreationTest {
+public class TransitionLinksTest extends AbstractStatemachineTopNodeCreationTests {
 	
 	private static final String STATEMACHINE_TAB = "create_statemachine_node";
 	private static final String STATE_SUB_NODE_TAB = "create_state_subnode";
