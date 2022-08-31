@@ -95,7 +95,6 @@ import org.eclipse.uml2.uml.PackageImport;
 import org.eclipse.uml2.uml.PackageMerge;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.PrimitiveType;
-import org.eclipse.uml2.uml.ProfileApplication;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Realization;
 import org.eclipse.uml2.uml.Stereotype;
@@ -2542,11 +2541,6 @@ public class ClassDiagramServices {
 
 	public boolean isNotAssociation(EObject elem) {
 		return ((Property) elem).getAssociation() == null;
-	}
-
-	public void createProfileApplicationLink(EObject object, Element source) {
-		ProfileApplication profileApplication = UMLFactory.eINSTANCE.createProfileApplication();
-		((Package) source).getProfileApplications().add(profileApplication);
 	}
 
 	/**

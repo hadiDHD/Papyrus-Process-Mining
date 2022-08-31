@@ -15,27 +15,13 @@
 package org.eclipse.papyrus.sirius.uml.diagram.common.core.services;
 
 import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElementContainer;
-import org.eclipse.sirius.ecore.extender.business.api.accessor.EcoreMetamodelDescriptor;
-import org.eclipse.sirius.ecore.extender.business.api.accessor.MetamodelDescriptor;
 import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.Package;
-import org.eclipse.uml2.uml.Profile;
-import org.eclipse.uml2.uml.ProfileApplication;
-import org.eclipse.uml2.uml.Stereotype;
 
-import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
 
 /**
  * Services to handle typed Setereotype concerns.

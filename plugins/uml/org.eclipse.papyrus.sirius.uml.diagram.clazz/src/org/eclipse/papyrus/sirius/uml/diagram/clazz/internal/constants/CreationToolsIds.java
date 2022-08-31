@@ -113,8 +113,6 @@ public class CreationToolsIds {
 
 	public static final String CREATE__PACKAGE_MERGE__TOOL = "CreatePackageMergeTool"; //$NON-NLS-1$
 
-	public static final String CREATE__PROFILE_APPLICATION__TOOL = "CreateProfileApplicationTool"; //$NON-NLS-1$
-
 	public static final String CREATE__REALIZATION__TOOL = "CreateRealizationTool"; //$NON-NLS-1$
 
 	public static final String CREATE__SUBSTITUTION__TOOL = "CreateSubstitutionTool"; //$NON-NLS-1$
