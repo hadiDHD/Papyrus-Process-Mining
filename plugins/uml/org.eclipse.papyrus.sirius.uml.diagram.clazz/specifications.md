@@ -35,3 +35,6 @@ The **InterfaceRealization** is owned by the source of the link which is a **Beh
 
 ##Link (Constaint#constrainedElements and Comment#annotatedElement)
 technical requirement: We forbid to change the semantic of a link by changing its source from a Comment to a Constraint (and vice-versa).
+
+##PackageImport
+The **PackageImport** is owned by the source of the link which is a **Package**.
