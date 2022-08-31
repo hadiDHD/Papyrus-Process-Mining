@@ -1598,6 +1598,108 @@ public class ClassDiagramServices {
 	}
 
 	/**
+	 * This method returns all {@link PackageMerge} found in the context
+	 * 
+	 * @param semanticContext
+	 *            the context in which we are looking for {@link PackageMerge}
+	 * @return
+	 *         all {@link PackageMerge} available in the context
+	 */
+	public Collection<PackageMerge> packageMerge_getSemanticCandidates(final EObject semanticContext) {
+		if (semanticContext instanceof Package) {
+			final Package pack = (Package) semanticContext;
+			return getAllPackageMerges(pack);
+		}
+		return Collections.emptyList();
+	}
+
+	/**
+	 * 
+	 * @param pack
+	 *            a UML {@link Package}
+	 * @return
+	 *         all {@link PackageMerge} recursively
+	 */
+	private final Collection<PackageMerge> getAllPackageMerges(final Package pack) {
+		final Collection<PackageMerge> packageImports = new HashSet<PackageMerge>();
+		packageImports.addAll(pack.getPackageMerges());
+		final Iterator<PackageableElement> iter = pack.getPackagedElements().iterator();
+		while (iter.hasNext()) {
+			final NamedElement current = iter.next();
+			if (current instanceof Package) {
+				packageImports.addAll(getAllPackageMerges((Package) current));
+			}
+		}
+		return packageImports;
+	}
+
+	/**
+	 * Service used to determine if the selected {@link PackageMerge} edge source could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newSource
+	 *            Represents the source element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean packageMerge_canReconnectSource(final Element context, final Element newSource) {
+		if (context instanceof PackageMerge && newSource instanceof Package) {
+			final PackageMerge pMerge = (PackageMerge) context;
+			final Package newOwner = (Package) newSource;
+			final Package mergedPackage = pMerge.getMergedPackage();
+			return newOwner != null && newOwner != mergedPackage;
+		}
+		return false;
+	}
+
+	/**
+	 * Service used to determine if the selected {@link PackageMerge} edge target could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newTarget
+	 *            Represents the target element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean packageMerge_canReconnectTarget(final Element context, final Element newTarget) {
+		if (context instanceof PackageMerge && newTarget instanceof Package) {
+			final PackageMerge pImport = (PackageMerge) context;
+			final Package owner = (Package) pImport.getOwner();
+			return newTarget != null && newTarget != owner;
+		}
+		return false;
+	}
+
+	/**
+	 * Service used to reconnect a PackageMerge edge source.
+	 *
+	 * @param packageMerge
+	 *            Element attached to the existing edge
+	 * @param oldSource
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void packageMerge_reconnectSource(final PackageMerge packageMerge, final Package oldSource, final Package newSource) {
+		oldSource.getPackageMerges().remove(packageMerge);
+		newSource.getPackageMerges().add(packageMerge);
+	}
+
+	/**
+	 * Service used to reconnect a PackageMerge edge target.
+	 *
+	 * @param packageMerge
+	 *            Element attached to the existing edge
+	 * @param oldTarget
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void packageMerge_reconnectTarget(final PackageMerge packageMerge, final Package oldTarget, final Package newTarget) {
+		packageMerge.setMergedPackage(newTarget);
+	}
+
+	/**
 	 * Precondition test if sirius diagram or not.
 	 * 
 	 * @param context
@@ -1748,30 +1850,6 @@ public class ClassDiagramServices {
 				((Classifier) sourceElement).getSubstitutions().add(substitution);
 			}
 		}
-	}
-
-	/**
-	 * Create a new Package Merge link.
-	 * 
-	 * @param sourceView
-	 *            the source view
-	 * @param target
-	 *            the semantic target element
-	 * @param targetView
-	 *            the target view
-	 */
-	public void createPackageMergeLink(EObject context, EObject sourceView, Element source, Element target) {
-		if (sourceView instanceof DDiagramElement) {
-			EObject root = getDiagramRoot(sourceView);
-			if (root instanceof Package) {
-				Package sourceElement = (Package) source;
-				Package targetElement = (Package) target;
-				PackageMerge packageMerge = UMLFactory.eINSTANCE.createPackageMerge();
-				packageMerge.setMergedPackage(targetElement);
-				sourceElement.getPackageMerges().add(packageMerge);
-			}
-		}
-
 	}
 
 	/**
@@ -1926,24 +2004,6 @@ public class ClassDiagramServices {
 		return registry;
 	}
 
-
-
-
-	/**
-	 * Service used to determine if the selected PackageImport/PackageMerge edge
-	 * source could be reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param newSource
-	 *            Represents the source element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectPackageImportMergeLinkSourcePrecondition(Element context, Element newSource) {
-		return newSource instanceof Package && !(newSource instanceof Model);
-	}
-
 	/**
 	 * Service used to determine if the selected Realization edge target could be
 	 * reconnected to an element.
@@ -1994,21 +2054,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Service used to determine if the selected PackageImport/PackageMerge edge
-	 * target could be reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param newTarget
-	 *            Represents the target element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectPackageImportMergeLinkTargetPrecondition(Element context, Element newtarget) {
-		return newtarget instanceof Package;
-	}
-
-	/**
 	 * Service used to determine if the selected Association edge source/target
 	 * could be reconnected to an element.
 	 *
@@ -2034,43 +2079,6 @@ public class ClassDiagramServices {
 		}
 
 		return currentModel;
-	}
-
-	/**
-	 * Service used to reconnect a PackageMerge edge source.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldSource
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newSource
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectPackageMergeEdgeSource(Element context, Element oldSource, Element newSource) {
-		PackageMerge packageMerged = (PackageMerge) context;
-		((Package) oldSource).getPackageMerges().remove(packageMerged);
-		((Package) newSource).getPackageMerges().add(packageMerged);
-	}
-
-	/**
-	 * Service used to reconnect a PackageMerge edge target.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldTarget
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newTarget
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectPackageMergeEdgeTarget(Element context, Element oldTarget, Element newTarget) {
-		PackageMerge packageMerged = (PackageMerge) context;
-		packageMerged.setMergedPackage((Package) newTarget);
 	}
 
 	/**

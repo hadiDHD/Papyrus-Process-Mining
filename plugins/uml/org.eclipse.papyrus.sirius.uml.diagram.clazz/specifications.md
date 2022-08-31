@@ -38,3 +38,6 @@ technical requirement: We forbid to change the semantic of a link by changing it
 
 ##PackageImport
 The **PackageImport** is owned by the source of the link which is a **Package**.
+
+##PackageMerge
+The **PackageMerge** is owned by the source of the link which is a **Package**.
