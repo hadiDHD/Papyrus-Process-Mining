@@ -1699,6 +1699,113 @@ public class ClassDiagramServices {
 	}
 
 	/**
+	 * This methods returns all {@link Realization} found in the context
+	 * 
+	 * @param semanticContext
+	 *            the context in which we are looking for {@link Realization}
+	 * @return
+	 *         all {@link Realization} available in the context
+	 */
+	public Collection<Realization> realization_getSemanticCandidates(final EObject semanticContext) {
+		if (semanticContext instanceof Package) {
+			final Package pack = (Package) semanticContext;
+			return getAllRealizations(pack);
+		}
+		return Collections.emptyList();
+	}
+
+	/**
+	 * 
+	 * @param pack
+	 *            a UML {@link Package}
+	 * @return
+	 *         all {@link Realization} recursively
+	 */
+	private final Collection<Realization> getAllRealizations(final Package pack) {
+		final Collection<Realization> realizations = new HashSet<Realization>();
+		final Iterator<NamedElement> iter = pack.getMembers().iterator();
+		while (iter.hasNext()) {
+			final NamedElement current = iter.next();
+			if (current instanceof Package) {
+				realizations.addAll(getAllRealizations((Package) current));
+			}
+			if (current instanceof Realization) {
+				realizations.add((Realization) current);
+			}
+		}
+		return realizations;
+	}
+
+	/**
+	 * Service used to determine if the selected Realization edge source could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newSource
+	 *            Represents the source element pointed by the edge after reconnecting
+	 * @return true if the source of the realization can be reconnection to the newSource
+	 */
+	public boolean realization_canReconnectSource(final Element context, final Element newSource) {
+		return newSource instanceof Class
+				|| newSource instanceof Enumeration
+				|| newSource instanceof Interface
+				|| newSource instanceof Package
+				|| newSource instanceof PrimitiveType
+				|| newSource instanceof InstanceSpecification;
+	}
+
+	/**
+	 * Service used to determine if the selected Realization edge target could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newTarget
+	 *            Represents the target element pointed by the edge after reconnecting
+	 * @return true if the target of the realization can be reconnection to the newTarget
+	 */
+	public boolean realization_canReconnectTarget(final Element context, final Element newTarget) {
+		// same condition than for source
+		return realization_canReconnectSource(context, newTarget);
+	}
+
+	/**
+	 * Service used to reconnect a Realization edge source.
+	 *
+	 * @param realization
+	 *            Element attached to the existing edge
+	 * @param oldSource
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void realization_reconnectSource(final Realization realization, final NamedElement oldSource, final NamedElement newSource) {
+		// 1. change the client of the Realization
+		realization.getClients().remove(oldSource);
+		realization.getClients().add((NamedElement) newSource);
+
+		// 2. the dependency is owned by the nearest package of the source
+		final Package newOwner = newSource.getNearestPackage();
+		if (realization.getOwner() != newOwner) {
+			newOwner.getPackagedElements().add(realization);
+		}
+	}
+
+	/**
+	 * Service used to reconnect a Realization edge target.
+	 *
+	 * @param realization
+	 *            Element attached to the existing edge
+	 * @param oldTarget
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newtarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void realization_reconnectTarget(final Realization realization, final NamedElement oldTarget, final NamedElement newtarget) {
+		realization.getSuppliers().remove(oldTarget);
+		realization.getSuppliers().add(newtarget);
+	}
+
+	/**
 	 * Precondition test if sirius diagram or not.
 	 * 
 	 * @param context
@@ -1796,34 +1903,6 @@ public class ClassDiagramServices {
 	 */
 	public boolean isCurrentLinkType(EObject elem, String linkTypeName) {
 		return elem.getClass().getSimpleName().equalsIgnoreCase(linkTypeName);
-	}
-
-	/**
-	 * Create a new Realization link.
-	 * 
-	 * @param sourceView
-	 *            the source view
-	 * @param target
-	 *            the semantic target element
-	 * @param targetView
-	 *            the target view
-	 */
-	public void createRealizationLink(EObject context, EObject sourceView, Element source, Element target) {
-		if (sourceView instanceof DDiagramElement) {
-			EObject root = getDiagramRoot(sourceView);
-			if (root instanceof Package) {
-				Package model = (Package) root;
-				Realization realization = UMLFactory.eINSTANCE.createRealization();
-				realization.getClients().add((NamedElement) source);
-				realization.getSuppliers().add((NamedElement) target);
-
-				if (source instanceof Package) {
-					((Package) source).getPackagedElements().add(realization);
-				} else {
-					model.getPackagedElements().add(realization);
-				}
-			}
-		}
 	}
 
 	/**
@@ -2004,23 +2083,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Service used to determine if the selected Realization edge target could be
-	 * reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param newSource
-	 *            Represents the source element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectRealizationLinkPrecondition(Element context, Element newSource) {
-		return newSource instanceof Class || newSource instanceof Interface || newSource instanceof Enumeration
-				|| newSource instanceof PrimitiveType || newSource instanceof Package
-				|| newSource instanceof InstanceSpecification;
-	}
-
-	/**
 	 * Service used to determine if the selected Substitution edge target could be
 	 * reconnected to an element.
 	 *
@@ -2078,58 +2140,6 @@ public class ClassDiagramServices {
 		}
 
 		return currentModel;
-	}
-
-	/**
-	 * Service used to reconnect a Realization edge source.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldSource
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newSource
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-
-	public void reconnectRealizationEdgeSource(Element context, Element oldSource, Element newSource) {
-		// get the root model of the diagram
-		Model rootModel = getRootModel(oldSource);
-
-		// remove the old source from the realization element and add the new source
-		Realization realizationEdge = (Realization) context;
-		realizationEdge.getClients().remove(oldSource);
-		realizationEdge.getClients().add((NamedElement) newSource);
-
-		// keep the removed old source in the root model
-		if (oldSource instanceof Package && !(newSource instanceof Package)) {
-			((Package) oldSource).getPackagedElements().remove(realizationEdge);
-			rootModel.getPackagedElements().add(realizationEdge);
-		} else if (newSource instanceof Package && !(oldSource instanceof Package)) {
-			((Package) newSource).getPackagedElements().add(realizationEdge);
-			rootModel.getPackagedElements().remove(realizationEdge);
-		}
-	}
-
-	/**
-	 * Service used to reconnect a Realization edge target.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldSource
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newSource
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectRealizationEdgeTarget(Element context, Element source, Element target) {
-		Realization realizationEdge = (Realization) context;
-		realizationEdge.getSuppliers().remove(source);
-		realizationEdge.getSuppliers().add((NamedElement) target);
 	}
 
 	/**
