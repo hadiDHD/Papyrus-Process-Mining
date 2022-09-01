@@ -99,6 +99,8 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Realization;
 import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.Substitution;
+import org.eclipse.uml2.uml.TemplateBinding;
+import org.eclipse.uml2.uml.TemplateableElement;
 import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.Usage;
@@ -1918,6 +1920,44 @@ public class ClassDiagramServices {
 	}
 
 	/**
+	 * This method returns all {@link TemplateBinding} found in the context
+	 * 
+	 * @param semanticContext
+	 *            the context in which we are looking for {@link TemplateBinding}
+	 * @return
+	 *         all {@link TemplateBinding} available in the context
+	 */
+	public Collection<TemplateBinding> templateBindings_getSemanticCandidates(final EObject semanticContext) {
+		if (semanticContext instanceof Package) {
+			final Package pack = (Package) semanticContext;
+			return getAllTemplateBindings(pack);
+		}
+		return Collections.emptyList();
+	}
+
+	/**
+	 * 
+	 * @param pack
+	 *            a UML {@link Package}
+	 * @return
+	 *         all {@link TemplateBinding} recursively
+	 */
+	private final Collection<TemplateBinding> getAllTemplateBindings(final Package pack) {
+		final Collection<TemplateBinding> templateBindings = new HashSet<TemplateBinding>();
+		final Iterator<NamedElement> iter = pack.getMembers().iterator();
+		while (iter.hasNext()) {
+			final NamedElement current = iter.next();
+			if (current instanceof Package) {
+				templateBindings.addAll(getAllTemplateBindings((Package) current));
+			}
+			if (current instanceof TemplateableElement) {
+				templateBindings.addAll(((TemplateableElement) current).getTemplateBindings());
+			}
+		}
+		return templateBindings;
+	}
+
+	/**
 	 * Precondition test if sirius diagram or not.
 	 * 
 	 * @param context
@@ -3029,19 +3069,6 @@ public class ClassDiagramServices {
 			targetIndex--;
 		}
 		return null;
-	}
-
-	/**
-	 * Retrieve the cross references of the template binding of all the UML elements
-	 * displayed as node in a Diagram. Note that a Property cross reference will
-	 * lead to retrieve the cross references of this property.
-	 *
-	 * @param diagram
-	 *            a diagram.
-	 * @return the list of cross reference of the given
-	 */
-	public Collection<EObject> getTemplateBindingInverseRefs(DDiagram diagram) {
-		return NodeInverseRefsServices.INSTANCE.getTemplateBindingInverseRefs(diagram);
 	}
 
 	/**

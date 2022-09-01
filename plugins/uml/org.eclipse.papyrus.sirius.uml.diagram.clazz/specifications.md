@@ -47,3 +47,7 @@ The **Realization** is owned by the nearest parent Package of the source.
 
 #Substitution
 The **Substitution** is owned by the source of the link. The source and target must be **Classifier**.
+
+#TemplateBinding
+The **TemplateBinding** is owned by the source of the link. The source must be a **TemplateableElement** and the target a **TemplateableSignature**.
+Technically, we create a **TemplateBinding** between a **TemplateableElement** and an element owning a **TemplateableSignature**.

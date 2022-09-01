@@ -265,7 +265,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="CD_TemplateBinding" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:diagram.getTemplateBindingInverseRefs" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetFinderExpression="aql:self.oclAsType(uml::TemplateBinding).signature.template" sourceFinderExpression="feature:boundElement" domainClass="uml.TemplateBinding" useDomainElement="true">
+        <edgeMappings name="CD_TemplateBinding" preconditionExpression="aql:self.oclIsTypeOf(uml::TemplateBinding)" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:templateBindings_getSemanticCandidates()" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Component'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Package']" targetFinderExpression="aql:self.oclAsType(uml::TemplateBinding).signature.template" sourceFinderExpression="feature:boundElement" domainClass="uml.TemplateBinding" useDomainElement="true">
           <style lineStyle="dash">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
             <centerLabelStyleDescription labelSize="9" labelExpression="service:computeUmlLabel">
@@ -1172,14 +1172,17 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="CreateTemplateBindingTool" label="Template Binding" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/TemplateBinding.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new TemplateBinding" name="CreateTemplateBindingTool" label="Template Binding" precondition="aql:preTarget.oclAsType(uml::TemplateableElement).ownedTemplateSignature  &lt;> null" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_TemplateBinding']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/TemplateBinding.gif" connectionStartPrecondition="aql:preSource.oclIsKindOf(uml::TemplateableElement)">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.oclAsType(uml::TemplateableElement)">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::TemplateBinding" referenceName="templateBinding">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="boundElement" valueExpression="aql:source"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="signature" valueExpression="aql:target.oclAsType(uml::TemplateableElement).ownedTemplateSignature"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
