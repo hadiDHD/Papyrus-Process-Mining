@@ -1806,6 +1806,118 @@ public class ClassDiagramServices {
 	}
 
 	/**
+	 * This method returns all {@link Substitution} found in the context
+	 * 
+	 * @param semanticContext
+	 *            the context in which we are looking for {@link Substitution}
+	 * @return
+	 *         all {@link Substitution} available in the context
+	 */
+	public Collection<Substitution> substitution_getSemanticCandidates(final EObject semanticContext) {
+		if (semanticContext instanceof Package) {
+			final Package pack = (Package) semanticContext;
+			return getAllSubstitutions(pack);
+		}
+		return Collections.emptyList();
+	}
+
+	/**
+	 * 
+	 * @param pack
+	 *            a UML {@link Package}
+	 * @return
+	 *         all {@link Substitution} recursively
+	 */
+	private final Collection<Substitution> getAllSubstitutions(final Package pack) {
+		final Collection<Substitution> substitutions = new HashSet<Substitution>();
+		final Iterator<NamedElement> iter = pack.getMembers().iterator();
+		while (iter.hasNext()) {
+			final NamedElement current = iter.next();
+			if (current instanceof Package) {
+				substitutions.addAll(getAllSubstitutions((Package) current));
+			}
+			if (current instanceof Class) {
+				substitutions.addAll(((Class) current).getSubstitutions());
+			}
+		}
+		return substitutions;
+	}
+
+	/**
+	 * Service used to determine if the selected Substitution edge source could be reconnected to an element.
+	 *
+	 * @param substitution
+	 *            Element attached to the existing edge
+	 * @param newSource
+	 *            Represents the source element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean substitution_canReconnectSource(final Substitution substitution, final Element newSource) {
+		// we forbid reflexive substitution
+		if (newSource == substitution.getContract()) {
+			return false;
+		}
+		return newSource instanceof Class
+				|| newSource instanceof Interface
+				|| newSource instanceof Enumeration
+				|| newSource instanceof PrimitiveType;
+	}
+
+	/**
+	 * Service used to determine if the selected Substitution edge target could be reconnected to an element.
+	 *
+	 * @param substitution
+	 *            Element attached to the existing edge
+	 * @param newTarget
+	 *            Represents the source element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean substitution_canReconnectTarget(final Substitution substitution, final Element newTarget) {
+		// we forbid reflexive substitution
+		if (newTarget == substitution.getOwner()) {
+			return false;
+		}
+		return newTarget instanceof Class
+				|| newTarget instanceof Interface
+				|| newTarget instanceof Enumeration
+				|| newTarget instanceof PrimitiveType;
+	}
+
+	/**
+	 * Service used to reconnect a Substitution edge source.
+	 *
+	 * @param substitution
+	 *            Element attached to the existing edge
+	 * @param oldSource
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void substitution_reconnectSource(final Substitution substitution, final Classifier oldSource, final Classifier newSource) {
+		substitution.getClients().remove(oldSource);
+		substitution.getClients().add((NamedElement) newSource);
+
+		oldSource.getSubstitutions().remove(substitution);
+		newSource.getSubstitutions().add(substitution);
+	}
+
+	/**
+	 * Service used to reconnect a Substitution edge target.
+	 *
+	 * @param substitution
+	 *            Element attached to the existing edge
+	 * @param oldTarget
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void substitution_reconnectTarget(final Substitution substitution, final Classifier oldTarget, final Classifier newTarget) {
+		substitution.getSuppliers().remove(oldTarget);
+		substitution.getSuppliers().add((NamedElement) newTarget);
+		substitution.setContract(newTarget);
+	}
+
+	/**
 	 * Precondition test if sirius diagram or not.
 	 * 
 	 * @param context
@@ -1903,31 +2015,6 @@ public class ClassDiagramServices {
 	 */
 	public boolean isCurrentLinkType(EObject elem, String linkTypeName) {
 		return elem.getClass().getSimpleName().equalsIgnoreCase(linkTypeName);
-	}
-
-	/**
-	 * Create a new Substitution link.
-	 * 
-	 * @param sourceView
-	 *            the source view
-	 * @param target
-	 *            the semantic target element
-	 * @param targetView
-	 *            the target view
-	 */
-	public void createSubstitutionLink(EObject context, EObject sourceView, Element source, Element target) {
-		if (sourceView instanceof DDiagramElement) {
-			EObject root = getDiagramRoot(sourceView);
-			if (root instanceof Package) {
-				Classifier sourceElement = (Classifier) source;
-				Classifier targetElement = (Classifier) target;
-				Substitution substitution = UMLFactory.eINSTANCE.createSubstitution();
-				substitution.getClients().add(sourceElement);
-				substitution.getSuppliers().add(targetElement);
-				substitution.setContract(targetElement);
-				((Classifier) sourceElement).getSubstitutions().add(substitution);
-			}
-		}
 	}
 
 	/**
@@ -2083,22 +2170,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Service used to determine if the selected Substitution edge target could be
-	 * reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param newSource
-	 *            Represents the source element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectSubstitutionLinkPrecondition(Element context, Element newSource) {
-		return newSource instanceof Class || newSource instanceof Interface || newSource instanceof Enumeration
-				|| newSource instanceof PrimitiveType;
-	}
-
-	/**
 	 * Service used to determine if the selected Usage edge target could be
 	 * reconnected to an element.
 	 *
@@ -2140,48 +2211,6 @@ public class ClassDiagramServices {
 		}
 
 		return currentModel;
-	}
-
-	/**
-	 * Service used to reconnect a Substitution edge source.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldSource
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newSource
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectSubstitutionEdgeSource(Element context, Element oldSource, Element newSource) {
-		Substitution substitutionEdge = (Substitution) context;
-		substitutionEdge.getClients().remove(oldSource);
-		substitutionEdge.getClients().add((NamedElement) newSource);
-
-		((Classifier) oldSource).getSubstitutions().remove(substitutionEdge);
-		((Classifier) newSource).getSubstitutions().add(substitutionEdge);
-	}
-
-	/**
-	 * Service used to reconnect a Substitution edge target.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldTarget
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newTarget
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectSubstitutionEdgeTarget(Element context, Element oldTarget, Element newTarget) {
-		Substitution substitutionEdge = (Substitution) context;
-		substitutionEdge.getSuppliers().remove(oldTarget);
-		substitutionEdge.getSuppliers().add((NamedElement) newTarget);
-		substitutionEdge.setContract((Classifier) newTarget);
 	}
 
 	/**

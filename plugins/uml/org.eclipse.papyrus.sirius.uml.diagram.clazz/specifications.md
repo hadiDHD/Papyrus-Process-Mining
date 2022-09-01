@@ -44,3 +44,6 @@ The **PackageMerge** is owned by the source of the link which is a **Package**.
 
 #Realization
 The **Realization** is owned by the nearest parent Package of the source.
+
+#Substitution
+The **Substitution** is owned by the source of the link. The source and target must be **Classifier**.
