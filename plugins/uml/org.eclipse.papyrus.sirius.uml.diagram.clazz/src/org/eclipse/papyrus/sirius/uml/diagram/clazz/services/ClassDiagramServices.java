@@ -1958,6 +1958,112 @@ public class ClassDiagramServices {
 	}
 
 	/**
+	 * This method returns all {@link Usage} found in the context
+	 * 
+	 * @param semanticContext
+	 *            the context in which we are looking for {@link Usage}
+	 * @return
+	 *         all {@link Usage} available in the context
+	 */
+	public Collection<Usage> usage_getSemanticCandidates(final EObject semanticContext) {
+		if (semanticContext instanceof Package) {
+			final Package pack = (Package) semanticContext;
+			return getAllUsages(pack);
+		}
+		return Collections.emptyList();
+	}
+
+	/**
+	 * 
+	 * @param pack
+	 *            a UML {@link Package}
+	 * @return
+	 *         all {@link Usage} recursively
+	 */
+	private final Collection<Usage> getAllUsages(final Package pack) {
+		final Collection<Usage> usages = new HashSet<Usage>();
+		final Iterator<NamedElement> iter = pack.getMembers().iterator();
+		while (iter.hasNext()) {
+			final NamedElement current = iter.next();
+			if (current instanceof Package) {
+				usages.addAll(getAllUsages((Package) current));
+			}
+			if (current instanceof Usage) {
+				usages.add((Usage) current);
+			}
+		}
+		return usages;
+	}
+
+	/**
+	 * Service used to determine if the selected Usage edge source could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newSource
+	 *            Represents the source element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean usage_canReconnectSource(final Element context, final Element newSource) {
+		return newSource instanceof Class
+				|| newSource instanceof Enumeration
+				|| newSource instanceof Interface
+				|| newSource instanceof Package
+				|| newSource instanceof PrimitiveType;
+	}
+
+	/**
+	 * Service used to determine if the selected Usage edge target could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newTarget
+	 *            Represents the source element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean usage_canReconnectTarget(final Element context, final Element newTarget) {
+		// same condition for source and target
+		return usage_canReconnectSource(context, newTarget);
+	}
+
+	/**
+	 * Service used to reconnect a Usage edge source.
+	 *
+	 * @param usage
+	 *            Element attached to the existing edge
+	 * @param oldSource
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void usage_reconnectSource(final Usage usage, final Element oldSource, final Element newSource) {
+		// remove the old source from the Usage element and the new source
+		usage.getClients().remove(oldSource);
+		usage.getClients().add((NamedElement) newSource);
+		final Package oldOwner = oldSource.getNearestPackage();
+		final Package newOwner = newSource.getNearestPackage();
+		if (oldOwner != newOwner) {
+			oldOwner.getPackagedElements().remove(usage);
+			newOwner.getPackagedElements().add(usage);
+		}
+	}
+
+	/**
+	 * Service used to reconnect a Usage edge target.
+	 *
+	 * @param usage
+	 *            Element attached to the existing edge
+	 * @param source
+	 *            Represents the semantic element pointed by the edge before reconnecting
+	 * @param target
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 */
+	public void usage_reconnectTarget(final Usage usage, final Element source, final Element target) {
+		usage.getSuppliers().remove(source);
+		usage.getSuppliers().add((NamedElement) target);
+	}
+
+	/**
 	 * Precondition test if sirius diagram or not.
 	 * 
 	 * @param context
@@ -2055,37 +2161,6 @@ public class ClassDiagramServices {
 	 */
 	public boolean isCurrentLinkType(EObject elem, String linkTypeName) {
 		return elem.getClass().getSimpleName().equalsIgnoreCase(linkTypeName);
-	}
-
-	/**
-	 * Create a new Usage link.
-	 * 
-	 * @param sourceView
-	 *            the source view
-	 * @param target
-	 *            the semantic target element
-	 * @param targetView
-	 *            the target view
-	 */
-	public void createUsageLink(EObject context, EObject sourceView, Element source, Element target) {
-		if (sourceView instanceof DDiagramElement) {
-			EObject root = getDiagramRoot(sourceView);
-			if (root instanceof Package) {
-				Package model = (Package) root;
-				NamedElement sourceElement = (NamedElement) source;
-				NamedElement targetElement = (NamedElement) target;
-				Usage usage = UMLFactory.eINSTANCE.createUsage();
-				usage.getClients().add(sourceElement);
-				usage.getSuppliers().add(targetElement);
-
-				if (source instanceof Package) {
-					((Package) source).getPackagedElements().add(usage);
-				} else {
-					model.getPackagedElements().add(usage);
-				}
-			}
-		}
-
 	}
 
 	/**
@@ -2210,22 +2285,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Service used to determine if the selected Usage edge target could be
-	 * reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param newSource
-	 *            Represents the source element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectUsageLinkPrecondition(Element context, Element newSource) {
-		return newSource instanceof Class || newSource instanceof Package || newSource instanceof Interface
-				|| newSource instanceof Enumeration || newSource instanceof PrimitiveType;
-	}
-
-	/**
 	 * Service used to determine if the selected Association edge source/target
 	 * could be reconnected to an element.
 	 *
@@ -2251,57 +2310,6 @@ public class ClassDiagramServices {
 		}
 
 		return currentModel;
-	}
-
-	/**
-	 * Service used to reconnect a Usage edge source.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param oldSource
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newSource
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectUsageEdgeSource(Element context, Element oldSource, Element newSource) {
-		// get the root model of the diagram
-		Model rootModel = getRootModel(oldSource);
-
-		// remove the old source from the Usage element and the new source
-		Usage usageEdge = (Usage) context;
-		usageEdge.getClients().remove(oldSource);
-		usageEdge.getClients().add((NamedElement) newSource);
-
-		// keep the removed old source in the root model
-		if (oldSource instanceof Package && !(newSource instanceof Package)) {
-			((Package) oldSource).getPackagedElements().remove(usageEdge);
-			rootModel.getPackagedElements().add(usageEdge);
-		} else if (newSource instanceof Package && !(oldSource instanceof Package)) {
-			((Package) newSource).getPackagedElements().add(usageEdge);
-			rootModel.getPackagedElements().remove(usageEdge);
-		}
-	}
-
-	/**
-	 * Service used to reconnect a Usage edge target.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param source
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param target
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectUsageEdgeTarget(Element context, Element source, Element target) {
-		Usage usageEdge = (Usage) context;
-		usageEdge.getSuppliers().remove(source);
-		usageEdge.getSuppliers().add((NamedElement) target);
 	}
 
 	/**
