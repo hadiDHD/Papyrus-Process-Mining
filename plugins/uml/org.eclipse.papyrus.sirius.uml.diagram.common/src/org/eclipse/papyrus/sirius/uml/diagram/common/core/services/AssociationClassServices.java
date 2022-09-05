@@ -63,29 +63,30 @@ public class AssociationClassServices extends AssociationServices {
 	}
 
 	/**
-	 * This method returns the semantic element used as source by the graphical representation of the {@link AssociationClass}
+	 * This method returns the {@link Property} used as source by the {@link AssociationClass}.
 	 * 
 	 * @param associationClass
 	 *            an {@link AssociationClass}
 	 * @return
 	 *         the {@link Property} of the source of the {@link AssociationClass} link or <code>null</code> when the number of memberEnds is different than 2
 	 */
-	public Property getPropertyTypedWithSourceType(final AssociationClass associationClass) {
-		return super.getPropertyTypedWithSourceType(associationClass);
+	public Property getSourceProperty(final AssociationClass associationClass) {
+		return super.getSourceProperty(associationClass);
 	}
 
 	/**
-	 * This method returns the semantic element used as target by the graphical representation of the {@link AssociationClass}
+	 * This method returns the {@link Property} used as target by the {@link AssociationClass}.
 	 * 
 	 * @param associationClass
 	 *            an {@link AssociationClass}
 	 * @return
 	 *         the {@link Property} of the source of the {@link AssociationClass} link or <code>null</code> when the number of memberEnds is different than 2
 	 */
-	public Property getPropertyTypedWithTargetType(final AssociationClass associationClass) {
-		return super.getPropertyTypedWithTargetType(associationClass);
-
+	public Property getTargetProperty(final AssociationClass associationClass) {
+		return super.getTargetProperty(associationClass);
 	}
+
+
 
 	/**
 	 * Service used to determinate if the selected {@link AssociationClass} source could be reconnected to an element.

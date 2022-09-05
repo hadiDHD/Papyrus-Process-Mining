@@ -46,6 +46,7 @@ import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.sirius.diagram.EdgeArrows;
 import org.eclipse.sirius.diagram.EdgeTarget;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.FontFormat;
@@ -417,7 +418,31 @@ public class ClassDiagramServices {
 	public void association_reconnectTarget(final Association context, final Classifier oldTarget, final Classifier newTarget) {
 		AssociationServices.INSTANCE.reconnectTarget(context, oldTarget, newTarget);
 	}
-	
+
+	/**
+	 * This method provides the arrow to use for the decorator on the source side of the association
+	 * 
+	 * @param association
+	 *            an Association
+	 * @return
+	 *         the arrow to use for source decorator for this association
+	 */
+	public EdgeArrows association_getSourceDecorator(final Association association) {
+		return AssociationEndDecoratorUtils.getSourceDecorator(association);
+	}
+
+	/**
+	 * This method provides the arrow to use for the decorator on the target side of the association
+	 * 
+	 * @param association
+	 *            an Association
+	 * @return
+	 *         the arrow to use for target decorator for this association
+	 */
+	public EdgeArrows association_getTargetDecorator(final Association association) {
+		return AssociationEndDecoratorUtils.getTargetDecorator(association);
+	}
+
 	/**
 	 * This method returns all {@link AssociationClass} found in the context
 	 * 
@@ -2757,118 +2782,6 @@ public class ClassDiagramServices {
 	 */
 	public boolean isTypeOfClass(EObject element) {
 		return "Class".equals(element.eClass().getName()); //$NON-NLS-1$
-	}
-
-	/**
-	 * Check is an association source is composite.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if source is composite
-	 */
-	public boolean sourceIsComposite(Association association) {
-		return AssociationServices.INSTANCE.sourceIsComposite(association);
-	}
-
-	/**
-	 * Check is an association source is navigable.
-	 *
-	 * @param association
-	 *            Association
-	 * @param element
-	 *            Edge element
-	 * @return True if source is navigable
-	 */
-	public boolean sourceIsNavigable(Association association, DDiagramElement element) {
-		return AssociationServices.INSTANCE.sourceIsNavigable(association, element);
-	}
-
-	/**
-	 * Check is an association source is navigable and composite.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if source is navigable and composite
-	 */
-	public boolean sourceIsNavigableAndTargetIsComposite(Association association) {
-		return AssociationServices.INSTANCE.sourceIsNavigableAndTargetIsComposite(association);
-	}
-
-	/**
-	 * Check is an association source is navigable and shared.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if source is navigable and shared
-	 */
-	public boolean sourceIsNavigableAndTargetIsShared(Association association) {
-		return AssociationServices.INSTANCE.sourceIsNavigableAndTargetIsShared(association);
-	}
-
-	/**
-	 * Check is an association source is shared.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if source is shared
-	 */
-	public boolean sourceIsShared(Association association) {
-		return AssociationServices.INSTANCE.sourceIsShared(association);
-	}
-
-	/**
-	 * Check is an association target is composite.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if target is composite
-	 */
-	public boolean targetIsComposite(Association association) {
-		return AssociationServices.INSTANCE.targetIsComposite(association);
-	}
-
-	/**
-	 * Check is an association target is navigable.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if target is navigable
-	 */
-	public boolean targetIsNavigable(Association association) {
-		return AssociationServices.INSTANCE.targetIsNavigable(association);
-	}
-
-	/**
-	 * Check is an association target is navigable and composite.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if target is navigable and composite
-	 */
-	public boolean targetIsNavigableAndSourceIsComposite(Association association) {
-		return AssociationServices.INSTANCE.targetIsNavigableAndSourceIsComposite(association);
-	}
-
-	/**
-	 * Check is an association target is navigable and shared.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if target is navigable and shared
-	 */
-	public boolean targetIsNavigableAndSourceIsShared(Association association) {
-		return AssociationServices.INSTANCE.targetIsNavigableAndSourceIsShared(association);
-	}
-
-	/**
-	 * Check is an association target is shared.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if target is shared
-	 */
-	public boolean targetIsShared(Association association) {
-		return AssociationServices.INSTANCE.targetIsShared(association);
 	}
 
 }

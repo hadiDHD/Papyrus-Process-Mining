@@ -93,7 +93,7 @@ public class LabelServices {
 	 *         the wanted label
 	 */
 	public String association_getBeginLabel(final Association association) {
-		return computeAssociationEndLabel(AssociationServices.INSTANCE.getPropertyTypedWithSourceType(association));
+		return computeAssociationEndLabel(AssociationServices.INSTANCE.getTargetProperty(association));
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class LabelServices {
 	 *         the wanted label
 	 */
 	public String association_getEndLabel(final Association association) {
-		return computeAssociationEndLabel(AssociationServices.INSTANCE.getPropertyTypedWithTargetType(association));
+		return computeAssociationEndLabel(AssociationServices.INSTANCE.getSourceProperty(association));
 	}
 	
 	/**
@@ -117,7 +117,7 @@ public class LabelServices {
 	 *         the wanted label
 	 */
 	public String associationClass_getBeginLabel(final AssociationClass associationClass) {
-		return computeAssociationEndLabel(AssociationClassServices.INSTANCE.getPropertyTypedWithSourceType(associationClass));
+		return computeAssociationEndLabel(AssociationClassServices.INSTANCE.getTargetProperty(associationClass));
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class LabelServices {
 	 *         the wanted label
 	 */
 	public String associationClass_getEndLabel(final AssociationClass associationClass) {
-		return computeAssociationEndLabel(AssociationClassServices.INSTANCE.getPropertyTypedWithTargetType(associationClass));
+		return computeAssociationEndLabel(AssociationClassServices.INSTANCE.getSourceProperty(associationClass));
 	}
 
 	/**

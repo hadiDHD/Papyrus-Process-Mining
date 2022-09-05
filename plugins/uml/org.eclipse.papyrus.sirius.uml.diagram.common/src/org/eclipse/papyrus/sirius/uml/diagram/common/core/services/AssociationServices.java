@@ -14,8 +14,6 @@
  *****************************************************************************/
 package org.eclipse.papyrus.sirius.uml.diagram.common.core.services;
 
-import org.eclipse.sirius.diagram.DDiagramElement;
-import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Artifact;
 import org.eclipse.uml2.uml.Association;
 import org.eclipse.uml2.uml.Class;
@@ -35,6 +33,10 @@ import org.eclipse.uml2.uml.Type;
  *
  */
 public class AssociationServices {
+
+	private static final int MEMBER_END_SOURCE_INDEX = 0;
+	
+	private static final int MEMBER_END_TARGET_INDEX = 1;
 	/**
 	 * A singleton instance to be accessed by other java services.
 	 */
@@ -47,8 +49,7 @@ public class AssociationServices {
 		// to prevent instantiation but allow inheritance
 	}
 	/**
-	 * This method returns the semantic element used as source by the graphical representation of the {@link Association}
-	 * 
+	 * This method returns the semantic element used as source by the graphical representation of the {@link Association}	 * 
 	 * @param association
 	 *            an {@link Association}
 	 * @return
@@ -56,7 +57,7 @@ public class AssociationServices {
 	 */
 	public Type getSourceType(final Association association) {
 		if (association.getMemberEnds().size() == 2) {
-			final Property targetproperty = association.getMemberEnds().get(1); // index 1 is the property owned by the target
+			final Property targetproperty = association.getMemberEnds().get(MEMBER_END_TARGET_INDEX); // index 1 is the property owned by the target
 			return targetproperty.getType();
 		}
 		return null;
@@ -72,42 +73,42 @@ public class AssociationServices {
 	 */
 	public Type getTargetType(final Association association) {
 		if (association.getMemberEnds().size() == 2) {
-			final Property sourceProperty = association.getMemberEnds().get(0); // index 0 is the property owned by the source
+			final Property sourceProperty = association.getMemberEnds().get(MEMBER_END_SOURCE_INDEX); // index 0 is the property owned by the source
 			return sourceProperty.getType();
 		}
 		return null;
 	}
 
 	/**
-	 * This method returns the semantic element used as source by the graphical representation of the {@link Association}
+	 * This method returns the {@link Property} used as source by the {@link Association}.
 	 * 
 	 * @param association
 	 *            an {@link Association}
 	 * @return
 	 *         the {@link Property} of the source of the {@link Association} link or <code>null</code> when the number of memberEnds is different than 2
 	 */
-	public Property getPropertyTypedWithSourceType(final Association association) {
+	public Property getSourceProperty(final Association association) {
 		if (association.getMemberEnds().size() == 2) {
-			return association.getMemberEnds().get(1); // index 1 is the property owned by the target
-		}
-		return null;
-	}
-
-	/**
-	 * This method returns the semantic element used as target by the graphical representation of the {@link Association}
-	 * 
-	 * @param association
-	 *            an {@link Association}
-	 * @return
-	 *         the {@link Property} of the source of the {@link Association} link or <code>null</code> when the number of memberEnds is different than 2
-	 */
-	public Property getPropertyTypedWithTargetType(final Association association) {
-		if (association.getMemberEnds().size() == 2) {
-			return association.getMemberEnds().get(0); // index 0 is the property owned by the source
+			return association.getMemberEnds().get(MEMBER_END_SOURCE_INDEX); // index 0 is the property owned by the source
 		}
 		return null;
 	}
 	
+	/**
+	 * This method returns the {@link Property} used as t by the {@link Association}.
+	 * 
+	 * @param associationClass
+	 *            an {@link Association}
+	 * @return
+	 *         the {@link Property} of the target of the {@link Association} link or <code>null</code> when the number of memberEnds is different than 2
+	 */
+	public Property getTargetProperty(final Association association) {
+		if (association.getMemberEnds().size() == 2) {
+			return association.getMemberEnds().get(MEMBER_END_TARGET_INDEX); // index 1 is the property owned by the target
+		}
+		return null;
+	}
+
 	/**
 	 * Service used to determinate if the selected {@link Association} source could be reconnected to an element.
 	 *
@@ -149,8 +150,8 @@ public class AssociationServices {
 	 *            the new source of link
 	 */
 	public void reconnectSource(final Association association, final Classifier oldSource, final Classifier newSource) {
-		final Property sourceProperty = getPropertyTypedWithTargetType(association);
-		final Property targetProperty = getPropertyTypedWithSourceType(association);
+		final Property sourceProperty = getSourceProperty(association);
+		final Property targetProperty = getTargetProperty(association);
 
 		// 1. update the target Property Type and Name with the new source value
 		targetProperty.setType(newSource);
@@ -183,8 +184,8 @@ public class AssociationServices {
 	 *            the new target of link
 	 */
 	public void reconnectTarget(final Association association, final Classifier oldTarget, final Classifier newTarget) {
-		final Property sourceProperty = getPropertyTypedWithTargetType(association);
-		final Property targetProperty = getPropertyTypedWithSourceType(association);
+		final Property sourceProperty = getSourceProperty(association);
+		final Property targetProperty = getTargetProperty(association);
 
 		// 1. update the source Property Type and Name with the new target value
 		sourceProperty.setType(newTarget);
@@ -206,141 +207,4 @@ public class AssociationServices {
 		}
 	}
 
-	public boolean isComposite(Property property) {
-		return property != null && property.isComposite();
-	}
-
-	private boolean isNavigable(Property property) {
-		return property != null && property.isNavigable();
-	}
-
-	public boolean isShared(Property property) {
-		return property != null && AggregationKind.SHARED_LITERAL.equals(property.getAggregation());
-	}
-
-	/**
-	 * Check is an association source is composite.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if source is composite
-	 */
-	public boolean sourceIsComposite(Association association) {
-		final Property source = AssociationServices.INSTANCE.getPropertyTypedWithSourceType(association);
-		return isComposite(source);
-	}
-
-	/**
-	 * Check is an association source is navigable.
-	 *
-	 * @param association
-	 *            Association
-	 * @param element
-	 *            Edge element
-	 * @return True if source is navigable
-	 */
-	public boolean sourceIsNavigable(Association association, DDiagramElement element) {
-		final Property source = AssociationServices.INSTANCE.getPropertyTypedWithSourceType(association);
-		return isNavigable(source);
-	}
-
-	/**
-	 * Check is an association source is navigable and composite.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if source is navigable and composite
-	 */
-	public boolean sourceIsNavigableAndTargetIsComposite(Association association) {
-		final Property source = AssociationServices.INSTANCE.getPropertyTypedWithSourceType(association);
-		final Property target = AssociationServices.INSTANCE.getPropertyTypedWithTargetType(association);
-		return isNavigable(source) && isComposite(target);
-	}
-
-	/**
-	 * Check is an association source is navigable and shared.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if source is navigable and shared
-	 */
-	public boolean sourceIsNavigableAndTargetIsShared(Association association) {
-		final Property source = AssociationServices.INSTANCE.getPropertyTypedWithSourceType(association);
-		final Property target = AssociationServices.INSTANCE.getPropertyTypedWithTargetType(association);
-		return isNavigable(source) && isShared(target);
-	}
-
-	/**
-	 * Check is an association source is shared.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if source is shared
-	 */
-	public boolean sourceIsShared(Association association) {
-		final Property source = AssociationServices.INSTANCE.getPropertyTypedWithSourceType(association);
-		return isShared(source);
-	}
-
-	/**
-	 * Check is an association target is composite.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if target is composite
-	 */
-	public boolean targetIsComposite(Association association) {
-		final Property target = AssociationServices.INSTANCE.getPropertyTypedWithTargetType(association);
-		return isComposite(target);
-	}
-
-	/**
-	 * Check is an association target is navigable.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if target is navigable
-	 */
-	public boolean targetIsNavigable(Association association) {
-		final Property target = AssociationServices.INSTANCE.getPropertyTypedWithTargetType(association);
-		return isNavigable(target);
-	}
-
-	/**
-	 * Check is an association target is navigable and composite.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if target is navigable and composite
-	 */
-	public boolean targetIsNavigableAndSourceIsComposite(Association association) {
-		final Property target = AssociationServices.INSTANCE.getPropertyTypedWithTargetType(association);
-		final Property source = AssociationServices.INSTANCE.getPropertyTypedWithSourceType(association);
-		return isNavigable(target) && isComposite(source);
-	}
-
-	/**
-	 * Check is an association target is navigable and shared.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if target is navigable and shared
-	 */
-	public boolean targetIsNavigableAndSourceIsShared(Association association) {
-		final Property target = AssociationServices.INSTANCE.getPropertyTypedWithTargetType(association);
-		final Property source = AssociationServices.INSTANCE.getPropertyTypedWithSourceType(association);
-		return isNavigable(target) && isShared(source);
-	}
-
-	/**
-	 * Check is an association target is shared.
-	 *
-	 * @param association
-	 *            Association
-	 * @return True if target is shared
-	 */
-	public boolean targetIsShared(Association association) {
-		final Property target = AssociationServices.INSTANCE.getPropertyTypedWithTargetType(association);
-		return isShared(target);
-	}
 }
