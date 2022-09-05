@@ -17,6 +17,7 @@ import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.constants.SemanticDropToolsIds;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.checkers.creation.graphical.CD_ClassCreationChecker;
+import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.checkers.creation.graphical.CD_CommentCreationChecker;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.checkers.creation.graphical.CD_ComponentCreationChecker;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.checkers.creation.graphical.CD_ConstraintCreationChecker;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.checkers.creation.graphical.CD_DataTypeCreationChecker;
@@ -30,6 +31,7 @@ import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.checkers.creation.grap
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.checkers.creation.graphical.CD_SignalCreationChecker;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.checkers.internal.api.SemanticDropChecker;
 import org.eclipse.sirius.diagram.DragAndDropTarget;
+import org.eclipse.uml2.uml.Comment;
 import org.eclipse.uml2.uml.Component;
 import org.eclipse.uml2.uml.Constraint;
 import org.eclipse.uml2.uml.DataType;
@@ -57,10 +59,9 @@ public class DropTopNodeOnClassDiagram_ModelOwner_Test extends AbstractTopNodeDr
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void dropComment() {
-		// TODO : firstly we need to create the tool and to move the Comment in the expected layer
-		// final Comment elementToBeDropped = this.root.getOwnedComments().get(0);
-		// Assert.assertTrue("The element to be dropped must be an instance of Class", elementToBeDropped instanceof org.eclipse.uml2.uml.Comment);//$NON-NLS-1$
-		// dropNode(SemanticDropToolsIds.DROP__COMMENT__TOOL, new CD_CommentCreationChecker(this.diagram, this.diagramRepresentation), new SemanticDropChecker(elementToBeDropped), elementToBeDropped);
+		final Comment elementToBeDropped = this.root.getOwnedComments().get(0);
+		Assert.assertTrue("The element to be dropped must be an instance of Class", elementToBeDropped instanceof org.eclipse.uml2.uml.Comment);//$NON-NLS-1$
+		dropNode(SemanticDropToolsIds.DROP__COMMENT__TOOL, new CD_CommentCreationChecker(this.diagram, this.diagramRepresentation), new SemanticDropChecker(elementToBeDropped), elementToBeDropped);
 	}
 
 	@Test

@@ -24,6 +24,8 @@ public class SemanticDropToolsIds {
 
 	public static final String DROP__CLASS__TOOL = "SemanticClassDrop"; //$NON-NLS-1$
 
+	public static final String DROP__COMMENT__TOOL = "SemanticCommentDrop"; //$NON-NLS-1$
+	
 	public static final String DROP__COMPONENT__TOOL = "SemanticComponentDrop"; //$NON-NLS-1$
 
 	public static final String DROP__CONSTRAINT__TOOL = "SemanticConstraintDrop"; //$NON-NLS-1$
