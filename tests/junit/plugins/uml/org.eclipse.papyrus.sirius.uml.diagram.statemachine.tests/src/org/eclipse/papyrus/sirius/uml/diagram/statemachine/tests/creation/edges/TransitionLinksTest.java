@@ -16,6 +16,7 @@ package org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.creation.edges
 
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
+import org.eclipse.papyrus.sirius.uml.diagram.statemachine.constants.SMD_CreationToolsIds;
 import org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.creation.AbstractStatemachineTopNodeCreationTests;
 import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DEdge;
@@ -33,8 +34,8 @@ public class TransitionLinksTest extends AbstractStatemachineTopNodeCreationTest
 	@Test
 	@ActiveDiagram(STATEMACHINE_TAB) // open the diagram
 	public void testTransitionLink() {
-		AbstractDNode stateEP = createStateNode("State");
-		AbstractDNode pseudostateEP = createStateNode("Choice");
+		AbstractDNode stateEP = createStateNode(SMD_CreationToolsIds.CREATE__STATE__TOOL);
+		AbstractDNode pseudostateEP = createStateNode(SMD_CreationToolsIds.CREATE__CHOICE__TOOL);
 		checkTransitionLink(stateEP, pseudostateEP);
 	}
 
@@ -42,7 +43,7 @@ public class TransitionLinksTest extends AbstractStatemachineTopNodeCreationTest
 	@Test
 	@ActiveDiagram(STATEMACHINE_TAB) // open the diagram
 	public void testTransitionLinkWithSameSourceAndTarget() {
-		AbstractDNode stateEP = createStateNode("State");
+		AbstractDNode stateEP = createStateNode(SMD_CreationToolsIds.CREATE__STATE__TOOL);
 		checkTransitionLink(stateEP, stateEP);
 	}
 
@@ -51,8 +52,8 @@ public class TransitionLinksTest extends AbstractStatemachineTopNodeCreationTest
 	public void testTransitionLinkSub() {
 		final var subStateContainer = checkAndGetEmptyStateNodeRegion();
 
-		AbstractDNode stateEP = createStateNode(subStateContainer, "State");
-		AbstractDNode pseudostateEP = createStateNode(subStateContainer, "Choice");
+		AbstractDNode stateEP = createStateNode(subStateContainer, SMD_CreationToolsIds.CREATE__STATE__TOOL);
+		AbstractDNode pseudostateEP = createStateNode(subStateContainer, SMD_CreationToolsIds.CREATE__CHOICE__TOOL);
 		checkTransitionLink(stateEP, pseudostateEP);
 	}
 
@@ -63,7 +64,7 @@ public class TransitionLinksTest extends AbstractStatemachineTopNodeCreationTest
 	public void testTransitionLinkWithSameSourceAndTargetSub() {
 		final var subStateContainer = checkAndGetEmptyStateNodeRegion();
 
-		AbstractDNode stateEP = createStateNode(subStateContainer, "State");
+		AbstractDNode stateEP = createStateNode(subStateContainer, SMD_CreationToolsIds.CREATE__STATE__TOOL);
 		checkTransitionLink(stateEP, stateEP);
 	}
 
@@ -75,7 +76,7 @@ public class TransitionLinksTest extends AbstractStatemachineTopNodeCreationTest
 
 	private DEdge checkTransitionLink(EdgeTarget source, EdgeTarget target, int expectedConnections) {
 		final var diagram = getRootSiriusRegion().getParentDiagram();
-		boolean endCommand = fixture.applyEdgeCreationTool("Transition", diagram, source, target);
+		boolean endCommand = fixture.applyEdgeCreationTool(SMD_CreationToolsIds.CREATE__TRANSITION__TOOL, diagram, source, target);
 		Assert.assertTrue(endCommand);
 		Assert.assertEquals(expectedConnections, diagram.getEdges().size());
 		DEdge transitionConnection = diagram.getEdges().get(expectedConnections - 1);

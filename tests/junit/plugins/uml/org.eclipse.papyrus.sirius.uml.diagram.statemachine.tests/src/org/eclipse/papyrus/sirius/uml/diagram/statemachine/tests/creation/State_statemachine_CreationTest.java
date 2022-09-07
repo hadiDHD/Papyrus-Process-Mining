@@ -16,6 +16,7 @@ package org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.creation;
 
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
+import org.eclipse.papyrus.sirius.uml.diagram.statemachine.constants.SMD_CreationToolsIds;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.uml2.uml.State;
 import org.junit.Test;
@@ -36,12 +37,12 @@ public class State_statemachine_CreationTest extends AbstractStatemachineTopNode
 	@ActiveDiagram(STATE_SUB_NODE_TAB) // open the diagram
 	public void test_create_state_subnode_deep_state() {
 		final var subStateContainer = checkAndGetEmptyStateNodeRegion();
-		createAndCheckStateNode("State", DNodeContainer.class, State.class, subStateContainer);
+		createAndCheckStateNode(SMD_CreationToolsIds.CREATE__STATE__TOOL, DNodeContainer.class, State.class, subStateContainer);
 	}
 
 	@Test
 	@ActiveDiagram(STATEMACHINE_TAB) // open the diagram
 	public void test_create_statemachine_state() {
-		createAndCheckStateNode("State", DNodeContainer.class, State.class);
+		createAndCheckStateNode(SMD_CreationToolsIds.CREATE__STATE__TOOL, DNodeContainer.class, State.class);
 	}
 }

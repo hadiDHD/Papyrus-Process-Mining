@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
+import org.eclipse.papyrus.sirius.uml.diagram.statemachine.constants.SMD_CreationToolsIds;
 import org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.creation.AbstractStatemachineTopNodeCreationTests;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
@@ -83,16 +84,16 @@ public class Transition_statemachine_EdgeCreationTest extends AbstractStatemachi
 		DDiagramElement entyPoint100 = findNodeWithText("EntryPoint100");
 		DDiagramElement comment0 = findNodeWithText("Comment0");
 
-		fixture.applyEdgeCreationTool("Transition", getSirusDiagram(), (EdgeTarget) init00, (EdgeTarget) entyPoint100);
+		fixture.applyEdgeCreationTool(SMD_CreationToolsIds.CREATE__TRANSITION__TOOL, getSirusDiagram(), (EdgeTarget) init00, (EdgeTarget) entyPoint100);
 		fixture.flushDisplayEvents();
 
-		fixture.applyEdgeCreationTool("Transition", getSirusDiagram(), (EdgeTarget) init00, (EdgeTarget) entyPoint100);
+		fixture.applyEdgeCreationTool(SMD_CreationToolsIds.CREATE__TRANSITION__TOOL, getSirusDiagram(), (EdgeTarget) init00, (EdgeTarget) entyPoint100);
 		fixture.flushDisplayEvents();
 
-		fixture.applyEdgeCreationTool("Transition", getSirusDiagram(), (EdgeTarget) entyPoint100, (EdgeTarget) init10);
+		fixture.applyEdgeCreationTool(SMD_CreationToolsIds.CREATE__TRANSITION__TOOL, getSirusDiagram(), (EdgeTarget) entyPoint100, (EdgeTarget) init10);
 		fixture.flushDisplayEvents();
 
-		fixture.applyEdgeCreationTool("Link", getSirusDiagram(), (EdgeTarget) comment0, (EdgeTarget) init10);
+		fixture.applyEdgeCreationTool(SMD_CreationToolsIds.CREATE__LINK__TOOL, getSirusDiagram(), (EdgeTarget) comment0, (EdgeTarget) init10);
 		fixture.flushDisplayEvents();
 		fixture.flushDisplayEvents();
 

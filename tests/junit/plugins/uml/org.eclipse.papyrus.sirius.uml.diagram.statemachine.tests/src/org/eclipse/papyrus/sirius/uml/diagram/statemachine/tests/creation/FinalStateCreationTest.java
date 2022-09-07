@@ -16,6 +16,7 @@ package org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.creation;
 
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
+import org.eclipse.papyrus.sirius.uml.diagram.statemachine.constants.SMD_CreationToolsIds;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.uml2.uml.FinalState;
 import org.junit.Test;
@@ -36,12 +37,12 @@ public class FinalStateCreationTest extends AbstractStatemachineTopNodeCreationT
 	public void test_create_state_subnode_final_state() {
 		final var subStateContainer = checkAndGetEmptyStateNodeRegion();
 
-		createAndCheckStateNode("FinalState", DNode.class, FinalState.class, subStateContainer);
+		createAndCheckStateNode(SMD_CreationToolsIds.CREATE__FINALSTATE__TOOL, DNode.class, FinalState.class, subStateContainer);
 	}
 
 	@Test
 	@ActiveDiagram(STATEMACHINE_TAB) // open the diagram
 	public void test_create_statemachine_final_state() {
-		createAndCheckStateNode("FinalState", DNode.class, FinalState.class);
+		createAndCheckStateNode(SMD_CreationToolsIds.CREATE__FINALSTATE__TOOL, DNode.class, FinalState.class);
 	}
 }

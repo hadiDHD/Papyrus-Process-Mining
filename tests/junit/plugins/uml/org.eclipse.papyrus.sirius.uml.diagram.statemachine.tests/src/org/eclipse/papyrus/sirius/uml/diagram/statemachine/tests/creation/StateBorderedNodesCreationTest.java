@@ -16,6 +16,7 @@ package org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests.creation;
 
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
+import org.eclipse.papyrus.sirius.uml.diagram.statemachine.constants.SMD_CreationToolsIds;
 import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.DNodeContainer;
@@ -41,11 +42,11 @@ public class StateBorderedNodesCreationTest extends AbstractStatemachineTopNodeC
 		final var subStateContainer = checkAndGetEmptyStateNodeRegion();
 
 		// create sub state container
-		AbstractDNode stateSiriusElement = createStateNode(subStateContainer, "State");
+		AbstractDNode stateSiriusElement = createStateNode(subStateContainer, SMD_CreationToolsIds.CREATE__STATE__TOOL);
 
 		// create entry point Bordered Node
 		Assert.assertTrue("The state not should not have any existing bordered node before ", stateSiriusElement.getOwnedBorderedNodes().isEmpty());
-		createAndCheckStateNode("EntryPoint", DNode.class, Pseudostate.class, DNodeContainer.class.cast(stateSiriusElement));
+		createAndCheckStateNode(SMD_CreationToolsIds.CREATE__ENTRYPOINT__TOOL, DNode.class, Pseudostate.class, DNodeContainer.class.cast(stateSiriusElement));
 		Assert.assertEquals("The entry point should be a new borrderedNode after creation ", 1, stateSiriusElement.getOwnedBorderedNodes().size());
 
 	}
@@ -54,11 +55,11 @@ public class StateBorderedNodesCreationTest extends AbstractStatemachineTopNodeC
 	@ActiveDiagram(STATEMACHINE_TAB) // open the diagram
 	public void test_create_statemachine_entry_point() {
 		// create sub state container
-		AbstractDNode stateSiriusElement = createStateNode("State");
+		AbstractDNode stateSiriusElement = createStateNode(SMD_CreationToolsIds.CREATE__STATE__TOOL);
 
 		// create entry point Bordered Node
 		Assert.assertTrue("The state not should not have any existing bordered node before ", stateSiriusElement.getOwnedBorderedNodes().isEmpty());
-		createAndCheckStateNode("EntryPoint", DNode.class, Pseudostate.class, DNodeContainer.class.cast(stateSiriusElement));
+		createAndCheckStateNode(SMD_CreationToolsIds.CREATE__ENTRYPOINT__TOOL, DNode.class, Pseudostate.class, DNodeContainer.class.cast(stateSiriusElement));
 		Assert.assertEquals("The entry point should be a new borrderedNode after creation ", 1, stateSiriusElement.getOwnedBorderedNodes().size());
 
 	}
@@ -70,11 +71,11 @@ public class StateBorderedNodesCreationTest extends AbstractStatemachineTopNodeC
 		final var subStateContainer = checkAndGetEmptyStateNodeRegion();
 
 		// create sub state container
-		AbstractDNode stateSiriusElement = createStateNode(subStateContainer, "State");
+		AbstractDNode stateSiriusElement = createStateNode(subStateContainer, SMD_CreationToolsIds.CREATE__STATE__TOOL);
 
 		// create exit point Bordered Node
 		Assert.assertTrue("The state not should not have any existing bordered node before ", stateSiriusElement.getOwnedBorderedNodes().isEmpty());
-		createAndCheckStateNode("ExitPoint", DNode.class, Pseudostate.class, DNodeContainer.class.cast(stateSiriusElement));
+		createAndCheckStateNode(SMD_CreationToolsIds.CREATE__EXITPOINT__TOOL, DNode.class, Pseudostate.class, DNodeContainer.class.cast(stateSiriusElement));
 		Assert.assertEquals("The create exit point node should be a bordered node ", 1, stateSiriusElement.getOwnedBorderedNodes().size());
 
 	}
@@ -83,11 +84,11 @@ public class StateBorderedNodesCreationTest extends AbstractStatemachineTopNodeC
 	@ActiveDiagram(STATEMACHINE_TAB) // open the diagram
 	public void test_create_statemachine_exit_point() {
 		// create sub state container
-		AbstractDNode stateSiriusElement = (AbstractDNode) createStateNode("State");
+		AbstractDNode stateSiriusElement = (AbstractDNode) createStateNode(SMD_CreationToolsIds.CREATE__STATE__TOOL);
 
 		// create exit point Bordered Node
 		Assert.assertTrue("The state not should not have any existing bordered node before ", stateSiriusElement.getOwnedBorderedNodes().isEmpty());
-		createAndCheckStateNode("ExitPoint", DNode.class, Pseudostate.class, DNodeContainer.class.cast(stateSiriusElement));
+		createAndCheckStateNode(SMD_CreationToolsIds.CREATE__EXITPOINT__TOOL, DNode.class, Pseudostate.class, DNodeContainer.class.cast(stateSiriusElement));
 		Assert.assertEquals("The create exit point node should be a bordered node ", 1, stateSiriusElement.getOwnedBorderedNodes().size());
 
 	}

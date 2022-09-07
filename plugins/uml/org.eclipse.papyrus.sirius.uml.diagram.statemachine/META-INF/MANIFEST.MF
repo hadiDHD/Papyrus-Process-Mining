@@ -31,3 +31,4 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-Vendor: %providerName
 Automatic-Module-Name: org.eclipse.papyrus.sirius.uml.diagram.statemachine
+Export-Package: org.eclipse.papyrus.sirius.uml.diagram.statemachine.constants;x-friends:="org.eclipse.papyrus.sirius.uml.diagram.statemachine.tests"
