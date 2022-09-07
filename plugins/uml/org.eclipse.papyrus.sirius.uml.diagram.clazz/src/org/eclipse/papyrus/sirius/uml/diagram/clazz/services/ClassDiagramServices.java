@@ -36,8 +36,10 @@ import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.emf.utils.ServiceUtilsForEObject;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.Activator;
+import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.constants.MappingTypes;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.ui.dialog.AssociationSelectionDialog;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.utils.InstanceSpecificationLinkUtils;
+import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.AssociationClassServices;
 import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.AssociationServices;
 import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.DirectEditLabelSwitch;
 import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.DisplayLabelSwitch;
@@ -48,7 +50,6 @@ import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.LabelServices
 import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.NodeInverseRefsServices;
 import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.OperationServices;
 import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.StereotypeServices;
-import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.UIServices;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
@@ -292,6 +293,175 @@ public class ClassDiagramServices {
 	 */
 	public void abstraction_reconnectTarget(final Element context, final Element oldTarget, final Element newTarget) {
 		dependency_reconnectTarget(context, oldTarget, newTarget);
+	}
+
+	/**
+	 * This method returns all {@link AssociationClass} found in the context
+	 * 
+	 * @param semanticContext
+	 *            the context in which we are looking for {@link AssociationClass}
+	 * @return
+	 *         all {@link AssociationClass} available in the context
+	 */
+	public Collection<AssociationClass> associationClass_getSemanticCandidates(final EObject semanticContext) {
+		if (semanticContext instanceof Package) {
+			final Package pack = (Package) semanticContext;
+			return getAllAssociationClasses(pack);
+		}
+		return Collections.emptyList();
+	}
+
+	/**
+	 * 
+	 * @param pack
+	 *            a UML {@link Package}
+	 * @return
+	 *         all {@link AssociationClass} recursively
+	 */
+	private static final Collection<AssociationClass> getAllAssociationClasses(final Package pack) {
+		final Collection<AssociationClass> associationClasses = new HashSet<AssociationClass>();
+		final Iterator<NamedElement> iter = pack.getMembers().iterator();
+		while (iter.hasNext()) {
+			final NamedElement current = iter.next();
+			if (current instanceof Package) {
+				associationClasses.addAll(getAllAssociationClasses((Package) current));
+			}
+			if (current instanceof AssociationClass) {
+				associationClasses.add((AssociationClass) current);
+			}
+		}
+		return associationClasses;
+	}
+
+	/**
+	 * This method returns the semantic element used as source by the graphical representation of the {@link AssociationClass}
+	 * 
+	 * @param associationClass
+	 *            an {@link AssociationClass}
+	 * @return
+	 *         the type of the source of the {@link AssociationClass} link
+	 */
+	public Type associationClass_getSourceType(final AssociationClass associationClass) {
+		return AssociationClassServices.INSTANCE.getSourceType(associationClass);
+	}
+
+	/**
+	 * This method returns the semantic element used as target by the graphical representation of the {@link AssociationClass}
+	 * 
+	 * @param associationClass
+	 *            an {@link AssociationClass}
+	 * @return
+	 *         the type of the source of the {@link AssociationClass} link
+	 */
+	public Type associationClass_getTargetType(final AssociationClass associationClass) {
+		return AssociationClassServices.INSTANCE.getTargetType(associationClass);
+	}
+
+	/**
+	 * Compute the source label of the given {@link AssociationClass}.
+	 * 
+	 * @param associationClass
+	 *            an {@link AssociationClass}
+	 * @return
+	 *         the wanted label
+	 */
+	public String associationClass_getBeginLabel(final AssociationClass associationClass) {
+		return LabelServices.INSTANCE.associationClass_getBeginLabel(associationClass);
+	}
+
+	/**
+	 * Compute the target label of the given {@link AssociationClass}.
+	 * 
+	 * @param associationClass
+	 *            an {@link AssociationClass}
+	 * @return
+	 *         the wanted label
+	 */
+	public String associationClass_getEndLabel(final AssociationClass associationClass) {
+		return LabelServices.INSTANCE.associationClass_getEndLabel(associationClass);
+	}
+
+	/**
+	 * Returns collection of visible {@link AssociationClass} in a diagram.
+	 * This method is used by the field 'semantic candidates expression' of {@link MappingTypes#ASSOCIATIONCLASS_NODE} and {@link MappingTypes#ASSOCIATIONCLASS_NODE_TO_LINK}
+	 * to find {@link MappingTypes#ASSOCIATIONCLASS_LINK} represented in the diagram and to complete the representation of the {@link AssociationClass} automatically
+	 *
+	 * @param context
+	 *            context of the research
+	 * @param diagram
+	 *            the current diagram
+	 * 
+	 * @return Set of visible association Classes or empty collection
+	 */
+	public Collection<AssociationClass> associationClass_getVisibleAssociationClasses(final EObject context, final DSemanticDiagram diagram) {
+		final Set<AssociationClass> associationClasses = new HashSet<AssociationClass>();
+		if (diagram.isSynchronized()) {
+			// in this case the 3 elements composing an AssociationClass will appears in the diagram and it is the wanted behavior
+			// the source/target of the association should be already displayed!
+			associationClasses.addAll(associationClass_getSemanticCandidates(context));
+		} else {
+			// the diagram is not synchronized and we just finished to create the graphical representation of the main link of an AssociationClass. We need to create the 2 others parts of the link
+			for (final DEdge current : diagram.getEdges()) {
+				if (MappingTypes.ASSOCIATIONCLASS_LINK.equals(current.getMapping().getName()) && current.getTarget() instanceof AssociationClass) {
+					associationClasses.add((AssociationClass) current.getTarget());
+				}
+			}
+		}
+		return associationClasses;
+	}
+
+	/**
+	 * Service used to determinate if the selected {@link AssociationClass} source could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean associationClass_canReconnectSource(final AssociationClass context, final Element newSource) {
+		return AssociationClassServices.INSTANCE.canReconnectSource(context, newSource);
+	}
+
+	/**
+	 * Service used to determine if the selected {@link AssociationClass} target could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean associationClass_canReconnectTarget(final AssociationClass context, final Element newTarget) {
+		return AssociationClassServices.INSTANCE.canReconnectTarget(context, newTarget);
+	}
+
+	/**
+	 * Reconnect the source of an {@link AssociationClass}
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldSource
+	 *            Represents the semantic element pointed by the edge source before reconnecting
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge source after reconnecting
+	 */
+	public void associationClass_reconnectSource(final AssociationClass context, final Classifier oldSource, final Classifier newSource) {
+		AssociationClassServices.INSTANCE.reconnectSource(context, oldSource, newSource);
+	}
+
+	/**
+	 * Reconnect the target of an {@link AssociationClass}
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldTarget
+	 *            Represents the semantic element pointed by the edge target before reconnecting
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after target reconnecting
+	 */
+	public void associationClass_reconnectTarget(final AssociationClass context, final Classifier oldTarget, final Classifier newTarget) {
+		AssociationClassServices.INSTANCE.reconnectTarget(context, oldTarget, newTarget);
 	}
 
 	/**
@@ -2118,45 +2288,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Create a new Association Class Link.
-	 * 
-	 * @param sourceView
-	 *            the source view
-	 * @param target
-	 *            the semantic target element
-	 * @param targetView
-	 *            the target view
-	 */
-	public AssociationClass createAssociationClassLink(EObject context, EObject sourceView, Element source,
-			Element target) {
-		AssociationClass associationClass = null;
-		if (sourceView instanceof DDiagramElement) {
-			EObject root = getDiagramRoot(sourceView);
-			if (root instanceof Package) {
-				Package model = (Package) root;
-				associationClass = UMLFactory.eINSTANCE.createAssociationClass();
-				model.getPackagedElements().add(associationClass);
-				associationClass.setName(LabelServices.INSTANCE.computeDefaultName(associationClass));
-
-				final Property end1 = AssociationServices.INSTANCE.createAssociationClassEnd((Type) source);
-				associationClass.getMemberEnds().add(end1);
-				final Property end2 = AssociationServices.INSTANCE.createAssociationClassEnd((Type) target);
-				associationClass.getMemberEnds().add(end2);
-
-				end1.setAssociation(associationClass);
-				end2.setAssociation(associationClass);
-				associationClass.getOwnedEnds().add(end1);
-				associationClass.getOwnedEnds().add(end2);
-
-				EAnnotation eAnnotation = associationClass.createEAnnotation(ANNOTATION_GENERIC_SOURCE);
-				eAnnotation.getDetails().put(ANNOTATION_DETAIL_KEY, ANNOTATION_DETAIL_VALUE);
-				associationClass.getEAnnotations().add(eAnnotation);
-			}
-		}
-		return associationClass;
-	}
-
-	/**
 	 * Check if the current link type is corresponding to the linkTypeName.
 	 */
 	public boolean isCurrentLinkType(EObject elem, String linkTypeName) {
@@ -2329,57 +2460,45 @@ public class ClassDiagramServices {
 	 */
 	public void reconnectAssociationEdgeSource(Element context, DEdge edgeView, Element oldSource, Element newSource) {
 		// if reconnect the source of an AssociationClass edge
-		if (context instanceof AssociationClass) {
-			// set the ownedEnd to the new source
-			for (Property ownedEnd : ((AssociationClass) context).getOwnedEnds()) {
-				if (ownedEnd.getType().equals(oldSource)) {
-					ownedEnd.setType((Type) newSource);
-					ownedEnd.setName(((Type) newSource).getName());
-					break;
-				}
-			}
-		} else // if reconnect the source of an Association edge
+		// get the target of the edge
+		Element target = null;
+		if (edgeView.getTargetNode() instanceof DNodeListSpec) {
+			target = (Element) ((DNodeListSpec) edgeView.getTargetNode()).getTarget();
+		} else if (edgeView.getTargetNode() instanceof DNodeContainerSpec)
+
 		{
-			// get the target of the edge
-			Element target = null;
-			if (edgeView.getTargetNode() instanceof DNodeListSpec) {
-				target = (Element) ((DNodeListSpec) edgeView.getTargetNode()).getTarget();
-			} else if (edgeView.getTargetNode() instanceof DNodeContainerSpec)
+			target = (Element) ((DNodeContainerSpec) edgeView.getTargetNode()).getTarget();
+		}
 
-			{
-				target = (Element) ((DNodeContainerSpec) edgeView.getTargetNode()).getTarget();
-			}
+		// find the Attribute in the old source to be modified
+		EList<Property> attributes = null;
+		if (oldSource instanceof Class) {
+			attributes = ((Class) oldSource).getOwnedAttributes();
+		} else if (oldSource instanceof Interface) {
+			attributes = ((Interface) oldSource).getOwnedAttributes();
+		} else if (oldSource instanceof DataType) {
+			attributes = ((DataType) oldSource).getOwnedAttributes();
+		}
 
-			// find the Attribute in the old source to be modified
-			EList<Property> attributes = null;
-			if (oldSource instanceof Class) {
-				attributes = ((Class) oldSource).getOwnedAttributes();
-			} else if (oldSource instanceof Interface) {
-				attributes = ((Interface) oldSource).getOwnedAttributes();
-			} else if (oldSource instanceof DataType) {
-				attributes = ((DataType) oldSource).getOwnedAttributes();
-			}
+		// remove attribute from the old source
+		Property modifiedAttribute = findAttributToBeModified(attributes, (Element) target);
+		attributes.remove(modifiedAttribute);
 
-			// remove attribute from the old source
-			Property modifiedAttribute = findAttributToBeModified(attributes, (Element) target);
-			attributes.remove(modifiedAttribute);
+		// add attribute to the new source
+		if (newSource instanceof Class) {
+			((Class) newSource).getOwnedAttributes().add(modifiedAttribute);
+		} else if (newSource instanceof Interface) {
+			((Interface) newSource).getOwnedAttributes().add(modifiedAttribute);
+		} else if (newSource instanceof DataType) {
+			((DataType) newSource).getOwnedAttributes().add(modifiedAttribute);
+		}
 
-			// add attribute to the new source
-			if (newSource instanceof Class) {
-				((Class) newSource).getOwnedAttributes().add(modifiedAttribute);
-			} else if (newSource instanceof Interface) {
-				((Interface) newSource).getOwnedAttributes().add(modifiedAttribute);
-			} else if (newSource instanceof DataType) {
-				((DataType) newSource).getOwnedAttributes().add(modifiedAttribute);
-			}
-
-			Association association = (Association) modifiedAttribute.getAssociation();
-			for (Property ownedEnd : association.getOwnedEnds()) {
-				if (ownedEnd.getType().equals(oldSource)) {
-					ownedEnd.setType((Type) newSource);
-					ownedEnd.setName(((Type) newSource).getName());
-					break;
-				}
+		Association association = (Association) modifiedAttribute.getAssociation();
+		for (Property ownedEnd : association.getOwnedEnds()) {
+			if (ownedEnd.getType().equals(oldSource)) {
+				ownedEnd.setType((Type) newSource);
+				ownedEnd.setName(((Type) newSource).getName());
+				break;
 			}
 		}
 	}
@@ -2419,43 +2538,31 @@ public class ClassDiagramServices {
 	 * @return the Element attached to the edge once it has been modified
 	 */
 	public void reconnectAssociationEdgeTarget(Element context, DEdge edgeView, Element oldTarget, Element newTarget) {
-		// if reconnect the target of an AssociationClass edge
-		if (context instanceof AssociationClass) {
-			// set the ownedEnd to the new target
-			for (Property ownedEnd : ((AssociationClass) context).getOwnedEnds()) {
-				if (ownedEnd.getType().equals(oldTarget)) {
-					ownedEnd.setType((Type) newTarget);
-					ownedEnd.setName(((Type) newTarget).getName());
-					break;
-				}
-			}
-		} else // if reconnect the target of an Association edge
+
+		// get the source of the edge
+		Element source = null;
+		if (edgeView.getSourceNode() instanceof DNodeListSpec) {
+			source = (Element) ((DNodeListSpec) edgeView.getSourceNode()).getTarget();
+		} else if (edgeView.getSourceNode() instanceof DNodeContainerSpec)
+
 		{
-			// get the source of the edge
-			Element source = null;
-			if (edgeView.getSourceNode() instanceof DNodeListSpec) {
-				source = (Element) ((DNodeListSpec) edgeView.getSourceNode()).getTarget();
-			} else if (edgeView.getSourceNode() instanceof DNodeContainerSpec)
-
-			{
-				source = (Element) ((DNodeContainerSpec) edgeView.getSourceNode()).getTarget();
-			}
-
-			// find the Attribute in the source to be modified
-			EList<Property> attributes = null;
-			if (source instanceof Class) {
-				attributes = ((Class) source).getOwnedAttributes();
-			} else if (source instanceof Interface) {
-				attributes = ((Interface) source).getOwnedAttributes();
-			} else if (source instanceof DataType) {
-				attributes = ((DataType) source).getOwnedAttributes();
-			}
-			Property modifiedAttribute = findAttributToBeModified(attributes, (Element) oldTarget);
-
-			// set the attribute to the new target
-			modifiedAttribute.setType((Type) newTarget);
-			modifiedAttribute.setName(((Type) newTarget).getName());
+			source = (Element) ((DNodeContainerSpec) edgeView.getSourceNode()).getTarget();
 		}
+
+		// find the Attribute in the source to be modified
+		EList<Property> attributes = null;
+		if (source instanceof Class) {
+			attributes = ((Class) source).getOwnedAttributes();
+		} else if (source instanceof Interface) {
+			attributes = ((Interface) source).getOwnedAttributes();
+		} else if (source instanceof DataType) {
+			attributes = ((DataType) source).getOwnedAttributes();
+		}
+		Property modifiedAttribute = findAttributToBeModified(attributes, (Element) oldTarget);
+
+		// set the attribute to the new target
+		modifiedAttribute.setType((Type) newTarget);
+		modifiedAttribute.setName(((Type) newTarget).getName());
 	}
 
 	/**
@@ -2509,30 +2616,6 @@ public class ClassDiagramServices {
 	 */
 	public String computeAssociationBeginLabel(Association association) {
 		return LabelServices.INSTANCE.computeAssociationBeginLabel(association);
-	}
-
-	/**
-	 * Compute the association edge begin name
-	 * 
-	 * @param association
-	 *            the current association
-	 * @return the begin name
-	 */
-	public String computeAssociationClassBeginLabel(Association association) {
-		Property source = AssociationServices.INSTANCE.getSource(association);
-		return "+ " + source.getName();
-	}
-
-	/**
-	 * Compute the association edge end name
-	 * 
-	 * @param association
-	 *            the current association
-	 * @return the end name
-	 */
-	public String computeAssociationClassEndLabel(Association association) {
-		Property target = AssociationServices.INSTANCE.getTarget(association);
-		return "+ " + target.getName();
 	}
 
 	/**
@@ -3077,43 +3160,6 @@ public class ClassDiagramServices {
 			targetIndex--;
 		}
 		return null;
-	}
-
-	/**
-	 * Return collection of visible association class in a diagram.
-	 *
-	 * @param diagram
-	 *            Diagram
-	 * @param container
-	 *            Container of the associationClass
-	 * @return Set of visible association Classes or empty collection
-	 */
-	public Collection<EObject> getVisibleAssociationClass(DSemanticDiagram diagram, EObject container) {
-		final Set<EObject> associationClasses = new HashSet<EObject>();
-		final Collection<EObject> displayedNodes = UIServices.INSTANCE.getDisplayedNodes(diagram);
-		final Collection<EObject> associations = getAssociationInverseRefs(diagram);
-		for (final EObject association : associations) {
-			if (association instanceof AssociationClass) {
-				final Property source = AssociationServices.INSTANCE.getSource((AssociationClass) association);
-				final Property target = AssociationServices.INSTANCE.getTarget((AssociationClass) association);
-				if (source != null && target != null) {
-					final Type sourceType = source.getType();
-					final Type targetType = target.getType();
-					final Package parent = ((AssociationClass) association).getNearestPackage();
-
-					// An association class is visible in its parent if the parent is visible, else
-					// it is visible
-					// directly on the diagram
-					if ((container.equals(parent)
-							|| !displayedNodes.contains(parent) && container.equals(diagram.getTarget()))
-							&& sourceType != null && displayedNodes.contains(sourceType) && targetType != null
-							&& displayedNodes.contains(targetType)) {
-						associationClasses.add(association);
-					}
-				}
-			}
-		}
-		return associationClasses;
 	}
 
 	private List<Property> getVisibleAssociationEnds(Association association, DDiagram diagram) {

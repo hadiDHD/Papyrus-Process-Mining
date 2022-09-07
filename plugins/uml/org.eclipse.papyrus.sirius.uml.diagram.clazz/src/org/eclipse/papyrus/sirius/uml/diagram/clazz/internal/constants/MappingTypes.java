@@ -22,6 +22,30 @@ public class MappingTypes {
 		// to prevent instantiation
 	}
 
+	/*
+	 * The AssociationClass graphical representation is composed by three elements
+	 */
+	/**
+	 * The ID of the main AssociationClass link. This is the link looking like an Association.
+	 */
+	public static final String ASSOCIATIONCLASS_LINK = "CD_AssociationClass_Link";//$NON-NLS-1$
+
+	/**
+	 * The ID of the AssociationClass node. This node looks like a Class.
+	 */
+	public static final String ASSOCIATIONCLASS_NODE = "CD_AssociationClass_Node";//$NON-NLS-1$
+
+	/**
+	 * The ID of the AssociationClass link relying the 'Association' part to the 'Class' part of the AssociationClass link.
+	 */
+	public static final String ASSOCIATIONCLASS_NODE_TO_LINK = "CD_AssociationClass_NodeToLink";//$NON-NLS-1$
+	
+	public static final String ASSOCIATIONCLASS_NODE_ATTRIBUTES_COMPARTMENT_TYPE = "CD_AssociationClassAttributesCompartment"; //$NON-NLS-1$
+
+	public static final String ASSOCIATIONCLASS_NODE_OPERATIONS_COMPARTMENT_TYPE = "CD_AssociationClassOperationsCompartment"; //$NON-NLS-1$
+
+	public static final String ASSOCIATIONCLASS_NODE_NESTED_CLASSIFIERS_COMPARTMENT_TYPE = "CD_AssociationClassNestedClassifiersCompartment"; //$NON-NLS-1$
+	
 	public static final String CLASS_LABEL_NODE_TYPE = "CD_ClassLabelNode"; //$NON-NLS-1$
 
 	public static final String CLASS_NODE_TYPE = "CD_Class"; //$NON-NLS-1$

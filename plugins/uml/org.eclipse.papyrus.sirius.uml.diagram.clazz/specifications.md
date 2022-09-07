@@ -4,6 +4,11 @@ The content of this file describes specific choices of implementation/limitation
 The **Abstraction** is owned by the nearest parent Package of the source.
 The *semantic candidate expression* must return all **Abstraction** existing in the Package and in its children.
 
+#AssociationClass
+The **AssociationClass** is owned by the nearest parent Package of the source. The **AssociationClass** owns the two end members. 
+The first memberEnd is the **Property** typed with the target. The second memberEnd is the **Property** typed with the source.
+Basically, as it is done for **Association**, the first memberEnd is the source and the second memberEnd is the target.
+
 #Constraint
 technical requirement:
 The **ContextLink** changes the owner of the **Constraint**, so creating a **ContextLink** can results in the constraint disappearing. To avoid this behavior, the *semantic candidate expression* must return all **Constraints** found in the **Package** (diagram background) and in its children.

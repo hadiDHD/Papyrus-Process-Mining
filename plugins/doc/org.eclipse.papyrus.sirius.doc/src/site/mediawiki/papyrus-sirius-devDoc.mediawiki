@@ -263,3 +263,15 @@ Each specific diagram is tested in a specific plugin. Those tests include:
 * Creation tools tests
 * Drag and Drop tools tests
 * Deletion
+
+= ClassDiagram =
+==AssociationClass==
+This element is quite difficult to represent. Its representation is composed with two edges and one node:
+* '''CD_AssociationClass_Link''', a link with the same behavior than '''CD_Association'''. This link is ''Unsynchronizable''
+* '''CD_AssociationClass_Node''', a node with the same behavior than '''CD_Class'''. This node can only be owned by the diagram background. This node is ''Synchronized'' in order to appear automatically when a '''CD_AssociationClass_Link''' is represented on the diagram.
+* '''CD_AssociationClass_NodeToLink''', this link relies the two previous elements. It is also ''Synchronized'' in order to appear automatically when a '''CD_AssociationClass_Link''' is represented on the diagram.
+
+The '''AssociationClass''' is owned by the nearest '''Package''' of the source.
+The '''AssociationClass''' owns 2 '''Property''' referenced by the feature ''memberEnds''.
+* the first '''Property''' (index 0) is typed by the target of the '''AssociationClass''',
+* the second '''Property''' (index 1) is typed by the source of the '''AssociationClass'''.

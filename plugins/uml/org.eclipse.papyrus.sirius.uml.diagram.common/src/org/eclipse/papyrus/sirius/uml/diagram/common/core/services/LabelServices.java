@@ -46,7 +46,6 @@ import org.eclipse.uml2.uml.Port;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Pseudostate;
 import org.eclipse.uml2.uml.SignalEvent;
-import org.eclipse.uml2.uml.Slot;
 import org.eclipse.uml2.uml.StateMachine;
 import org.eclipse.uml2.uml.TemplateParameter;
 import org.eclipse.uml2.uml.TemplateSignature;
@@ -83,7 +82,31 @@ public class LabelServices {
 	 * Hidden constructor.
 	 */
 	private LabelServices() {
+		// to prevent instantiation
+	}
 
+	/**
+	 * Compute the source label of the given {@link AssociationClass}.
+	 * 
+	 * @param associationClass
+	 *            an {@link AssociationClass}
+	 * @return
+	 *         the wanted label
+	 */
+	public String associationClass_getBeginLabel(final AssociationClass associationClass) {
+		return computeAssociationEndLabel(AssociationClassServices.INSTANCE.getPropertyTypedWithSourceType(associationClass));
+	}
+
+	/**
+	 * Compute the target label of the given {@link AssociationClass}.
+	 * 
+	 * @param associationClass
+	 *            an {@link AssociationClass}
+	 * @return
+	 *         the wanted label
+	 */
+	public String associationClass_getEndLabel(final AssociationClass associationClass) {
+		return computeAssociationEndLabel(AssociationClassServices.INSTANCE.getPropertyTypedWithTargetType(associationClass));
 	}
 
 	/**
