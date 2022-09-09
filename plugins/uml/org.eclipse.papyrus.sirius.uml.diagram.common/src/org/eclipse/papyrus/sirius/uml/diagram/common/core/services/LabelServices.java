@@ -19,7 +19,6 @@ import java.util.List;
 import javax.swing.event.ChangeEvent;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.uml2.uml.AcceptEventAction;
 import org.eclipse.uml2.uml.ActivityFinalNode;
 import org.eclipse.uml2.uml.ActivityParameterNode;
@@ -86,6 +85,30 @@ public class LabelServices {
 	}
 
 	/**
+	 * Compute the source label of the given {@link Association}.
+	 * 
+	 * @param associationClass
+	 *            an {@link Association}
+	 * @return
+	 *         the wanted label
+	 */
+	public String association_getBeginLabel(final Association association) {
+		return computeAssociationEndLabel(AssociationServices.INSTANCE.getPropertyTypedWithSourceType(association));
+	}
+
+	/**
+	 * Compute the target label of the given {@link Association}.
+	 * 
+	 * @param associationClass
+	 *            an {@link Association}
+	 * @return
+	 *         the wanted label
+	 */
+	public String association_getEndLabel(final Association association) {
+		return computeAssociationEndLabel(AssociationServices.INSTANCE.getPropertyTypedWithTargetType(association));
+	}
+	
+	/**
 	 * Compute the source label of the given {@link AssociationClass}.
 	 * 
 	 * @param associationClass
@@ -107,46 +130,6 @@ public class LabelServices {
 	 */
 	public String associationClass_getEndLabel(final AssociationClass associationClass) {
 		return computeAssociationEndLabel(AssociationClassServices.INSTANCE.getPropertyTypedWithTargetType(associationClass));
-	}
-
-	/**
-	 * Compute the label of the given association.
-	 *
-	 * @param association
-	 *            the {@link Association} for which to retrieve a label.
-	 * @return the computed label.
-	 */
-	public String computeAssociationBeginLabel(Association association) {
-		return computeAssociationEndLabel(AssociationServices.INSTANCE.getSource(association));
-	}
-
-	/**
-	 * Compute the label of the given association.
-	 *
-	 * @param association
-	 *            the {@link Association} for which to retrieve a label.
-	 * @param view
-	 *            the edge for which to retrieve the source.
-	 * @return the computed label.
-	 */
-	public String computeAssociationBeginLabel(Association association, DDiagramElement view) {
-		final Property sourceEnd = AssociationServices.INSTANCE.getSourceEndAssociation(association, view);
-		if (sourceEnd != null) {
-			final DisplayLabelSwitch displayLabel = new DisplayLabelSwitch();
-			return displayLabel.getAssociationEndLabel(sourceEnd);
-		}
-		return null;
-	}
-
-	/**
-	 * Compute the label of the given association.
-	 *
-	 * @param association
-	 *            the {@link Association} for which to retrieve a label.
-	 * @return the computed label.
-	 */
-	public String computeAssociationEndLabel(Association association) {
-		return computeAssociationEndLabel(AssociationServices.INSTANCE.getTarget(association));
 	}
 
 	/**

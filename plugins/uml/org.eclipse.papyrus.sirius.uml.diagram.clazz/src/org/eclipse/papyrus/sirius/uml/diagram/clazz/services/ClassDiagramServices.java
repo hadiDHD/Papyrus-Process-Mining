@@ -15,7 +15,6 @@
 package org.eclipse.papyrus.sirius.uml.diagram.clazz.services;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -25,13 +24,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.core.runtime.Assert;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.jface.viewers.ArrayContentProvider;
-import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.window.Window;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.emf.utils.ServiceUtilsForEObject;
@@ -41,9 +35,6 @@ import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.ui.dialog.Associati
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.utils.InstanceSpecificationLinkUtils;
 import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.AssociationClassServices;
 import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.AssociationServices;
-import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.DirectEditLabelSwitch;
-import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.DisplayLabelSwitch;
-import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.EditLabelSwitch;
 import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.ElementServices;
 import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.ILabelConstants;
 import org.eclipse.papyrus.sirius.uml.diagram.common.core.services.LabelServices;
@@ -54,18 +45,13 @@ import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DNodeContainer;
-import org.eclipse.sirius.diagram.DNodeList;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.EdgeTarget;
-import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeContainerSpec;
-import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeListSpec;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.FontFormat;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.dialogs.ListDialog;
 import org.eclipse.uml2.uml.Abstraction;
-import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Association;
 import org.eclipse.uml2.uml.AssociationClass;
 import org.eclipse.uml2.uml.BehavioredClassifier;
@@ -73,7 +59,6 @@ import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Comment;
 import org.eclipse.uml2.uml.Constraint;
-import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.Dependency;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.ElementImport;
@@ -106,8 +91,6 @@ import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.Usage;
 import org.eclipse.uml2.uml.ValueSpecification;
-
-import com.google.common.collect.Lists;
 
 /**
  * Services to handle typed Element concerns.
@@ -296,6 +279,146 @@ public class ClassDiagramServices {
 	}
 
 	/**
+	 * This method returns all {@link Association} found in the context
+	 * 
+	 * @param semanticContext
+	 *            the context in which we are looking for {@link Association}
+	 * @return
+	 *         all {@link Association} available in the context
+	 */
+	public Collection<Association> association_getSemanticCandidates(final EObject semanticContext) {
+		if (semanticContext instanceof Package) {
+			final Package pack = (Package) semanticContext;
+			return getAllAssociations(pack);
+		}
+		return Collections.emptyList();
+	}
+
+	/**
+	 * 
+	 * @param pack
+	 *            a UML {@link Package}
+	 * @return
+	 *         all {@link Association} recursively
+	 */
+	private static final Collection<Association> getAllAssociations(final Package pack) {
+		final Collection<Association> associations = new HashSet<Association>();
+		final Iterator<NamedElement> iter = pack.getMembers().iterator();
+		while (iter.hasNext()) {
+			final NamedElement current = iter.next();
+			if (current instanceof Package) {
+				associations.addAll(getAllAssociations((Package) current));
+			}
+			if (current instanceof Association) {
+				associations.add((Association) current);
+			}
+		}
+		return associations;
+	}
+
+	/**
+	 * This method returns the semantic element used as source by the graphical representation of the {@link Association}
+	 * 
+	 * @param association
+	 *            an {@link Association}
+	 * @return
+	 *         the type of the source of the {@link Association} link or <code>null</code> when the number of memberEnds is different than 2
+	 */
+	public Type association_getSourceType(final Association association) {
+		return AssociationServices.INSTANCE.getSourceType(association);
+	}
+
+	/**
+	 * This method returns the semantic element used as target by the graphical representation of the {@link Association}
+	 * 
+	 * @param association
+	 *            an {@link Association}
+	 * @return
+	 *         the type of the source of the {@link Association} link or <code>null</code> when the number of memberEnds is different than 2
+	 */
+	public Type association_getTargetType(final Association association) {
+		return AssociationServices.INSTANCE.getTargetType(association);
+	}
+
+	/**
+	 * Compute the source label of the given {@link Association}.
+	 * 
+	 * @param association
+	 *            an {@link Association}
+	 * @return
+	 *         the wanted label
+	 */
+	public String association_getBeginLabel(final Association association) {
+		return LabelServices.INSTANCE.association_getBeginLabel(association);
+	}
+
+	/**
+	 * Compute the target label of the given {@link Association}.
+	 * 
+	 * @param association
+	 *            an {@link Association}
+	 * @return
+	 *         the wanted label
+	 */
+	public String association_getEndLabel(final Association association) {
+		return LabelServices.INSTANCE.association_getEndLabel(association);
+	}
+
+	/**
+	 * Service used to determinate if the selected {@link Association} source could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean association_canReconnectSource(final Association context, final Element newSource) {
+		return AssociationServices.INSTANCE.canReconnectSource(context, newSource);
+	}
+
+	/**
+	 * Service used to determine if the selected {@link Association} target could be reconnected to an element.
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after reconnecting
+	 * @return true if the edge could be reconnected
+	 */
+	public boolean association_canReconnectTarget(final Association context, final Element newTarget) {
+		return AssociationServices.INSTANCE.canReconnectTarget(context, newTarget);
+	}
+
+	/**
+	 * Reconnect the source of an {@link Association}
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldSource
+	 *            Represents the semantic element pointed by the edge source before reconnecting
+	 * @param newSource
+	 *            Represents the semantic element pointed by the edge source after reconnecting
+	 */
+	public void association_reconnectSource(final Association context, final Classifier oldSource, final Classifier newSource) {
+		AssociationServices.INSTANCE.reconnectSource(context, oldSource, newSource);
+	}
+
+	/**
+	 * Reconnect the target of an {@link Association}
+	 *
+	 * @param context
+	 *            Element attached to the existing edge
+	 * @param oldTarget
+	 *            Represents the semantic element pointed by the edge target before reconnecting
+	 * @param newTarget
+	 *            Represents the semantic element pointed by the edge after target reconnecting
+	 */
+	public void association_reconnectTarget(final Association context, final Classifier oldTarget, final Classifier newTarget) {
+		AssociationServices.INSTANCE.reconnectTarget(context, oldTarget, newTarget);
+	}
+	
+	/**
 	 * This method returns all {@link AssociationClass} found in the context
 	 * 
 	 * @param semanticContext
@@ -339,7 +462,7 @@ public class ClassDiagramServices {
 	 * @param associationClass
 	 *            an {@link AssociationClass}
 	 * @return
-	 *         the type of the source of the {@link AssociationClass} link
+	 *         the type of the source of the {@link AssociationClass} link or <code>null</code> when the number of memberEnds is different than 2
 	 */
 	public Type associationClass_getSourceType(final AssociationClass associationClass) {
 		return AssociationClassServices.INSTANCE.getSourceType(associationClass);
@@ -351,7 +474,7 @@ public class ClassDiagramServices {
 	 * @param associationClass
 	 *            an {@link AssociationClass}
 	 * @return
-	 *         the type of the source of the {@link AssociationClass} link
+	 *         the type of the source of the {@link AssociationClass} link or <code>null</code> when the number of memberEnds is different than 2
 	 */
 	public Type associationClass_getTargetType(final AssociationClass associationClass) {
 		return AssociationClassServices.INSTANCE.getTargetType(associationClass);
@@ -2416,22 +2539,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Service used to determine if the selected Association edge source/target
-	 * could be reconnected to an element.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param target
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return true if the edge could be reconnected
-	 */
-	public boolean reconnectAssociationLinkPrecondition(Element context, Element target) {
-		return target instanceof Class || target instanceof Interface || target instanceof Enumeration
-				|| target instanceof PrimitiveType;
-	}
-
-	/**
 	 * Get the root model of the diagram
 	 */
 	private Model getRootModel(Element element) {
@@ -2441,128 +2548,6 @@ public class ClassDiagramServices {
 		}
 
 		return currentModel;
-	}
-
-	/**
-	 * Service used to reconnect a Link edge target.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param edgeView
-	 *            Represents the graphical new edge
-	 * @param oldSource
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newSource
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectAssociationEdgeSource(Element context, DEdge edgeView, Element oldSource, Element newSource) {
-		// if reconnect the source of an AssociationClass edge
-		// get the target of the edge
-		Element target = null;
-		if (edgeView.getTargetNode() instanceof DNodeListSpec) {
-			target = (Element) ((DNodeListSpec) edgeView.getTargetNode()).getTarget();
-		} else if (edgeView.getTargetNode() instanceof DNodeContainerSpec)
-
-		{
-			target = (Element) ((DNodeContainerSpec) edgeView.getTargetNode()).getTarget();
-		}
-
-		// find the Attribute in the old source to be modified
-		EList<Property> attributes = null;
-		if (oldSource instanceof Class) {
-			attributes = ((Class) oldSource).getOwnedAttributes();
-		} else if (oldSource instanceof Interface) {
-			attributes = ((Interface) oldSource).getOwnedAttributes();
-		} else if (oldSource instanceof DataType) {
-			attributes = ((DataType) oldSource).getOwnedAttributes();
-		}
-
-		// remove attribute from the old source
-		Property modifiedAttribute = findAttributToBeModified(attributes, (Element) target);
-		attributes.remove(modifiedAttribute);
-
-		// add attribute to the new source
-		if (newSource instanceof Class) {
-			((Class) newSource).getOwnedAttributes().add(modifiedAttribute);
-		} else if (newSource instanceof Interface) {
-			((Interface) newSource).getOwnedAttributes().add(modifiedAttribute);
-		} else if (newSource instanceof DataType) {
-			((DataType) newSource).getOwnedAttributes().add(modifiedAttribute);
-		}
-
-		Association association = (Association) modifiedAttribute.getAssociation();
-		for (Property ownedEnd : association.getOwnedEnds()) {
-			if (ownedEnd.getType().equals(oldSource)) {
-				ownedEnd.setType((Type) newSource);
-				ownedEnd.setName(((Type) newSource).getName());
-				break;
-			}
-		}
-	}
-
-	/**
-	 * Find an attribute in a list of attributes
-	 * 
-	 * @param attributes
-	 *            list of attributes
-	 * @param target
-	 *            the searched attribute
-	 * @return the found attribute
-	 */
-	private Property findAttributToBeModified(EList<Property> attributes, Element target) {
-		for (Property attribut : attributes) {
-			if (attribut.getType().equals(target)) {
-				return attribut;
-			}
-		}
-
-		return null;
-	}
-
-	/**
-	 * Service used to reconnect a Link edge target.
-	 *
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param edgeView
-	 *            Represents the graphical new edge
-	 * @param oldTarget
-	 *            Represents the semantic element pointed by the edge before
-	 *            reconnecting
-	 * @param newTarget
-	 *            Represents the semantic element pointed by the edge after
-	 *            reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public void reconnectAssociationEdgeTarget(Element context, DEdge edgeView, Element oldTarget, Element newTarget) {
-
-		// get the source of the edge
-		Element source = null;
-		if (edgeView.getSourceNode() instanceof DNodeListSpec) {
-			source = (Element) ((DNodeListSpec) edgeView.getSourceNode()).getTarget();
-		} else if (edgeView.getSourceNode() instanceof DNodeContainerSpec)
-
-		{
-			source = (Element) ((DNodeContainerSpec) edgeView.getSourceNode()).getTarget();
-		}
-
-		// find the Attribute in the source to be modified
-		EList<Property> attributes = null;
-		if (source instanceof Class) {
-			attributes = ((Class) source).getOwnedAttributes();
-		} else if (source instanceof Interface) {
-			attributes = ((Interface) source).getOwnedAttributes();
-		} else if (source instanceof DataType) {
-			attributes = ((DataType) source).getOwnedAttributes();
-		}
-		Property modifiedAttribute = findAttributToBeModified(attributes, (Element) oldTarget);
-
-		// set the attribute to the new target
-		modifiedAttribute.setType((Type) newTarget);
-		modifiedAttribute.setName(((Type) newTarget).getName());
 	}
 
 	/**
@@ -2608,17 +2593,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Compute the label of the given association.
-	 *
-	 * @param association
-	 *            the {@link Association} for which to retrieve a label.
-	 * @return the computed label.
-	 */
-	public String computeAssociationBeginLabel(Association association) {
-		return LabelServices.INSTANCE.computeAssociationBeginLabel(association);
-	}
-
-	/**
 	 * Compute the instance specification edge begin name
 	 * 
 	 * @param context
@@ -2646,147 +2620,8 @@ public class ClassDiagramServices {
 		return target.getName();
 	}
 
-	/**
-	 * Compute the label of the given association.
-	 *
-	 * @param association
-	 *            the {@link Association} for which to retrieve a label.
-	 * @return the computed label.
-	 */
-	public String computeAssociationEndLabel(Association association) {
-		return LabelServices.INSTANCE.computeAssociationEndLabel(association);
-	}
-
-
-	/**
-	 * Create an association between two elements.
-	 *
-	 * @param source
-	 *            association source
-	 * @param target
-	 *            association target
-	 * @return The association
-	 */
-	private Association createAssociation(Element source, Element target, int assocType) {
-		// get the root model of the diagram
-		Model rootModel = getRootModel(source);
-
-		final Association association = UMLFactory.eINSTANCE.createAssociation();
-		final Property end1 = AssociationServices.INSTANCE.createAssociationClassEnd((Type) source);
-		association.getMemberEnds().add(end1);
-		final Property end2 = AssociationServices.INSTANCE.createAssociationEnd((Type) target);
-		association.getMemberEnds().add(end2);
-
-		association.getOwnedEnds().add(end1);
-		end2.setAssociation(association);
-		end2.setUpper(1);
-
-		switch (assocType) {
-		case AggregationKind.SHARED:
-			end2.setAggregation(AggregationKind.SHARED_LITERAL);
-			break;
-		case AggregationKind.COMPOSITE:
-			end2.setAggregation(AggregationKind.COMPOSITE_LITERAL);
-			break;
-		default:
-			break;
-		}
-
-		if (source instanceof Class) {
-			((Class) source).getOwnedAttributes().add(end2);
-		} else if (source instanceof Interface) {
-			((Interface) source).getOwnedAttributes().add(end2);
-		} else if (source instanceof DataType) {
-			((DataType) source).getOwnedAttributes().add(end2);
-		}
-
-		EAnnotation eAnnotation = association.createEAnnotation(ANNOTATION_GENERIC_SOURCE);
-		eAnnotation.getDetails().put(ANNOTATION_DETAIL_KEY, ANNOTATION_DETAIL_VALUE);
-		association.getEAnnotations().add(eAnnotation);
-
-		rootModel.getPackagedElements().add(association);
-
-		return association;
-	}
-
 	public boolean isNotAssociation(EObject elem) {
 		return ((Property) elem).getAssociation() == null;
-	}
-
-	/**
-	 * Create a new association.
-	 *
-	 * @param object
-	 *            Object
-	 * @param source
-	 *            selected source
-	 * @param target
-	 *            selected Target
-	 * @param sourceView
-	 *            Source view
-	 * @param targetView
-	 *            Target view
-	 * @return Association
-	 */
-	public Association createAssociation(EObject object, Element source, Element target, EObject sourceView,
-			EObject targetView, int assocType) {
-		if (source.eContainer() instanceof Package) {
-			// tool creation association edge
-			if (!(source instanceof Association || target instanceof Association)) {
-				return createAssociation(source, target, assocType);
-			} else if ((source instanceof AssociationClass || target instanceof AssociationClass)
-					&& (sourceView instanceof DEdge || targetView instanceof DEdge)) {
-				// try to connect association from/to associationClas (edge part)
-				return createAssociationAddEnd(source, target);
-			} else if (source instanceof AssociationClass || target instanceof AssociationClass
-					&& (sourceView instanceof DNodeList || targetView instanceof DNodeList)) {
-				// try to connect association from/to associationClas (container part)
-				return createAssociation(source, target, assocType);
-			} else if (source instanceof Association || target instanceof Association) {
-				return createAssociationAddEnd(source, target);
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * Add an end to an existing association.
-	 *
-	 * @param source
-	 *            Association or element
-	 * @param target
-	 *            element or association
-	 */
-	private Association createAssociationAddEnd(Element source, Element target) {
-		Association association;
-		Type type;
-		if (source instanceof Association) {
-			association = (Association) source;
-			type = (Type) target;
-		} else {
-			association = (Association) target;
-			type = (Type) source;
-		}
-
-		if (isBroken(association)) { // Look for broken association
-			fixAssociation(association, type);
-		} else { // create new end
-			final Property end = AssociationServices.INSTANCE.createAssociationEnd(type);
-			association.getNavigableOwnedEnds().add(end);
-			association.getOwnedEnds().add(end);
-		}
-		return association;
-	}
-
-	/**
-	 * Precondition for n-ary association creation.
-	 *
-	 * @param object
-	 *            selected association
-	 * @return true if association is binary and no end have no qualifiers
-	 */
-	public boolean createNaryAssociationPrecondition(EObject object) {
-		return AssociationServices.INSTANCE.createNaryAssociationPrecondition(object);
 	}
 
 	/**
@@ -2798,92 +2633,6 @@ public class ClassDiagramServices {
 	 */
 	public Operation createOperation(org.eclipse.uml2.uml.Type type) {
 		return OperationServices.INSTANCE.createOperation(type);
-	}
-
-	/**
-	 * Create new qualifier for association
-	 *
-	 * @param association
-	 *            selected association
-	 */
-	public void createQualifier(Association association) {
-		// Display a selection pop-up to choose the end
-		final ListDialog dialog = new ListDialog(Display.getCurrent().getActiveShell());
-		dialog.setTitle("Qualifier creation"); //$NON-NLS-1$
-		dialog.setMessage("Please select the end to create new Qualifier:"); //$NON-NLS-1$
-		dialog.setInput(association.getMemberEnds().toArray());
-		dialog.setContentProvider(new ArrayContentProvider());
-		dialog.setLabelProvider(new LabelProvider() {
-			@Override
-			public String getText(Object element) {
-				return ((NamedElement) element).getName();
-			}
-		});
-		dialog.setInitialSelections(new Object[] { association.getMemberEnds().get(0) });
-
-		final int status = dialog.open();
-		if (status == Window.OK) {
-			final Property qualifier = UMLFactory.eINSTANCE.createProperty();
-			final Property end = (Property) dialog.getResult()[0];
-			end.getQualifiers().add(qualifier);
-			qualifier.setName(LabelServices.INSTANCE.computeDefaultName(qualifier));
-		}
-	}
-
-	/**
-	 * Delete selected edge fron a N-Ary association
-	 *
-	 * @param association
-	 *            association
-	 * @param element
-	 *            edge to delete
-	 */
-	public void deleteNAryAssociation(Association association, DDiagramElement element) {
-		if (isNary(association)) {
-			final Property end = AssociationServices.INSTANCE.getSourceEndAssociation(association, element);
-			end.eContainer();
-			EcoreUtil.delete(end);
-		}
-	}
-
-	/**
-	 * Edit the qualifier label
-	 *
-	 * @param context
-	 *            property association end element
-	 * @param editedLabelContent
-	 *            edit label content
-	 * @return end
-	 */
-	public Element editQualifierLabel(Property context, String editedLabelContent) {
-		final DisplayLabelSwitch displayLabelSwitch = new DisplayLabelSwitch();
-		final EditLabelSwitch editLabel = new EditLabelSwitch();
-		// Separator for direct edit
-		final ArrayList<String> labels = new ArrayList<String>(
-				Arrays.asList(editedLabelContent.split(DirectEditLabelSwitch.QUALIFIER_SEPARATOR)));
-		// List qualifiers
-		final EList<Property> qualifiers = context.getQualifiers();
-		// Check for changes
-		if (labels.size() != qualifiers.size()) {
-			qualifiers.clear();
-			for (final String label : labels) {
-				final Property qualifier = UMLFactory.eINSTANCE.createProperty();
-				qualifiers.add(qualifier);
-				editLabel.setEditedLabelContent(label);
-				editLabel.doSwitch(qualifier);
-			}
-		} else {
-			// Only rename element
-			int index = 0;
-			for (final String label : labels) {
-				if (!label.equals(displayLabelSwitch.doSwitch(qualifiers.get(index)))) {
-					editLabel.setEditedLabelContent(label);
-					editLabel.doSwitch(qualifiers.get(index));
-				}
-				index++;
-			}
-		}
-		return context;
 	}
 
 	/**
@@ -2912,65 +2661,6 @@ public class ClassDiagramServices {
 	 */
 	public Type findTypeByName(EObject object, String typeName) {
 		return ElementServices.INSTANCE.findTypeByName(object, typeName);
-	}
-
-	private void fixAssociation(Association association, Type type) {
-		final EList<Property> ends = association.getMemberEnds();
-		final List<Property> brokenEnds = new ArrayList<Property>();
-		for (final Property end : ends) {
-			if (end.getType() == null) {
-				brokenEnds.add(end);
-			}
-		}
-
-		if (brokenEnds.size() > 1) {
-			// If several broken links exist user have to select the link to reconnect.
-
-			final ListDialog dialog = new ListDialog(Display.getCurrent().getActiveShell());
-			dialog.setTitle("Reconnect broken association end:"); //$NON-NLS-1$
-			dialog.setMessage("Please select the end to reconnect: "); //$NON-NLS-1$
-			dialog.setInput(brokenEnds.toArray());
-			dialog.setContentProvider(new ArrayContentProvider());
-			dialog.setLabelProvider(new LabelProvider() {
-				@Override
-				public String getText(Object element) {
-					return ((NamedElement) element).getName();
-				}
-			});
-			dialog.setInitialSelections(new Object[] { brokenEnds.get(0) });
-
-			final int status = dialog.open();
-			if (status == Window.OK) {
-				final Object[] types = dialog.getResult();
-				if (types != null && types.length == 1) {
-					final Property endToFix = (Property) types[0];
-					endToFix.setType(type);
-					endToFix.setName(AssociationServices.INSTANCE.getAssociationEndsName(type));
-				}
-			}
-		} else {
-			final Property endToFix = brokenEnds.get(0);
-			endToFix.setType(type);
-			endToFix.setName(AssociationServices.INSTANCE.getAssociationEndsName(type));
-		}
-	}
-
-	/**
-	 * Fix association.
-	 *
-	 * @param host
-	 *            Host
-	 * @param a
-	 *            Association
-	 * @param b
-	 *            Association
-	 */
-	public void fixAssociation(EObject host, EObject a, EObject b) {
-		if (a instanceof Association && b instanceof Type) {
-			fixAssociation((Association) a, (Type) b);
-		} else if (b instanceof Association && a instanceof Type) {
-			fixAssociation((Association) b, (Type) a);
-		}
 	}
 
 	/**
@@ -3013,27 +2703,6 @@ public class ClassDiagramServices {
 	}
 
 	/**
-	 * Get list of association. Check in diagram only two ends are presents.
-	 *
-	 * @param container
-	 *            package
-	 * @param diagram
-	 *            diagram
-	 * @return list of binary association
-	 */
-	public List<Association> getAssociation(Package container, DDiagram diagram) {
-		final List<Association> result = new ArrayList<Association>();
-		final Collection<EObject> associations = getAssociationInverseRefs(diagram);
-		for (final EObject object : associations) {
-			final Association association = (Association) object;
-			if (getVisibleAssociationEnds(association, diagram).size() <= 2) {
-				result.add(association);
-			}
-		}
-		return result;
-	}
-
-	/**
 	 * Retrieve the cross references of the association of all the UML elements
 	 * displayed as node in a Diagram. Note that a Property cross reference will
 	 * lead to retrieve the cross references of this property.
@@ -3055,150 +2724,6 @@ public class ClassDiagramServices {
 	 */
 	public Element getBaseClass(EObject stereotypeApplication) {
 		return StereotypeServices.INSTANCE.getBaseClass(stereotypeApplication);
-	}
-
-	/**
-	 * Get broken associations.
-	 *
-	 * @param container
-	 *            the current container.
-	 * @return a list of association which might be considered as "broken", we are
-	 *         not able to display them as edges.
-	 */
-	public Collection<Association> getBrokenAssociations(EObject container) {
-		final Collection<Association> result = new ArrayList<Association>();
-		for (final EObject child : container.eContents()) {
-			if (child instanceof Association && isBroken((Association) child)) {
-				result.add((Association) child);
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * Get navigable owned end of an association
-	 *
-	 * @param association
-	 *            Association
-	 * @return Association
-	 */
-	public List<Property> getNavigableOwnedEnds(Association association) {
-		final List<Property> ends = Lists.newArrayList();
-		final Property source = AssociationServices.INSTANCE.getSource(association);
-		final Property target = AssociationServices.INSTANCE.getTarget(association);
-		if (source != null) {
-			ends.add(source);
-		}
-		if (target != null) {
-			ends.add(target);
-		}
-		return ends;
-	}
-
-	/**
-	 * Get the type of the association source end.
-	 *
-	 * @param association
-	 *            association
-	 * @param diagram
-	 *            diagram
-	 * @return type of the source
-	 */
-	public Element getSourceType(Association association, DDiagram diagram) {
-		final EList<DDiagramElement> elements = diagram.getDiagramElements();
-		// List semantic elements visible in diagram
-		final List<EObject> visibleEnds = new ArrayList<EObject>();
-		for (final DDiagramElement element : elements) {
-			visibleEnds.add(element.getTarget());
-		}
-		final EList<Property> ends = association.getMemberEnds();
-		for (final Property end : ends) {
-			if (visibleEnds.contains(end.getType())) {
-				if (end.getQualifiers().isEmpty()) {
-					return end.getType();
-				}
-				return end;
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * Get the type of the association target end.
-	 *
-	 * @param association
-	 *            association
-	 * @param diagram
-	 *            diagram
-	 * @return Type of the target
-	 */
-	public Element getTargetType(Association association, DDiagram diagram) {
-		final EList<DDiagramElement> elements = diagram.getDiagramElements();
-		// List semantic elements visible in diagram
-		final List<EObject> diagramElements = new ArrayList<EObject>();
-		for (final DDiagramElement element : elements) {
-			diagramElements.add(element.getTarget());
-		}
-		final List<Property> ends = association.getMemberEnds();
-		// find source index in list
-		int sourceIndex = 0;
-		for (int i = 0; i < ends.size(); i++) {
-			if (diagramElements.contains(ends.get(i).getType())) {
-				sourceIndex = i;
-				break;
-			}
-		}
-		// find target from the end of the list
-		int targetIndex = ends.size() - 1;
-		while (targetIndex > 0 && targetIndex > sourceIndex) {
-			if (diagramElements.contains(ends.get(targetIndex).getType())) {
-				if (ends.get(targetIndex).getQualifiers().isEmpty()) {
-					return ends.get(targetIndex).getType();
-				}
-				return ends.get(targetIndex);
-			}
-			targetIndex--;
-		}
-		return null;
-	}
-
-	private List<Property> getVisibleAssociationEnds(Association association, DDiagram diagram) {
-		final List<Property> ends = new ArrayList<Property>();
-		// Association should be visible in self container
-		// At least one of the ends is visible in diagram
-		final EList<DDiagramElement> elements = diagram.getDiagramElements();
-		// check if at least more than 2 ends are displayed in diagram
-		final List<EObject> visibleEndsList = new ArrayList<EObject>();
-		for (final DDiagramElement element : elements) {
-			visibleEndsList.add(element.getTarget());
-		}
-		final EList<Property> associationEnds = association.getMemberEnds();
-		for (final Property end : associationEnds) {
-			if (visibleEndsList.contains(end.getType())) {
-				ends.add(end);
-			}
-			if (end.getType() == null) { // Broken association case
-				ends.add(end);
-			}
-		}
-		return ends;
-	}
-
-	private boolean isBroken(Association child) {
-		final EList<Property> ends = child.getMemberEnds();
-		for (final Property end : ends) {
-			if (end.getType() == null) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	private boolean isNary(Association association) {
-		if (association != null && association.getMembers() != null && association.getMembers().size() > 2) {
-			return true;
-		}
-		return false;
 	}
 
 	/**
@@ -3232,68 +2757,6 @@ public class ClassDiagramServices {
 	 */
 	public boolean isTypeOfClass(EObject element) {
 		return "Class".equals(element.eClass().getName()); //$NON-NLS-1$
-	}
-
-	/**
-	 * Check if an association can be created.
-	 *
-	 * @param self
-	 *            association
-	 * @param preSource
-	 *            selected element
-	 * @return true if valid
-	 */
-	public boolean isValidAssociation(EObject self, Element preSource) {
-		if (preSource instanceof Association) {
-			// Verify association ends don't have qualifiers
-			final EList<Property> ends = ((Association) preSource).getMemberEnds();
-			for (final Property end : ends) {
-				if (!end.getQualifiers().isEmpty()) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	/**
-	 * Check if an association can be created. Both selected elements are not
-	 * association. If an association is selected is should not be an aggregation or
-	 * a composite
-	 *
-	 * @param self
-	 *            association
-	 * @param preSource
-	 *            User select element as source
-	 * @param preTarget
-	 *            user select element as target
-	 * @return true if valid
-	 */
-	public boolean isValidAssociation(EObject self, Element preSource, Element preTarget) {
-
-		if (preSource instanceof Association && preTarget instanceof Association) {
-			return false; // Source and Target are not association
-		} else if (preSource instanceof Association || preTarget instanceof Association) {
-			// Verify association is not a binary association
-			Association association;
-			if (preSource instanceof Association) {
-				association = (Association) preSource;
-			} else {
-				association = (Association) preTarget;
-			}
-
-			final EList<Property> ends = association.getMemberEnds();
-			for (final Property end : ends) {
-				if (AssociationServices.INSTANCE.isComposite(end) || AssociationServices.INSTANCE.isShared(end)) {
-					return false;
-				}
-				if (!end.getQualifiers().isEmpty()) {
-					return false;
-				}
-			}
-		}
-
-		return true;
 	}
 
 	/**

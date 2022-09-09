@@ -13,24 +13,20 @@
  *****************************************************************************/
 package org.eclipse.papyrus.sirius.uml.diagram.common.core.services;
 
-import org.eclipse.uml2.uml.Artifact;
 import org.eclipse.uml2.uml.AssociationClass;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
-import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
-import org.eclipse.uml2.uml.Signal;
-import org.eclipse.uml2.uml.StructuredClassifier;
 import org.eclipse.uml2.uml.Type;
 
 /**
  * This class provides methods to manipulate {@link AssociationClass}
  */
-public class AssociationClassServices {
+public class AssociationClassServices extends AssociationServices {
 
 	/**
 	 * A singleton instance to be accessed by other java services.
@@ -39,6 +35,7 @@ public class AssociationClassServices {
 
 	private AssociationClassServices() {
 		// to prevent instantiation
+		super();
 	}
 
 	/**
@@ -47,14 +44,10 @@ public class AssociationClassServices {
 	 * @param associationClass
 	 *            an {@link AssociationClass}
 	 * @return
-	 *         the type of the source of the {@link AssociationClass} link
+	 *         the type of the source of the {@link AssociationClass} link or <code>null</code> when the number of memberEnds is different than 2
 	 */
 	public Type getSourceType(final AssociationClass associationClass) {
-		if (associationClass.getMemberEnds().size() == 2) {
-			final Property targetproperty = associationClass.getMemberEnds().get(1); // index 1 is the property owned by the target
-			return targetproperty.getType();
-		}
-		return null;
+		return super.getSourceType(associationClass);
 	}
 
 	/**
@@ -63,14 +56,10 @@ public class AssociationClassServices {
 	 * @param associationClass
 	 *            an {@link AssociationClass}
 	 * @return
-	 *         the type of the source of the {@link AssociationClass} link
+	 *         the type of the source of the {@link AssociationClass} link or <code>null</code> when the number of memberEnds is different than 2
 	 */
 	public Type getTargetType(final AssociationClass associationClass) {
-		if (associationClass.getMemberEnds().size() == 2) {
-			final Property sourceProperty = associationClass.getMemberEnds().get(0); // index 0 is the property owned by the source
-			return sourceProperty.getType();
-		}
-		return null;
+		return super.getTargetType(associationClass);
 	}
 
 	/**
@@ -79,13 +68,10 @@ public class AssociationClassServices {
 	 * @param associationClass
 	 *            an {@link AssociationClass}
 	 * @return
-	 *         the {@link Property} of the source of the {@link AssociationClass} link or <code>null</code> when there are more than 2 memberEnds
+	 *         the {@link Property} of the source of the {@link AssociationClass} link or <code>null</code> when the number of memberEnds is different than 2
 	 */
 	public Property getPropertyTypedWithSourceType(final AssociationClass associationClass) {
-		if (associationClass.getMemberEnds().size() == 2) {
-			return associationClass.getMemberEnds().get(1); // index 1 is the property owned by the target
-		}
-		return null;
+		return super.getPropertyTypedWithSourceType(associationClass);
 	}
 
 	/**
@@ -94,13 +80,11 @@ public class AssociationClassServices {
 	 * @param associationClass
 	 *            an {@link AssociationClass}
 	 * @return
-	 *         the {@link Property} of the source of the {@link AssociationClass} link or <code>null</code> when there are more than 2 memberEnds
+	 *         the {@link Property} of the source of the {@link AssociationClass} link or <code>null</code> when the number of memberEnds is different than 2
 	 */
 	public Property getPropertyTypedWithTargetType(final AssociationClass associationClass) {
-		if (associationClass.getMemberEnds().size() == 2) {
-			return associationClass.getMemberEnds().get(0); // index 0 is the property owned by the source
-		}
-		return null;
+		return super.getPropertyTypedWithTargetType(associationClass);
+
 	}
 
 	/**
@@ -144,27 +128,7 @@ public class AssociationClassServices {
 	 *            the new source of link
 	 */
 	public void reconnectSource(final AssociationClass associationClass, final Classifier oldSource, final Classifier newSource) {
-		final Property sourceProperty = getPropertyTypedWithTargetType(associationClass);
-		final Property targetProperty = getPropertyTypedWithSourceType(associationClass);
-
-		// 1. update the target Property Type and Name with the new source value
-		targetProperty.setType(newSource);
-		targetProperty.setName(newSource.getName().toLowerCase());
-
-		// 2. change the owner of the source property if it is owned by the Classifier
-		if (sourceProperty.getOwner() == oldSource) {
-			if (newSource instanceof Artifact) {
-				((Artifact) newSource).getOwnedAttributes().add(sourceProperty);
-			} else if (newSource instanceof DataType) {
-				((DataType) newSource).getOwnedAttributes().add(sourceProperty);
-			} else if (newSource instanceof Interface) {
-				((Interface) newSource).getOwnedAttributes().add(sourceProperty);
-			} else if (newSource instanceof Signal) {
-				((Signal) newSource).getOwnedAttributes().add(sourceProperty);
-			} else if (newSource instanceof StructuredClassifier) {
-				((StructuredClassifier) newSource).getOwnedAttributes().add(sourceProperty);
-			}
-		}
+		super.reconnectSource(associationClass, oldSource, newSource);
 	}
 
 	/**
@@ -178,27 +142,7 @@ public class AssociationClassServices {
 	 *            the new target of link
 	 */
 	public void reconnectTarget(final AssociationClass associationClass, final Classifier oldTarget, final Classifier newTarget) {
-		final Property sourceProperty = getPropertyTypedWithTargetType(associationClass);
-		final Property targetProperty = getPropertyTypedWithSourceType(associationClass);
-
-		// 1. update the source Property Type and Name with the new target value
-		sourceProperty.setType(newTarget);
-		sourceProperty.setName(newTarget.getName().toLowerCase());
-
-		// 2. change the owner of the target property if it is owned by the Classifier
-		if (targetProperty.getOwner() == oldTarget) {
-			if (newTarget instanceof Artifact) {
-				((Artifact) newTarget).getOwnedAttributes().add(targetProperty);
-			} else if (newTarget instanceof DataType) {
-				((DataType) newTarget).getOwnedAttributes().add(targetProperty);
-			} else if (newTarget instanceof Interface) {
-				((Interface) newTarget).getOwnedAttributes().add(targetProperty);
-			} else if (newTarget instanceof Signal) {
-				((Signal) newTarget).getOwnedAttributes().add(targetProperty);
-			} else if (newTarget instanceof StructuredClassifier) {
-				((StructuredClassifier) newTarget).getOwnedAttributes().add(targetProperty);
-			}
-		}
+		super.reconnectTarget(associationClass, oldTarget, newTarget);
 	}
 
 }

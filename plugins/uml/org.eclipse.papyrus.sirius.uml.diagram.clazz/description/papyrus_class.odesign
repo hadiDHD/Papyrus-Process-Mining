@@ -7,13 +7,6 @@
       <filters xsi:type="filter:CompositeFilterDescription" name="Show Bendpoint"/>
       <filters xsi:type="filter:CompositeFilterDescription" name="Show Qualified Names"/>
       <defaultLayer name="Class">
-        <nodeMappings name="CD_BrokenAssociation" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:getBrokenAssociations" semanticElements="service:getSemanticElements" synchronizationLock="true" domainClass="uml.Association">
-          <style xsi:type="style:BundledImageDescription" labelExpression="aql:self.name +' : (Association with missing ends)'" shape="dot">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          </style>
-        </nodeMappings>
         <nodeMappings name="CD_ClassLabelNode" semanticCandidatesExpression="aql:if(self.oclIsKindOf(uml::Class) or self.oclIsKindOf(uml::Interface)) then self.nestedClassifier else null endif" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.Class">
           <style xsi:type="style:SquareDescription" labelSize="9" labelExpression="service:computeUmlLabel" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Class.gif" labelAlignment="LEFT" sizeComputationExpression="" resizeKind="NSEW" width="16" height="5" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -106,21 +99,21 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="CD_Association" preconditionExpression="aql:self.oclIsTypeOf(uml::Association)" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:getAssociation(diagram)" semanticElements="service:getSemanticElements" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass_Node'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass_Node'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetFinderExpression="service:getTargetType(diagram)" sourceFinderExpression="service:getSourceType(diagram)" targetExpression="var:self" domainClass="uml.Association" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Target%20of%20Association%20Edge'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Source%20of%20Association%20Edge']">
+        <edgeMappings name="CD_Association" preconditionExpression="aql:self.oclIsTypeOf(uml::Association)" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:association_getSemanticCandidates()" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetFinderExpression="service:association_getTargetType()" sourceFinderExpression="service:association_getSourceType()" targetExpression="var:self" domainClass="uml.Association" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='ReconnectAssociationTarget'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='ReconnectAssociationSource']">
           <style targetArrow="NoDecoration">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <beginLabelStyleDescription labelSize="9" showIcon="false" labelExpression="aql:self.computeAssociationBeginLabel()">
+            <beginLabelStyleDescription labelSize="9" showIcon="false" labelExpression="aql:self.association_getBeginLabel()">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </beginLabelStyleDescription>
             <centerLabelStyleDescription labelSize="9" showIcon="false" labelExpression="service:computeUmlLabel">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
-            <endLabelStyleDescription labelSize="9" showIcon="false" labelExpression="aql:self.computeAssociationEndLabel()">
+            <endLabelStyleDescription labelSize="9" showIcon="false" labelExpression="aql:self.association_getEndLabel()">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </endLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="CD_AssociationClass_Link" preconditionExpression="aql:self.oclIsTypeOf(uml::AssociationClass)" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:associationClass_getSemanticCandidates()" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetFinderExpression="service:associationClass_getTargetType()" sourceFinderExpression="service:associationClass_getSourceType()" targetExpression="var:self" domainClass="uml.AssociationClass" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='ReconnectAssociationClassSource'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='ReconnectAssociationClassTarget']">
+        <edgeMappings name="CD_AssociationClass_Link" preconditionExpression="aql:self.oclIsTypeOf(uml::AssociationClass)" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:associationClass_getSemanticCandidates()" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetFinderExpression="service:associationClass_getTargetType()" sourceFinderExpression="service:associationClass_getSourceType()" targetExpression="var:self" domainClass="uml.AssociationClass" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='ReconnectAssociationClassLinkSource'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='ReconnectAssociationClassLinkTarget']">
           <style targetArrow="NoDecoration">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <beginLabelStyleDescription labelSize="9" showIcon="false" labelExpression="aql:self.associationClass_getBeginLabel()">
@@ -935,40 +928,117 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:ToolGroup" name="AssociationsGroup">
-            <tools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new association" name="CreateAssociation_Directed_Tool" label="Association (Directed)" precondition="service:isValidAssociation(preSource, preTarget)" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" iconPath="/org.eclipse.papyrus.uml.service.types/icons/Association_none_directed.gif" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" extraTargetMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" connectionStartPrecondition="service:isValidAssociation(preSource)">
+            <tools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new association" name="CreateAssociation_Directed_Tool" label="Association (Directed)" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" iconPath="/org.eclipse.papyrus.uml.service.types/icons/Association_none_directed.gif" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" extraTargetMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']">
               <sourceVariable name="source"/>
               <targetVariable name="target"/>
               <sourceViewVariable name="sourceView"/>
               <targetViewVariable name="targetView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.createAssociation(source, target, sourceView, targetView,0)"/>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.oclAsType(uml::Element).getNearestPackage()">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Association" referenceName="packagedElement" variableName="createdAssociation">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source">
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Property" referenceName="ownedAttribute" variableName="sourceProperty">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:target.oclAsType(uml::NamedElement).name.toLowerFirst()"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:target"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="association" valueExpression="aql:createdAssociation"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="lower" valueExpression="aql:'0'"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="upper" valueExpression="aql:'1'"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:createdAssociation">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="memberEnd" valueExpression="aql:sourceProperty"/>
+                        <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Property" referenceName="ownedEnd" variableName="targetProperty">
+                          <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:source.oclAsType(uml::NamedElement).name.toLowerFirst()"/>
+                          <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:source"/>
+                          <subModelOperations xsi:type="tool:SetValue" featureName="association" valueExpression="aql:createdAssociation"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new reference" name="CreateAssociationTool" label="Association" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation']">
+            <tools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new reference" name="CreateAssociationTool" label="Association" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']">
               <sourceVariable name="source"/>
               <targetVariable name="target"/>
               <sourceViewVariable name="sourceView"/>
               <targetViewVariable name="targetView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.createAssociation(source, target, sourceView, targetView,0)"/>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.oclAsType(uml::Element).getNearestPackage()">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Association" referenceName="packagedElement" variableName="createdAssociation">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:createdAssociation">
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Property" referenceName="ownedEnd" variableName="sourceProperty">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:target.oclAsType(uml::NamedElement).name.toLowerFirst()"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:target"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="association" valueExpression="aql:createdAssociation"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Property" referenceName="ownedEnd" variableName="targetProperty">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:source.oclAsType(uml::NamedElement).name.toLowerFirst()"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:source"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="association" valueExpression="aql:createdAssociation"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new composition" name="CreateCompositeAssociation_Directed_Tool" label="Composite Association (Directed)" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Association_composite.gif" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation']">
+            <tools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new composition" name="CreateCompositeAssociation_Directed_Tool" label="Composite Association (Directed)" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Association_composite.gif">
               <sourceVariable name="source"/>
               <targetVariable name="target"/>
               <sourceViewVariable name="sourceView"/>
               <targetViewVariable name="targetView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.createAssociation(source, target, sourceView, targetView, 2)"/>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.oclAsType(uml::Element).getNearestPackage()">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Association" referenceName="packagedElement" variableName="createdAssociation">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source">
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Property" referenceName="ownedAttribute" variableName="sourceProperty">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:target.oclAsType(uml::NamedElement).name.toLowerFirst()"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:target"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="association" valueExpression="aql:createdAssociation"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="lower" valueExpression="aql:'0'"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="upper" valueExpression="aql:'1'"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="aggregation" valueExpression="aql:uml::AggregationKind::composite"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:createdAssociation">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="memberEnd" valueExpression="aql:sourceProperty"/>
+                        <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Property" referenceName="ownedEnd" variableName="targetProperty">
+                          <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:source.oclAsType(uml::NamedElement).name.toLowerFirst()"/>
+                          <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:source"/>
+                          <subModelOperations xsi:type="tool:SetValue" featureName="association" valueExpression="aql:createdAssociation"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new aggregation" name="CreateSharedAssociation_Directed_Tool" label="Shared Association (Directed)" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Association_shared.gif" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation']">
+            <tools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a new aggregation" name="CreateSharedAssociation_Directed_Tool" label="Shared Association (Directed)" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Association_shared.gif">
               <sourceVariable name="source"/>
               <targetVariable name="target"/>
               <sourceViewVariable name="sourceView"/>
               <targetViewVariable name="targetView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.createAssociation(source, target, sourceView, targetView, 1)"/>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.oclAsType(uml::Element).getNearestPackage()">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Association" referenceName="packagedElement" variableName="createdAssociation">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source">
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Property" referenceName="ownedAttribute" variableName="sourceProperty">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:target.oclAsType(uml::NamedElement).name.toLowerFirst()"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:target"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="association" valueExpression="aql:createdAssociation"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="lower" valueExpression="aql:'0'"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="upper" valueExpression="aql:'1'"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="aggregation" valueExpression="aql:uml::AggregationKind::shared"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:createdAssociation">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="memberEnd" valueExpression="aql:sourceProperty"/>
+                        <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Property" referenceName="ownedEnd" variableName="targetProperty">
+                          <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:source.oclAsType(uml::NamedElement).name.toLowerFirst()"/>
+                          <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:source"/>
+                          <subModelOperations xsi:type="tool:SetValue" featureName="association" valueExpression="aql:createdAssociation"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </firstModelOperations>
               </initialOperation>
             </tools>
           </ownedTools>
@@ -1282,12 +1352,6 @@
               <firstModelOperations xsi:type="tool:SetValue" featureName="body" valueExpression="aql:arg0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:DirectEditLabel" name="QualifierDirectEdit" forceRefresh="true" inputLabelExpression="service:computeUmlDirectEditLabel">
-            <mask mask="{0}"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:self.editQualifierLabel(arg0)"/>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:DirectEditLabel" name="Element Name" inputLabelExpression="aql:self.name">
             <mask mask="{0}"/>
             <initialOperation>
@@ -1324,7 +1388,29 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectAssociationClassSource" precondition="service:associationClass_canReconnectSource(target)" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectAssociationSource" precondition="service:association_canReconnectSource(target)" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:association_reconnectSource(source, target)"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectAssociationTarget" precondition="service:association_canReconnectTarget(target)">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:association_reconnectTarget(source, target)"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectAssociationClassLinkSource" precondition="service:associationClass_canReconnectSource(target)" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
@@ -1335,7 +1421,7 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectAssociationClassTarget" precondition="service:associationClass_canReconnectSource(target)" forceRefresh="true">
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectAssociationClassLinkTarget" precondition="service:associationClass_canReconnectTarget(target)" forceRefresh="true">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
@@ -1651,28 +1737,6 @@
             <element name="element"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:usage_reconnectTarget(source, target)"/>
-            </initialOperation>
-            <edgeView name="edgeView"/>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconnect Source of Association Edge" precondition="service:reconnectAssociationLinkPrecondition(target)" reconnectionKind="RECONNECT_SOURCE">
-            <source name="source"/>
-            <target name="target"/>
-            <sourceView name="sourceView"/>
-            <targetView name="targetView"/>
-            <element name="element"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:reconnectAssociationEdgeSource(edgeView, source, target)"/>
-            </initialOperation>
-            <edgeView name="edgeView"/>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="Reconnect Target of Association Edge" precondition="service:reconnectAssociationLinkPrecondition(target)">
-            <source name="source"/>
-            <target name="target"/>
-            <sourceView name="sourceView"/>
-            <targetView name="targetView"/>
-            <element name="element"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:reconnectAssociationEdgeTarget(edgeView, source, target)"/>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>

@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.junit.framework.classification.ClassificationRunner;
 import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
@@ -31,7 +30,6 @@ import org.eclipse.uml2.uml.Association;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 /**
  * adapted from org.eclipse.papyrus.uml.diagram.clazz.test.canonical.TestClassDiagramTopNode
@@ -75,7 +73,7 @@ public class Edge_SharedAssociation_CreationTest extends AbstractPapyrusTest {
 		Assert.assertTrue("The created sirus edge must be an DEdge", siriusNewRepresentation instanceof DEdgeSpec);
 		EObject semanticElement = ((DEdgeSpec) siriusNewRepresentation).getSemanticElements().iterator().next();
 		Assert.assertTrue("The created edge must be a UML Association", semanticElement instanceof org.eclipse.uml2.uml.Association);
-		AggregationKind associationType = ((Association) semanticElement).getMemberEnds().get(1).getAggregation();
+		AggregationKind associationType = ((Association) semanticElement).getMemberEnds().get(0).getAggregation();
 		Assert.assertEquals("The created Association edge is a UML SharedAssocitaion", associationType, AggregationKind.SHARED_LITERAL);
 		Assert.assertEquals("The root model must contains one additional element after the creation of an edge", nbElement + 1, fixture.getModel().getOwnedElements().size());
 
@@ -96,7 +94,7 @@ public class Edge_SharedAssociation_CreationTest extends AbstractPapyrusTest {
 		Assert.assertTrue("The created sirus edge must be an DEdge", siriusNewRepresentation instanceof DEdgeSpec);
 		semanticElement = ((DEdgeSpec) siriusNewRepresentation).getSemanticElements().iterator().next();
 		Assert.assertTrue("The created edge must be a UML Association", semanticElement instanceof org.eclipse.uml2.uml.Association);
-		associationType = ((Association) semanticElement).getMemberEnds().get(1).getAggregation();
+		associationType = ((Association) semanticElement).getMemberEnds().get(0).getAggregation();
 		Assert.assertEquals("The created Association edge is a UML SharedAssocitaion", associationType, AggregationKind.SHARED_LITERAL);
 		Assert.assertEquals("The root model must contains one additional element after the creation of an edge", nbElement + 1, fixture.getModel().getOwnedElements().size());
 	}

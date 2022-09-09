@@ -4,6 +4,37 @@ The content of this file describes specific choices of implementation/limitation
 The **Abstraction** is owned by the nearest parent Package of the source.
 The *semantic candidate expression* must return all **Abstraction** existing in the Package and in its children.
 
+#Association
+The **Association** is owned by the nearest Package of the source.
+The *semantic candidate expression* must return all **Association** existing in the Package and in its children. The **Association** references two members ends. 
+The first memberEnd is the **Property** typed with the target. The second memberEnd is the **Property** typed with the source.
+
+The palette proposes 4 kins of **Association** to create.
+
+##Directed Association
+- an **Association** created from class A (source) to class B (target):
+	- the class A owns a **Property** b typed with B with a multiplicity [0..1], aggregation is set to **none**,
+	- the association owns a **Property** a, typed with A, with a multiplicity set to 1, aggregation is set to **none**,
+	- the first memberEnd (index 0) is the **Property** typed with B, the second memberEnd (index 1) is the **Property** typed with A.
+	
+##Composite Association
+- an **Association** created from class A (source) to class B (target):
+	- the class A owns a **Property** b typed with B with a multiplicity [0..1], aggregation is set to **composite**,
+	- the association owns a **Property** a, typed with A, with a multiplicity set to 1, aggregation is set to **none**,
+	- the first memberEnd (index 0) is the **Property** typed with B, the second memberEnd (index 1) is the **Property** typed with A.
+
+##Share Association
+- an **Association** created from class A (source) to class B (target):
+	- the class A owns a **Property** b typed with B with a multiplicity [0..1], aggregation is set to **share**,
+	- the association owns a **Property** a, typed with A, with a multiplicity set to 1, aggregation is set to **none**,
+	- the first memberEnd (index 0) is the **Property** typed with B, the second memberEnd (index 1) is the **Property** typed with A.
+
+##Association
+- an **Association** created from class A (source) to class B (target):
+	- the classes A and B don't own properties
+	- the association owns two **Properties**, a:A [0..1] and b:B [1]. The aggregation field is set to **none** for these 2 properties,
+	- the first memberEnd (index 0) is the **Property** typed with B, the second memberEnd (index 1) is the **Property** typed with A.
+	
 #AssociationClass
 The **AssociationClass** is owned by the nearest parent Package of the source. The **AssociationClass** owns the two end members. 
 The first memberEnd is the **Property** typed with the target. The second memberEnd is the **Property** typed with the source.
