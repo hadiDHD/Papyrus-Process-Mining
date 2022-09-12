@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" documentation="Copyright (c) 2009, 2014, 2021-2022 Obeo, CEA LIST, Artal Technologies&#xD;&#xA;&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License 2.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;https://www.eclipse.org/legal/epl-2.0/&#xD;&#xA;&#xD;&#xA;SPDX-License-Identifier: EPL-2.0&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;     Obeo - initial API and implementation&#xD;&#xA;     Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - adaptation to integrate in Papyrus&#xD;&#xA;     Vincent Lorenzo (CEA LIST) - vincent.lorenzo@cea.fr  - adaptation to integrate in Papyrus" name="papyrus_statemachine" version="12.0.0.2017041100">
   <ownedViewpoints name="StateMachineDiagram" modelFileExtension="uml">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='GraphicalCommentRepresentationDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='SemanticCommentFromModelDrop']" name="StateMachineDiagram" titleExpression="aql:self.name +' StateMachine Diagram'" domainClass="uml::Element" preconditionExpression="service:getPreCondition()" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='GraphicalCommentRepresentationDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticCommentFromModelDrop']" name="StateMachineDiagram" titleExpression="aql:self.name +' StateMachine Diagram'" domainClass="uml::Element" preconditionExpression="service:getPreCondition()" enablePopupBars="true">
       <metamodel href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
       <layout xsi:type="description_1:CustomLayoutConfiguration" id="org.eclipse.elk.box" label="ELK Box" description="Algorithm for packing of unconnected boxes, i.e. graphs without edges.">
         <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.aspectRatio">
@@ -62,7 +62,7 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="SMD_Transition" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="feature:eAllContents" semanticElements="aql:self" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_FinalState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='BorderPseudoState']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_FinalState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='BorderPseudoState']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="uml.Transition" useDomainElement="true" reconnections="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ReconnectTransitionTarget%20'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ReconnectTransitionSource%20']">
+        <edgeMappings name="SMD_Transition" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="feature:eAllContents" semanticElements="aql:self" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_FinalState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='BorderPseudoState']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_FinalState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='BorderPseudoState']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="uml.Transition" useDomainElement="true" reconnections="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectTransitionTarget%20'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectTransitionSource%20']">
           <style>
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <beginLabelStyleDescription labelSize="10" showIcon="false" labelExpression="aql:self.getValueString(view)">
@@ -73,15 +73,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="SMD_Link" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='BorderPseudoState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_FinalState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='SMD_Transition'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" targetFinderExpression="aql:self.targeFinderExpressionForConstraint()" reconnections="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ReconnectLinkSource%20'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ReconnectLinkTarget']">
-          <style lineStyle="dot" targetArrow="NoDecoration">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="SMD_ContextLink" preconditionExpression="service:checkContainerViewContext(sourceView)" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']" targetFinderExpression="aql:self.getContextParent()" reconnections="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ReconnectContextLinkTarget'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ReconnectContextLinkSource']">
+        <edgeMappings name="SMD_ContextLink" preconditionExpression="service:checkContainerViewContext(sourceView)" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']" targetFinderExpression="aql:self.getContextParent()" reconnections="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectContextLinkTarget'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectContextLinkSource']">
           <style lineStyle="dot" targetArrow="NoDecoration">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelExpression="&lt;&lt;context>>">
@@ -89,8 +81,16 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="SMD_StateMachine" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="StateMachine" reusedBorderedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='BorderPseudoState']" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='SemanticCommentFromModelDrop']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='HorizontalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='VerticalRegions']" childrenPresentation="HorizontalStack">
-          <subContainerMappings name="SMD_RegionCompartment" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="service:getFeatures()" createElements="false" domainClass="uml.Region" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SemanticRegionDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SemanticStateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SemanticPseudostateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SemanticConstraintDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SemanticCommentDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='GraphicalStateRepresentationDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='GraphicalPseudoStateRepresentationDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='GraphicalConstraintRepresentationDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='GraphicalCommentRepresentationDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='SemanticCommentFromModelDrop']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']">
+        <edgeMappings name="SMD_Link" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='BorderPseudoState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_FinalState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='SMD_Transition'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" targetFinderExpression="aql:self.targeFinderExpressionForConstraint()" reconnections="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectLinkSource'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectLinkTarget']">
+          <style lineStyle="dot" targetArrow="NoDecoration">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="SMD_StateMachine" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="StateMachine" reusedBorderedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='BorderPseudoState']" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticCommentFromModelDrop']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='HorizontalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='VerticalRegions']" childrenPresentation="HorizontalStack">
+          <subContainerMappings name="SMD_RegionCompartment" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="service:getFeatures()" createElements="false" domainClass="uml.Region" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticRegionDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticStateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticPseudostateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticConstraintDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticCommentDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='GraphicalStateRepresentationDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='GraphicalPseudoStateRepresentationDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='GraphicalConstraintRepresentationDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='GraphicalCommentRepresentationDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticCommentFromModelDrop']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']">
             <subNodeMappings name="SMD_Pseudostate" preconditionExpression="aql:not ((self.kind == uml::PseudostateKind::entryPoint) or ( self.kind == uml::PseudostateKind::exitPoint))" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="feature:subvertex" createElements="false" domainClass="uml.Pseudostate">
               <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::initial)">
                 <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" sizeComputationExpression="2" resizeKind="NSEW">
@@ -149,7 +149,7 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <subContainerMappings name="SMD_State" preconditionExpression="aql:not self.oclIsTypeOf(uml::FinalState)" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="feature:subvertex" createElements="false" domainClass="uml.State" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SemanticRegionDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SemanticPseudostateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='GraphicalBorderPseudoStateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='SemanticCommentFromModelDrop']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='HorizontalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='VerticalRegions']" childrenPresentation="VerticalStack">
+            <subContainerMappings name="SMD_State" preconditionExpression="aql:not self.oclIsTypeOf(uml::FinalState)" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="feature:subvertex" createElements="false" domainClass="uml.State" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticRegionDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticPseudostateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='GraphicalBorderPseudoStateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticCommentFromModelDrop']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='HorizontalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='VerticalRegions']" childrenPresentation="VerticalStack">
               <borderedNodeMappings name="BorderPseudoState" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:eContents" synchronizationLock="true" domainClass="uml.Pseudostate">
                 <conditionnalStyles predicateExpression="aql: self.kind==(uml::PseudostateKind::entryPoint)">
                   <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" workspacePath="/org.eclipse.papyrus.sirius.uml.diagram.statemachine/icons/Entry.svg">
@@ -164,21 +164,21 @@
                   </style>
                 </conditionnalStyles>
               </borderedNodeMappings>
-              <subContainerMappings name="VerticalRegions" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:getFeatures()" createElements="false" domainClass="uml.Region" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='SemanticCommentFromModelDrop']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='HorizontalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='VerticalRegions']" childrenPresentation="VerticalStack">
+              <subContainerMappings name="VerticalRegions" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:getFeatures()" createElements="false" domainClass="uml.Region" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticCommentFromModelDrop']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='HorizontalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='VerticalRegions']" childrenPresentation="VerticalStack">
                 <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dot" labelSize="12" showIcon="false" hideLabelByDefault="true" widthComputationExpression="100" heightComputationExpression="100" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='StateMachine_Gray']">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                 </style>
               </subContainerMappings>
-              <subContainerMappings name="HorizontalRegions" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:getFeatures()" createElements="false" domainClass="uml.Region" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='SemanticCommentFromModelDrop']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='VerticalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='HorizontalRegions']" childrenPresentation="HorizontalStack">
+              <subContainerMappings name="HorizontalRegions" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="service:getFeatures()" createElements="false" domainClass="uml.Region" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticCommentFromModelDrop']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='VerticalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='HorizontalRegions']" childrenPresentation="HorizontalStack">
                 <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dot" labelSize="12" showIcon="false" hideLabelByDefault="true" widthComputationExpression="100" heightComputationExpression="100" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='StateMachine_Gray']">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                 </style>
               </subContainerMappings>
-              <subContainerMappings name="Activities" preconditionExpression="aql:not self.doActivity->isEmpty() or not self.entry->isEmpty() or not self.exit->isEmpty()" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="var:self" synchronizationLock="true" domainClass="State" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='SemanticCommentFromModelDrop']" childrenPresentation="List">
+              <subContainerMappings name="Activities" preconditionExpression="aql:not self.doActivity->isEmpty() or not self.entry->isEmpty() or not self.exit->isEmpty()" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="var:self" synchronizationLock="true" domainClass="State" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticCommentFromModelDrop']" childrenPresentation="List">
                 <subNodeMappings name="Entry" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" semanticCandidatesExpression="feature:entry" synchronizationLock="true" domainClass="Element">
                   <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:'/entry '+ self.getTypeName() +' '+ self.getName()" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -233,7 +233,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <containerMappings name="SMD_StateRoot" preconditionExpression="aql:not self.oclIsTypeOf(uml::FinalState)" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.State" reusedBorderedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='BorderPseudoState']" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SemanticRegionDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SemanticPseudostateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='SemanticCommentFromModelDrop']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='Activities'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" childrenPresentation="VerticalStack">
+        <containerMappings name="SMD_StateRoot" preconditionExpression="aql:not self.oclIsTypeOf(uml::FinalState)" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@additionalLayers[name='Common']/@toolSections.0/@ownedTools[name='PapyrusDelete']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.State" reusedBorderedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='BorderPseudoState']" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticRegionDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticPseudostateDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticCommentFromModelDrop']" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='Activities'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" childrenPresentation="VerticalStack">
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" roundedCorner="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='StateMachine_Gray']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -516,100 +516,6 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="GraphicalBorderPseudoStateDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='BorderPseudoState']">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.dndBorderPseudoState(newSemanticContainer)"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::State)">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.dndBorderPseudoState(newSemanticContainer)"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticRegionDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" dragSource="PROJECT_EXPLORER">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:newSemanticContainer.getStateParent()">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:newContainerView.setChildRepresentation('H')"/>
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element">
-                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:newSemanticContainer">
-                        <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:newContainerView" variableName="createdView2"/>
-                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:newContainerView.moveChildrenView(createdView2)">
-                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.applyLayoutData(newContainerView)"/>
-                        </subModelOperations>
-                      </subModelOperations>
-                      <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:newContainerView"/>
-                    </subModelOperations>
-                  </subModelOperations>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::State) or newSemanticContainer.oclIsTypeOf(uml::StateMachine)">
-                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:newContainerView"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticStateDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']" dragSource="PROJECT_EXPLORER">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
-                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']" containerViewExpression="aql:newContainerView"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="GraphicalStateRepresentationDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:newSemanticContainer" featureName="subvertex"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticPseudostateDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" dragSource="PROJECT_EXPLORER">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
-                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" containerViewExpression="aql:newContainerView"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::State) or newSemanticContainer.oclIsTypeOf(uml::StateMachine)">
-                  <subModelOperations xsi:type="tool_1:CreateView" containerViewExpression="aql:newContainerView"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="GraphicalPseudoStateRepresentationDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:newSemanticContainer" featureName="subvertex"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:DirectEditLabel" name="Rename" forceRefresh="true">
             <mask mask="{0}"/>
             <initialOperation>
@@ -681,54 +587,6 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:setBody(arg0)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticConstraintDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" dragSource="PROJECT_EXPLORER">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
-                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" containerViewExpression="aql:newContainerView"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="GraphicalConstraintRepresentationDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:newSemanticContainer" featureName="ownedRule"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticCommentDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment']" dragSource="PROJECT_EXPLORER">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
-                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment']" containerViewExpression="aql:newContainerView"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="GraphicalCommentRepresentationDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment']">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:newSemanticContainer" featureName="ownedComment"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Delete Comment">
             <element name="element"/>
             <elementView name="elementView"/>
@@ -738,19 +596,6 @@
                 <subModelOperations xsi:type="tool:DeleteView"/>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element">
                   <subModelOperations xsi:type="tool:RemoveElement"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticCommentRepresentationDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']" dragSource="PROJECT_EXPLORER">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Model)">
-                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']" containerViewExpression="aql:newContainerView"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -804,7 +649,38 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectLinkSource " forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
+        </toolSections>
+        <toolSections name="Relationships">
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectContextLinkTarget" forceRefresh="true">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element">
+                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:target" featureName="ownedRule"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectContextLinkSource" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source">
+                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:sourceView.getContextParentView().target" featureName="ownedRule"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:target">
+                  <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:edgeView.targetNode.target" featureName="ownedRule"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectLinkSource" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
@@ -848,35 +724,6 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectContextLinkTarget" forceRefresh="true">
-            <source name="source"/>
-            <target name="target"/>
-            <sourceView name="sourceView"/>
-            <targetView name="targetView"/>
-            <element name="element"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:target" featureName="ownedRule"/>
-              </firstModelOperations>
-            </initialOperation>
-            <edgeView name="edgeView"/>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectContextLinkSource" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
-            <source name="source"/>
-            <target name="target"/>
-            <sourceView name="sourceView"/>
-            <targetView name="targetView"/>
-            <element name="element"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:sourceView.getContextParentView().target" featureName="ownedRule"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:target">
-                  <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:edgeView.targetNode.target" featureName="ownedRule"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-            <edgeView name="edgeView"/>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectTransitionTarget " forceRefresh="true">
             <source name="source"/>
             <target name="target"/>
@@ -902,6 +749,187 @@
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="SemanticDrop">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticCommentDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment']" containerViewExpression="aql:newContainerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticCommentFromModelDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment']" containerViewExpression="aql:newContainerView"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticCommentRepresentationDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Model)">
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']" containerViewExpression="aql:newContainerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticConstraintDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" containerViewExpression="aql:newContainerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticConstraintFromModelDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" containerViewExpression="aql:newContainerView"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticPseudostateDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" containerViewExpression="aql:newContainerView"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::State) or newSemanticContainer.oclIsTypeOf(uml::StateMachine)">
+                  <subModelOperations xsi:type="tool_1:CreateView" containerViewExpression="aql:newContainerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticRegionDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:newSemanticContainer.getStateParent()">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:newContainerView.setChildRepresentation('H')"/>
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element">
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:newSemanticContainer">
+                        <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:newContainerView" variableName="createdView2"/>
+                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:newContainerView.moveChildrenView(createdView2)">
+                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.applyLayoutData(newContainerView)"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:newContainerView"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::State) or newSemanticContainer.oclIsTypeOf(uml::StateMachine)">
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:newContainerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticStateDrop" precondition="aql:element.checkDropableElement(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
+                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']" containerViewExpression="aql:newContainerView"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="GraphicalDrop">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="GraphicalBorderPseudoStateDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='BorderPseudoState']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::Region)">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.dndBorderPseudoState(newSemanticContainer)"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:newSemanticContainer.oclIsTypeOf(uml::State)">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.dndBorderPseudoState(newSemanticContainer)"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="GraphicalCommentRepresentationDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:newSemanticContainer" featureName="ownedComment"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="GraphicalConstraintRepresentationDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:newSemanticContainer" featureName="ownedRule"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="GraphicalPseudoStateRepresentationDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:newSemanticContainer" featureName="subvertex"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="GraphicalStateRepresentationDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:newSemanticContainer" featureName="subvertex"/>
+              </firstModelOperations>
+            </initialOperation>
           </ownedTools>
         </toolSections>
         <customization>
@@ -936,28 +964,6 @@
                 <firstModelOperations xsi:type="tool:DeleteView"/>
               </initialOperation>
             </menuItemDescription>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticConstraintFromModelDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" dragSource="PROJECT_EXPLORER">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" containerViewExpression="aql:newContainerView"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticCommentFromModelDrop" mappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment']" dragSource="PROJECT_EXPLORER">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment']" containerViewExpression="aql:newContainerView"/>
-              </firstModelOperations>
-            </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:DirectEditLabel" name="CommentEdit">
             <mask mask="{0}"/>
