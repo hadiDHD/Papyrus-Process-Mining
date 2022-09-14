@@ -522,11 +522,6 @@
           </style>
         </containerMappings>
         <toolSections name="Nodes" icon="/org.eclipse.gmf.runtime.diagram.ui/icons/group.gif">
-          <ownedTools xsi:type="tool:ToolDescription" name="CreateConnectableElementTemplateParameterTool" label="Connectable Element Template Parameter" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/ConnectableElementTemplateParameter.gif">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <initialOperation/>
-          </ownedTools>
           <ownedTools xsi:type="tool:ToolDescription" name="CreateClassTool" label="Class" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Class.gif">
             <element name="element"/>
             <elementView name="elementView"/>
@@ -588,6 +583,11 @@
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolDescription" name="CreateConnectableElementTemplateParameterTool" label="Connectable Element Template Parameter" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/ConnectableElementTemplateParameter.gif">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation/>
           </ownedTools>
           <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateConstraintTool" label="Constraint" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_Constraint']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Constraint.gif">
             <variable name="container"/>
@@ -899,7 +899,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="CreateTemplateParameterTool" label=" Template Parameter" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/TemplateParameter.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="CreateTemplateParameterTool" label="Template Parameter" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/TemplateParameter.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation/>
@@ -2173,12 +2173,8 @@
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclIsKindOf(uml::Association)">
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_AssociationClass_Link']/@style" attributeName="targetArrow" value="service:association_getTargetDecorator()"/>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="feature:isAbstract">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']/@style" attributeName="labelFormat" value="service:self.getAbstractBoldLabelFormat"/>
-            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="labelFormat" value="service:self.getAbstractItalicLabelFormat"/>
-          </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:isStatic">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="labelFormat" value="aql:viewpoint::FontFormat::underline"/>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:if(self.oclIsKindOf(uml::Classifier) or self.oclIsKindOf(uml::Feature)) then true else false endif">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']/@style/@centerLabelStyleDescription //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_AssociationClass_Link']/@style/@centerLabelStyleDescription //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass_Node']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_ClassLabelNode']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Component']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_DataType']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_DataTypeLabelNode']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_EnumerationLabelNode']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_InformationItem']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_InterfaceLabelNode']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_OperationLabelNode']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_PrimitiveTypeLabelNode']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_ReceptionLabelNode']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Signal']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@nodeMappings[name='CD_SignalLabelNode']/@style" attributeName="labelFormat" value="service:getLabelStyle()"/>
           </vsmElementCustomizations>
         </customization>
       </defaultLayer>
@@ -2233,6 +2229,7 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.clazz.services.ClassDiagramServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.common.core.services.AbstractDiagramServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.common.services.SemanticDeletionService"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.common.core.services.StyleServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="CD_ColorPalette">
     <entries xsi:type="description:UserFixedColor" red="195" green="215" blue="221" name="CustomBlue"/>

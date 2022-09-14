@@ -96,3 +96,7 @@ To have a better view and simplify the correction of problems in sequence diagra
 
 [[File:../../../image/user/8_ObservationPoint.png]]
 
+= Class Diagram = 
+== Features ==
+Label of UML element with the isAbstract feature set to true are displayed in italic
+Label of UML element with the isStatic feature set to true are underlined.

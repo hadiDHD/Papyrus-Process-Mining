@@ -14,7 +14,6 @@
  *****************************************************************************/
 package org.eclipse.papyrus.sirius.uml.diagram.clazz.services;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -49,7 +48,6 @@ import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.EdgeArrows;
 import org.eclipse.sirius.diagram.EdgeTarget;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
-import org.eclipse.sirius.viewpoint.FontFormat;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.uml2.uml.Abstraction;
@@ -2686,33 +2684,6 @@ public class ClassDiagramServices {
 	 */
 	public Type findTypeByName(EObject object, String typeName) {
 		return ElementServices.INSTANCE.findTypeByName(object, typeName);
-	}
-
-	/**
-	 * Get abstract label format.
-	 *
-	 * @param object
-	 *            EObject
-	 * @return Abstract label format
-	 */
-	public List<FontFormat> getAbstractBoldLabelFormat(EObject object) {
-		// Fix to return bold/italic when bug will be fixed on sirius
-		final List<FontFormat> fontFormats = new ArrayList<FontFormat>();
-		fontFormats.add(FontFormat.BOLD_LITERAL);
-		fontFormats.add(FontFormat.ITALIC_LITERAL);
-		return fontFormats;
-	}
-
-	/**
-	 * Get abstract label format.
-	 *
-	 * @param object
-	 *            EObject
-	 * @return Abstract label format
-	 */
-	public FontFormat getAbstractItalicLabelFormat(EObject object) {
-		// Fix to return bold/italic when bug will be fixed on sirius
-		return FontFormat.ITALIC_LITERAL;
 	}
 
 	/**
