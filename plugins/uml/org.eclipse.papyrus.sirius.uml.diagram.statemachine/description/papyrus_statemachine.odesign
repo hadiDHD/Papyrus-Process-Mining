@@ -241,7 +241,7 @@
           </style>
         </containerMappings>
         <toolSections name="Nodes" icon="/org.eclipse.gmf.runtime.diagram.ui/icons/group.gif">
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="CreateRegionTool" containerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Region.gif" extraMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='HorizontalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='VerticalRegions']">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="CreateRegionTool" label="Region" containerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Region.gif" extraMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='HorizontalRegions'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@subContainerMappings[name='VerticalRegions']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -314,7 +314,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="CreateStateTool" containerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/State.gif">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="CreateStateTool" label="State" containerMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/State.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -326,7 +326,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateInitialTool" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_initial.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateInitialTool" label="Initial" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_initial.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -339,7 +339,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateFinalStateTool" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_FinalState']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/FinalState.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateFinalStateTool" label="FinalState" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_FinalState']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/FinalState.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -350,7 +350,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateShallowHistoryTool" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_shallowHistory.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateShallowHistoryTool" label="ShallowHistory" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_shallowHistory.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -363,7 +363,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateDeepHistoryTool" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_deepHistory.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateDeepHistoryTool" label="DeepHistory" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_deepHistory.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -376,7 +376,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateForkTool" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_fork.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateForkTool" label="Fork" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_fork.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -389,7 +389,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateJoinTool" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_join.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateJoinTool" label="Join" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_join.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -402,7 +402,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateChoiceTool" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_choice.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateChoiceTool" label="Choice" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_choice.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -415,7 +415,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateJunctionTool" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_junction.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateJunctionTool" label="Junction" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_junction.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -428,7 +428,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateEntryPointTool" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='BorderPseudoState']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_entryPoint.gif" extraMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateEntryPointTool" label="EntryPoint" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='BorderPseudoState']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_entryPoint.gif" extraMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -452,7 +452,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateExitPointTool" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='BorderPseudoState']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_exitPoint.gif" extraMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateExitPointTool" label="ExitPoint" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='BorderPseudoState']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_exitPoint.gif" extraMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -476,7 +476,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateTerminateTool" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_terminate.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateTerminateTool" label="Terminate" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Pseudostate_terminate.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -489,7 +489,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateCommentTool" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Comment.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateCommentTool" label="Comment" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Comment.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -498,7 +498,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateConstraintTool" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Constraint.gif" extraMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateConstraintTool" label="Constraint" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Constraint.gif" extraMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -602,22 +602,18 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Edges" icon="/org.eclipse.gmf.runtime.diagram.ui/icons/group.gif">
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="CreateTransitionTool" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='SMD_Transition']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Transition_local.gif">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="CreateContextLinkTool" label="ContextLink" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='SMD_ContextLink']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Association.gif" extraTargetMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:self.getRegionParent()">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="Transition" referenceName="transition">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="aql:source"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="aql:target"/>
-                </subModelOperations>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source">
+                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:target.getStateParent()" featureName="ownedRule"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="CreateLinkTool" precondition="aql:true" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='SMD_Link']" iconPath="/org.eclipse.papyrus.sirius.uml.diagram.statemachine/icons/Link.gif" extraTargetMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="CreateLinkTool" label="Link" precondition="aql:true" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='SMD_Link']" iconPath="/org.eclipse.papyrus.sirius.uml.diagram.statemachine/icons/Link.gif" extraTargetMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -638,14 +634,18 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="CreateContextLinkTool" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='SMD_ContextLink']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Association.gif" extraTargetMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="CreateTransitionTool" label="Transition" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='SMD_Transition']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Transition_local.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:target.getStateParent()" featureName="ownedRule"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:self.getRegionParent()">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="Transition" referenceName="transition">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="aql:source"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="aql:target"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
