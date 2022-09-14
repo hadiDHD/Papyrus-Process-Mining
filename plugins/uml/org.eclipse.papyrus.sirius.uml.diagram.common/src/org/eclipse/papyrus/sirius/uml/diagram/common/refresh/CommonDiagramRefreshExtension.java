@@ -78,6 +78,8 @@ public class CommonDiagramRefreshExtension implements IRefreshExtension {
 
 	private int bendpointDiameter = 7;
 
+	private static final String BENDPOINT_MAPPING = "Bendpoint"; //$NON-NLS-1$
+
 	/**
 	 * @see org.eclipse.sirius.business.api.refresh.IRefreshExtension#beforeRefresh(org.eclipse.sirius.DDiagram)
 	 */
@@ -95,7 +97,7 @@ public class CommonDiagramRefreshExtension implements IRefreshExtension {
 
 		List<EObject> list = new ArrayList<>();
 		diagram.eAllContents().forEachRemaining(list::add);
-//		ResetStyleHelper.resetStyle(list);
+		// ResetStyleHelper.resetStyle(list);
 		if (FilterService.INSTANCE.isBenpointFilterActivated(diagram)) {
 			Collection<Point> bendpointsToDraw = getCommonBenpointsToDraw(diagram);
 			Diagram gmfDiagram = SiriusGMFHelper.getGmfDiagram(diagram);
@@ -106,7 +108,7 @@ public class CommonDiagramRefreshExtension implements IRefreshExtension {
 				}
 			}
 		}
-//		Not this one : DiagramHelper.refresh(gmfDiagram.get,true);
+		// Not this one : DiagramHelper.refresh(gmfDiagram.get,true);
 	}
 
 	/**
@@ -120,7 +122,7 @@ public class CommonDiagramRefreshExtension implements IRefreshExtension {
 		Diagram gmfDiagram = SiriusGMFHelper.getGmfDiagram(diagram);
 		EList<Edge> edges = gmfDiagram.getEdges();
 		for (Edge edge : edges) {
-			//get the figure
+			// get the figure
 			GraphicalEditPart currentEditPart = GMFHelper.getGraphicalEditPart(edge).get();
 			IFigure currentEdgeFigure = ((IGraphicalEditPart) currentEditPart).getFigure();
 			if (currentEdgeFigure instanceof AbstractPointListShape) {
@@ -333,8 +335,10 @@ public class CommonDiagramRefreshExtension implements IRefreshExtension {
 
 	/**
 	 *
-	 * @param seg1 the first segment
-	 * @param seg2 the secong segment
+	 * @param seg1
+	 *            the first segment
+	 * @param seg2
+	 *            the secong segment
 	 * @return
 	 */
 	public static final PointList getCommonSegment(final LineSeg seg1, final LineSeg seg2) {
@@ -371,8 +375,9 @@ public class CommonDiagramRefreshExtension implements IRefreshExtension {
 	/**
 	 * Calculate the best diameter and set the diameter value
 	 *
-	 * @param diameter the diameter of the bendpoints (if diameter<=1, we set the
-	 *                 diameter to 0)
+	 * @param diameter
+	 *            the diameter of the bendpoints (if diameter<=1, we set the
+	 *            diameter to 0)
 	 */
 	public void setBendPointDiameter(final int diameter) {
 		if (diameter <= 1) {
@@ -395,8 +400,10 @@ public class CommonDiagramRefreshExtension implements IRefreshExtension {
 
 	/**
 	 *
-	 * @param figure       graphics
-	 * @param pointsToDraw the list of the points to draw
+	 * @param figure
+	 *            graphics
+	 * @param pointsToDraw
+	 *            the list of the points to draw
 	 */
 	public void drawCommonBendpoints(DSemanticDiagram diagram, final IGraphicalEditPart gep,
 			final Collection<Point> bendPoints) {
@@ -417,18 +424,19 @@ public class CommonDiagramRefreshExtension implements IRefreshExtension {
 			// to use DiagramMappingsManager
 			DiagramMappingsManager dmm = getMappingManager(diagram);
 			for (NodeMapping map : dmm.getNodeMappings()) {
-				if (map.getName().equals("Bendpoint")) {
+				if (BENDPOINT_MAPPING.equals(map.getName())) {
 					mapping = map;
 				}
 			}
-//			DNodeCandidate nodeCandidate = new DNodeCandidate(mapping, diagram.getTarget(), diagram, rId);
-			DNode node = createNode(mapping, diagram.getTarget(), diagram, diagram);
-			node.setResizeKind(ResizeKind.NONE_LITERAL);
-			// find how to set color
-			Dimension dim = new Dimension(bendpointDiameter, bendpointDiameter);
-			RootLayoutData layoutData = new RootLayoutData(node, adjustedPoint, dim);
-			SiriusLayoutDataManager.INSTANCE.addData(layoutData);
-
+			// DNodeCandidate nodeCandidate = new DNodeCandidate(mapping, diagram.getTarget(), diagram, rId);
+			if (mapping != null) { // some diagram doesn't have this mapping
+				DNode node = createNode(mapping, diagram.getTarget(), diagram, diagram);
+				node.setResizeKind(ResizeKind.NONE_LITERAL);
+				// find how to set color
+				Dimension dim = new Dimension(bendpointDiameter, bendpointDiameter);
+				RootLayoutData layoutData = new RootLayoutData(node, adjustedPoint, dim);
+				SiriusLayoutDataManager.INSTANCE.addData(layoutData);
+			}
 		}
 	}
 

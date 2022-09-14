@@ -522,59 +522,6 @@
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:arg0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Delete Region">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:elementView">
-                <subModelOperations xsi:type="tool:Let" variableName="isRegion" valueExpression="aql:containerView.target.oclIsTypeOf(uml::Region)"/>
-                <subModelOperations xsi:type="tool:Switch">
-                  <cases conditionExpression="aql:isRegion">
-                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:containerView.target != element">
-                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.getOtherRegion(element).moveChildrenView(containerView)">
-                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:applyLayoutData(containerView)"/>
-                      </subModelOperations>
-                      <subModelOperations xsi:type="tool:For" expression="aql:containerView.getChildrenView()">
-                        <subModelOperations xsi:type="tool:DeleteView"/>
-                      </subModelOperations>
-                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.setChildRepresentation('F')"/>
-                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element">
-                        <subModelOperations xsi:type="tool:RemoveElement"/>
-                      </subModelOperations>
-                    </subModelOperations>
-                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:containerView.target == element">
-                      <subModelOperations xsi:type="tool:Let" variableName="otherElement" valueExpression="aql:containerView.getOtherRegion(element)">
-                        <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:containerView.eContainer()">
-                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:otherElement.target">
-                            <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:containerView.eContainer()"/>
-                            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:otherElement.moveChildrenView(createdView)">
-                              <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:applyLayoutData(createdView)"/>
-                            </subModelOperations>
-                          </subModelOperations>
-                        </subModelOperations>
-                      </subModelOperations>
-                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView">
-                        <subModelOperations xsi:type="tool:DeleteView"/>
-                      </subModelOperations>
-                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element">
-                        <subModelOperations xsi:type="tool:RemoveElement"/>
-                      </subModelOperations>
-                    </subModelOperations>
-                  </cases>
-                  <cases conditionExpression="aql:not (isRegion)">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.setChildRepresentation('V')">
-                      <subModelOperations xsi:type="tool:DeleteView"/>
-                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element">
-                        <subModelOperations xsi:type="tool:RemoveElement"/>
-                      </subModelOperations>
-                    </subModelOperations>
-                  </cases>
-                  <default/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:DirectEditLabel" name="CommentEdit" forceRefresh="true">
             <mask mask="{0}"/>
             <initialOperation>
@@ -585,19 +532,6 @@
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:setBody(arg0)"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Delete Comment">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:elementView">
-                <subModelOperations xsi:type="tool:DeleteView"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element">
-                  <subModelOperations xsi:type="tool:RemoveElement"/>
-                </subModelOperations>
-              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -941,13 +875,6 @@
         </customization>
       </defaultLayer>
       <additionalLayers name="Common" optional="false">
-        <nodeMappings name="Bendpoint" semanticCandidatesExpression="aql:diagram.getCommonBendpointsToDraw()" synchronizationLock="true" domainClass="uml.Element">
-          <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="" hideLabelByDefault="true" sizeComputationExpression="aql:self.getBenpointDiameter()">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-        </nodeMappings>
         <toolSections name="Common">
           <ownedTools xsi:type="tool_1:DeleteElementDescription" name="PapyrusDelete">
             <element name="element"/>
@@ -964,18 +891,6 @@
                 <firstModelOperations xsi:type="tool:DeleteView"/>
               </initialOperation>
             </menuItemDescription>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:DirectEditLabel" name="CommentEdit">
-            <mask mask="{0}"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:SetValue" featureName="body" valueExpression="aql:arg0"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:DirectEditLabel" name="ConstraintEdit" inputLabelExpression="service:getBody()">
-            <mask mask="{0}"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:setConstraintBody(arg0)"/>
-            </initialOperation>
           </ownedTools>
         </toolSections>
       </additionalLayers>
