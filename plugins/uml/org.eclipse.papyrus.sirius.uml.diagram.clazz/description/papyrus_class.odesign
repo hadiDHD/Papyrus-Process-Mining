@@ -1660,170 +1660,6 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:PopupMenu" name="Name Expression">
-            <menuItemDescription xsi:type="tool:OperationAction" name="Add String Expression" precondition="aql:self.oclIsTypeOf(uml::Property) and self.oclAsType(uml::Property).nameExpression = null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/StringExpression.gif">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:For" expression="aql:views.oclAsType(viewpoint::DSemanticDecorator).target">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:i">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::StringExpression" referenceName="nameExpression"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Remove" precondition="aql:self.oclIsTypeOf(uml::Property) and self.nameExpression &lt;> null">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:For" expression="var:views">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(uml::Property).nameExpression">
-                    <subModelOperations xsi:type="tool:RemoveElement"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-          </ownedTools>
-          <ownedTools xsi:type="tool:PopupMenu" name="Default Value">
-            <menuItemDescription xsi:type="tool:OperationAction" name="Remove" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue &lt;> null">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:For" expression="aql:views.oclAsType(viewpoint::DSemanticDecorator).target->filter(uml::Property).defaultValue">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:i">
-                    <subModelOperations xsi:type="tool:RemoveElement"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Add Duration" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue = null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Duration.gif">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:For" expression="var:views">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::Duration" referenceName="defaultValue"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Add Duration Interval" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/DurationInterval.gif">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:For" expression="var:views">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::DurationInterval" referenceName="defaultValue"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Add Expression" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Expression.gif">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:For" expression="var:views">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::Expression" referenceName="defaultValue"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Add Instance Value" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/InstanceValue.gif">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:For" expression="var:views">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::InstanceValue" referenceName="defaultValue"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Add Interval" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Interval.gif">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:For" expression="var:views">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::Interval" referenceName="defaultValue"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Add Literal Boolean" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/LiteralBoolean.gif">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:For" expression="var:views">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::LiteralBoolean" referenceName="defaultValue"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Add Literal Integer" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/LiteralInteger.gif">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:For" expression="var:views">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::LiteralInteger" referenceName="defaultValue"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Add Literal Null" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/LiteralNull.gif">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:For" expression="var:views">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::LiteralNull" referenceName="defaultValue"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Add Literal String" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/LiteralString.gif">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:For" expression="var:views">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::LiteralString" referenceName="defaultValue"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Add Literal Unlimited Natural" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/LiteralUnlimitedNatural.gif">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:For" expression="var:views">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::LiteralUnlimitedNatural" referenceName="defaultValue"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Add Opaque Expression" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/OpaqueExpression.gif">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:For" expression="var:views">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::OpaqueExpression" referenceName="defaultValue"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Add String Expression" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/StringExpression.gif">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:For" expression="var:views">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::StringExpression" referenceName="defaultValue"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Add Time Interval" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/TimeInterval.gif">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:For" expression="var:views">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::TimeInterval" referenceName="defaultValue"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-          </ownedTools>
         </toolSections>
         <toolSections documentation="The Drop from the Papyrus ModelExplorer." name="SemanticDrop">
           <ownedTools xsi:type="tool_1:ContainerDropDescription" name="SemanticClassDrop" precondition="aql:self.oclIsTypeOf(uml::Class)" forceRefresh="true" mappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class']" dragSource="PROJECT_EXPLORER">
@@ -2100,6 +1936,180 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <toolSections name="PopupMenu">
+          <ownedTools xsi:type="tool:PopupMenu" name="Sirius View Deletion">
+            <menuItemDescription xsi:type="tool:OperationAction" name="Delete View">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:DeleteView"/>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+          <ownedTools xsi:type="tool:PopupMenu" name="Name Expression">
+            <menuItemDescription xsi:type="tool:OperationAction" name="Add String Expression" precondition="aql:self.oclIsTypeOf(uml::Property) and self.oclAsType(uml::Property).nameExpression = null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/StringExpression.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:For" expression="aql:views.oclAsType(viewpoint::DSemanticDecorator).target">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:i">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::StringExpression" referenceName="nameExpression"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Remove" precondition="aql:self.oclIsTypeOf(uml::Property) and self.nameExpression &lt;> null">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:For" expression="var:views">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(uml::Property).nameExpression">
+                    <subModelOperations xsi:type="tool:RemoveElement"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+          <ownedTools xsi:type="tool:PopupMenu" name="Default Value">
+            <menuItemDescription xsi:type="tool:OperationAction" name="Remove" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue &lt;> null">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:For" expression="aql:views.oclAsType(viewpoint::DSemanticDecorator).target->filter(uml::Property).defaultValue">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:i">
+                    <subModelOperations xsi:type="tool:RemoveElement"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Add Duration" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue = null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Duration.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:For" expression="var:views">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::Duration" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Add Duration Interval" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/DurationInterval.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:For" expression="var:views">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::DurationInterval" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Add Expression" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Expression.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:For" expression="var:views">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::Expression" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Add Instance Value" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/InstanceValue.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:For" expression="var:views">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::InstanceValue" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Add Interval" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Interval.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:For" expression="var:views">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::Interval" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Add Literal Boolean" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/LiteralBoolean.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:For" expression="var:views">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::LiteralBoolean" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Add Literal Integer" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/LiteralInteger.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:For" expression="var:views">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::LiteralInteger" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Add Literal Null" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/LiteralNull.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:For" expression="var:views">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::LiteralNull" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Add Literal String" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/LiteralString.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:For" expression="var:views">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::LiteralString" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Add Literal Unlimited Natural" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/LiteralUnlimitedNatural.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:For" expression="var:views">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::LiteralUnlimitedNatural" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Add Opaque Expression" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/OpaqueExpression.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:For" expression="var:views">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::OpaqueExpression" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Add String Expression" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/StringExpression.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:For" expression="var:views">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::StringExpression" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Add Time Interval" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/TimeInterval.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:For" expression="var:views">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::TimeInterval" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+        </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclIsKindOf(uml::Association)">
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Association']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_AssociationClass_Link']/@style" attributeName="sourceArrow" value="service:association_getSourceDecorator()"/>
@@ -2120,16 +2130,6 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <toolSections name="Common">
-          <ownedTools xsi:type="tool:PopupMenu" name="Sirius View Deletion">
-            <menuItemDescription xsi:type="tool:OperationAction" name="Delete View">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:DeleteView"/>
-              </initialOperation>
-            </menuItemDescription>
-          </ownedTools>
-        </toolSections>
       </additionalLayers>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.clazz.services.ClassDiagramServices"/>
