@@ -1143,8 +1143,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.oclAsType(uml::Element).getNearestPackage()">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.GeneralizationSet" referenceName="packagedElement">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                  <subModelOperations xsi:type="tool:Let" variableName="coll" valueExpression="aql:OrderedSet{source,target}"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="generalization" valueExpression="var:coll"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="generalization" valueExpression="aql:OrderedSet{source,target}"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
