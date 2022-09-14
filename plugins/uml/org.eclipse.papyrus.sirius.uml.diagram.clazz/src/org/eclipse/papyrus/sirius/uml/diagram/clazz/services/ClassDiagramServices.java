@@ -650,6 +650,49 @@ public class ClassDiagramServices {
 	}
 
 	/**
+	 * TODO : move me into an EditionService?
+	 * @param constraint
+	 *            a UML {@link Constraint}
+	 * @return
+	 *         the body of the first specification if exists or an empty string
+	 */
+	public String constraint_getFirstSpecificationBody(final Constraint constraint) {
+		final ValueSpecification valueSpec = constraint.getSpecification();
+		if (valueSpec instanceof OpaqueExpression) {
+			OpaqueExpression opaqueEsp = (OpaqueExpression) valueSpec;
+			if (!opaqueEsp.getBodies().isEmpty()) {
+				return opaqueEsp.getBodies().get(0);
+			}
+		}
+		return ""; //$NON-NLS-1$
+	}
+
+	/**
+	 * TODO : move me into an EditionService?
+	 * This method set the first body in the specification of the {@link Constraint}
+	 * 
+	 * @param constraint
+	 *            a UML {@link Constraint}
+	 * @param newBody
+	 *            the new body
+	 */
+	public void constraint_setFirstSpecificationBody(final Constraint constraint, final String newBody) {
+		final ValueSpecification valueSpec = ((Constraint) constraint).getSpecification();
+		if (valueSpec instanceof OpaqueExpression) {
+			final OpaqueExpression opaqueEsp = (OpaqueExpression) valueSpec;
+			if (opaqueEsp.getBodies().isEmpty() && opaqueEsp.getLanguages().size() == 1) {
+				// the language is defined; but not the body
+				opaqueEsp.getBodies().add(newBody);
+			} else if (opaqueEsp.getBodies().size() > 0 && opaqueEsp.getBodies().size() == opaqueEsp.getLanguages().size()) {
+				opaqueEsp.getBodies().remove(0);
+				opaqueEsp.getBodies().add(0, newBody);
+			} else {
+				Activator.log.info("We were not able to set the new body into the Constraint because the number of language is not the same than the number of body"); //$NON-NLS-1$
+			}
+		}
+	}
+
+	/**
 	 * This method is in charge to move semantically the target element inside the source element
 	 * 
 	 * @param context
@@ -2429,7 +2472,6 @@ public class ClassDiagramServices {
 		if (newContainerView instanceof Class || newContainerView instanceof Interface) {
 			return "nestedClassifier";
 		}
-
 		return "packagedElement";
 	}
 
@@ -2481,22 +2523,6 @@ public class ClassDiagramServices {
 		return constLabel.toString();
 	}
 
-
-	/**
-	 * Get the Constraint text body.
-	 */
-	public String getBody(EObject elem) {
-		Constraint constraint = ((Constraint) elem);
-		ValueSpecification valueSpec = constraint.getSpecification();
-		if (valueSpec instanceof OpaqueExpression) {
-			OpaqueExpression opaqueEsp = (OpaqueExpression) valueSpec;
-			if (!opaqueEsp.getBodies().isEmpty()) {
-				return opaqueEsp.getBodies().get(0);
-			}
-		}
-		return "";
-	}
-
 	/**
 	 * Compute label for InformationItem
 	 * 
@@ -2525,23 +2551,6 @@ public class ClassDiagramServices {
 		}
 
 		return name;
-	}
-
-	/**
-	 * Set the Constraint body.
-	 */
-	public void setConstraintBody(Element elem, String bodyValue) {
-		if (elem instanceof Constraint) {
-			ValueSpecification valueSpec = ((Constraint) elem).getSpecification();
-			if (valueSpec instanceof OpaqueExpression) {
-				OpaqueExpression opaqueEsp = (OpaqueExpression) valueSpec;
-
-				if (!opaqueEsp.getBodies().isEmpty()) {
-					opaqueEsp.getBodies().remove(0);
-					opaqueEsp.getBodies().add(0, bodyValue);
-				}
-			}
-		}
 	}
 
 	/**
