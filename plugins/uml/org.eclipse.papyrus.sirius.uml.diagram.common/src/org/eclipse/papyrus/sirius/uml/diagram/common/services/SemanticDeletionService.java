@@ -12,29 +12,41 @@
  *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
  *****************************************************************************/
 package org.eclipse.papyrus.sirius.uml.diagram.common.services;
+
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
+
 /**
  * 
  * use a change context object with a such query to call one of my method aql:self.createNewElementFromEClassName(containerView,'ownedType')
  *
  */
 public class SemanticDeletionService extends AbstractSemanticEditionService {
-	
+
 	public EObject deleteElement(final EObject current, final EObject containerView) {
-		if (isPapyrusResource(current) || true) {//currently true to be able to test this method in a pure Sirius context
-				final DestroyElementRequest request = new DestroyElementRequest(current, false);
-				if (request != null) {
-					Command cmd = getEMFEditCommand(current, request);
-					final TransactionalEditingDomain domain = getEditingDomain(current);
-					if (domain != null) {
-						domain.getCommandStack().execute(cmd);
-						
-					}
+		if (isPapyrusResource(current) || true) {// currently true to be able to test this method in a pure Sirius context
+			final DestroyElementRequest request = new DestroyElementRequest(current, false);
+			if (request != null) {
+				Command cmd = getEMFEditCommand(current, request);
+				final TransactionalEditingDomain domain = getEditingDomain(current);
+				if (domain != null) {
+					domain.getCommandStack().execute(cmd);
+
 				}
+			}
 		}
 		return null;
+	}
+
+	/**
+	 * This method allows to destroy a semantic element using the Papyrus Service Edit
+	 * 
+	 * @param current
+	 *            the element to delete
+	 */
+	public void deleteElement(final EObject current) {
+		deleteElement(current, null);
 	}
 }

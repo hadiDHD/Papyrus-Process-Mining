@@ -98,5 +98,10 @@ To have a better view and simplify the correction of problems in sequence diagra
 
 = Class Diagram = 
 == Features ==
-Label of UML element with the isAbstract feature set to true are displayed in italic
-Label of UML element with the isStatic feature set to true are underlined.
+*Label of UML element with the isAbstract feature set to true are displayed in italic
+*Label of UML element with the isStatic feature set to true are underlined.
+===UML::Property===
+*Specific menu to create a default value on a UML::Property from the diagram
+[[File:../../../image/user/ClassDiagram_Property_CreateDefaultValue.png]]
+*Specific menu to delete a default value on a UML::Property directly from the diagram
+[[File:../../../image/user/ClassDiagram_Property_DeleteDefaultValue.png]]
