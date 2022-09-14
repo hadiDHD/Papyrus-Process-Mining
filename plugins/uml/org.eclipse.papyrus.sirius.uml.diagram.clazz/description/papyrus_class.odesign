@@ -577,7 +577,7 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Component" referenceName="packagedElement">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                      <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Component']" containerViewExpression="aql:elementView"/>
+                      <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Component']" containerViewExpression="aql:containerView"/>
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
@@ -614,7 +614,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:elementView">
                 <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(diagram::DDiagram)">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(uml::Classifier)">
+                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(uml::Class)">
                       <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.DataType" referenceName="nestedClassifier">
                         <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
                         <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_DataType']" containerViewExpression="aql:elementView"/>
@@ -654,7 +654,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:elementView">
                 <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(diagram::DDiagram)">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(uml::Classifier)">
+                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(uml::Class)">
                       <subModelOperations xsi:type="tool:CreateInstance" typeName="uml.Enumeration" referenceName="nestedClassifier">
                         <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
                         <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration']" containerViewExpression="aql:elementView"/>
@@ -786,7 +786,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="Package" referenceName="packagedElement">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::Package" referenceName="packagedElement">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
                   <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Package']" containerViewExpression="aql:containerView"/>
                 </subModelOperations>
@@ -1755,7 +1755,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:For" expression="aql:views.oclAsType(viewpoint::DSemanticDecorator).target">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:i">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="StringExpression" referenceName="nameExpression"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::StringExpression" referenceName="nameExpression"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -1787,7 +1787,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:For" expression="var:views">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="Duration" referenceName="defaultValue"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::Duration" referenceName="defaultValue"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -1797,7 +1797,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:For" expression="var:views">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="DurationInterval" referenceName="defaultValue"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::DurationInterval" referenceName="defaultValue"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -1807,7 +1807,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:For" expression="var:views">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="Expression" referenceName="defaultValue"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::Expression" referenceName="defaultValue"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -1817,7 +1817,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:For" expression="var:views">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="InstanceValue" referenceName="defaultValue"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::InstanceValue" referenceName="defaultValue"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -1827,7 +1827,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:For" expression="var:views">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="Interval" referenceName="defaultValue"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::Interval" referenceName="defaultValue"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -1837,7 +1837,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:For" expression="var:views">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="LiteralBoolean" referenceName="defaultValue"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::LiteralBoolean" referenceName="defaultValue"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -1847,7 +1847,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:For" expression="var:views">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="LiteralInteger" referenceName="defaultValue"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::LiteralInteger" referenceName="defaultValue"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -1857,7 +1857,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:For" expression="var:views">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="LiteralNull" referenceName="defaultValue"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::LiteralNull" referenceName="defaultValue"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -1867,7 +1867,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:For" expression="var:views">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="LiteralString" referenceName="defaultValue"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::LiteralString" referenceName="defaultValue"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -1877,7 +1877,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:For" expression="var:views">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="LiteralUnlimitedNatural" referenceName="defaultValue"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::LiteralUnlimitedNatural" referenceName="defaultValue"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -1887,7 +1887,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:For" expression="var:views">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="OpaqueExpression" referenceName="defaultValue"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::OpaqueExpression" referenceName="defaultValue"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -1897,7 +1897,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:For" expression="var:views">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="StringExpression" referenceName="defaultValue"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::StringExpression" referenceName="defaultValue"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -1907,7 +1907,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:For" expression="var:views">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="TimeInterval" referenceName="defaultValue"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::TimeInterval" referenceName="defaultValue"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -2220,9 +2220,6 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <decorationDescriptionsSet>
-          <decorationDescriptions xsi:type="description:SemanticBasedDecoration"/>
-        </decorationDescriptionsSet>
       </additionalLayers>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.clazz.services.ClassDiagramServices"/>
