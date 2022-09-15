@@ -901,7 +901,6 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.common.core.services.AbstractDiagramServices"/>
   </ownedViewpoints>
   <userColorsPalettes>
-    <entries xsi:type="description:UserFixedColor" red="239" green="239" blue="239" name="StateMachine_Gray_Min"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="204" name="CommentColor"/>
     <entries xsi:type="description:UserFixedColor" red="195" green="209" blue="213" name="StateMachine_Gray"/>
     <entries xsi:type="description:UserFixedColor" red="200" green="255" blue="230" name="ConstraintColor"/>
