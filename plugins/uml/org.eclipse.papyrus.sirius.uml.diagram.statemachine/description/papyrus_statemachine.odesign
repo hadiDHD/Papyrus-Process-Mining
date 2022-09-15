@@ -896,9 +896,6 @@
           </vsmElementCustomizations>
         </customization>
       </defaultLayer>
-      <additionalLayers name="Common" optional="false">
-        <toolSections name="Common"/>
-      </additionalLayers>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.statemachine.StateMachineServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.common.core.services.AbstractDiagramServices"/>
