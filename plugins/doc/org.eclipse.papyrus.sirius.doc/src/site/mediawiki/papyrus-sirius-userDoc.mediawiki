@@ -75,6 +75,12 @@ Using the shortcut CTRL + H, you can simply show or hide and element from the di
 
 [[File:../../../image/user/5_ShowHide.png]]
 
+== Diagram Synchronization with the ModelExplorer ==
+When the user selects an element in a Sirius Diagram, this element is selected in the Papyrus ModelExplorer.
+
+== Diagram Synchronization with the Property View ==
+When the user selects an element in a Sirius Diagram, the property view of this element is displayed.
+
 == Pin / Unpin ==
 
 Pinning an element makes it protected from any action which can modify the position of this element in the diagram, such as arrange all.

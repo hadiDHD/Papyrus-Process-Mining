@@ -158,6 +158,10 @@ for (final ViewPrototype proto : PolicyChecker.getFor(selection).getPrototypesFo
 
 
 = Common Diagram =
+== How to get the semantic EObject from a Sirius EditPart==
+Initially, for an Editpart selected in a Sirius Diagram,  the method '''org.eclipse.papyrus.infra.emf.utils.EMFHelper.getEObject(Object)''' returns as EObject the Sirius diagram element representation (from the Sirius DDiagram metamodel) instead of the semantic EObject. We get this problem, because Sirius uses an intermediate metamodel (DDiagram) between the semantic element and the GMF metamodel. Consequently, the selection in the ModelExplorer and the displayed property view were never synchronized with a Sirius Diagram.
+
+To solve this problem, our class '''org.eclipse.papyrus.sirius.editor.Activator''' contributes to the OSGi Service '''EObjectResolverService''' defined by the Papyrus plugin '''org.eclipse.papyrus.infra.emf'''. Our resolver is the class '''org.eclipse.papyrus.sirius.editor.internal.emf.SiriusEditPartEObjectResolver'''.
 
 == Common concepts ==
 

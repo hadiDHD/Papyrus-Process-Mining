@@ -39,8 +39,8 @@ import org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.configuration.I
 import org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.utils.DirectEditorsUtil;
 import org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.utils.IDirectEditorsIds;
 import org.eclipse.sirius.diagram.DDiagramElement;
-import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeSpec;
 import org.eclipse.sirius.diagram.description.tool.DirectEditLabel;
+import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeSpec;
 import org.eclipse.sirius.diagram.tools.internal.command.builders.DirectEditCommandBuilder;
 import org.eclipse.sirius.diagram.ui.graphical.edit.policies.ToolBasedLabelDirectEditPolicy;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNode3EditPart;
@@ -321,6 +321,7 @@ public class XtextSiriusDNode3EditPart extends DNode3EditPart implements ITextAw
 	@Override
 	public Object getAdapter(Class key) {
 		if (key == EObject.class) {
+			//bug 580744 is fixed, so we are not sure if this code is still required or not. 
 			return resolveTargetSemanticElement();
 		}
 		return super.getAdapter(key);

@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 2021 CEA LIST, Artal Technologies
+ * Copyright (c) 2021-2022 CEA LIST, Artal Technologies
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -10,12 +10,17 @@
  *
  * Contributors:
  *  Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
+ *  Vincent LORENZO (CEA LIST) - vincent.lorenzo@cea.fr - bug 580744
  *****************************************************************************/
 package org.eclipse.papyrus.sirius.editor;
 
 import org.eclipse.papyrus.infra.core.log.LogHelper;
+import org.eclipse.papyrus.infra.emf.spi.resolver.IEObjectResolver;
+import org.eclipse.papyrus.infra.emf.utils.EMFHelper;
+import org.eclipse.papyrus.sirius.editor.internal.emf.SiriusEditPartEObjectResolver;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceRegistration;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -30,6 +35,12 @@ public class Activator extends AbstractUIPlugin {
 	public static LogHelper log;
 
 	/**
+	 * contribution to the OSGi Service used by {@link EMFHelper} to revolve Sirius EditPart into the represented semantic EObject
+	 */
+	private ServiceRegistration<IEObjectResolver> eobjectResolverReg;
+
+
+	/**
 	 * The constructor
 	 */
 	public Activator() {
@@ -40,10 +51,15 @@ public class Activator extends AbstractUIPlugin {
 		super.start(context);
 		plugin = this;
 		log = new LogHelper(getDefault());
+		this.eobjectResolverReg = context.registerService(IEObjectResolver.class, SiriusEditPartEObjectResolver::resolve, null);
 	}
 
 	@Override
 	public void stop(BundleContext context) throws Exception {
+		if (this.eobjectResolverReg != null) {
+			this.eobjectResolverReg.unregister();
+			this.eobjectResolverReg = null;
+		}
 		plugin = null;
 		super.stop(context);
 	}
