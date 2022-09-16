@@ -14,10 +14,11 @@
 package org.eclipse.papyrus.sirius.editor.internal.emf;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.papyrus.infra.emf.utils.EMFHelper;
-import org.eclipse.sirius.diagram.DSemanticDiagram;
-import org.eclipse.sirius.diagram.ui.edit.api.part.AbstractDDiagramEditPart;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
+import org.eclipse.sirius.diagram.ui.edit.api.part.ISiriusEditPart;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 
 /**
  * This class is used by {@link EMFHelper} to get the EObject (an UML Element in the main case) represented by a SiriusEditPart.
@@ -40,14 +41,14 @@ public final class SiriusEditPartEObjectResolver {
 		Object resolved = element;
 		if (element instanceof IDiagramElementEditPart) {
 			resolved = ((IDiagramElementEditPart) element).resolveTargetSemanticElement();
-		}
-		if (element instanceof AbstractDDiagramEditPart) {
-			AbstractDDiagramEditPart ep = (AbstractDDiagramEditPart) element;
-			final EObject semanticElement = ep.resolveSemanticElement();
-			if (semanticElement instanceof DSemanticDiagram) {
-				resolved = ((DSemanticDiagram) semanticElement).getTarget();
+		} else if (element instanceof ISiriusEditPart && element instanceof GraphicalEditPart) { //we want GraphicalEditPart, but only the Sirius ones. We don't want make stuff for Papyrus GMF Diagrams
+			//editparts provided by Sirius but they don't implements the method resolveTargetSemanticElement
+			final GraphicalEditPart ep = (GraphicalEditPart) element;
+			final EObject semanticElement = ((GraphicalEditPart) ep).resolveSemanticElement();
+			// when we are in Sirius Diagram, we should get a DSemanticDecorator
+			if (semanticElement instanceof DSemanticDecorator) {
+				resolved = ((DSemanticDecorator) semanticElement).getTarget();
 			}
-
 		}
 		return resolved;
 	}

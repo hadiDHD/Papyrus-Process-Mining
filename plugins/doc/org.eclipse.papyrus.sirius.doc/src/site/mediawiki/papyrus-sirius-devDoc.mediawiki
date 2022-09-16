@@ -163,6 +163,10 @@ Initially, for an Editpart selected in a Sirius Diagram,  the method '''org.ecli
 
 To solve this problem, our class '''org.eclipse.papyrus.sirius.editor.Activator''' contributes to the OSGi Service '''EObjectResolverService''' defined by the Papyrus plugin '''org.eclipse.papyrus.infra.emf'''. Our resolver is the class '''org.eclipse.papyrus.sirius.editor.internal.emf.SiriusEditPartEObjectResolver'''.
 
+== ModelExplorer Synchronization with a Papyrus Sirius Diagram ==
+The selection of the ModelExplorer is propagated to the Papyrus Sirius Diagram editor (class '''org.eclipse.papyrus.sirius.editor.internal.editor.NestedSiriusDiagramViewEditor''') using the interface '''org.eclipse.papyrus.infra.widgets.util.IRevealSemanticElement'''.
+
+
 == Common concepts ==
 
 === Bendpoints ===

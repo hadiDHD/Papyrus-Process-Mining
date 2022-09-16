@@ -81,6 +81,9 @@ When the user selects an element in a Sirius Diagram, this element is selected i
 == Diagram Synchronization with the Property View ==
 When the user selects an element in a Sirius Diagram, the property view of this element is displayed.
 
+== ModelExplorer Synchronization with a Papyrus Sirius Diagram ==
+When the user selects an element in the ModelExplorer, if the open Diagram contains a graphical representation of this element, this one is selected.
+
 == Pin / Unpin ==
 
 Pinning an element makes it protected from any action which can modify the position of this element in the diagram, such as arrange all.

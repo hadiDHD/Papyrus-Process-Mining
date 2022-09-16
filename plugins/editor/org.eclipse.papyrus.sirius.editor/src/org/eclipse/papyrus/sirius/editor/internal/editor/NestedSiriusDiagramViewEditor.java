@@ -23,14 +23,13 @@ import java.util.List;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalViewer;
 import org.eclipse.gef.KeyHandler;
 import org.eclipse.gef.KeyStroke;
@@ -43,7 +42,7 @@ import org.eclipse.gef.ui.actions.ZoomOutAction;
 import org.eclipse.gmf.runtime.common.ui.util.IPartSelector;
 import org.eclipse.gmf.runtime.diagram.ui.actions.ActionIds;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.internal.actions.InsertAction;
 import org.eclipse.gmf.runtime.diagram.ui.internal.actions.PromptingDeleteAction;
 import org.eclipse.gmf.runtime.diagram.ui.internal.actions.PromptingDeleteFromModelAction;
@@ -59,6 +58,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.papyrus.infra.core.resource.ModelSet;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
+import org.eclipse.papyrus.infra.emf.utils.EMFHelper;
 import org.eclipse.papyrus.infra.emf.utils.ServiceUtilsForEObject;
 import org.eclipse.papyrus.infra.internationalization.common.editor.IInternationalizationEditor;
 import org.eclipse.papyrus.infra.ui.editor.IMultiDiagramEditor;
@@ -74,6 +74,11 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.internal.session.SessionTransientAttachment;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNode3EditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainer2EditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerEditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListElementEditPart;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramCommandStack;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramEditorImpl;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.tabbar.Tabbar;
@@ -409,21 +414,10 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		return revealElement(Collections.singleton(element));
 	}
 
-	public Object getSemanticElement(Object wrapper) {
-		if (wrapper instanceof IGraphicalEditPart) {
-			return ((IGraphicalEditPart) wrapper).resolveSemanticElement();
-		}
-		if (wrapper instanceof IAdaptable) {
-			return ((IAdaptable) wrapper).getAdapter(EObject.class);
-		}
-		return null;
-	}
-
-
 	/**
 	 * {@inheritDoc}
 	 *
-	 * reveal all editpart that represent an element in the given list.
+	 * reveal all editparts that represent an element in the given list.
 	 *
 	 * @see org.eclipse.papyrus.infra.core.ui.IRevealSemanticElement#revealSemanticElement(java.util.List)
 	 *
@@ -442,19 +436,38 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 			List<IGraphicalEditPart> partSelection = new ArrayList<>();
 
 			while (iter.hasNext() && !clonedList.isEmpty()) {
-				Object currentEditPart = iter.next();
-				// look only admit IPrimary editpart to avoid compartment and labels of links
-				if (currentEditPart instanceof IPrimaryEditPart) {
-					Object currentElement = getSemanticElement(currentEditPart);
+				final Object currentEditPart = iter.next();
+				if (currentEditPart instanceof ShapeCompartmentEditPart) {
+					continue;
+				}
+				if (currentEditPart instanceof DNodeContainerEditPart // node
+						|| currentEditPart instanceof DNodeListElementEditPart// node element in a list compartment
+						|| currentEditPart instanceof DNodeContainer2EditPart // node inside node compartment AND the compartment itself
+						|| currentEditPart instanceof DNode3EditPart // node with label around it
+						|| currentEditPart instanceof DEdgeEditPart) { // edge
+
+
+					final Object currentElement = EMFHelper.getEObject(currentEditPart);
+					
+					//we need to distinguish compartment from node inside a compartment
+					if (currentEditPart instanceof DNodeContainer2EditPart) {
+						final EditPart parentEP = ((DNodeContainer2EditPart) currentEditPart).getParent();
+						final Object parentElement = EMFHelper.getEObject(parentEP);
+						if (currentElement == parentElement) {
+							continue; //currentEditPart is a compartment, we ignore it
+						}
+					}
+
 					if (clonedList.contains(currentElement)) {
 						clonedList.remove(currentElement);
 						researchedEditPart = ((IGraphicalEditPart) currentEditPart);
 						partSelection.add(researchedEditPart);
 
 					}
-				}
+				} 
 			}
 
+			//TODO this part must be evaluated with bug 580748
 			// We may also search for a GMF View (Instead of a semantic model Element)
 			if (!clonedList.isEmpty()) {
 				for (Iterator<?> iterator = clonedList.iterator(); iterator.hasNext();) {
@@ -467,6 +480,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 				}
 			}
 
+			
 			// the second test, as the model element is not a PrimaryEditPart, is to allow the selection even if the user selected it with other elements
 			// and reset the selection if only the model is selected
 			if (clonedList.isEmpty() || (clonedList.size() == 1 && clonedList.get(0) == getDiagram().getElement())) {
