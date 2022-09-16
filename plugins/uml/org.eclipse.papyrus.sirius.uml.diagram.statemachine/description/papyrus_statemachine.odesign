@@ -179,28 +179,28 @@
                 </style>
               </subContainerMappings>
               <subContainerMappings name="SMD_StateBehaviour_Compartment" label="SMD_StateBehaviour_Compartment" preconditionExpression="aql:not self.doActivity->isEmpty() or not self.entry->isEmpty() or not self.exit->isEmpty()" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction%20%20']" semanticCandidatesExpression="var:self" synchronizationLock="true" domainClass="uml::State" dropDescriptions="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticConstraintFromModelDrop'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticCommentFromModelDrop']" childrenPresentation="List">
-                <subNodeMappings name="Entry" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction%20%20']" semanticCandidatesExpression="feature:entry" synchronizationLock="true" domainClass="uml::Element">
+                <subNodeMappings name="SMD_Entry_Label" label="SMD_Entry_Label" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction%20%20']" semanticCandidatesExpression="feature:entry" synchronizationLock="true" domainClass="uml::Element">
                   <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:'/entry '+ self.getTypeName() +' '+ self.getName()" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   </style>
                 </subNodeMappings>
-                <subNodeMappings name="DoActivity" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction%20%20']" semanticCandidatesExpression="feature:doActivity" synchronizationLock="true" domainClass="uml::Element">
+                <subNodeMappings name="SMD_DoActivity_Label" label="SMD_DoActivity_Label" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction%20%20']" semanticCandidatesExpression="feature:doActivity" synchronizationLock="true" domainClass="uml::Element">
                   <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:'/do '+ self.getTypeName() +' '+ self.getName()" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   </style>
                 </subNodeMappings>
-                <subNodeMappings name="Exit" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction%20%20']" semanticCandidatesExpression="feature:exit" synchronizationLock="true" domainClass="uml::Element">
+                <subNodeMappings name="SMD_Exit_Label" label="SMD_Exit_Label" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction%20%20']" semanticCandidatesExpression="feature:exit" synchronizationLock="true" domainClass="uml::Element">
                   <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:'/exit '+ self.getTypeName() +' '+ self.getName()" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   </style>
                 </subNodeMappings>
-                <subNodeMappings name="Defer" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction%20%20']" semanticCandidatesExpression="feature:deferrableTrigger" synchronizationLock="true" domainClass="uml::Element">
+                <subNodeMappings name="SMD_Defer_Label" label="SMD_Defer_Label" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction%20%20']" semanticCandidatesExpression="feature:deferrableTrigger" synchronizationLock="true" domainClass="uml::Element">
                   <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:self.getTextTrigger(view)" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
