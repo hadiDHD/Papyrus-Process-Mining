@@ -186,8 +186,8 @@
                     <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   </style>
                 </subNodeMappings>
-                <subNodeMappings name="SMD_Defer_Label" label="SMD_Defer_Label" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" semanticCandidatesExpression="feature:deferrableTrigger" synchronizationLock="true" domainClass="uml::Element">
-                  <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:self.getTextTrigger(view)" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+                <subNodeMappings name="SMD_Defer_Label" label="SMD_Defer_Label" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" semanticCandidatesExpression="feature:deferrableTrigger" synchronizationLock="true" domainClass="uml::Trigger">
+                  <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:'/defer '+ self.getTypeName() +' '+ self.getName()" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

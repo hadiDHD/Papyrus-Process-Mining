@@ -42,11 +42,9 @@ import org.eclipse.papyrus.infra.gmfdiag.common.model.NotationUtils;
 import org.eclipse.papyrus.sirius.uml.diagram.statemachine.constants.SMD_MappingTypes;
 import org.eclipse.papyrus.sirius.uml.diagram.statemachine.custom.StateMachineRegionPolicy;
 import org.eclipse.papyrus.sirius.uml.diagram.statemachine.custom.StateMachineRegionPolicy.Zone;
-import org.eclipse.papyrus.uml.diagram.statemachine.custom.parsers.Messages;
 import org.eclipse.papyrus.uml.diagram.statemachine.custom.parsers.OpaqueBehaviorViewUtil;
 import org.eclipse.papyrus.uml.diagram.statemachine.custom.preferences.CSSOptionsConstants;
 import org.eclipse.papyrus.uml.diagram.statemachine.custom.preferences.PreferenceConstants;
-import org.eclipse.papyrus.uml.diagram.statemachine.custom.util.TriggerUtil;
 import org.eclipse.papyrus.uml.diagram.statemachine.part.UMLDiagramEditorPlugin;
 import org.eclipse.papyrus.uml.internationalization.utils.utils.UMLLabelInternationalization;
 import org.eclipse.papyrus.uml.tools.utils.ValueSpecificationUtil;
@@ -1379,26 +1377,6 @@ public class StateMachineServices {
 				result.append("all"); //$NON-NLS-1$
 			}
 		}
-		return result.toString();
-	}
-
-	/**
-	 * Gets the text trigger.
-	 *
-	 * @param trigger
-	 *            the trigger
-	 * @param containerView
-	 *            the container view
-	 * @return the text trigger
-	 */
-	public String getTextTrigger(Trigger trigger, EObject containerView) {
-		StringBuilder result = new StringBuilder();
-		View view = SiriusGMFHelper.getGmfView((DDiagramElement) containerView);
-		if (trigger.getEvent() != null) {
-			result.append(TriggerUtil.getTextForTrigger(view, trigger));
-		}
-		result.append(" ");
-		result.append(Messages.DeferrableTriggerParser_DEFER_KEYWORD);
 		return result.toString();
 	}
 
