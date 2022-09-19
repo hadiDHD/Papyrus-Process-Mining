@@ -39,6 +39,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
 import org.eclipse.papyrus.infra.gmfdiag.common.model.NotationUtils;
+import org.eclipse.papyrus.sirius.uml.diagram.statemachine.constants.SMD_MappingTypes;
 import org.eclipse.papyrus.sirius.uml.diagram.statemachine.custom.StateMachineRegionPolicy;
 import org.eclipse.papyrus.sirius.uml.diagram.statemachine.custom.StateMachineRegionPolicy.Zone;
 import org.eclipse.papyrus.uml.diagram.statemachine.custom.parsers.Messages;
@@ -765,7 +766,7 @@ public class StateMachineServices {
 		if (object instanceof DNodeContainer) {
 			DDiagramElement f;
 			List<DDiagramElement> ownedDiagramElements = ((DNodeContainer) object).getOwnedDiagramElements().stream().filter(d -> (d instanceof DNodeContainer)).map(d -> (DNodeContainer) d)
-					.filter(d -> d.getActualMapping().getName().equals("SMD_RegionCompartment"))
+					.filter(d -> d.getActualMapping().getName().equals(SMD_MappingTypes.REGION_COMPARTMENT))
 					.collect(Collectors.toList());
 			return ownedDiagramElements;
 		}
@@ -1033,7 +1034,7 @@ public class StateMachineServices {
 	 */
 	public int computeBorderLineSize(EObject context, EObject view) {
 		if (view instanceof DNodeContainer) {
-			if (((DNodeContainer) view).getActualMapping().getName().equals("SMD_RegionCompartment")) {
+			if (((DNodeContainer) view).getActualMapping().getName().equals(SMD_MappingTypes.REGION_COMPARTMENT)) {
 				if (((DNodeContainer) view).getElements().size() > 0) {
 					return 0;
 				}

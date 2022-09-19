@@ -53,6 +53,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.infra.gmfdiag.common.adapter.SemanticAdapter;
+import org.eclipse.papyrus.sirius.uml.diagram.statemachine.constants.SMD_CreationToolsIds;
 import org.eclipse.papyrus.uml.diagram.statemachine.custom.commands.CustomRegionCreateElementCommand;
 import org.eclipse.sirius.diagram.description.tool.ContainerCreationDescription;
 import org.eclipse.uml2.uml.State;
@@ -309,7 +310,7 @@ public class StateMachineRegionPolicy extends CreationEditPolicy {
 		if (request instanceof CreateRequest) {
 			Object newObject = ((CreateRequest) request).getNewObject();
 			if (newObject instanceof ContainerCreationDescription) {
-				if (((ContainerCreationDescription) newObject).getName().equals("SMD_RegionCompartment")) {
+				if (SMD_CreationToolsIds.CREATE__REGION__TOOL.equals(((ContainerCreationDescription) newObject).getName())) {
 					// CreateUnspecifiedTypeRequest unspecReq = (CreateUnspecifiedTypeRequest) request;
 					// for (Iterator<?> iter = unspecReq.getElementTypes().iterator(); iter.hasNext();) {
 					// IElementType elementType = (IElementType) iter.next();

@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerViewNodeContainerCompartment2EditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerViewNodeContainerCompartmentEditPart;
@@ -43,7 +43,6 @@ public class StateMachineSiriusCreateEditPolicyProvider extends AbstractCreateEd
 	@Override
 	public void createEditPolicies(EditPart editpart) {
 		EditPolicy regionCreationPolicy = new StateMachineRegionPolicy();
-
 		editpart.installEditPolicy(EditPolicyRoles.CREATION_ROLE, regionCreationPolicy);
 	}
 
@@ -58,11 +57,10 @@ public class StateMachineSiriusCreateEditPolicyProvider extends AbstractCreateEd
 
 	@Override
 	protected boolean isValidEditPart(EditPart editPart) {
-
 		if (editPart instanceof DNodeContainerViewNodeContainerCompartmentEditPart || editPart instanceof DNodeContainerViewNodeContainerCompartment2EditPart) {
 			Object model = editPart.getModel();
-			if (model instanceof NodeImpl) {
-				EObject element = ((NodeImpl) model).getElement();
+			if (model instanceof Node) {
+				EObject element = ((Node) model).getElement();
 				if (element instanceof DNodeContainer) {
 					EObject target = ((DNodeContainer) element).getTarget();
 					if (target instanceof Region) {
@@ -71,8 +69,6 @@ public class StateMachineSiriusCreateEditPolicyProvider extends AbstractCreateEd
 				}
 			}
 		}
-
-
 		return false;
 	}
 
