@@ -65,12 +65,12 @@
    </extension>
     <extension
          point="org.eclipse.papyrus.infra.core.service">
-      <serviceFactory
-            classname="org.eclipse.papyrus.sirius.editor.internal.sessions.SessionServiceFactory"
+      <service
+            classname="org.eclipse.papyrus.sirius.editor.internal.sessions.SessionService"
             id="org.eclipse.papyrus.sirius.editor.sirius.ISiriusSessionService"
             priority="1"
             startKind="startup">
-      </serviceFactory>
+      </service>
    </extension>
    <extension
          point="org.eclipse.sirius.sessionFactory">

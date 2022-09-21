@@ -58,7 +58,6 @@ public class SiriusArchitectureDescriptionAdapter extends AbstractArchitectureDe
 	@Override
 	public void fireArchitectureViewpointsChanged(Notification notification) {
 		this.updater.updateAppliedSiriusViewpoints();
-
 	}
 
 }

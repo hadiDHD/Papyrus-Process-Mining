@@ -25,7 +25,6 @@ import org.eclipse.papyrus.sirius.editor.representation.architecture.Activator;
 import org.eclipse.papyrus.sirius.editor.sirius.ISiriusSessionService;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.internal.session.SessionTransientAttachment;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.description.DiagramDescription;
 import org.eclipse.sirius.viewpoint.description.DAnnotation;
@@ -113,7 +112,8 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 		if (DialectManager.INSTANCE.canCreate(this.semanticContext, diagramDescription)) {
 
 			// required to be able to create the diagram
-			this.semanticContext.eAdapters().add(new SessionTransientAttachment(session));
+			sessionService.attachSession(this.semanticContext);
+
 			// TODO : find a better way for that
 			// this annotation is used to retrieve the ViewPrototype for a given diagram
 			// TODO try to create a dialect manager

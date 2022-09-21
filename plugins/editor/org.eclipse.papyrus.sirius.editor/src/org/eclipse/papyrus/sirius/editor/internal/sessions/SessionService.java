@@ -16,45 +16,51 @@
 package org.eclipse.papyrus.sirius.editor.internal.sessions;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Iterator;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.osgi.util.NLS;
-import org.eclipse.papyrus.infra.architecture.ArchitectureDescriptionUtils;
 import org.eclipse.papyrus.infra.architecture.listeners.ArchitectureDescriptionAdapterUtils;
-import org.eclipse.papyrus.infra.core.architecture.RepresentationKind;
-import org.eclipse.papyrus.infra.core.architecture.merged.MergedArchitectureViewpoint;
 import org.eclipse.papyrus.infra.core.resource.ModelSet;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.infra.emf.gmf.util.GMFUnsafe;
-import org.eclipse.papyrus.sirius.editor.representation.SiriusDiagramPrototype;
-import org.eclipse.papyrus.sirius.editor.sirius.ISiriusSessionService;
 import org.eclipse.papyrus.sirius.editor.Activator;
 import org.eclipse.papyrus.sirius.editor.internal.listeners.SiriusArchitectureDescriptionAdapter;
+import org.eclipse.papyrus.sirius.editor.internal.runnables.RegisterSemanticResourceRunnable;
+import org.eclipse.papyrus.sirius.editor.internal.runnables.UpdateSiriusViewpointRunnable;
 import org.eclipse.papyrus.sirius.editor.modelresource.SiriusDiagramModel;
+import org.eclipse.papyrus.sirius.editor.representation.SiriusDiagramPrototype;
+import org.eclipse.papyrus.sirius.editor.sirius.ISiriusSessionService;
+import org.eclipse.papyrus.uml.tools.model.UmlModel;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.session.DefaultLocalSessionCreationOperation;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.internal.session.SessionTransientAttachment;
 import org.eclipse.sirius.diagram.description.DiagramDescription;
-import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
-import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
+import org.eclipse.sirius.ui.business.api.session.IEditingSession;
+import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
-import org.eclipse.sirius.viewpoint.description.Viewpoint;
 
 /**
- * This service is in charge to manage all stuff about Sirius Session
+ * This service is in charge to create and initialize the Sirius Session when a Papyrus model is loaded.
+ * The Sirius Session must be created and fully initialized just after the creation of a Papyrus model, even when the model doesn't contain a Sirius Diagram
+ * 
+ * The created Sirius Session is opened at the end of the process
  */
+@SuppressWarnings("restriction") // suppress warning for SessionTransientAttachment
 public class SessionService implements ISiriusSessionService, ISiriusSessionViewpointUpdater {
 
 	/**
@@ -77,8 +83,21 @@ public class SessionService implements ISiriusSessionService, ISiriusSessionView
 	 */
 	private Session createdSession = null;
 
+	/**
+	 * this adapter listen the switch of Papyrus architecture Framework in order to update the available Sirius Viewpoint
+	 */
 	private SiriusArchitectureDescriptionAdapter architectureListener;
 
+	/**
+	 * this adapter listen the add of EObject inside the UML Resource
+	 */
+	private Adapter semanticResourceListener;
+
+	/**
+	 * 
+	 * Constructor.
+	 *
+	 */
 	public SessionService() {
 		// nothing to do
 	}
@@ -112,6 +131,11 @@ public class SessionService implements ISiriusSessionService, ISiriusSessionView
 		if (this.modelSet == null || this.editingDomain == null) {
 			throw new ServiceException(NLS.bind("The service {0} can't start.", ISiriusSessionService.SERVICE_ID)); //$NON-NLS-1$
 		}
+
+		// we need to create the session before registering adapter
+		// the session must be created when Papyrus model is opened (even when there is not a Sirius Diagram inside the model
+		createdSession();
+
 		this.architectureListener = new SiriusArchitectureDescriptionAdapter(this);
 		ArchitectureDescriptionAdapterUtils.registerListener(this.modelSet, this.architectureListener);
 	}
@@ -166,22 +190,43 @@ public class SessionService implements ISiriusSessionService, ISiriusSessionView
 		// 3. create the session
 		this.createdSession = createSiriusSession(siriusFileResource);
 
+		// 4 . associate the resource to the session
 		SiriusDiagramModel siriusModel = (SiriusDiagramModel) modelSet.getModel(SiriusDiagramModel.SIRIUS_DIAGRAM_MODEL_ID);
 		Assert.isNotNull(siriusModel, NLS.bind("We can't find the '{0}' class.", SiriusDiagramModel.class.getName())); //$NON-NLS-1$
 		siriusModel.setSiriusSession(this.createdSession);
 
-		URI umlURI = modelSet.getURIWithoutExtension().appendFileExtension("uml");//TODO uml as string is not very nice inside an infra plugin //$NON-NLS-1$
-		this.createdSession.addSemanticResource(umlURI, new NullProgressMonitor());
-		this.createdSession.save(new NullProgressMonitor());
+		// 5. associate the session to the resource
+		// this point requires that the resource.getContents() is not empty!
+		final Resource semanticResource = this.modelSet.getResource(getSemanticResourceURI(), false);
+		if (semanticResource.getContents().size() != 0) {
+			//1. attach the semantic resource
+			setSemanticResource();
+			//2. update the Sirius viewpoint
+			updateAppliedSiriusViewpoints();
+			//3. open the session
+			openSessions();
+		} else {
+			// we are creating a new UML Model, and the root element of the semantic resource has not yet been created
+			// this adapter is in charge to register the semantic resource inside the session when the root element would have been added into the resource
+			this.semanticResourceListener = new AdapterImpl() {
 
-		// 4. update applied sirius viewpoints
-		updateAppliedSiriusViewpoints();
+				public void notifyChanged(final Notification msg) {
+					// EObject to avoid dependency on UML Element{
+					if (Notification.ADD == msg.getEventType() && msg.getNewValue() instanceof EObject) {
 
-		// VL : not sure if we need to save before or after the sirius viewpoint application.
-		//initially we applied the sirius viewpoint AFTER the save
-		// this.createdSession.save(new NullProgressMonitor());
-
-
+						//1. attach the semantic resource
+						setSemanticResource();
+						//2. update the Sirius viewpoint
+						updateAppliedSiriusViewpoints();
+						//3. open the session
+						openSessions();
+						//4. we can remove the listener after the first notification
+						semanticResource.eAdapters().remove(semanticResourceListener);
+					}
+				}
+			};
+			semanticResource.eAdapters().add(this.semanticResourceListener);
+		}
 	}
 
 	/**
@@ -253,35 +298,10 @@ public class SessionService implements ISiriusSessionService, ISiriusSessionView
 		return null;
 	}
 
-	/**
-	 *
-	 * @return
-	 *         the collection of Sirius {@link Viewpoint} referenced in the current Papyrus architecture framework
-	 */
-	private final Collection<Viewpoint> collectSiriusViewpointInPapyrusArchitecture() {
-		String fileExtension = createdSession.getSemanticResources().iterator().next().getURI().fileExtension();
-		Set<Viewpoint> availableViewpoints = ViewpointSelection.getViewpoints(fileExtension);
-		final ArchitectureDescriptionUtils utils = new ArchitectureDescriptionUtils(this.modelSet);
-		final Collection<MergedArchitectureViewpoint> vp = utils.getArchitectureContext().getViewpoints();
-		final Collection<Viewpoint> siriusViewpoints = new HashSet<>();
-		for (MergedArchitectureViewpoint tmp : vp) {
-			for (RepresentationKind current : tmp.getRepresentationKinds()) {
-				if (current instanceof SiriusDiagramPrototype) {
-					final DiagramDescription desc = ((SiriusDiagramPrototype) current).getDiagramDescription();
-					final EObject currentV = desc.eContainer();
-					if (currentV instanceof Viewpoint) {
-						Viewpoint appliedViewpoint = availableViewpoints.stream().filter(v->v.getName().equals(((Viewpoint) currentV).getName())).findFirst().orElse((Viewpoint) currentV);
-						siriusViewpoints.add(appliedViewpoint);
-					}
-				}
-			}
-		}
-		return siriusViewpoints;
-	}
+
 
 	/**
 	 * @see org.eclipse.papyrus.sirius.editor.sirius.ISiriusSessionViewpointUpdater#updateAppliedViewpoint()
-	 *
 	 */
 	@Override
 	public void updateAppliedSiriusViewpoints() {
@@ -292,63 +312,11 @@ public class SessionService implements ISiriusSessionService, ISiriusSessionView
 		try {
 			// required to allow to open a sirius Diagram from the ModelExplorer on double click as first action!
 			// if not we get this kind of exception : java.lang.IllegalStateException: Cannot modify resource set without a write transaction
-			GMFUnsafe.write(getEditingDomain(), new UpdateSiriusViewpointRunnable(this.createdSession));
+			GMFUnsafe.write(getEditingDomain(), new UpdateSiriusViewpointRunnable(this.createdSession, this.modelSet));
 		} catch (InterruptedException | RollbackException e) {
 			Activator.log.error(e);
 		}
 
-	}
-
-	private class UpdateSiriusViewpointRunnable implements Runnable {
-
-		private Session session;
-
-		public UpdateSiriusViewpointRunnable(final Session session) {
-			this.session = session;
-		}
-
-		/**
-		 * @see java.lang.Runnable#run()
-		 *
-		 */
-		@Override
-		public void run() {
-			final Collection<Viewpoint> toApply = collectSiriusViewpointInPapyrusArchitecture();
-			final Collection<Viewpoint> currentAppliedViewpoints = this.session.getSelectedViewpoints(false);
-			final Collection<Viewpoint> toUnapply = new ArrayList<>(currentAppliedViewpoints);
-
-			final ViewpointSelectionCallback callBack = new ViewpointSelectionCallback();
-			for (Viewpoint vp : toApply) {
-				Viewpoint matchingSelectedViewpoint = getMatchingSelectedViewpoint(currentAppliedViewpoints, vp);
-				if (matchingSelectedViewpoint == null) {
-					callBack.selectViewpoint(vp, this.session, new NullProgressMonitor());
-				} else {
-					toUnapply.remove(matchingSelectedViewpoint);
-				}
-			}
-			
-			for (final Viewpoint previouslySelected : toUnapply) {
-				callBack.deselectViewpoint(previouslySelected, this.session, new NullProgressMonitor());
-			}
-		}
-		
-		/**
-		 * Get the viewpoint among selectedViewpoint corresponding to the viewpoint to apply.
-		 * 
-		 * @param currentAppliedViewpoints
-		 *            list of selected viewpoints
-		 * @param vp
-		 *            the viewpoint to apply
-		 * @return the viewpoint among selectedViewpoint corresponding to the viewpoint to apply.
-		 */
-		private Viewpoint getMatchingSelectedViewpoint(Collection<Viewpoint> currentAppliedViewpoints, Viewpoint vp) {
-			for (Viewpoint cvp : currentAppliedViewpoints) {
-				if (cvp.getName() != null && cvp.getName().equals(vp.getName())) {
-					return cvp;
-				}
-			}
-			return null;
-		}
 	}
 
 
@@ -387,6 +355,65 @@ public class SessionService implements ISiriusSessionService, ISiriusSessionView
 		}
 
 		return null;
+	}
+
+	/**
+	 * This method is used to register the semantic resource into the created Sirius Session
+	 */
+	private void setSemanticResource() {
+		final URI semanticResourceURI = getSemanticResourceURI();
+		try {
+			// GMFUnsafe to avoid read-only exception (silent exception catched by Papyrus)
+			GMFUnsafe.write(this.editingDomain, new RegisterSemanticResourceRunnable(this.createdSession, semanticResourceURI));
+		} catch (InterruptedException | RollbackException e) {
+			Activator.log.error("We are not able to register the semantic resource into the Sirius Session", e); //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * 
+	 * @return
+	 *         the URI of the semanticResource
+	 */
+	private URI getSemanticResourceURI() {
+		// TODO : dependency on UML is not very nice...
+		final UmlModel umlModel = (UmlModel) modelSet.getModel(UmlModel.MODEL_ID);
+		return umlModel.getResourceURI();
+	}
+
+	/**
+	 * open the Sirius Session and the Sirius UI Session
+	 */
+	public void openSessions() {
+		if (!this.createdSession.isOpen()) {
+			this.createdSession.open(new NullProgressMonitor());
+		}
+		if (this.createdSession != null) {
+			final IEditingSession uiSession = SessionUIManager.INSTANCE.getOrCreateUISession(this.createdSession);
+			if (!uiSession.isOpen()) {
+				uiSession.open();
+			}
+		}
+	}
+
+	/**
+	 * 
+	 * @see org.eclipse.papyrus.sirius.editor.sirius.ISiriusSessionService#attachSession(org.eclipse.emf.ecore.EObject)
+	 *
+	 * @param eobject
+	 */
+	public void attachSession(final EObject eobject) {
+		boolean needToBeAttached = true;
+		final Iterator<Adapter> iter = eobject.eAdapters().iterator();
+		while (needToBeAttached && iter.hasNext()) {
+			final Adapter tmp = iter.next();
+			if (tmp instanceof SessionTransientAttachment && ((SessionTransientAttachment) tmp).getSession() == this.createdSession) {
+				needToBeAttached = false;
+			}
+		}
+		if (needToBeAttached) {
+			eobject.eAdapters().add(new SessionTransientAttachment(this.createdSession));
+		}
 	}
 
 }

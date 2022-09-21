@@ -50,4 +50,17 @@ public interface ISiriusSessionService extends IService {
 	 *         the DiagramDescription from the Sirius Session
 	 */
 	public DiagramDescription getSiriusDiagramDescriptionFromPapyrusPrototype(final SiriusDiagramPrototype siriusDiagramPrototype, final EObject semanticContext);
+
+
+	/**
+	 * open the Sirius Session and the Sirius UI Session
+	 */
+	public void openSessions();
+
+	/**
+	 * Attach the Session to the eobject. It is required to be able to create diagrams
+	 * @param eobject
+	 *            the eobject to which attach the current session
+	 */
+	public void attachSession(final EObject eobject);
 }

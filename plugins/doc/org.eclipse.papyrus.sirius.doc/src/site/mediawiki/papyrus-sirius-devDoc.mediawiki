@@ -135,11 +135,13 @@ In the org.eclipse.papyrus.sirius.editor.representation.architecture plugin, a n
 For example, a sequence diagram can be created directly under an interaction without prior action, but if we want to create it under a Model, an interaction shall be created before and defined as the root of the diagram.
 
 = Sirius session management =
+==Initialization==
+We created the Papyrus service '''org.eclipse.papyrus.sirius.editor.internal.sessions.SessionService''' initialized during Papyrus' launch. This service is in charge creating the Sirius Session and attaching it to the edited semantic resource (uml file). This way a Sirius Session will always be accesible even if the user didn't yet created a Sirius diagram.
 
-To use the same transactional editing domain than other papyrus services, we had to override the default sirius session and creation. This is done by the PapyrusSessionFactory which allows to create PapyrusSession (which are just sirius session with the right TransactionalEditingDomain).
+== EditingDomain ==
+To use the same transactional editing domain as other Papyrus services, we had to override the default Sirius Session and its creation process. This is done by the '''PapyrusSessionFactory''' which creates the '''PapyrusSession''' (which is just a Sirius session with the Papyrus TransactionalEditingDomain).
 
 For new services using session, it is recommanded to use the SessionService provided in the org.eclipse.papyrus.sirius.editor plugin. 
-
 = API To find creatable Sirius Diagram Prototype =
 From a selected EObject, we want to find all SiriusDiagramViewPrototype and store them into a list:
 

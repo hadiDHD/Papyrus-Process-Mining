@@ -28,13 +28,17 @@ import org.eclipse.papyrus.sirius.editor.internal.sessions.PapyrusSession;
 import org.eclipse.papyrus.sirius.editor.internal.sessions.SiriusConstants;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
-import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 
 /**
  * This class manages PapyrusDocument in aird model resource.
  */
 public class SiriusDiagramModel extends AbstractDynamicModel<DSemanticDiagram> {
 
+	/**
+	 * the Sirius Session. 
+	 * This field is initialized during the creation/loading of the Papyrus model. 
+	 * The session can't be <code>null</code> once Papyrus ended to start
+	 */
 	private Session siriusSession = null;
 
 	/**
@@ -118,12 +122,9 @@ public class SiriusDiagramModel extends AbstractDynamicModel<DSemanticDiagram> {
 	 */
 	public void addDiagram(final DSemanticDiagram siriusDiagram, final EObject context) {
 		if (context != null) { // we check the resource for control mode feature
-			if (siriusSession != null) {
-				final Resource sessionRes = siriusSession.getSessionResource();
-				if (!sessionRes.getContents().contains(siriusDiagram)) {
-					sessionRes.getContents().add(siriusDiagram);
-				}
-				SessionUIManager.INSTANCE.getOrCreateUISession(this.siriusSession);// TODO fait dans SessionEditroInput.openSession
+			final Resource sessionRes = this.siriusSession.getSessionResource();
+			if (!sessionRes.getContents().contains(siriusDiagram)) {
+				sessionRes.getContents().add(siriusDiagram);
 			}
 		}
 	}
@@ -210,13 +211,9 @@ public class SiriusDiagramModel extends AbstractDynamicModel<DSemanticDiagram> {
 	 */
 	@Override
 	public void unload() {
-		// TODO : the way used to initialized the sirius session here is not satisfying.
-		// if we create open a Papyrus model with a Sirius diagram, but without creating new one, the field won't be initialized,
-		// so the sirius session won't be properly closed
-		if (this.siriusSession != null) {
-			this.siriusSession.close(new NullProgressMonitor());
-			this.siriusSession = null;
-		}
+		// the Sirius session is created during the starting of Papyrus -> we always get a Sirius Session
+		this.siriusSession.close(new NullProgressMonitor());
+		this.siriusSession = null;
 		super.unload();
 	}
 

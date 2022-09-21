@@ -55,24 +55,19 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.papyrus.infra.core.resource.ModelSet;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.emf.utils.EMFHelper;
-import org.eclipse.papyrus.infra.emf.utils.ServiceUtilsForEObject;
 import org.eclipse.papyrus.infra.internationalization.common.editor.IInternationalizationEditor;
 import org.eclipse.papyrus.infra.ui.editor.IMultiDiagramEditor;
 import org.eclipse.papyrus.infra.ui.lifecycleevents.ISaveAndDirtyService;
 import org.eclipse.papyrus.infra.widgets.util.IRevealSemanticElement;
 import org.eclipse.papyrus.infra.widgets.util.NavigationTarget;
 import org.eclipse.papyrus.sirius.editor.Activator;
-import org.eclipse.papyrus.sirius.editor.internal.sessions.SessionPrinter;
 import org.eclipse.papyrus.sirius.editor.sirius.ISiriusSessionService;
-import org.eclipse.papyrus.uml.tools.model.UmlModel;
 import org.eclipse.sirius.business.api.dialect.command.RefreshRepresentationsCommand;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
-import org.eclipse.sirius.business.internal.session.SessionTransientAttachment;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNode3EditPart;
@@ -82,8 +77,6 @@ import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListElementEditPar
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramCommandStack;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramEditorImpl;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.tabbar.Tabbar;
-import org.eclipse.sirius.ui.business.api.session.IEditingSession;
-import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
@@ -107,14 +100,19 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	/** the service registry */
 	protected ServicesRegistry servicesRegistry;
 
+	/** the Sirius Session */
 	private Session session;
 
-	private URI uri;
+	/** the URi of the Sirius *.aird resource */
+	private URI airdURI;
 
+	/** the editing domain to use */
 	private TransactionalEditingDomain editingDomain;
 
+	/** the Sirius diagram to open */
 	private DSemanticDiagram diagram;
 
+	// TODO check if the code with keyhandler is useful or useless
 	private KeyHandler keyHandler;
 
 	/**
@@ -126,35 +124,37 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 * @param prototype
 	 *            the edited element, it can't be <code>null</code>
 	 */
-	public NestedSiriusDiagramViewEditor(ServicesRegistry servicesRegistry, DSemanticDiagram diagram) {
+	public NestedSiriusDiagramViewEditor(final ServicesRegistry servicesRegistry, final DSemanticDiagram diagram) {
 		super();
 		this.servicesRegistry = servicesRegistry;
 
 		ISaveAndDirtyService saveAndDirtyService = null;
 		try {
 			saveAndDirtyService = servicesRegistry.getService(ISaveAndDirtyService.class);
-		} catch (ServiceException e1) {
-			e1.printStackTrace();
+		} catch (ServiceException e) {
+			Activator.log.error(e);
 		}
 		saveAndDirtyService.registerIsaveablePart(this);
 
 		this.diagram = diagram;
 		try {
 			this.editingDomain = servicesRegistry.getService(TransactionalEditingDomain.class);
-			// this.session = (PapyrusSession) PapyrusSessionManager.INSTANCE.getSession(diagram.eResource().getURI(), new NullProgressMonitor(), this.editingDomain);
 			this.session = getCurrentSession();
-			SessionPrinter.print(session, this.getClass().getCanonicalName() + " " + "Constructor");
-
-			this.uri = diagram.eResource().getURI().appendFragment(diagram.eResource().getURIFragment(diagram));
+			this.airdURI = diagram.eResource().getURI().appendFragment(diagram.eResource().getURIFragment(diagram));
 
 			Assert.isNotNull(this.diagram, "The edited diagram is null. The Diagram Editor creation failed"); //$NON-NLS-1$
 			Assert.isNotNull(this.servicesRegistry, "The papyrus ServicesRegistry is null. The Diagram Editor creation failed."); //$NON-NLS-1$
 			initializeEditingDomain();
 		} catch (ServiceException e) {
-			e.printStackTrace();
+			Activator.log.error(e);
 		}
 	}
 
+	/**
+	 * 
+	 * @return
+	 *         the Sirius Session Service
+	 */
 	private ISiriusSessionService getSiriusSessionService() {
 		try {
 			return (ISiriusSessionService) this.servicesRegistry.getService(ISiriusSessionService.SERVICE_ID);
@@ -164,6 +164,11 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		return null;
 	}
 
+	/**
+	 * 
+	 * @return
+	 *         the current Session
+	 */
 	private Session getCurrentSession() {
 		final ISiriusSessionService service = getSiriusSessionService();
 		if (service != null) {
@@ -291,30 +296,18 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 * @param input
 	 */
 	@Override
-	public void init(IEditorSite site, IEditorInput input) {// throws PartInitException {
+	public void init(final IEditorSite site, final IEditorInput input) {// throws PartInitException {
 		setSite(site);
-		// Session is closed when we reopen eclipse
-		try {
-			TransactionalEditingDomain ted = this.session.getTransactionalEditingDomain();
-			ServicesRegistry serviceRegistry = ServiceUtilsForEObject.getInstance().getServiceRegistry(this.diagram);
-			ModelSet modelSet = serviceRegistry.getService(ModelSet.class);
-			if (!this.session.isOpen()) {
-				this.session.open(new NullProgressMonitor());
 
-				IEditingSession uiSession = SessionUIManager.INSTANCE.getOrCreateUISession(session);
-				uiSession.open();
+		final ISiriusSessionService sessionService = getSiriusSessionService();
+		//we consider the sessionService is always available!
+		// to be sure they are opened
+		sessionService.openSessions();
+		// attache the session
+		sessionService.attachSession(diagram.getTarget());
 
-				// TODO : done in another place
-				UmlModel uml = (UmlModel) modelSet.getModel(UmlModel.MODEL_ID);
-				this.session.addSemanticResource(uml.getResourceURI(), new NullProgressMonitor());
-
-				this.diagram.getTarget().eAdapters().add(new SessionTransientAttachment(session));
-				modelSet.getResources().add(session.getSessionResource());
-			}
-		} catch (ServiceException e1) {
-			Activator.log.error(e1);
-		}
-		final SiriusDiagramEditorInput diagramViewEditorInput = new SiriusDiagramEditorInput(this.diagram, uri, session);
+		
+		final SiriusDiagramEditorInput diagramViewEditorInput = new SiriusDiagramEditorInput(this.diagram, this.airdURI, this.session);
 		this.editingDomain.getCommandStack().execute(new RecordingCommand(this.editingDomain) {
 			@Override
 			protected void doExecute() {
@@ -362,37 +355,6 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	public boolean isSaveAsAllowed() {
 		// manage by the Papyrus main editor
 		return false;
-	}
-
-	// Need to be added because palette manager is null when closing and reopening a papyrus model
-	@Override
-	public void createPartControl(Composite parent) {
-		try {
-			// recreate session with the good transactional editing domain
-			TransactionalEditingDomain ted = this.session.getTransactionalEditingDomain();
-			ServicesRegistry serviceRegistry = ServiceUtilsForEObject.getInstance().getServiceRegistry(this.diagram);
-			ModelSet modelSet = serviceRegistry.getService(ModelSet.class);
-			// PapyrusSession.setTransactionalEditingDomain(modelSet.getTransactionalEditingDomain());
-			// this.session = PapyrusSessionFactory.INSTANCE.createSession(session.getSessionResource().getURI(), new NullProgressMonitor(), ted);
-			// PapyrusSessionFactory.INSTANCE.setServiceRegistry(serviceRegistry);
-			// PapyrusSessionManager.INSTANCE.add(session);
-			// TODO : VL : we must find a way to remove a UML dependency in this plugin...
-			UmlModel uml = (UmlModel) modelSet.getModel(UmlModel.MODEL_ID);
-			this.session.addSemanticResource(uml.getResourceURI(), new NullProgressMonitor());
-
-			this.diagram.getTarget().eAdapters().add(new SessionTransientAttachment(session));
-			modelSet.getResources().add(session.getSessionResource());
-
-			if (this.session != null && !this.session.isOpen()) {
-				this.session.open(new NullProgressMonitor());
-			}
-
-			SessionPrinter.print(session, this.getClass().getCanonicalName() + " " + "createPartControl");
-
-		} catch (ServiceException e1) {
-			Activator.log.error(e1);
-		}
-		super.createPartControl(parent);
 	}
 
 	/**
@@ -448,13 +410,13 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 
 
 					final Object currentElement = EMFHelper.getEObject(currentEditPart);
-					
-					//we need to distinguish compartment from node inside a compartment
+
+					// we need to distinguish compartment from node inside a compartment
 					if (currentEditPart instanceof DNodeContainer2EditPart) {
 						final EditPart parentEP = ((DNodeContainer2EditPart) currentEditPart).getParent();
 						final Object parentElement = EMFHelper.getEObject(parentEP);
 						if (currentElement == parentElement) {
-							continue; //currentEditPart is a compartment, we ignore it
+							continue; // currentEditPart is a compartment, we ignore it
 						}
 					}
 
@@ -464,10 +426,10 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 						partSelection.add(researchedEditPart);
 
 					}
-				} 
+				}
 			}
 
-			//TODO this part must be evaluated with bug 580748
+			// TODO this part must be evaluated with bug 580748
 			// We may also search for a GMF View (Instead of a semantic model Element)
 			if (!clonedList.isEmpty()) {
 				for (Iterator<?> iterator = clonedList.iterator(); iterator.hasNext();) {
@@ -480,7 +442,6 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 				}
 			}
 
-			
 			// the second test, as the model element is not a PrimaryEditPart, is to allow the selection even if the user selected it with other elements
 			// and reset the selection if only the model is selected
 			if (clonedList.isEmpty() || (clonedList.size() == 1 && clonedList.get(0) == getDiagram().getElement())) {
