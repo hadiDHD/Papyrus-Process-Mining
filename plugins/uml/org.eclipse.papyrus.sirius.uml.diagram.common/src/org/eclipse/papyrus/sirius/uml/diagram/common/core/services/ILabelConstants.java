@@ -16,7 +16,6 @@ package org.eclipse.papyrus.sirius.uml.diagram.common.core.services;
 
 /**
  * Describes the common label constants.
- *
  */
 public interface ILabelConstants {
 
@@ -59,5 +58,80 @@ public interface ILabelConstants {
 	 * The guard suffix constant.
 	 */
 	public static final String GUARD_SUFFIX = "_guard"; //$NON-NLS-1$
-	
+
+	/**
+	 * The opening brace constant
+	 */
+	public static final String OPENING_BRACE = "{";//$NON-NLS-1$
+
+	/**
+	 * The closing brace constant
+	 */
+	public static final String CLOSING_BRACE = "}";//$NON-NLS-1$
+
+	/**
+	 * The opening square brace constant
+	 */
+	public static final String OPENING_SQUARE_BRACKET = "[";//$NON-NLS-1$
+
+	/**
+	 * The closing square brace constant
+	 */
+	public static final String CLOSING_SQUARE_BRACKET = "]";//$NON-NLS-1$
+
+	/**
+	 * The space char
+	 */
+	public static final String SPACE = " ";//$NON-NLS-1$
+
+	/**
+	 * the comma char
+	 */
+	public static final String COMMA = ",";//$NON-NLS-1$
+
+	/**
+	 * the column char
+	 */
+	public static final String COLUMN = ":";//$NON-NLS-1$
+
+	/**
+	 * the dot char
+	 */
+	public static final String DOT = ".";//$NON-NLS-1$
+
+	/**
+	 * the star char
+	 */
+	public static final String STAR = "*";//$NON-NLS-1$
+
+	/**
+	 * The label used for some undefined value
+	 */
+	public static final String UNDEFINED = "<Undefined>"; //$NON-NLS-1$
+
+	/**
+	 * the string used to represent public visibility
+	 */
+	public static final String PUBLIC = "+"; //$NON-NLS-1$
+
+	/**
+	 * the string used to represent protected visibility
+	 */
+	public static final String PROTECTED = "#"; //$NON-NLS-1$
+
+	/**
+	 * the string used to represent private visibility
+	 */
+	public static final String PRIVATE = "-"; //$NON-NLS-1$
+
+	/**
+	 * the string used to represent package visibility
+	 */
+	public static final String PACKAGE = "~"; //$NON-NLS-1$
+
+	/**
+	 * the string used to represent an element where the derived property is true
+	 */
+	public static final String DERIVED = "/"; //$NON-NLS-1$
+
 }

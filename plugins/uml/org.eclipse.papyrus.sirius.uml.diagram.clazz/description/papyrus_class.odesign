@@ -6,7 +6,7 @@
       <filters xsi:type="filter:CompositeFilterDescription" name="Show Bendpoint"/>
       <defaultLayer name="Class">
         <nodeMappings name="CD_ClassLabelNode" semanticCandidatesExpression="aql:if(self.oclIsKindOf(uml::Class) or self.oclIsKindOf(uml::Interface)) then self.nestedClassifier else null endif" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.Class">
-          <style xsi:type="style:SquareDescription" labelSize="9" labelExpression="service:computeUmlLabel" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Class.gif" labelAlignment="LEFT" sizeComputationExpression="" resizeKind="NSEW" width="16" height="5" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
+          <style xsi:type="style:SquareDescription" labelSize="9" labelExpression="service:buildSingleLineLabel(diagram)" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Class.gif" labelAlignment="LEFT" sizeComputationExpression="" resizeKind="NSEW" width="16" height="5" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -66,7 +66,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="CD_PropertyLabelNode" preconditionExpression="service:isNotAssociation()" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" semanticCandidatesExpression="aql:if(self.oclIsKindOf(uml::Classifier) or self.oclIsKindOf(uml::Interface) self.oclIsKindOf(uml::DataType)) then self.ownedAttribute else null endif" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.Property">
-          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Property.gif" labelAlignment="LEFT" sizeComputationExpression="" labelPosition="node" width="16" height="5" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:buildSingleLineLabel(diagram)" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Property.gif" labelAlignment="LEFT" sizeComputationExpression="" labelPosition="node" width="16" height="5" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -243,7 +243,7 @@
         <edgeMappings name="CD_Substitution" preconditionExpression="aql:self.oclIsTypeOf(uml::Substitution)" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" semanticCandidatesExpression="service:substitution_getSemanticCandidates()" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass_Node'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass_Node'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="uml.Substitution" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectSubstitutionSource'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectSubstitutionTarget']">
           <style lineStyle="dash">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <centerLabelStyleDescription labelSize="9" showIcon="false" labelExpression="service:computeUmlLabel">
+            <centerLabelStyleDescription labelSize="9" showIcon="false" labelExpression="service:buildMultilineLabel(diagram)">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -326,7 +326,7 @@
               <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.2"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel()" tooltipExpression="service:computeTooltip" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:buildMultilineLabel(diagram)" tooltipExpression="service:computeTooltip" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -456,7 +456,7 @@
               <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel()" labelAlignment="LEFT" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:buildMultilineLabel(diagram)" labelAlignment="LEFT" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -473,7 +473,7 @@
               <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" labelAlignment="LEFT" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="GradientTopToBottom">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:buildMultilineLabel(diagram)" labelAlignment="LEFT" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -2114,6 +2114,7 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.common.core.services.AbstractDiagramServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.common.services.SemanticDeletionService"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.common.core.services.StyleServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.common.core.services.UMLLabelService"/>
   </ownedViewpoints>
   <userColorsPalettes name="CD_ColorPalette">
     <entries xsi:type="description:UserFixedColor" red="195" green="215" blue="221" name="CustomBlue"/>
