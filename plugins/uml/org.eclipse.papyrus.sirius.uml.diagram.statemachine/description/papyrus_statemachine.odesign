@@ -73,7 +73,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="SMD_ContextLink" preconditionExpression="service:checkContainerViewContext(sourceView)" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']" targetFinderExpression="aql:self.getContextParent()" reconnections="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectContextLinkTarget'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectContextLinkSource']">
+        <edgeMappings name="SMD_ContextLink" preconditionExpression="service:checkContainerViewContext(sourceView)" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']" targetFinderExpression="aql:self.getContextParent()">
           <style lineStyle="dash_dot" targetArrow="NoDecoration">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelSize="9" labelExpression="&lt;&lt;context>>">
@@ -563,35 +563,6 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Relationships">
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectContextLinkTarget" forceRefresh="true">
-            <source name="source"/>
-            <target name="target"/>
-            <sourceView name="sourceView"/>
-            <targetView name="targetView"/>
-            <element name="element"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:target" featureName="ownedRule"/>
-              </firstModelOperations>
-            </initialOperation>
-            <edgeView name="edgeView"/>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectContextLinkSource" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
-            <source name="source"/>
-            <target name="target"/>
-            <sourceView name="sourceView"/>
-            <targetView name="targetView"/>
-            <element name="element"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:sourceView.getContextParentView().target" featureName="ownedRule"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:target">
-                  <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:edgeView.targetNode.target" featureName="ownedRule"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-            <edgeView name="edgeView"/>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectLinkSource" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
