@@ -17,22 +17,19 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.papyrus.infra.architecture.representation.PapyrusRepresentationKind;
 import org.eclipse.papyrus.infra.gmfdiag.common.helper.DiagramPrototype;
-import org.eclipse.papyrus.sirius.editor.representation.SiriusDiagramConstants;
-import org.eclipse.papyrus.sirius.editor.representation.SiriusDiagramPrototype;
-import org.eclipse.papyrus.sirius.editor.representation.architecture.AbstractCreateSiriusDiagramEditorCommand;
-import org.eclipse.papyrus.sirius.editor.internal.sessions.SiriusConstants;
-import org.eclipse.papyrus.infra.tools.util.ClassLoaderHelper;
 import org.eclipse.papyrus.infra.viewpoints.policy.PolicyChecker;
 import org.eclipse.papyrus.infra.viewpoints.policy.ViewPrototype;
 import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.PapyrusEditorFixture;
+import org.eclipse.papyrus.sirius.editor.internal.sessions.SiriusConstants;
+import org.eclipse.papyrus.sirius.editor.representation.SiriusDiagramConstants;
+import org.eclipse.papyrus.sirius.editor.representation.SiriusDiagramPrototype;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.viewpoint.DAnalysis;
 import org.eclipse.sirius.viewpoint.description.DAnnotation;
@@ -135,12 +132,14 @@ public abstract class AbstractDiagramCreationTests extends AbstractPapyrusTest {
 		final Resource airdResource = getAIRDResourceForCurrentModel();
 		Assert.assertNotNull("The aird resource is not in the ModelSet.", airdResource); //$NON-NLS-1$
 
-		// 3. check aird resource is empty
-		Assert.assertEquals("The aird resource is not empty", 0, airdResource.getContents().size()); //$NON-NLS-1$
+		// 3. check aird resource only contains the DAnalysis element
+		final List<EObject> initialAirdContents = airdResource.getContents();
+		Assert.assertEquals("The aird resource must contains only one element", 1, initialAirdContents.size()); //$NON-NLS-1$
+		Assert.assertTrue(initialAirdContents.get(0) instanceof DAnalysis);
 
-		// 4. check the pdst file is not created
-		boolean pdstFileExists = airdResource.getResourceSet().getURIConverter().exists(airdResource.getURI(), null);
-		Assert.assertFalse("The aird file exists, but it should not, because it is empty and nothing has already been stored inside it.", pdstFileExists); //$NON-NLS-1$
+		// 4. check the aird file is created
+		boolean airdFileExists = airdResource.getResourceSet().getURIConverter().exists(airdResource.getURI(), null);
+		Assert.assertTrue("The aird file doesn't exist, but it should already be created.", airdFileExists); //$NON-NLS-1$
 
 		boolean succeed = diagramPrototype.instantiateOn(semanticOwner, diagramName, true);
 		fixture.flushDisplayEvents();
