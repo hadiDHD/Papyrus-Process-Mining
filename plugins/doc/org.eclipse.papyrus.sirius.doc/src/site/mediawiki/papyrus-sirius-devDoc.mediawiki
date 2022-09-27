@@ -59,9 +59,13 @@ This framework has been developed to be used only when a sirius diagram is opene
 **'''org.eclipse.papyrus.sirius.uml.diagram.textedit''': contains customization to use Papyrus XText grammar inside Papyrus Sirius Diagram
 
 = odesign file conception rules =
+The Papyrus user is used to non-synchronized diagrams. Hence, while developing the Sirius Diagram, we must consider them as not synchronized by default. We advise you to set the Sirius synchronization preferences to false and to show the synchronization marker to always display the status (synchronized/unsynchronized) of the diagram.
+
+[[File:../../../image/dev/Sirius_Diagram_Synchonization_Preference.png]]
+
 To ease development and review, we decided to follow conception rules for odesign file: 
 *structure of the odesign:
-**all elements are organized by alphabetical order (following the label displayed in the odesign editor)
+**almost all elements are organized by alphabetical order (following the label displayed in the odesign editor)
 
 *''id'' field rules:
 ** doesn't contents space
@@ -71,21 +75,6 @@ To ease development and review, we decided to follow conception rules for odesig
 ** tool for graphical drop must be named following this pattern ''GraphicalXXXDrop''
 ** mapping representing a label node must be suffixed with ''LabelNode''
 ** mapping representing a compartment node must be named like this: ''parentMappingName'' + ''ElementNames''(plural form) + ''Compartment'', example: '''CD_ClassAttributesCompartment'''
-
-*''node'' rules:
-** all nodes containing objects must have compartments
-** all nodes must be described at the root of the layer: we avoid defining nodes inside another nodes (this rule is not applicable for bordered nodes.
-
-*''palette'' rules:
-** the palette will contains 2 folders, one for nodes, named '''Nodes''', one for edges, named '''Edges'''.
-** in these folder, the tools will be sorted by alphabetical order
-
-*''icon'' rules:
-**the path of the icon of semantic UML element must be something like '''/org.eclipse.uml2.uml.edit/icons/full/obj16/xxx.yyy''' each time it exists. We must avoid to duplicate icons when it is not necessary.
-
-*''validation'' rules:
-**the *.odesign files must be valid (using EMF Validation)
-
 
 *''label expression'' field rule:
 ** create an optional layer, applied by default, named '''AppliedStereotypeLayer''',
@@ -97,6 +86,62 @@ To ease development and review, we decided to follow conception rules for odesig
 ** for nodes used inside a ''Compartment List'', we want a single line label, so we use the service method '''buildSingleLineLabel(Element element, DDiagram diagram)''', 
 ** for others figures, we want a multiline label, so we use '''buildMultilineLabel(Element element, DDiagram diagram)''',
 **this service uses the internationalization feature provided by Papyrus
+
+*''icon'' rules:
+**the path of the icon of semantic UML element must be something like '''/org.eclipse.uml2.uml.edit/icons/full/obj16/xxx.yyy''' each time it exists. We must avoid duplicate icons when it is not necessary.
+
+*''node'' rules:
+** Nodes must be defined as ''Unsynchronizable'', documented exceptions are allowed.
+** The field ''semantic candidates expression'' must be filled (avoiding eAllContents).
+*** Typically for ClassDiagram, the expression returns all Constraints found in the Package (diagram background) and in its sub-elements to avoid that a Constraint disappears after creating a ContextLink (ContextLink changes the containments of the Constraint).
+** All nodes containing objects must have compartments, these compartments are synchronized when they represent the contents of a feature.
+** Each semantic element represented as a node must have its own mapping (we want to avoid reuse at this level,e.g. Interface and Class have their own mapping).
+** Nodes must be defined at root level (or in a fake container for validation purposes). We avoid defining nodes inside another nodes (this rule is not applicable for bordered nodes). We want to avoid to reuse a mapping defined inside another element.
+
+*''edge'' rules:
+** all edges must be declared ''Unsynchronizable'' (documented exceptions are allowed).
+** the field ''semantic candidates expression'' must be filled (avoiding eAllContents) and provides owned edges (and sometimes indirectly) by the element represented by the diagram background.
+
+*''palette'' rules:
+** the palette description is given by two folders, one for nodes, named '''Nodes''', one for edges, named '''Edges'''.
+** in these folders, the tools should be sorted alphabetically, but the organization also depends on the frequency of use of each element.
+
+*''reconnect'' rules:
+**The reconnect tools are defined in a folder called ''Relationships''.
+**The id of each tool follows this pattern: ''ReconnectXXXSource'' for the tool reconnecting the source of an XXX element, and ''ReconnectXXXTarget'' for a the tool reconnecting its target.
+**The reconnect tool must also update the containment of the reconnected link when required. We decided that the owner of a link is given by its source (the source itself, or its nearest ''Package'' or an other element, depending of the containement feature of the link).
+
+*'drop' rules:
+**There are 2 kinds of drop : the semantic drop (from the ModelExplorer) and the graphical drop (inside the diagram).
+**The drop tools are defined inside 2 folders : the ''SemanticDrop'' folder and the ''GraphicalDrop'' folder.
+**The id of each tool follows this patten : ''SemanticXXXDrop'' or ''GraphicalXXXDrop''.
+**Only one semantic drop per semantic element is accepted, the tool can work on several mapping (in ClassDiagram, '''SemanticPrimitiveTypeDrop''', works with 2 mappings representing a '''PrimitiveType'''.
+**Only one graphical drop per semantic element is accepted.
+**The ''precondition'' rule must check the type of dropped element with self.oclIsTypeof(uml::XXX), to ensure that only one drop tool can be activated for the element.
+
+*''edition'' rules:
+**The tools used for edition are described in the folder ''F2_Edition''.
+**The id of these tools follows this pattern: ''metaclassName'' + ''_'' + ''editedFeature'' + ''_'' + ''EditionTool'', example : '''Comment_body_EditionTool''' and '''NamedElement_name_EditionTool'''.
+
+*''delete'' rules:
+**delete actions are defined in the folder ''DeleteActions''
+**the odesign declares the java service '''org.eclipse.papyrus.sirius.uml.diagram.common.services.SemanticDeletionService#''' in charge of the semantic deletion
+**each diagram must provide a Delete action using the previous service with the call '''element.deleteElement(elementView)'''
+
+*''validation'' rules:
+**the *.odesign files must be valid (using EMF Validation)
+
+
+*Sirius Services rules:
+Developing the class diagram it appeared that it is often easier to call a java service instead of writing aql rules. As we created the same methods for each semantic element, we follow a common pattern for the naming of these methods. Each method must be prefixed by the managed metaclass (see '''org.eclipse.papyrus.sirius.uml.diagram.clazz.services.ClassDiagramServices'''). For the ''UML::Abstraction'' we have these methods:
+**abstraction_getSemanticCandidates(EObject)
+**abstraction_canReconnectSource(Element, Element)
+**abstraction_canReconnectTarget(Element, Element)
+**abstraction_reconnectSource(Element, Element, Element)
+**abstraction_reconnectTarget(Element, Element, Element)
+**association_getSemanticCandidates(EObject)
+
+NB: Currently these methods, for each UML Element, are in the ClassDiagramServices. In the future, we will probably create a java class for each semantic element, and the '''ClassDiagramServices''' will delegate to these classes. This point is still open for a discussion, because we are also thinking about a connection to the Papyrus Edition Service and it could be redundant.
 
 = Sirius viewpoint =
 
