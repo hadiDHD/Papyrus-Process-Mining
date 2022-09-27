@@ -51,7 +51,7 @@ public class UMLLabelService {
 	 *         <code>true</code> if we need to use the Qualified Name of elements in the diagram
 	 */
 	private boolean isShowingQualifiedName(final DDiagram diagram) {
-		long count = diagram.getActivatedLayers().stream().filter(layer -> ODesignConstant.QUALIFIED_NAMED_LAYER_ID.equals(layer.getName())).count(); // $NON-NLS-1$
+		long count = diagram.getActivatedLayers().stream().filter(layer -> ODesignConstant.QUALIFIED_NAMED_LAYER_ID.equals(layer.getName())).count();
 		return count == 1;
 	}
 
@@ -63,7 +63,7 @@ public class UMLLabelService {
 	 *         <code>true</code> if we need to use the Qualified Name of elements in the diagram
 	 */
 	private boolean isShowingAppliedStereotype(final DDiagram diagram) {
-		long count = diagram.getActivatedLayers().stream().filter(layer -> ODesignConstant.APPLIED_STEREOTYPE_LAYER_ID.equals(layer.getName())).count(); // $NON-NLS-1$
+		long count = diagram.getActivatedLayers().stream().filter(layer -> ODesignConstant.APPLIED_STEREOTYPE_LAYER_ID.equals(layer.getName())).count();
 		return count == 1;
 	}
 
@@ -135,7 +135,7 @@ public class UMLLabelService {
 	 *         the label to display in the diagram
 	 */
 	private final String buildLabel(final Element element, final DDiagram diagram, final boolean multiline) {
-		boolean useQualifiedName = isShowingQualifiedName(diagram);//
+		boolean useQualifiedName = isShowingQualifiedName(diagram);
 		this.nameProvider.useQualifiedName(useQualifiedName);
 		final String keyword = this.keywordProvider.doSwitch(element);
 

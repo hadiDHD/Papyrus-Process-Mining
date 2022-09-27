@@ -15,8 +15,6 @@
 package org.eclipse.papyrus.sirius.editor.internal.editor;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.EventObject;
 import java.util.Iterator;
 import java.util.List;
@@ -62,7 +60,6 @@ import org.eclipse.papyrus.infra.internationalization.common.editor.IInternation
 import org.eclipse.papyrus.infra.ui.editor.IMultiDiagramEditor;
 import org.eclipse.papyrus.infra.ui.lifecycleevents.ISaveAndDirtyService;
 import org.eclipse.papyrus.infra.widgets.util.IRevealSemanticElement;
-import org.eclipse.papyrus.infra.widgets.util.NavigationTarget;
 import org.eclipse.papyrus.sirius.editor.Activator;
 import org.eclipse.papyrus.sirius.editor.sirius.ISiriusSessionService;
 import org.eclipse.sirius.business.api.dialect.command.RefreshRepresentationsCommand;
@@ -95,7 +92,7 @@ import org.eclipse.ui.actions.ActionFactory;
  * In order to get the new child menu, we register the action bar contribution using this same extension point and we use if for this editor.
  */
 @SuppressWarnings("restriction")
-public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements IEditingDomainProvider, IInternationalizationEditor, IRevealSemanticElement, NavigationTarget {
+public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements IEditingDomainProvider, IInternationalizationEditor, IRevealSemanticElement{
 
 	/** the service registry */
 	protected ServicesRegistry servicesRegistry;
@@ -358,35 +355,13 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	}
 
 	/**
-	 * reveal all editpart that represent an element in the given list.
-	 *
-	 * @see org.eclipse.papyrus.infra.core.ui.IRevealSemanticElement#revealSemanticElement(java.util.List)
-	 *
-	 */
-	@Override
-	public void revealSemanticElement(List<?> elementList) {
-		revealElement(elementList);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean revealElement(Object element) {
-		return revealElement(Collections.singleton(element));
-	}
-
-	/**
-	 * {@inheritDoc}
-	 *
 	 * reveal all editparts that represent an element in the given list.
 	 *
 	 * @see org.eclipse.papyrus.infra.core.ui.IRevealSemanticElement#revealSemanticElement(java.util.List)
 	 *
 	 */
 	@Override
-	public boolean revealElement(Collection<?> elementList) {
-
+	public void revealSemanticElement(final List<?> elementList) {
 		// get the graphical viewer
 		GraphicalViewer graphicalViewer = getGraphicalViewer();
 		if (graphicalViewer != null) {
@@ -429,19 +404,6 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 				}
 			}
 
-			// TODO this part must be evaluated with bug 580748
-			// We may also search for a GMF View (Instead of a semantic model Element)
-			if (!clonedList.isEmpty()) {
-				for (Iterator<?> iterator = clonedList.iterator(); iterator.hasNext();) {
-					Object element = iterator.next();
-					if (graphicalViewer.getEditPartRegistry().containsKey(element) && !clonedList.isEmpty()) {
-						iterator.remove();
-						researchedEditPart = (IGraphicalEditPart) graphicalViewer.getEditPartRegistry().get(element);
-						partSelection.add(researchedEditPart);
-					}
-				}
-			}
-
 			// the second test, as the model element is not a PrimaryEditPart, is to allow the selection even if the user selected it with other elements
 			// and reset the selection if only the model is selected
 			if (clonedList.isEmpty() || (clonedList.size() == 1 && clonedList.get(0) == getDiagram().getElement())) {
@@ -452,14 +414,9 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 				if (!partSelection.isEmpty()) {
 					graphicalViewer.reveal(partSelection.get(0));
 				}
-				return true;
 			}
 		}
-
-		return false;
 	}
-
-
 
 	/**
 	 * @see org.eclipse.papyrus.infra.internationalization.common.editor.IInternationalizationEditor#modifyPartName(java.lang.String)
