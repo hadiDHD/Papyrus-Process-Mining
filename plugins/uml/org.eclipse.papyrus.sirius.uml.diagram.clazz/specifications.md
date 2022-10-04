@@ -1,5 +1,10 @@
 The content of this file describes specific choices of implementation/limitation.
 
+#Property
+The **Property** associated to an **Association** are not displayed in the Diagram, even when this diagram is synchronized. 
+The Drop of such Properties is not allowed too.
+
+
 #Abstraction
 The **Abstraction** is owned by the nearest parent Package of the source.
 The *semantic candidate expression* must return all **Abstraction** existing in the Package and in its children.

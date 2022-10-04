@@ -2656,6 +2656,12 @@ public class ClassDiagramServices {
 		return target.getName();
 	}
 
+	/**
+	 * TODO must be replaced by AQL code in the VSM by self.oclAsType(uml::Property).association = null
+	 * @param elem
+	 * @return
+	 */
+	@Deprecated
 	public boolean isNotAssociation(EObject elem) {
 		return ((Property) elem).getAssociation() == null;
 	}
