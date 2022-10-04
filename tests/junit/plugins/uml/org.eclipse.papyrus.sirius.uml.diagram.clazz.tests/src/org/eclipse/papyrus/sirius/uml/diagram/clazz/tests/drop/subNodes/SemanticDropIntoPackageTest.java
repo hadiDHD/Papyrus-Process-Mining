@@ -19,6 +19,7 @@ import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.constants.MappingTypes;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.constants.SemanticDropToolsIds;
 import org.eclipse.sirius.diagram.DDiagramElement;
+import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.uml2.uml.NamedElement;
 import org.junit.Assert;
 import org.junit.Test;
@@ -47,6 +48,9 @@ public class SemanticDropIntoPackageTest extends AbstractSemanticDropSubNodeTest
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME)
 	public void dropClassIntoPackage() {
+		final DSemanticDiagram siriusDiagram = this.fixture.getActiveSiriusDiagram();
+		Assert.assertNotNull(siriusDiagram);
+		Assert.assertFalse("The diagram must be unsynchronized to test drop", siriusDiagram.isSynchronized()); //$NON-NLS-1$
 		final NamedElement toDrop = getSemanticOwner().getMember("ClassToDrop"); //$NON-NLS-1$
 		final DDiagramElement createdElement = dropNodeInDNodeContainer(MappingTypes.PACKAGE_NODE_PACKAGEDELEMENTS_COMPARTMENTS_TYPE, SemanticDropToolsIds.DROP__CLASS__TOOL, MappingTypes.CLASS_NODE_TYPE, toDrop);
 		final EObject semantic = createdElement.getSemanticElements().get(0);

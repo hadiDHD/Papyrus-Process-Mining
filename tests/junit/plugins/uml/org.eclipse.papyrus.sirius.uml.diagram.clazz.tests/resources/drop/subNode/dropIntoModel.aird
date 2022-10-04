@@ -31,7 +31,7 @@
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']"/>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram uid="_2bMekJ76EeyF49nN-xvxfg">
+  <diagram:DSemanticDiagram uid="_2bMekJ76EeyF49nN-xvxfg" synchronized="false">
     <eAnnotations xmi:type="description:DAnnotation" uid="_2czoIp76EeyF49nN-xvxfg" source="Papyrus-SiriusDiagram">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2czoI576EeyF49nN-xvxfg" key="Papyrus-SiriusDiagram-ImplementationId" value="org.eclipse.papyrus.sirius.uml.diagram.class"/>
     </eAnnotations>

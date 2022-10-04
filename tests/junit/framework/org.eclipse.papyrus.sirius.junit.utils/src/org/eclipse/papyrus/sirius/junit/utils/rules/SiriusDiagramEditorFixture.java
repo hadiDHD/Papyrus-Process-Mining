@@ -969,6 +969,23 @@ public class SiriusDiagramEditorFixture extends AbstractModelFixture<Transaction
 		return getActiveDiagramEditor().getDiagramEditPart();
 	}
 
+	/**
+	 * This method allows to get the active {@link DSemanticDiagram}
+	 * 
+	 * @return
+	 *         the Sirius active {@link Diagram} or <code>null</code> if not found
+	 */
+	public DSemanticDiagram getActiveSiriusDiagram() {
+		final DiagramEditPart diagramEditpart = getActiveDiagramEditor().getDiagramEditPart();
+		if (diagramEditpart != null) {
+			final Diagram diagram = diagramEditpart.getDiagramView();
+			if (diagram.getElement() instanceof DSemanticDiagram) {
+				final DSemanticDiagram ddDiagram = (DSemanticDiagram) diagram.getElement();
+				return ddDiagram;
+			}
+		}
+		return null;
+	}
 
 
 	public DiagramEditorWithFlyOutPalette getActiveDiagramEditor() {
