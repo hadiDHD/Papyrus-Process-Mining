@@ -229,7 +229,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <containerMappings name="CD_Class" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" semanticCandidatesExpression="feature:eAllContents" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.Class" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticClassDrop']" childrenPresentation="VerticalStack">
+        <containerMappings name="CD_Class" preconditionExpression="aql:self.oclIsTypeOf(uml::Class)" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" semanticCandidatesExpression="feature:packagedElement" domainClass="uml.Class" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticClassDrop']" childrenPresentation="VerticalStack">
           <borderedNodeMappings name="CD_RedefinableTemplateSignature" semanticCandidatesExpression="feature:ownedTemplateSignature" synchronizationLock="true" domainClass="uml.RedefinableTemplateSignature">
             <style xsi:type="style:SquareDescription" labelSize="9" labelPosition="node" resizeKind="NSEW" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -266,7 +266,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <containerMappings name="CD_Component" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" createElements="false" domainClass="uml.Component" childrenPresentation="VerticalStack">
+        <containerMappings name="CD_Component" preconditionExpression="aql:self.oclIsTypeOf(uml::Component)" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" semanticCandidatesExpression="feature:packagedElement" domainClass="uml.Component" childrenPresentation="VerticalStack">
           <subContainerMappings name="CD_ComponentAttributesCompartment" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.Component" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticPropertyDrop']" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_OwnedAttribute_FeatureOwner']/@subNodeMappings[name='CD_PropertyLabelNode']" childrenPresentation="List">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" showIcon="false" labelExpression="attributes" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -297,7 +297,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <containerMappings name="CD_DataType" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" semanticCandidatesExpression="feature:eAllContents" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.DataType" childrenPresentation="VerticalStack">
+        <containerMappings name="CD_DataType" preconditionExpression="aql:self.oclIsTypeOf(uml::DataType)" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" semanticCandidatesExpression="feature:packagedElement" domainClass="uml.DataType" childrenPresentation="VerticalStack">
           <subContainerMappings name="CD_DataTypeAttributesCompartment" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.DataType" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SemanticPropertyDrop']" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_OwnedAttribute_FeatureOwner']/@subNodeMappings[name='CD_PropertyLabelNode']" childrenPresentation="List">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="9" showIcon="false" labelExpression="attributes" hideLabelByDefault="true" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -320,7 +320,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <containerMappings name="CD_Enumeration" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.Enumeration" childrenPresentation="VerticalStack">
+        <containerMappings name="CD_Enumeration" preconditionExpression="aql:self.oclIsTypeOf(uml::Enumeration)" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" labelDirectEdit="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" semanticCandidatesExpression="feature:packagedElement" domainClass="uml.Enumeration" childrenPresentation="VerticalStack">
           <subContainerMappings name="CD_EnumerationLiteralsCompartment" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.Enumeration" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Enumeration']/@subContainerMappings[name='CD_EnumerationLiteralsCompartment']/@subNodeMappings[name='CD_EnumerationLiteralLabelNode']" childrenPresentation="List">
             <subNodeMappings name="CD_EnumerationLiteralLabelNode" semanticCandidatesExpression="aql:if(self.oclIsTypeOf(uml::Enumeration)) then self.ownedLiteral else null endif" createElements="false" semanticElements="service:getSemanticElements" domainClass="uml.EnumerationLiteral">
               <style xsi:type="style:SquareDescription" labelSize="9" labelExpression="service:computeUmlLabel" labelAlignment="LEFT" sizeComputationExpression="1" color="//@userColorsPalettes[name='CD_ColorPalette']/@entries[name='CustomBlue']">
@@ -1205,9 +1205,11 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:interfaceRealization_createInterfaceRealization(sourceView, source, target)">
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:sourceView.getParentDiagram()">
-                  <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Interface']" containerViewExpression="aql:sourceView.getParentDiagram()"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.oclAsType(uml::BehavioredClassifier)">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="uml::InterfaceRealization" referenceName="interfaceRealization">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="client" valueExpression="aql:source"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="supplier" valueExpression="aql:target"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="contract" valueExpression="aql:target"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -1218,7 +1220,20 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:link_creation(sourceView, source, target)"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:source.oclIsTypeOf(uml::Comment)">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.oclAsType(uml::Comment)">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="annotatedElement" valueExpression="var:target"/>
+                    <subModelOperations xsi:type="tool_1:CreateEdgeView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Link']" containerViewExpression="aql:sourceView.getParentDiagram()" sourceExpression="var:source" targetExpression="var:target"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:source.oclIsTypeOf(uml::Constraint)">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.oclAsType(uml::Constraint)">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="constrainedElement" valueExpression="var:target"/>
+                    <subModelOperations xsi:type="tool_1:CreateEdgeView" mapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_Link']" containerViewExpression="aql:sourceView.getParentDiagram()" sourceExpression="var:source" targetExpression="var:target"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a Package Import" name="CreatePackageImportTool" label="Package Import" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@edgeMappings[name='CD_PackageImport']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/PackageImport.gif" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Model']/@subContainerMappings[name='CD_ModelPackagedElementsCompartment'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Package']/@subContainerMappings[name='CD_PackagePackagedElementsCompartment']" extraTargetMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Model']/@subContainerMappings[name='CD_ModelPackagedElementsCompartment'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='ClassDiagram']/@defaultLayer/@containerMappings[name='CD_Package']/@subContainerMappings[name='CD_PackagePackagedElementsCompartment']">

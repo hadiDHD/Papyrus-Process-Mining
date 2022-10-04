@@ -16,17 +16,16 @@ package org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.creation.edges;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.junit.framework.classification.ClassificationRunner;
 import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirius.junit.utils.rules.SiriusDiagramEditorFixture;
 import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.EdgeTarget;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 /**
  * adapted from org.eclipse.papyrus.uml.diagram.clazz.test.canonical.TestClassDiagramTopNode
@@ -47,6 +46,9 @@ public class Edge_InstanceSpecification_CreationTest extends AbstractPapyrusTest
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME) // open the diagram
 	public void createInstanceSpecificationEdgeTest() {
+		final DSemanticDiagram siriusDiagram = this.fixture.getActiveSiriusDiagram();
+		Assert.assertNotNull(siriusDiagram);
+		Assert.assertFalse("The diagram must be unsynchronized for this test", siriusDiagram.isSynchronized()); //$NON-NLS-1$
 
 		DiagramEditPart diagramEditpart = fixture.getActiveDiagram();
 		Assert.assertNotNull("The diagram edit part has not been found", diagramEditpart);

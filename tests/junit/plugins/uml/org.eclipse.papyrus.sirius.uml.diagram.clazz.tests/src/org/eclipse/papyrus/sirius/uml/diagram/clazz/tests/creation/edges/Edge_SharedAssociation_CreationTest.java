@@ -23,6 +23,7 @@ import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirius.junit.utils.rules.SiriusDiagramEditorFixture;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.constants.CreationToolsIds;
 import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.EdgeTarget;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DEdgeSpec;
 import org.eclipse.uml2.uml.AggregationKind;
@@ -50,6 +51,9 @@ public class Edge_SharedAssociation_CreationTest extends AbstractPapyrusTest {
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME) // open the diagram
 	public void createSharedAssociationEdgeTest() {
+		final DSemanticDiagram siriusDiagram = this.fixture.getActiveSiriusDiagram();
+		Assert.assertNotNull(siriusDiagram);
+		Assert.assertFalse("The diagram must be unsynchronized for this test", siriusDiagram.isSynchronized()); //$NON-NLS-1$
 
 		DiagramEditPart diagramEditpart = fixture.getActiveDiagram();
 		Assert.assertNotNull("The diagram edit part has not been found", diagramEditpart);

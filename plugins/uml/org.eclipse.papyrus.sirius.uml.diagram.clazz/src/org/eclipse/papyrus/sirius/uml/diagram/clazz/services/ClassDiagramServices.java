@@ -1627,6 +1627,7 @@ public class ClassDiagramServices {
 	}
 
 	/**
+	 *TODO : delete this method
 	 * Create a new {@link InterfaceRealization}
 	 * 
 	 * @param context
@@ -1640,6 +1641,7 @@ public class ClassDiagramServices {
 	 * @return
 	 *         the created {@link InterfaceRealization}
 	 */
+	@Deprecated //now it is done directly in the odesign
 	public InterfaceRealization interfaceRealization_createInterfaceRealization(final EObject context, final EObject sourceView, final Element source, final Element target) {
 		InterfaceRealization interfaceRealization = null;
 		if (sourceView instanceof DDiagramElement) {
@@ -1717,6 +1719,7 @@ public class ClassDiagramServices {
 	}
 
 	/**
+	 * TODO : delete this method
 	 * Create a new Link link.
 	 * 
 	 * @param sourceView
@@ -1726,6 +1729,7 @@ public class ClassDiagramServices {
 	 * @param target
 	 *            the semantic target element
 	 */
+	@Deprecated  //now it is done directly in the odesign
 	public void link_creation(EObject context, EObject sourceView, Element source, Element target) {
 		if (source instanceof Comment) {
 			((Comment) source).getAnnotatedElements().add(target);
