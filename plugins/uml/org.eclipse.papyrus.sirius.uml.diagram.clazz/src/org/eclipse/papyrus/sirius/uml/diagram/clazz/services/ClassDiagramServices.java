@@ -20,7 +20,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EAnnotation;
@@ -614,35 +613,26 @@ public class ClassDiagramServices {
 	 * 
 	 * @param semanticContext
 	 *            the context in which we are looking for {@link Constraint}
+	 * 
 	 * @param diagram
 	 *            the current diagram
 	 * @return
-	 *         the Constraints available in the context
+	 *         the Constraints to display
 	 */
 	public Collection<EObject> constraint_getSemanticCandidates(final EObject semanticContext, final DDiagram diagram) {
 		final Collection<EObject> constraints = new HashSet<EObject>();
 
-		// we show in the diagram all Constraint owned directly by the diagram
-		if (semanticContext instanceof Namespace) {
-			constraints.addAll(((Namespace) semanticContext).getOwnedRules());
-		}
+
 		if (semanticContext instanceof Package) {
 			final Package pack = (Package) semanticContext;
-			constraints.addAll(pack.getPackagedElements().stream().filter(Constraint.class::isInstance).collect(Collectors.toList()));
-		}
+			// the constraints directly owned by the Package
+			constraints.addAll(pack.getOwnedRules());
 
-		// we show in the diagram all Constraint owned by a element represented in the diagram
-		// this behavior avoid to make disappear the constraint of the diagram when the user create a ContextLink between the Constraint and a Namespace
-		for (final DDiagramElement diagramElement : diagram.getOwnedDiagramElements()) {
-			final EObject current = diagramElement.getTarget();
-
-			if (current instanceof Namespace) {
-				// a context link has been created
-				constraints.addAll(((Namespace) current).getOwnedRules());
-			}
-			if (current instanceof Package) {
-				// a context link has not yet been created Contraint#context==null
-				constraints.addAll(((Package) current).getPackagedElements().stream().filter(Constraint.class::isInstance).collect(Collectors.toList()));
+			// the constraint owned by the an element owned by the Package
+			for (final PackageableElement current : pack.getPackagedElements()) {
+				if ((false == current instanceof Package) && current instanceof Namespace) {
+					constraints.addAll(((Namespace) current).getOwnedRules());
+				}
 			}
 		}
 
