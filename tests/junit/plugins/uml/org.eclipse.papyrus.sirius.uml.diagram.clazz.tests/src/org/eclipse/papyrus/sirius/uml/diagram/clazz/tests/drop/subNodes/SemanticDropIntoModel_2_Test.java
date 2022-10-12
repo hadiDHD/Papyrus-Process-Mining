@@ -16,9 +16,9 @@ package org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.drop.subNodes;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.sirius.editor.representation.SiriusDiagramConstants;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
+import org.eclipse.papyrus.sirius.editor.representation.SiriusDiagramConstants;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.constants.MappingTypes;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.constants.SemanticDropToolsIds;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.checkers.creation.graphical.CD_ClassCreationChecker;
@@ -58,6 +58,7 @@ public class SemanticDropIntoModel_2_Test extends AbstractSubNodeSemanticDropTes
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME)
 	public void dropPackageIntoModel() {
+		checkSiriusDiagramSynchronization(false);
 		final NamedElement toDrop = getSemanticOwner().getMember("PackageToDrop"); //$NON-NLS-1$
 		dropNode(SemanticDropToolsIds.DROP__PACKAGE__TOOL, new CD_PackageCreationChecker(diagram, getTopNodeGraphicalContainer()), new SemanticDropChecker(toDrop), toDrop);
 	}
@@ -65,6 +66,7 @@ public class SemanticDropIntoModel_2_Test extends AbstractSubNodeSemanticDropTes
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME)
 	public void dropClassIntoModel() {
+		checkSiriusDiagramSynchronization(false);
 		final NamedElement toDrop = getSemanticOwner().getMember("ClassToDrop"); //$NON-NLS-1$
 		dropNode(SemanticDropToolsIds.DROP__CLASS__TOOL, new CD_ClassCreationChecker(diagram, getTopNodeGraphicalContainer()), new SemanticDropChecker(toDrop), toDrop);
 	}

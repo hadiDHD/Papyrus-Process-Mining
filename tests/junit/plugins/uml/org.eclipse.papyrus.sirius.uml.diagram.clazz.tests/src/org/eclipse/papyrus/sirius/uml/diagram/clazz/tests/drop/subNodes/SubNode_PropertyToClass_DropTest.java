@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.papyrus.sirius.junit.utils.rules.SiriusDiagramEditorFixture;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.constants.SemanticDropToolsIds;
+import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.AbstractSiriusDiagramTests;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeContainerSpec;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeListElementSpec;
@@ -38,7 +38,7 @@ import org.junit.Test;
  */
 @PluginResource("resources/drop/subNode/propertyOperationToClass/SubNode_PropertyOperationToClass_DropTest.di")
 @SuppressWarnings({ "nls", "restriction" })
-public class SubNode_PropertyToClass_DropTest extends AbstractPapyrusTest {
+public class SubNode_PropertyToClass_DropTest extends AbstractSiriusDiagramTests {
 
 	private static final String DIAGRAM_NAME = "SubNode_PropertyOperationToClass_ClassDiagram";
 
@@ -51,6 +51,7 @@ public class SubNode_PropertyToClass_DropTest extends AbstractPapyrusTest {
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME) // open the diagram
 	public void createPropertySubNodeTest() {
+		checkSiriusDiagramSynchronization(false);
 
 		Assert.assertTrue(fixture.getModel() instanceof Model);
 		DiagramEditPart diagramEditpart = fixture.getActiveDiagram();

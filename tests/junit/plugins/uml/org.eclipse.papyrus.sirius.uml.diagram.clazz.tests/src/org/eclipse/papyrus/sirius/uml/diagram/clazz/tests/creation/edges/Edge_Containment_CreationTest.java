@@ -17,11 +17,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
-import org.eclipse.papyrus.sirius.junit.utils.rules.SiriusDiagramEditorFixture;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.constants.CreationToolsIds;
+import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.AbstractSiriusDiagramTests;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.EdgeTarget;
@@ -30,7 +29,6 @@ import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.junit.Assert;
 import org.junit.Ignore;
-import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -38,22 +36,18 @@ import org.junit.Test;
  */
 @PluginResource("resources/creation/edges/common/Edge_CreationTest.di") // the resource to import for the test in the workspace
 @SuppressWarnings("nls")
-public class Edge_Containment_CreationTest extends AbstractPapyrusTest {
+public class Edge_Containment_CreationTest extends AbstractSiriusDiagramTests {
 
 	private static final String DIAGRAM_NAME = "Edge_ClassDiagram";
-
-	/**
-	 * this fixture is used to access to Papyrus environment (editor/diagram/commandstack/editingdomain/...)
-	 */
-	@Rule
-	public final SiriusDiagramEditorFixture fixture = new SiriusDiagramEditorFixture(/* Collections.singletonList("aird") */);
 
 	@SuppressWarnings("restriction")
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME) // open the diagram
 	@Ignore //TODO : this test is ignored because it is failing. The requirement about syncrhonization of diagrams changed and are not yet well defined 
 	public void createContainmentEdgeTest() {
-
+		// check the diagram synchronization status
+		checkSiriusDiagramSynchronization(false);
+		
 		DiagramEditPart diagramEditpart = fixture.getActiveDiagram();
 		Assert.assertNotNull("The diagram edit part has not been found", diagramEditpart);
 		Diagram diagram = diagramEditpart.getDiagramView();

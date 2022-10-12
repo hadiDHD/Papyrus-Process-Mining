@@ -320,8 +320,11 @@ The Sequence layer defines all the mapping and tools specific to the Sequence di
 
 Code in org.eclipse.papyrus.sirius.uml.diagram.textedit override classic editpart to add an xtext parser on each label edition.
 
-= Test coverage =
+= Tests =
+==How to ensure new plugins/features are well configured?==
+Each new feature must be added as extra requirements in the pom.xml of the plugin '''org.eclipse.papyrus.sirius.bundles.tests''' to ensure that all plugins provided by the new feature is well configured (about.xml, min/max for dependencies ...) 
 
+== Test coverage ==
 The common method to create new tests for sirius diagram is located in org.eclipse.papyrus.sirius.junit.utils. In this plugin, the SiriusDiagramEditorFixture provide all the method to load model, ope session, tests tools that will be used in the several test case.
 
 Each specific diagram is tested in a specific plugin. Those tests include:
@@ -330,6 +333,8 @@ Each specific diagram is tested in a specific plugin. Those tests include:
 * Creation tools tests
 * Drag and Drop tools tests
 * Deletion
+
+Each test should check the state of the tested diagram (synchronized/unsynchronized), to ensure that the test is executed on the expected diagram configuration.
 
 = ClassDiagram =
 ==AssociationClass==

@@ -22,7 +22,7 @@
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.papyrus.sirius.uml.diagram.statemachine/description/papyrus_statemachine.odesign#//@ownedViewpoints[name='StateMachineDiagram']"/>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram uid="_SAlm8J4vEey_eICVHohATA">
+  <diagram:DSemanticDiagram uid="_SAlm8J4vEey_eICVHohATA" synchronized="false">
     <eAnnotations xmi:type="description:DAnnotation" uid="_SC7JQJ4vEey_eICVHohATA" source="Papyrus-SiriusDiagram">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SC7JQZ4vEey_eICVHohATA" key="Papyrus-SiriusDiagram-ImplementationId" value="org.eclipse.papyrus.sirius.uml.diagram.class"/>
     </eAnnotations>

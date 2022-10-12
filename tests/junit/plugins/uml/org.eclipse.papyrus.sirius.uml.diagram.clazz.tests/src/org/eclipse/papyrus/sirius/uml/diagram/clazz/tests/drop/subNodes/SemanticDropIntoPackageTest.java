@@ -48,6 +48,7 @@ public class SemanticDropIntoPackageTest extends AbstractSemanticDropSubNodeTest
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME)
 	public void dropClassIntoPackage() {
+		checkSiriusDiagramSynchronization(false);
 		final DSemanticDiagram siriusDiagram = this.fixture.getActiveSiriusDiagram();
 		Assert.assertNotNull(siriusDiagram);
 		Assert.assertFalse("The diagram must be unsynchronized to test drop", siriusDiagram.isSynchronized()); //$NON-NLS-1$

@@ -59,6 +59,7 @@ public class DropTopNodeOnClassDiagram_ModelOwner_Test extends AbstractTopNodeDr
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void dropComment() {
+		checkSiriusDiagramSynchronization(false);
 		final Comment elementToBeDropped = this.root.getOwnedComments().get(0);
 		Assert.assertTrue("The element to be dropped must be an instance of Class", elementToBeDropped instanceof org.eclipse.uml2.uml.Comment);//$NON-NLS-1$
 		dropNode(SemanticDropToolsIds.DROP__COMMENT__TOOL, new CD_CommentCreationChecker(this.diagram, this.diagramRepresentation), new SemanticDropChecker(elementToBeDropped), elementToBeDropped);
@@ -67,6 +68,7 @@ public class DropTopNodeOnClassDiagram_ModelOwner_Test extends AbstractTopNodeDr
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void dropClass() {
+		checkSiriusDiagramSynchronization(false);
 		final NamedElement elementToBeDropped = this.root.getMember("ClassToDrop"); //$NON-NLS-1$
 		Assert.assertTrue("The element to be dropped must be an instance of Class", elementToBeDropped instanceof org.eclipse.uml2.uml.Class);//$NON-NLS-1$
 		dropNode(SemanticDropToolsIds.DROP__CLASS__TOOL, new CD_ClassCreationChecker(this.diagram, this.diagramRepresentation), new SemanticDropChecker(elementToBeDropped), elementToBeDropped);
@@ -75,6 +77,7 @@ public class DropTopNodeOnClassDiagram_ModelOwner_Test extends AbstractTopNodeDr
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void dropComponent() {
+		checkSiriusDiagramSynchronization(false);
 		final NamedElement elementToBeDropped = this.root.getMember("ComponentToDrop"); //$NON-NLS-1$
 		Assert.assertTrue("The element to be dropped must be an instance of Component", elementToBeDropped instanceof Component);//$NON-NLS-1$
 		dropNode(SemanticDropToolsIds.DROP__COMPONENT__TOOL, new CD_ComponentCreationChecker(this.diagram, this.diagramRepresentation), new SemanticDropChecker(elementToBeDropped), elementToBeDropped);
@@ -83,6 +86,7 @@ public class DropTopNodeOnClassDiagram_ModelOwner_Test extends AbstractTopNodeDr
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void dropConstraint() {
+		checkSiriusDiagramSynchronization(false);
 		final Constraint elementToBeDropped = this.root.getOwnedElements().stream().filter(Constraint.class::isInstance).map(Constraint.class::cast).findFirst().get();
 		Assert.assertTrue("The element to be dropped must be an instance of Constraint", elementToBeDropped instanceof org.eclipse.uml2.uml.Constraint);//$NON-NLS-1$
 		dropNode(SemanticDropToolsIds.DROP__CONSTRAINT__TOOL, new CD_ConstraintCreationChecker(this.diagram, this.diagramRepresentation), new SemanticDropChecker(elementToBeDropped), elementToBeDropped);
@@ -91,6 +95,7 @@ public class DropTopNodeOnClassDiagram_ModelOwner_Test extends AbstractTopNodeDr
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void dropDatatype() {
+		checkSiriusDiagramSynchronization(false);
 		final NamedElement elementToBeDropped = this.root.getMember("DataTypeToDrop"); //$NON-NLS-1$
 		Assert.assertTrue("The element to be dropped must be an instance of DataType", elementToBeDropped instanceof DataType);//$NON-NLS-1$
 		dropNode(SemanticDropToolsIds.DROP__DATATYPE__TOOL, new CD_DataTypeCreationChecker(this.diagram, this.diagramRepresentation), new SemanticDropChecker(elementToBeDropped), elementToBeDropped);
@@ -99,6 +104,7 @@ public class DropTopNodeOnClassDiagram_ModelOwner_Test extends AbstractTopNodeDr
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void dropEnumeration() {
+		checkSiriusDiagramSynchronization(false);
 		final NamedElement elementToBeDropped = this.root.getMember("EnumerationToDrop"); //$NON-NLS-1$
 		Assert.assertTrue("The element to be dropped must be an instance of Enumeration", elementToBeDropped instanceof Enumeration);//$NON-NLS-1$
 		dropNode(SemanticDropToolsIds.DROP__ENUMERATION__TOOL, new CD_EnumerationCreationChecker(this.diagram, this.diagramRepresentation), new SemanticDropChecker(elementToBeDropped), elementToBeDropped);
@@ -107,6 +113,7 @@ public class DropTopNodeOnClassDiagram_ModelOwner_Test extends AbstractTopNodeDr
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void dropInformationItem() {
+		checkSiriusDiagramSynchronization(false);
 		final NamedElement elementToBeDropped = this.root.getMember("InformationItemToDrop"); //$NON-NLS-1$
 		Assert.assertTrue("The element to be dropped must be an instance of InformationItem", elementToBeDropped instanceof InformationItem);//$NON-NLS-1$
 		dropNode(SemanticDropToolsIds.DROP__INFORMATION_ITEM__TOOL, new CD_InformationItemCreationChecker(this.diagram, this.diagramRepresentation), new SemanticDropChecker(elementToBeDropped), elementToBeDropped);
@@ -115,6 +122,7 @@ public class DropTopNodeOnClassDiagram_ModelOwner_Test extends AbstractTopNodeDr
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void dropInstanceSpecification() {
+		checkSiriusDiagramSynchronization(false);
 		final NamedElement elementToBeDropped = this.root.getMember("InstanceSpecificationToDrop"); //$NON-NLS-1$
 		Assert.assertTrue("The element to be dropped must be an instance of InstanceSpecification", elementToBeDropped instanceof InstanceSpecification);//$NON-NLS-1$
 		dropNode(SemanticDropToolsIds.DROP__INSTANCE_SPECIFICATION__TOOL, new CD_InstanceSpecificationCreationChecker(this.diagram, this.diagramRepresentation), new SemanticDropChecker(elementToBeDropped), elementToBeDropped);
@@ -123,6 +131,7 @@ public class DropTopNodeOnClassDiagram_ModelOwner_Test extends AbstractTopNodeDr
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void dropInterface() {
+		checkSiriusDiagramSynchronization(false);
 		final NamedElement elementToBeDropped = this.root.getMember("InterfaceToDrop"); //$NON-NLS-1$
 		Assert.assertTrue("The element to be dropped must be an instance of Interface", elementToBeDropped instanceof Interface);//$NON-NLS-1$
 		dropNode(SemanticDropToolsIds.DROP__INTERFACE__TOOL, new CD_InterfaceCreationChecker(this.diagram, this.diagramRepresentation), new SemanticDropChecker(elementToBeDropped), elementToBeDropped);
@@ -131,6 +140,7 @@ public class DropTopNodeOnClassDiagram_ModelOwner_Test extends AbstractTopNodeDr
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void dropModel() {
+		checkSiriusDiagramSynchronization(false);
 		final NamedElement elementToBeDropped = this.root.getMember("ModelToDrop"); //$NON-NLS-1$
 		Assert.assertTrue("The element to be dropped must be an instance of Model", elementToBeDropped instanceof Model);//$NON-NLS-1$
 		dropNode(SemanticDropToolsIds.DROP__MODEL__TOOL, new CD_ModelCreationChecker(this.diagram, this.diagramRepresentation), new SemanticDropChecker(elementToBeDropped), elementToBeDropped);
@@ -139,6 +149,7 @@ public class DropTopNodeOnClassDiagram_ModelOwner_Test extends AbstractTopNodeDr
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void dropPackage() {
+		checkSiriusDiagramSynchronization(false);
 		final NamedElement elementToBeDropped = this.root.getMember("PackageToDrop"); //$NON-NLS-1$
 		Assert.assertTrue("The element to be dropped must be an instance of Package", elementToBeDropped instanceof Package);//$NON-NLS-1$
 		dropNode(SemanticDropToolsIds.DROP__PACKAGE__TOOL, new CD_PackageCreationChecker(this.diagram, this.diagramRepresentation), new SemanticDropChecker(elementToBeDropped), elementToBeDropped);
@@ -147,6 +158,7 @@ public class DropTopNodeOnClassDiagram_ModelOwner_Test extends AbstractTopNodeDr
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void dropPrimitiveType() {
+		checkSiriusDiagramSynchronization(false);
 		final NamedElement elementToBeDropped = this.root.getMember("PrimitiveTypeToDrop"); //$NON-NLS-1$
 		Assert.assertTrue("The element to be dropped must be an instance of PrimitiveType", elementToBeDropped instanceof PrimitiveType);//$NON-NLS-1$
 		dropNode(SemanticDropToolsIds.DROP__PRIMITIVETYPE__TOOL, new CD_PrimitiveTypeCreationChecker(this.diagram, this.diagramRepresentation), new SemanticDropChecker(elementToBeDropped), elementToBeDropped);
@@ -155,6 +167,7 @@ public class DropTopNodeOnClassDiagram_ModelOwner_Test extends AbstractTopNodeDr
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void dropSignal() {
+		checkSiriusDiagramSynchronization(false);
 		final NamedElement elementToBeDropped = this.root.getMember("SignalToDrop"); //$NON-NLS-1$
 		Assert.assertTrue("The element to be dropped must be an instance of Signal", elementToBeDropped instanceof Signal);//$NON-NLS-1$
 		dropNode(SemanticDropToolsIds.DROP__SIGNAL__TOOL, new CD_SignalCreationChecker(this.diagram, this.diagramRepresentation), new SemanticDropChecker(elementToBeDropped), elementToBeDropped);

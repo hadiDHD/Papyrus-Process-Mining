@@ -22,7 +22,7 @@
       </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram uid="_lCErgEkXEeyHOvMI38kLoA">
+  <diagram:DSemanticDiagram uid="_lCErgEkXEeyHOvMI38kLoA" synchronized="false">
     <eAnnotations xmi:type="description:DAnnotation" uid="_lDQ-UkkXEeyHOvMI38kLoA" source="Papyrus-SiriusDiagram">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lDQ-U0kXEeyHOvMI38kLoA" key="Papyrus-SiriusDiagram-ImplementationId" value="org.eclipse.papyrus.sirius.uml.diagram.class"/>
     </eAnnotations>

@@ -22,36 +22,30 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.papyrus.junit.framework.classification.ClassificationRunner;
-import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
-import org.eclipse.papyrus.sirius.junit.utils.rules.SiriusDiagramEditorFixture;
+import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.AbstractSiriusDiagramTests;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DNodeSpec;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeEditPart;
 import org.eclipse.uml2.uml.Comment;
 import org.eclipse.uml2.uml.Model;
 import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 /**
  * Delete Class from diagram test
  */
 @PluginResource("resources/delete/nodes/comment/TopNode_Comment_DeleteSemanticTest.di")
 @SuppressWarnings("nls")
-public class TopNode_Comment_DeleteViewTest extends AbstractPapyrusTest {
+public class TopNode_Comment_DeleteViewTest extends AbstractSiriusDiagramTests {
 
 	private static final String CLASS_DIAGRAM_NAME = "TopNode_Comment_DeleteSemanticTest";
-
-	@Rule
-	public final SiriusDiagramEditorFixture fixture = new SiriusDiagramEditorFixture(/* Collections.singletonList("aird") */);
 
 	@SuppressWarnings("restriction")
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void Delete_Comment_View() {
+		checkSiriusDiagramSynchronization(false);
 
 		// setup
 		Assert.assertTrue(fixture.getModel() instanceof Model);

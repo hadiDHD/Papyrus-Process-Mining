@@ -25,11 +25,11 @@ import org.eclipse.papyrus.infra.architecture.representation.PapyrusRepresentati
 import org.eclipse.papyrus.infra.gmfdiag.common.helper.DiagramPrototype;
 import org.eclipse.papyrus.infra.viewpoints.policy.PolicyChecker;
 import org.eclipse.papyrus.infra.viewpoints.policy.ViewPrototype;
-import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.PapyrusEditorFixture;
 import org.eclipse.papyrus.sirius.editor.internal.sessions.SiriusConstants;
 import org.eclipse.papyrus.sirius.editor.representation.SiriusDiagramConstants;
 import org.eclipse.papyrus.sirius.editor.representation.SiriusDiagramPrototype;
+import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.AbstractSiriusDiagramTests;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.viewpoint.DAnalysis;
 import org.eclipse.sirius.viewpoint.description.DAnnotation;
@@ -42,7 +42,7 @@ import org.junit.Rule;
 /**
  * Abstract class to test the Sirius Diagram creation in Papyrus
  */
-public abstract class AbstractDiagramCreationTests extends AbstractPapyrusTest {
+public abstract class AbstractDiagramCreationTests extends AbstractSiriusDiagramTests {
 
 	protected Package rootModel;
 

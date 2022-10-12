@@ -21,7 +21,7 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.papyrus.sirius.editor.representation.SiriusDiagramConstants;
-import org.eclipse.papyrus.sirius.junit.utils.rules.SiriusDiagramEditorFixture;
+import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.AbstractSiriusDiagramTests;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DDiagramElementContainer;
@@ -34,19 +34,13 @@ import org.eclipse.uml2.uml.Package;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Rule;
 
 /**
  * 
  * TODO //adapter from AbstractSubNodeListElementCreationTests maybe a common class could help us
  */
-public abstract class AbstractSemanticDropSubNodeTests<T extends Element> {
+public abstract class AbstractSemanticDropSubNodeTests<T extends Element> extends AbstractSiriusDiagramTests {
 
-	/**
-	 * this fixture is used to access to Papyrus environment (editor/diagram/commandstack/editingdomain/...)
-	 */
-	@Rule
-	public final SiriusDiagramEditorFixture fixture = new SiriusDiagramEditorFixture();
 
 	protected Package root;
 

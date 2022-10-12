@@ -17,11 +17,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
-import org.eclipse.papyrus.sirius.junit.utils.rules.SiriusDiagramEditorFixture;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.internal.constants.CreationToolsIds;
+import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.AbstractSiriusDiagramTests;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.EdgeTarget;
@@ -29,7 +28,6 @@ import org.eclipse.sirius.diagram.model.business.internal.spec.DEdgeSpec;
 import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Association;
 import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -37,20 +35,17 @@ import org.junit.Test;
  */
 @PluginResource("resources/creation/edges/common/Edge_CreationTest.di") // the resource to import for the test in the workspace
 @SuppressWarnings("nls")
-public class Edge_CompositeAssociation_CreationTest extends AbstractPapyrusTest {
+public class Edge_CompositeAssociation_CreationTest extends AbstractSiriusDiagramTests {
 
 	private static final String DIAGRAM_NAME = "Edge_ClassDiagram";
-
-	/**
-	 * this fixture is used to access to Papyrus environment (editor/diagram/commandstack/editingdomain/...)
-	 */
-	@Rule
-	public final SiriusDiagramEditorFixture fixture = new SiriusDiagramEditorFixture(/* Collections.singletonList("aird") */);
 
 	@SuppressWarnings("restriction")
 	@Test
 	@ActiveDiagram(DIAGRAM_NAME) // open the diagram
 	public void createCompositeAssociationEdgeTest() {
+		// check the diagram synchronization status
+		checkSiriusDiagramSynchronization(false);
+		
 		final DSemanticDiagram siriusDiagram = this.fixture.getActiveSiriusDiagram();
 		Assert.assertNotNull(siriusDiagram);
 		Assert.assertFalse("The diagram must be unsynchronized for this test", siriusDiagram.isSynchronized()); //$NON-NLS-1$

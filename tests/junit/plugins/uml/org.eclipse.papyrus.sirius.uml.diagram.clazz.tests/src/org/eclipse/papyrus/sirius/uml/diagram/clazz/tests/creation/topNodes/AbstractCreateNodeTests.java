@@ -15,7 +15,7 @@ package org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.creation.topNodes;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
-import org.eclipse.papyrus.sirius.junit.utils.rules.SiriusDiagramEditorFixture;
+import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.AbstractSiriusDiagramTests;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.checkers.internal.api.GraphicalOwnerUtils;
 import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.checkers.internal.api.SemanticAndGraphicalCreationChecker;
 import org.eclipse.sirius.diagram.DDiagram;
@@ -27,18 +27,11 @@ import org.eclipse.uml2.uml.Package;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Rule;
 
 /**
  * Abstract Test for Node Creation
  */
-public abstract class AbstractCreateNodeTests {
-
-	/**
-	 * this fixture is used to access to Papyrus environment (editor/diagram/commandstack/editingdomain/...)
-	 */
-	@Rule
-	public final SiriusDiagramEditorFixture fixture = new SiriusDiagramEditorFixture();
+public abstract class AbstractCreateNodeTests extends AbstractSiriusDiagramTests{
 
 	/**
 	 * the root of the model
@@ -90,6 +83,7 @@ public abstract class AbstractCreateNodeTests {
 	}
 
 	/**
+	 * This method creates the node and checks that the diagram is unsynchronized
 	 * 
 	 * @param creationToolId
 	 *            the ID of the creation tool to used
@@ -99,6 +93,24 @@ public abstract class AbstractCreateNodeTests {
 	 *            the graphical container to use to create the node
 	 */
 	protected void createNode(final String creationToolId, final SemanticAndGraphicalCreationChecker checker, final EObject graphicalContainer) {
+		createNode(creationToolId, checker, graphicalContainer, false);
+	}
+
+	/**
+	 * This method create the node and checks the status of the current diagram (synchronized or not synchronized)
+	 * 
+	 * @param creationToolId
+	 *            the ID of the creation tool to used
+	 * @param checker
+	 *            the checker used to validate the creation of the node
+	 * @param graphicalContainer
+	 *            the graphical container to use to create the node
+	 * @param isSynchronized
+	 *            <code>true</code> if the diagram must be synchronized
+	 */
+	protected void createNode(final String creationToolId, final SemanticAndGraphicalCreationChecker checker, final EObject graphicalContainer, final boolean isSynchronized) {
+		checkSiriusDiagramSynchronization(isSynchronized);
+
 		Assert.assertEquals("The graphical container must be empty before the creation of the node.", 0, GraphicalOwnerUtils.getGraphicalOwnerChildrenSize(graphicalContainer)); //$NON-NLS-1$
 		boolean result = fixture.applyContainerCreationTool(creationToolId, getDDiagram(), graphicalContainer);
 		Assert.assertTrue("The creation of element failed", result); //$NON-NLS-1$

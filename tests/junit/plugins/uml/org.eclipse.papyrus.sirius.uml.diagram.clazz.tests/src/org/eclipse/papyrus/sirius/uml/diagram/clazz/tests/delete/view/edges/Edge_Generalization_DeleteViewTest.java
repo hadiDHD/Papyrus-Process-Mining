@@ -22,39 +22,33 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.papyrus.junit.framework.classification.ClassificationRunner;
-import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
-import org.eclipse.papyrus.sirius.junit.utils.rules.SiriusDiagramEditorFixture;
+import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.AbstractSiriusDiagramTests;
 import org.eclipse.sirius.diagram.model.business.internal.spec.DEdgeSpec;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEditPart;
+import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Generalization;
 import org.eclipse.uml2.uml.Model;
-import org.eclipse.uml2.uml.Class;
 import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 /**
  * Delete Dependency edge from diagram test
  */
 @PluginResource("resources/delete/edges/generalization/Edge_Generalization_DeleteSemanticTest.di")
 @SuppressWarnings("nls")
-public class Edge_Generalization_DeleteViewTest extends AbstractPapyrusTest {
+public class Edge_Generalization_DeleteViewTest extends AbstractSiriusDiagramTests {
 
 	private static final String EDGE_SOURCE_NAME = "EdgeSource";
 
 	private static final String CLASS_DIAGRAM_NAME = "Edge_Generalization_Delete_ClassDiagram";
 
-	@Rule
-	public final SiriusDiagramEditorFixture fixture = new SiriusDiagramEditorFixture(/* Collections.singletonList("aird") */);
-
 	@SuppressWarnings("restriction")
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void Delete_GeneralizationEdge_View() {
+		checkSiriusDiagramSynchronization(false);
 
 		// setup
 		Assert.assertTrue(fixture.getModel() instanceof Model);

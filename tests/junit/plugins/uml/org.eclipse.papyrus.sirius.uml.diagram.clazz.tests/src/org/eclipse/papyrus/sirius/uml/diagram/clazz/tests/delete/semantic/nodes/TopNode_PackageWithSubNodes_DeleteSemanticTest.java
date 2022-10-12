@@ -17,25 +17,21 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.papyrus.junit.framework.classification.ClassificationRunner;
-import org.eclipse.papyrus.junit.framework.classification.tests.AbstractPapyrusTest;
 import org.eclipse.papyrus.junit.utils.rules.ActiveDiagram;
 import org.eclipse.papyrus.junit.utils.rules.PluginResource;
-import org.eclipse.papyrus.sirius.junit.utils.rules.SiriusDiagramEditorFixture;
+import org.eclipse.papyrus.sirius.uml.diagram.clazz.tests.AbstractSiriusDiagramTests;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.internal.impl.PackageImpl;
 import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 /**
  * Delete Package element and it's sub nodes from model test
  */
 @PluginResource("resources/delete/nodes/package/TopNode_PackageWithSubNodes_DeleteSemanticTest.di")
 @SuppressWarnings("nls")
-public class TopNode_PackageWithSubNodes_DeleteSemanticTest extends AbstractPapyrusTest {
+public class TopNode_PackageWithSubNodes_DeleteSemanticTest extends AbstractSiriusDiagramTests {
 
 	private static final String ELEMENT_TO_DESTROY_NAME = "PackageToDelete";
 
@@ -43,13 +39,12 @@ public class TopNode_PackageWithSubNodes_DeleteSemanticTest extends AbstractPapy
 
 	private static final String CLASS_DIAGRAM_NAME = "TopNode_Package_Delete_ClassDiagram";
 
-	@Rule
-	public final SiriusDiagramEditorFixture fixture = new SiriusDiagramEditorFixture(/* Collections.singletonList("aird") */);
-
 	@SuppressWarnings({ "restriction", "unused" })
 	@Test
 	@ActiveDiagram(CLASS_DIAGRAM_NAME)
 	public void Delete_Package_Semantic() {
+		checkSiriusDiagramSynchronization(false);
+		
 		// setup
 		Assert.assertTrue(fixture.getModel() instanceof Model);
 		Model rootModel = (Model) fixture.getModel();

@@ -107,7 +107,19 @@ public abstract class AbstractTopNodeDropTests {
 		graphicalChecker.validateAfterRedo();
 		semanticChecker.validateAfterRedo();
 	}
-
+	
+	/**
+	 * This method is used to check if the current diagram has the expected synchronization status
+	 * 
+	 * @param isSynchronized
+	 *            <code>true</code> if the diagram must be synchronized
+	 */
+	protected void checkSiriusDiagramSynchronization(final boolean isSynchronized) {
+		final DSemanticDiagram siriusDiagram = this.fixture.getActiveSiriusDiagram();
+		Assert.assertNotNull("We don't found a Sirius active diagram", siriusDiagram); //$NON-NLS-1$
+		Assert.assertEquals("The synchronization status of the diagram is not the expected one", Boolean.valueOf(isSynchronized), Boolean.valueOf(siriusDiagram.isSynchronized())); //$NON-NLS-1$
+	}
+	
 	protected abstract DragAndDropTarget getTopNodeGraphicalContainer();
 
 	/**
