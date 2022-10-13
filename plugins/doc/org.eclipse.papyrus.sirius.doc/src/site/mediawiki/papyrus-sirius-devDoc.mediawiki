@@ -84,6 +84,7 @@ To ease development and review, we decided to follow conception rules for odesig
 *** this service uses the internationalization feature provided by Papyrus
 ***this service build complex label like : '<<keyword>> <appliedStereotype> labelOfTheElement', where 'labelOfTheElement' can also be a specific construction, like for UML Property: 'name: type [0..*]',
 ** for nodes used inside a ''Compartment List'', we want a single line label, so we use the service method '''buildSingleLineLabel(Element element, DDiagram diagram)''', 
+*** in this case, we never use the qualified name label,
 ** for others figures, we want a multiline label, so we use '''buildMultilineLabel(Element element, DDiagram diagram)''',
 **this service uses the internationalization feature provided by Papyrus
 
@@ -105,6 +106,7 @@ To ease development and review, we decided to follow conception rules for odesig
 *''palette'' rules:
 ** the palette description is given by two folders, one for nodes, named '''Nodes''', one for edges, named '''Edges'''.
 ** in these folders, the tools should be sorted alphabetically, but the organization also depends on the frequency of use of each element.
+** the label of elements in the palette must have spaces when they have a composed name: '''Data Type''' instead of '''DataType''', '''Duration Observation''' instead of '''DurationObservation'''
 
 *''reconnect'' rules:
 **The reconnect tools are defined in a folder called ''Relationships''.

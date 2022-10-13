@@ -68,7 +68,7 @@ public class UMLLabelService {
 	}
 
 	/**
-	 * This method build a single line label. These labels are used for Nodes inside List Compartment.
+	 * This method build a single line label. These labels are used for Nodes inside List Compartment. In this case, the qualified name is never used
 	 * 
 	 * @param element
 	 *            the element for which we want a label
@@ -78,7 +78,7 @@ public class UMLLabelService {
 	 *         a single line label
 	 */
 	public String buildSingleLineLabel(final Element element, final DDiagram diagram) {
-		return buildLabel(element, diagram, false);
+		return buildLabel(element, diagram, false, false); // we don't show qualified name in single line label
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class UMLLabelService {
 	 *         a multi line label
 	 */
 	public String buildMultilineLabel(final Element element, final DDiagram diagram) {
-		return buildLabel(element, diagram, true);
+		return buildLabel(element, diagram, true, isShowingQualifiedName(diagram));
 	}
 
 
@@ -131,11 +131,12 @@ public class UMLLabelService {
 	 *            the current diagram
 	 * @param multiline
 	 *            boolean indicating if we want a multiline label or not
+	 * @param useQualifiedName
+	 *            boolean indicating if we must use the qualified name to build the label
 	 * @return
 	 *         the label to display in the diagram
 	 */
-	private final String buildLabel(final Element element, final DDiagram diagram, final boolean multiline) {
-		boolean useQualifiedName = isShowingQualifiedName(diagram);
+	private final String buildLabel(final Element element, final DDiagram diagram, final boolean multiline, final boolean useQualifiedName) {
 		this.nameProvider.useQualifiedName(useQualifiedName);
 		final String keyword = this.keywordProvider.doSwitch(element);
 
