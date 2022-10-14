@@ -31,10 +31,5 @@ public class ODesignConstant {
 	 * The ID of the layer used to show/hide qualified name
 	 */
 	public static final String QUALIFIED_NAMED_LAYER_ID = "QualifiedNameLayer"; //$NON-NLS-1$
-	
-	/**
-	 * The ID of the mapping used to draw bendpoints
-	 */
-	public static final String BENDPOINT_MAPPING =  "Bendpoint"; //$NON-NLS-1$
 
 }

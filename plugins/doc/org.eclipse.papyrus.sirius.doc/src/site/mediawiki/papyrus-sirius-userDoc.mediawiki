@@ -33,12 +33,6 @@ See https://www.eclipse.org/sirius/doc/user/diagrams/Diagrams.html
 
 While most part is similar to the former GMF diagram. There are some small differences between both.
 
-=== Filters ===
-
-While using sirius diagram, you can enable or disable filters on the representation. For example filters can show or hide the Bendpoints in the Class Diagram.
-
-[[File:../../../image/user/4_Filters.png]]
-
 === Layers ===
 
 Layers can be defined to hide or show several mapping and/or several tools in the palette in a diagram.

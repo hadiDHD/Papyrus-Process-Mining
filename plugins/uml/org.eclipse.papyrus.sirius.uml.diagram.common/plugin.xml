@@ -10,12 +10,6 @@
 	</decoratorProvider>
 </extension>
 
-   <extension
-         point="org.eclipse.sirius.refreshExtensionProvider">
-      <refreshExtensionProvider
-            providerClass="org.eclipse.papyrus.sirius.uml.diagram.common.refresh.CommonRefreshExtensionProvider">
-      </refreshExtensionProvider>
-   </extension>
       <extension
         point="org.eclipse.gmf.runtime.diagram.ui.editpolicyProviders">
      <editpolicyProvider
