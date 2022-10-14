@@ -96,7 +96,7 @@ To ease development and review, we decided to follow conception rules for odesig
 *** Typically for ClassDiagram, the expression returns all Constraints found in the Package (diagram background) and in its sub-elements to avoid that a Constraint disappears after creating a ContextLink (ContextLink changes the containments of the Constraint).
 ** All nodes containing objects must have compartments, these compartments are synchronized when they represent the contents of a feature.
 ** Each semantic element represented as a node must have its own mapping (we want to avoid reuse at this level,e.g. Interface and Class have their own mapping).
-** Nodes must be defined at root level (or in a fake container for validation purposes). We avoid defining nodes inside another nodes (this rule is not applicable for bordered nodes). We want to avoid to reuse a mapping defined inside another element.
+** Nodes must be defined at root level (or in a fake container for validation purposes). We avoid defining nodes inside another nodes. We want to avoid to reuse a mapping defined inside another element. The fake containers be named like this : '''DIAGRAM_TRIGRAM + _SHARED_ + xxx'''. In ClassDiagram '''xxx''' represents the name of the owningFeature, ie '''CD_SHARED_OwnedAttribute'''.
 
 *''edge'' rules:
 ** all edges must be declared ''Unsynchronizable'' (documented exceptions are allowed).
