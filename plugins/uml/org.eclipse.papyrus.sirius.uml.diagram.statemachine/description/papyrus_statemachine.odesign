@@ -62,7 +62,7 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="SMD_Transition" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" semanticCandidatesExpression="feature:eAllContents" semanticElements="aql:self" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_FinalState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='SMD_StateBorderedPseudoState']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_FinalState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='SMD_StateBorderedPseudoState']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="uml::Transition" useDomainElement="true" reconnections="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectTransitionTarget%20'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectTransitionSource%20']">
+        <edgeMappings name="SMD_Transition" preconditionExpression="aql:self.oclIsTypeOf(uml::Transition)" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" semanticCandidatesExpression="service:transition_getSemanticCandidates()" semanticElements="aql:self" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_FinalState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='SMD_StateBorderedPseudoState']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_FinalState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='SMD_StateBorderedPseudoState']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="uml::Transition" useDomainElement="true" reconnections="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectTransitionTarget%20'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectTransitionSource%20']">
           <style>
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <beginLabelStyleDescription labelSize="9" showIcon="false" labelExpression="aql:self.getValueString(view)">
@@ -73,7 +73,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="SMD_ContextLink" preconditionExpression="service:checkContainerViewContext(sourceView)" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']" targetFinderExpression="aql:self.getContextParent()">
+        <edgeMappings name="SMD_ContextLink" preconditionExpression="service:checkContainerViewContext(sourceView)" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_FinalState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='SMD_StateBorderedPseudoState']" targetFinderExpression="aql:self.getContextParent()">
           <style lineStyle="dash_dot" targetArrow="NoDecoration">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelSize="9" labelExpression="&lt;&lt;context>>">
@@ -81,7 +81,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="SMD_Link" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='SMD_StateBorderedPseudoState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_FinalState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='SMD_Transition'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" targetFinderExpression="aql:self.targeFinderExpressionForConstraint()" reconnections="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectLinkSource'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectLinkTarget']">
+        <edgeMappings name="SMD_Link" deletionDescription="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.6/@ownedTools[name='PapyrusSemanticDeleteAction']" labelDirectEdit="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.5/@ownedTools[name='NamedElement_name_EditionTool']" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subContainerMappings[name='SMD_State']/@borderedNodeMappings[name='SMD_StateBorderedPseudoState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_FinalState'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']/@subNodeMappings[name='SMD_Pseudostate'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='SMD_Transition'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Comment'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='SMD_Constraint']" targetFinderExpression="aql:self.link_getTarget_SMD()" reconnections="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectLinkSource'] //@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ReconnectLinkTarget']">
           <style lineStyle="dash" targetArrow="NoDecoration">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelSize="9">
@@ -514,14 +514,15 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Edges" icon="/org.eclipse.gmf.runtime.diagram.ui/icons/group.gif">
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a Context Link. This link is used to fill the feature Constraint#context." name="CreateContextLinkTool" label="Context Link" precondition="aql:true" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='SMD_ContextLink']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Association.gif" extraTargetMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Create a Context Link. This link is used to fill the feature Constraint#context." name="CreateContextLinkTool" label="Context Link" precondition="service:contextLink_isValidSourceAndTarget_SM(preSourceView,preTargetView,preSource,preTarget)" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='SMD_ContextLink']" iconPath="/org.eclipse.uml2.uml.edit/icons/full/obj16/Association.gif" extraTargetMappings="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:target.getStateParent()" featureName="ownedRule"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.oclAsType(uml::Constraint)">
+                <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="var:target"/>
+                <subModelOperations xsi:type="tool_1:CreateEdgeView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='SMD_ContextLink']" containerViewExpression="aql:sourceView.getParentDiagram()" sourceExpression="var:source" targetExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -563,73 +564,47 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Relationships">
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectLinkSource" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectLinkSource" precondition="service:link_canReconnectSource_SMD(target)" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:source.oclIsTypeOf(uml::Constraint)">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:target">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="constrainedElement" valueExpression="aql:edgeView.targetNode.target"/>
-                  </subModelOperations>
-                  <subModelOperations xsi:type="tool:Unset" featureName="constrainedElement" elementExpression="aql:edgeView.targetNode.target"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:source.oclIsTypeOf(uml::Comment)">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:target">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="annotatedElement" valueExpression="aql:edgeView.targetNode.target"/>
-                  </subModelOperations>
-                  <subModelOperations xsi:type="tool:Unset" featureName="annotatedElement" elementExpression="aql:edgeView.targetNode.target"/>
-                </subModelOperations>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.link_reconnectSource_SMD(source,target,otherEnd)"/>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectLinkTarget" forceRefresh="true">
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectLinkTarget" precondition="service:link_canReconnectTarget_SMD(target)">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:edgeView.sourceNode.target">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsTypeOf(uml::Constraint)">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="constrainedElement" valueExpression="aql:target"/>
-                  <subModelOperations xsi:type="tool:Unset" featureName="constrainedElement" elementExpression="aql:source"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsTypeOf(uml::Comment)">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="annotatedElement" valueExpression="aql:target"/>
-                  <subModelOperations xsi:type="tool:Unset" featureName="annotatedElement" elementExpression="aql:source"/>
-                </subModelOperations>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.link_reconnectTarget_SMD( source, target, otherEnd)"/>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectTransitionTarget " forceRefresh="true">
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectTransitionSource " precondition="service:transition_canReconnectSource(target)" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:edgeView.target">
-                <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="aql:target"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.transition_reconnectSource(source, target)"/>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectTransitionSource " forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="ReconnectTransitionTarget " precondition="service:transition_canReconnectTarget(target)" forceRefresh="true">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:edgeView.target">
-                <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="aql:target"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:element.transition_reconnectTarget(source, target)"/>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
@@ -865,6 +840,7 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.statemachine.StateMachineServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.common.services.SemanticDeletionService"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.common.core.services.AbstractDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.uml.diagram.statemachine.services.StateMachineDiagramServices"/>
   </ownedViewpoints>
   <userColorsPalettes>
     <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="204" name="CommentColor"/>
