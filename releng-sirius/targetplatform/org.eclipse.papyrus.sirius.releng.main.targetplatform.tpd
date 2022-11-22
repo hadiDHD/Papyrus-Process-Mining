@@ -2,21 +2,27 @@ target "Papyrus-Sirius - 2022-06" with source requirements
 // build with simrel commit e014ee7948cbdea3d3eea7591de339b4bc25d0ed
 
 //manualUpdate
-location orbit "https://download.eclipse.org/tools/orbit/downloads/drops/R20220302172233/repository/" {
+location orbit "https://download.eclipse.org/tools/orbit/downloads/drops/S20221115203712/repository" {
 	// update batik to be in adequation with latest gmf runtime https://www.eclipse.org/lists/mdt-papyrus.dev/msg04486.html 
-	org.apache.batik.anim [1.14.0,1.15.0)
-	org.apache.batik.dom [1.14.0,1.15.0)
-	org.apache.batik.dom.svg [1.14.0,1.15.0)
-	org.apache.batik.xml [1.14.0,1.15.0)
+	org.apache.batik.anim [1.16.0,1.17.0)
+	org.apache.batik.dom [1.16.0,1.17.0)
+	org.apache.batik.dom.svg [1.16.0,1.17.0)
+	org.apache.batik.xml [1.16.0,1.17.0)
 	org.apache.poi [4.1.0,5.0.0)
     org.apache.poi.ooxml [4.1.0,5.0.0)
     org.apache.poi.ooxml.schemas [4.1.0,5.0.0)
 }
 
-// updateFrom("GMF Runtime 1.14.2 for SimRel 2022-06",0)
-location gmfRuntime "https://download.eclipse.org/modeling/gmp/gmf-runtime/updates/releases/R202204130739" {
+//manualUpdate
+location orbit_202203 "https://download.eclipse.org/tools/orbit/downloads/drops/R20220302172233/repository" {
+    org.easymock lazy //required by the dependencies to org.eclipse.sirius.tests.junit.support 
+}
+
+// updateFrom("GMF Runtime",0)
+location gmfRuntime "https://download.eclipse.org/modeling/gmp/gmf-runtime/updates/releases/R202211041032/" {
 	org.eclipse.gmf.runtime.sdk.feature.group
 }
+
 
 //manualUpdate
 location "https://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/master/" Papyrus-nightly {
@@ -28,7 +34,7 @@ location "https://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/mast
 
 
 // manualUpdate
-location release-2022-06 "https://download.eclipse.org/releases/2022-06" {
+location release-2022-12 "https://download.eclipse.org/releases/2022-12" {
 	org.eclipse.emf.workspace.feature.group
 	org.eclipse.xwt.feature.feature.group
 }
@@ -39,18 +45,18 @@ location swtbot-3.1 "https://download.eclipse.org/technology/swtbot/releases/3.1
 }
 
 // updateFrom("M2T ACCELEO",0)
-location acceleo "https://download.eclipse.org/acceleo/updates/releases/3.7/R202102190929" {
+location acceleo "https://download.eclipse.org/acceleo/updates/milestones/3.7/S202211151354/" {
 	org.eclipse.acceleo.feature.group
 	org.eclipse.acceleo.runtime.feature.group
 }
 
 // updateFrom("Eclipse",0)
-location platform "https://download.eclipse.org/eclipse/updates/4.24/R-4.24-202206070700/" {
+location platform "https://download.eclipse.org/eclipse/updates/4.26-I-builds/I20221117-1330" {
 	org.eclipse.sdk.feature.group
 }
 
 // updateFrom("Sirius",0)
-location sirius "https://download.eclipse.org/sirius/updates/releases/7.0.2/2021-06/" {
+location sirius "https://download.eclipse.org/sirius/updates/milestones/7.0.6rc2/2021-06/" {
 	org.eclipse.sirius.aql.feature.group
 	org.eclipse.sirius.doc.feature.feature.group
 	org.eclipse.sirius.interpreter.feature.feature.group
