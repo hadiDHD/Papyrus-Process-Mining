@@ -245,55 +245,56 @@
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:If" conditionExpression="aql:container.oclIsTypeOf(uml::Region)">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:container.getStateParent()">
-                    <subModelOperations xsi:type="tool:Let" variableName="dropLocation" valueExpression="aql:self.getDropLocation(containerView)"/>
-                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:dropLocation == 'T'">
-                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.setChildRepresentation('V')"/>
-                      <subModelOperations xsi:type="tool:CreateInstance" typeName="Region" referenceName="region">
-                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                        <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="var:containerView"/>
-                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
-                          <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="var:containerView" variableName="createdView2"/>
-                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.moveChildrenView(createdView2)">
-                            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:applyLayoutData(containerView)"/>
+                    <subModelOperations xsi:type="tool:Let" variableName="dropLocation" valueExpression="aql:self.getDropLocation(containerView)">
+                      <subModelOperations xsi:type="tool:If" conditionExpression="aql:dropLocation == 'T'">
+                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.setChildRepresentation('V')"/>
+                        <subModelOperations xsi:type="tool:CreateInstance" typeName="Region" referenceName="region">
+                          <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                          <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="var:containerView"/>
+                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
+                            <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="var:containerView" variableName="createdView2"/>
+                            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.moveChildrenView(createdView2)">
+                              <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:applyLayoutData(containerView)"/>
+                            </subModelOperations>
                           </subModelOperations>
                         </subModelOperations>
                       </subModelOperations>
-                    </subModelOperations>
-                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:dropLocation == 'R'">
-                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.setChildRepresentation('H')"/>
-                      <subModelOperations xsi:type="tool:CreateInstance" typeName="Region" referenceName="region">
-                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
-                          <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:containerView" variableName="createdView2"/>
-                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.moveChildrenView(createdView2)">
-                            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:applyLayoutData(containerView)"/>
+                      <subModelOperations xsi:type="tool:If" conditionExpression="aql:dropLocation == 'R'">
+                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.setChildRepresentation('H')"/>
+                        <subModelOperations xsi:type="tool:CreateInstance" typeName="Region" referenceName="region">
+                          <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
+                            <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:containerView" variableName="createdView2"/>
+                            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.moveChildrenView(createdView2)">
+                              <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:applyLayoutData(containerView)"/>
+                            </subModelOperations>
                           </subModelOperations>
+                          <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:containerView"/>
                         </subModelOperations>
-                        <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:containerView"/>
                       </subModelOperations>
-                    </subModelOperations>
-                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:dropLocation == 'B'">
-                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.setChildRepresentation('V')"/>
-                      <subModelOperations xsi:type="tool:CreateInstance" typeName="Region" referenceName="region">
-                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
-                          <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:containerView" variableName="createdView2"/>
-                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.moveChildrenView(createdView2)">
-                            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:applyLayoutData(containerView)"/>
+                      <subModelOperations xsi:type="tool:If" conditionExpression="aql:dropLocation == 'B'">
+                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.setChildRepresentation('V')"/>
+                        <subModelOperations xsi:type="tool:CreateInstance" typeName="Region" referenceName="region">
+                          <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
+                            <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:containerView" variableName="createdView2"/>
+                            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.moveChildrenView(createdView2)">
+                              <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:applyLayoutData(containerView)"/>
+                            </subModelOperations>
                           </subModelOperations>
+                          <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:containerView"/>
                         </subModelOperations>
-                        <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:containerView"/>
                       </subModelOperations>
-                    </subModelOperations>
-                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:dropLocation == 'L'">
-                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.setChildRepresentation('H')"/>
-                      <subModelOperations xsi:type="tool:CreateInstance" typeName="Region" referenceName="region">
-                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
-                        <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:containerView"/>
-                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
-                          <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:containerView" variableName="createdView2"/>
-                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.moveChildrenView(createdView2)">
-                            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:applyLayoutData(containerView)"/>
+                      <subModelOperations xsi:type="tool:If" conditionExpression="aql:dropLocation == 'L'">
+                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.setChildRepresentation('H')"/>
+                        <subModelOperations xsi:type="tool:CreateInstance" typeName="Region" referenceName="region">
+                          <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                          <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:containerView"/>
+                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container">
+                            <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='StateMachineDiagram']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='SMD_StateMachine']/@subContainerMappings[name='SMD_RegionCompartment']" containerViewExpression="aql:containerView" variableName="createdView2"/>
+                            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:containerView.moveChildrenView(createdView2)">
+                              <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:applyLayoutData(containerView)"/>
+                            </subModelOperations>
                           </subModelOperations>
                         </subModelOperations>
                       </subModelOperations>
