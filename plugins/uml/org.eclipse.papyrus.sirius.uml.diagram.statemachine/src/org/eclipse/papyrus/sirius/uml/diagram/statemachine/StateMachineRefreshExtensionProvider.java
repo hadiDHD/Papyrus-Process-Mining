@@ -115,7 +115,7 @@ public class StateMachineRefreshExtensionProvider implements IRefreshExtensionPr
 		EList<DDiagramElement> diagramElements = di.getDiagramElements();
 		for (DDiagramElement dDiagramElement : diagramElements) {
 			if (dDiagramElement instanceof DNodeContainer) {
-				if (((DNodeContainer) dDiagramElement).getActualMapping().getName().equals("SMD_State") || ((DNodeContainer) dDiagramElement).getActualMapping().getName().equals("SMD_StateRoot")) {
+				if (((DNodeContainer) dDiagramElement).getActualMapping().getName().equals("SMD_State")) {
 					if (((DNodeContainer) dDiagramElement).getElements().size() == 0) {
 						((DNodeContainer) dDiagramElement).setChildrenPresentation(ContainerLayout.FREE_FORM);
 					} else {

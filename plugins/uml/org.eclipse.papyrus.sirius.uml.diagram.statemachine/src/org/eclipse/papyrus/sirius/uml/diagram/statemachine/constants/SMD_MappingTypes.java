@@ -31,7 +31,6 @@ public class SMD_MappingTypes {
 	public static final String REGION_COMPARTMENT_PSEUDOSTATE = "SMD_Pseudostate"; //$NON-NLS-1$
 	public static final String REGION_COMPARTMENT_STATE = "SMD_State"; //$NON-NLS-1$
 	public static final String STATEMACHINE_NODE_TYPE = "SMD_StateMachine"; //$NON-NLS-1$
-	public static final String STATEROOT_NODE_TYPE = "SMD_StateRoot"; //$NON-NLS-1$
 	public static final String TRANSITION_EDGE_TYPE = "SMD_Transition"; //$NON-NLS-1$
 
 
