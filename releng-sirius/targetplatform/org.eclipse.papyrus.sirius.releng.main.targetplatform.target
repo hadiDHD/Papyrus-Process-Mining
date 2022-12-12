@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Papyrus-Sirius - 2022-06" sequenceNumber="1669122428">
+<target name="Papyrus-Sirius - 2022-12" sequenceNumber="1670861654">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.apache.batik.anim" version="1.16.0.v20221027-0840"/>
@@ -30,7 +30,7 @@
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.emf.workspace.feature.group" version="1.13.0.202208110935"/>
-      <unit id="org.eclipse.xwt.feature.feature.group" version="1.6.0.202105260718"/>
+      <unit id="org.eclipse.xwt.feature.feature.group" version="1.7.0.202211301116"/>
       <repository id="release-2022-12" location="https://download.eclipse.org/releases/2022-12"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
@@ -40,31 +40,31 @@
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.acceleo.feature.group" version="3.7.12.202211151354"/>
       <unit id="org.eclipse.acceleo.runtime.feature.group" version="3.7.12.202211151354"/>
-      <repository id="acceleo" location="https://download.eclipse.org/acceleo/updates/milestones/3.7/S202211151354/"/>
+      <repository id="acceleo" location="https://download.eclipse.org/acceleo/updates/releases/3.7/R202211151354/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.sdk.feature.group" version="4.26.0.v20221117-1330"/>
-      <repository id="platform" location="https://download.eclipse.org/eclipse/updates/4.26-I-builds/I20221117-1330"/>
+      <unit id="org.eclipse.sdk.feature.group" version="4.26.0.v20221123-2302"/>
+      <repository id="platform" location="https://download.eclipse.org/eclipse/updates/4.26/R-4.26-202211231800/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.sirius.aql.feature.group" version="7.0.6.202211211602"/>
-      <unit id="org.eclipse.sirius.doc.feature.feature.group" version="7.0.6.202211211602"/>
-      <unit id="org.eclipse.sirius.interpreter.feature.feature.group" version="7.0.6.202211211602"/>
-      <unit id="org.eclipse.sirius.properties.feature.feature.group" version="7.0.6.202211211602"/>
-      <unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="7.0.6.202211211602"/>
-      <unit id="org.eclipse.sirius.runtime.feature.group" version="7.0.6.202211211602"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group" version="7.0.6.202211211602"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="7.0.6.202211211602"/>
-      <unit id="org.eclipse.sirius.runtime.ide.xtext.feature.group" version="7.0.6.202211211602"/>
-      <unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="7.0.6.202211211602"/>
-      <unit id="org.eclipse.sirius.specifier.feature.group" version="7.0.6.202211211602"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group" version="7.0.6.202211211602"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.aql.feature.group" version="7.0.6.202211211602"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.feature.group" version="7.0.6.202211211602"/>
-      <unit id="org.eclipse.sirius.specifier.properties.feature.feature.group" version="7.0.6.202211211602"/>
-      <unit id="org.eclipse.sirius.tests.feature.group" version="7.0.6.202211211602"/>
-      <unit id="org.eclipse.sirius.tests.support.feature.group" version="7.0.6.202211211602"/>
-      <repository id="sirius" location="https://download.eclipse.org/sirius/updates/milestones/7.0.6rc2/2021-06/"/>
+      <unit id="org.eclipse.sirius.aql.feature.group" version="7.0.6.202211251449"/>
+      <unit id="org.eclipse.sirius.doc.feature.feature.group" version="7.0.6.202211251449"/>
+      <unit id="org.eclipse.sirius.interpreter.feature.feature.group" version="7.0.6.202211251449"/>
+      <unit id="org.eclipse.sirius.properties.feature.feature.group" version="7.0.6.202211251449"/>
+      <unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="7.0.6.202211251449"/>
+      <unit id="org.eclipse.sirius.runtime.feature.group" version="7.0.6.202211251449"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group" version="7.0.6.202211251449"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="7.0.6.202211251449"/>
+      <unit id="org.eclipse.sirius.runtime.ide.xtext.feature.group" version="7.0.6.202211251449"/>
+      <unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="7.0.6.202211251449"/>
+      <unit id="org.eclipse.sirius.specifier.feature.group" version="7.0.6.202211251449"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group" version="7.0.6.202211251449"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.aql.feature.group" version="7.0.6.202211251449"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.feature.group" version="7.0.6.202211251449"/>
+      <unit id="org.eclipse.sirius.specifier.properties.feature.feature.group" version="7.0.6.202211251449"/>
+      <unit id="org.eclipse.sirius.tests.feature.group" version="7.0.6.202211251449"/>
+      <unit id="org.eclipse.sirius.tests.support.feature.group" version="7.0.6.202211251449"/>
+      <repository id="sirius" location="https://download.eclipse.org/sirius/updates/releases/7.0.6/2021-06/"/>
     </location>
   </locations>
 </target>

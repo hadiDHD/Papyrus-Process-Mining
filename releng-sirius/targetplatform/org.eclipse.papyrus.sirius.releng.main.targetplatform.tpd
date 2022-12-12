@@ -1,4 +1,4 @@
-target "Papyrus-Sirius - 2022-06" with source requirements
+target "Papyrus-Sirius - 2022-12" with source requirements
 // build with simrel commit e014ee7948cbdea3d3eea7591de339b4bc25d0ed
 
 //manualUpdate
@@ -45,18 +45,18 @@ location swtbot-3.1 "https://download.eclipse.org/technology/swtbot/releases/3.1
 }
 
 // updateFrom("M2T ACCELEO",0)
-location acceleo "https://download.eclipse.org/acceleo/updates/milestones/3.7/S202211151354/" {
+location acceleo "https://download.eclipse.org/acceleo/updates/releases/3.7/R202211151354/" {
 	org.eclipse.acceleo.feature.group
 	org.eclipse.acceleo.runtime.feature.group
 }
 
 // updateFrom("Eclipse",0)
-location platform "https://download.eclipse.org/eclipse/updates/4.26-I-builds/I20221117-1330" {
+location platform "https://download.eclipse.org/eclipse/updates/4.26/R-4.26-202211231800/" {
 	org.eclipse.sdk.feature.group
 }
 
 // updateFrom("Sirius",0)
-location sirius "https://download.eclipse.org/sirius/updates/milestones/7.0.6rc2/2021-06/" {
+location sirius "https://download.eclipse.org/sirius/updates/releases/7.0.6/2021-06/" {
 	org.eclipse.sirius.aql.feature.group
 	org.eclipse.sirius.doc.feature.feature.group
 	org.eclipse.sirius.interpreter.feature.feature.group
