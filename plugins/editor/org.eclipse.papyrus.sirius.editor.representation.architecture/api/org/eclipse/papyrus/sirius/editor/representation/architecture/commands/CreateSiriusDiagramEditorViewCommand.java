@@ -40,8 +40,6 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 	 */
 	private final SiriusDiagramPrototype prototype;
 
-	private DSemanticDiagram diagram;
-
 	/**
 	 *
 	 * Constructor.
@@ -108,7 +106,6 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 			return;
 		}
 		final Session session = sessionService.getSiriusSession();
-
 		if (DialectManager.INSTANCE.canCreate(this.semanticContext, diagramDescription)) {
 
 			// required to be able to create the diagram
@@ -118,23 +115,29 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 			// this annotation is used to retrieve the ViewPrototype for a given diagram
 			// TODO try to create a dialect manager
 			// TODO : write that in the documentation
-			this.diagram = (DSemanticDiagram) DialectManager.INSTANCE.createRepresentation(this.editorViewName, this.semanticContext, diagramDescription, session, new NullProgressMonitor());
+			DSemanticDiagram diagram = (DSemanticDiagram) DialectManager.INSTANCE.createRepresentation(this.editorViewName, this.semanticContext, diagramDescription, session, new NullProgressMonitor());
+			
 			DAnnotation annotation = DescriptionFactory.eINSTANCE.createDAnnotation();
+		
 			annotation.setSource(SiriusDiagramConstants.PAPYRUS_SIRIUS_DIAGRAM_IMPLEMENTATION_DANNOTATION_SOURCE);
 			annotation.getDetails().put(SiriusDiagramConstants.PAPYRUS_SIRIUS_DIAGRAM_IMPLEMENTATION_DANNOTATION_KEY, this.prototype.getId());
+			diagram.getEAnnotations().add(annotation);
+		
 
-			this.diagram.getEAnnotations().add(annotation);
-
-			attachToResource(semanticContext, diagram);
+			attachToResource(this.semanticContext, diagram);
 
 
-			if (this.openAfterCreation) {
-				openEditor(diagram);
-			}
+			
 			if (diagram.eResource() != null) {
 				// we suppose all is ok
 				this.createdEditorView = diagram;
 			}
+			
+			if(this.openAfterCreation && this.createdEditorView!=null) {
+				openEditor(this.createdEditorView);
+			}
+			
 		}
 	}
+	
 }

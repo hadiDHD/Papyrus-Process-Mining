@@ -22,6 +22,7 @@ import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.papyrus.infra.core.resource.ModelSet;
 import org.eclipse.papyrus.infra.core.resource.NotFoundException;
+import org.eclipse.papyrus.infra.core.sasheditor.editor.ISashWindowsContainer;
 import org.eclipse.papyrus.infra.core.sashwindows.di.service.IPageManager;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
@@ -199,11 +200,11 @@ public abstract class AbstractCreatePapyrusEditorViewCommand<T extends EObject> 
 	/**
 	 * Open the editor for the diagram
 	 *
-	 * @param proto
+	 * @param diagram
 	 *            the diagram
 	 */
-	protected final void openEditor(final DSemanticDiagram proto) {
-		final ServicesRegistry sReg = getServiceRegistry(proto.getTarget());
+	protected final void openEditor(final DSemanticDiagram diagram) {
+		final ServicesRegistry sReg = getServiceRegistry(diagram.getTarget());
 		if (null == sReg) {
 			return;
 		}
@@ -211,7 +212,21 @@ public abstract class AbstractCreatePapyrusEditorViewCommand<T extends EObject> 
 		if (null == pageManager) {
 			return;
 		}
-		pageManager.openPage(proto);
+		pageManager.openPage(diagram);
+
+		try {
+			//see bug 581207
+			final Object obj4 = ServiceUtilsForEObject.getInstance().getService("org.eclipse.papyrus.infra.core.sasheditor.editor.ISashWindowsContainer", diagram);//$NON-NLS-1$
+			if (obj4 instanceof ISashWindowsContainer) {
+				ISashWindowsContainer manager = (ISashWindowsContainer) obj4;
+				//this solution generates the message : 
+				//!MESSAGE refresh inside refresh !
+				manager.refreshTabs();
+			}
+		} catch (ServiceException e) {
+			Activator.log.error(e);
+		}
+
 	}
 
 	/**
