@@ -145,6 +145,25 @@ Developing the class diagram it appeared that it is often easier to call a java 
 
 NB: Currently these methods, for each UML Element, are in the ClassDiagramServices. In the future, we will probably create a java class for each semantic element, and the '''ClassDiagramServices''' will delegate to these classes. This point is still open for a discussion, because we are also thinking about a connection to the Papyrus Edition Service and it could be redundant.
 
+==Mapping for elements defined outside of the current diagram context==
+To be able to represent UML Elements located outside of the diagram context, we created specific mappings. These mappings are defined as ''Not Synchronized'' in order to avoid to reveal all outside elements on the diagram when the user uses a ''Synchronized'' diagram. To get the expected result, we created:
+*a new service providing methods named '''getOutside{MetaclassName}''', used by the field ''semantic Candidates Expression'' (named ''org.eclipse.papyrus.sirius.uml.diagram.clazz.services.ClassDiagramOutsideMappingServices'' for ClassDiagram);
+*new ''Not Synchronized'' mappings for nodes, named '''CD_NOT_SYNC_{MetaclassName}''';
+*all these mapping re-use the compartments used by their equivalent ''Unsynchronizable'' version;
+*all these mapping use a specific ''semantic Candidates Expression'' called '''getOutside{MetaclassName}''';
+*all previous semantic drops have been modified to include this condition '''not self.isOutsideOfTheDiagramContext(newViewContainer)''';
+*new semantic drops have been added and use this condition: '''self.isOutsideOfTheDiagramContext(newViewContainer)''';
+*we don't provide graphical drop for these nodes (because dropping them into an ''inside'' node will change the mapping to use and the dropped element will disappear of the diagram!).
+
+In addition, we propose a specific appearance to these elements: 
+*the mapping takes the same appearance than others, but with a ''white'' background and a ''bold'' and ''gray'' label;
+*a ''Style Customization'' is defined, to get all borders in ''gray'' when the element is read-only;
+*a ''Generic Decoration'' is defined to display a specific icon when the element is defined outside of the context of the diagram;
+*a ''Generic Decoration'' is defined to display a specific icon when the element is read-only;
+
+We also configure these new mappings in order to use the ''DirectEdit'':
+*the ''precondition'' becomes : '''aql:self.oclIsKindOf(uml::NamedElement) and not self.isReadOnly()'''
+
 = Sirius viewpoint =
 
 Each new diagram contribution is added in a new plugin, which contains the description of the mapping, the filters and the tools available for this diagram.
