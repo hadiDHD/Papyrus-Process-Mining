@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 2021, 2022 CEA LIST, Artal Technologies, Obeo and others.
+ * Copyright (c) 2021-2023 CEA LIST, Artal Technologies, Obeo and others.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -11,6 +11,7 @@
  * Contributors:
  *  Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Initial API and implementation
  *  Jessy MALLET (OBEO) <jessy.mallet@obeo.fr> - Bug 579782
+ *  Vincent LORENZO (CEA-LIST) - vincent.lorenzo@cea.fr - Bug 581387
  *****************************************************************************/
 package org.eclipse.papyrus.sirius.editor.internal.editor;
 
@@ -92,7 +93,7 @@ import org.eclipse.ui.actions.ActionFactory;
  * In order to get the new child menu, we register the action bar contribution using this same extension point and we use if for this editor.
  */
 @SuppressWarnings("restriction")
-public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements IEditingDomainProvider, IInternationalizationEditor, IRevealSemanticElement{
+public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements IEditingDomainProvider, IInternationalizationEditor, IRevealSemanticElement {
 
 	/** the service registry */
 	protected ServicesRegistry servicesRegistry;
@@ -111,6 +112,21 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 
 	// TODO check if the code with keyhandler is useful or useless
 	private KeyHandler keyHandler;
+
+	/** Command stack listener used to propagate Dirty state*/
+	private CommandStackListener commandStackListener = new CommandStackListener() {
+
+		@Override
+		public void commandStackChanged(EventObject event) {
+			if (getSite() != null
+					&& getSite().getShell() != null
+					&& getSite().getShell().getDisplay() != null) {
+				getSite().getShell().getDisplay().asyncExec(() -> {
+					firePropertyChange(IEditorPart.PROP_DIRTY);
+				});
+			}
+		}
+	};
 
 	/**
 	 *
@@ -228,18 +244,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 * this method is in charge to init the Editing Domain and the CommandStack
 	 */
 	protected void initDomainAndStack() {
-		this.editingDomain.getCommandStack().addCommandStackListener(new CommandStackListener() {
-
-			@Override
-			public void commandStackChanged(final EventObject event) {
-				if (getSite() != null) {
-					getSite().getShell().getDisplay().asyncExec(() -> {
-						firePropertyChange(IEditorPart.PROP_DIRTY);
-					});
-				}
-			}
-		});
-
+		this.editingDomain.getCommandStack().addCommandStackListener(this.commandStackListener);
 	}
 
 	/**
@@ -297,13 +302,13 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		setSite(site);
 
 		final ISiriusSessionService sessionService = getSiriusSessionService();
-		//we consider the sessionService is always available!
+		// we consider the sessionService is always available!
 		// to be sure they are opened
 		sessionService.openSessions();
 		// attache the session
 		sessionService.attachSession(diagram.getTarget());
 
-		
+
 		final SiriusDiagramEditorInput diagramViewEditorInput = new SiriusDiagramEditorInput(this.diagram, this.airdURI, this.session);
 		this.editingDomain.getCommandStack().execute(new RecordingCommand(this.editingDomain) {
 			@Override
@@ -541,5 +546,16 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		return this.servicesRegistry;
 	}
 
+	/**
+	 * @see org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramEditorImpl#dispose()
+	 *
+	 */
+	@Override
+	public void dispose() {
+		if (this.editingDomain != null && this.editingDomain.getCommandStack() != null) {
+			this.editingDomain.getCommandStack().removeCommandStackListener(this.commandStackListener);
+		}
+		super.dispose();
+	}
 
 }
