@@ -1,0 +1,3 @@
+[submodule "processmining"]
+	path = processmining
+	url = https://github.com/hadiDHD/ProcessMining.git
