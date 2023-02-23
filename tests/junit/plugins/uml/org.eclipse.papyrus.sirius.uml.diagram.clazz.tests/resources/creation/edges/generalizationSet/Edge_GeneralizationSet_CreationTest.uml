@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_rH7bQBoLEey-Ee3SHtwVxw" name="Edge_GeneralizationSet_CreationTest">
-  <packagedElement xmi:type="uml:Class" xmi:id="_EC98gBoMEeyDjbv4GqpAeQ" name="Class1" visibility="public">
-    <generalization xmi:type="uml:Generalization" xmi:id="_F6QOQBoMEeyDjbv4GqpAeQ" general="_EiejABoMEeyDjbv4GqpAeQ"/>
-    <generalization xmi:type="uml:Generalization" xmi:id="_GgquABoMEeyDjbv4GqpAeQ" general="_E8HLABoMEeyDjbv4GqpAeQ"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_EiejABoMEeyDjbv4GqpAeQ" name="Class2" visibility="public"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_E8HLABoMEeyDjbv4GqpAeQ" name="Class3" visibility="public"/>
-</uml:Model>

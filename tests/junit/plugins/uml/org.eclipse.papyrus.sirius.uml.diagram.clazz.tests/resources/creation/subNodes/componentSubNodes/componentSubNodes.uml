@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_l74IMJhyEey4H9pK03zhCg" name="componentSubNodes">
-  <packageImport xmi:type="uml:PackageImport" xmi:id="_mVbQoJhyEey4H9pK03zhCg">
-    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
-  </packageImport>
-  <packagedElement xmi:type="uml:Component" xmi:id="_cPiwUJhzEeybzpIf4rgS2A" name="Component1"/>
-</uml:Model>

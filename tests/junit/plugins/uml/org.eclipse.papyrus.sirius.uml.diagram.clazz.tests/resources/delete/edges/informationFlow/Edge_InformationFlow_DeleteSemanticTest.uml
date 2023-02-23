@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_Wv3d0CdwEey4evd-scEcsg" name="Edge_InformationFlow_DeleteSemanticTest">
-  <packagedElement xmi:type="uml:Interface" xmi:id="_u0i-0CdwEey4evd-scEcsg" name="EdgeTarget" visibility="public"/>
-  <packagedElement xmi:type="uml:Package" xmi:id="_veRRQCdwEey4evd-scEcsg" name="EdgeSource">
-    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_wXsMkCdwEey4evd-scEcsg" informationSource="_veRRQCdwEey4evd-scEcsg" informationTarget="_u0i-0CdwEey4evd-scEcsg"/>
-  </packagedElement>
-</uml:Model>
