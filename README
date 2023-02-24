@@ -1,18 +1,7 @@
-This git will host the code integrating Sirius Diagrams into a Papyrus context.
-The initial bugs are: 
 
-571959: [Sirius][Diagram] Provide a class Diagram developped with Sirius
-https://bugs.eclipse.org/bugs/show_bug.cgi?id=571959
+# Papyrus Process Mining
 
-571960: [Sirius][Diagram] Provide the code allowing to open a Sirius Diagram into Papyrus
-https://bugs.eclipse.org/bugs/show_bug.cgi?id=571960
+This is the adaptation of the process mining plugin (https://github.com/hadiDHD/ProcessMining) to capture event traces in Papyrus modeling editor.
+It uses another repo which integrates Sirius Diagrams into a Papyrus context (https://git.eclipse.org/r/papyrus/org.eclipse.papyrus-sirius.git)
 
-575856: [Sirius][Integration][Properties][Notation] The properties view for the Papyrus GMF Notation must be desactivated on Sirius Diagram
-https://bugs.eclipse.org/bugs/show_bug.cgi?id=575856
-
-575859: [Sirius][Integration] The facet query org.eclipse.papyrus.infra.gmfdiag.modelexplorer.queries.IsDiagramContainer also find Sirius Diagram
-https://bugs.eclipse.org/bugs/show_bug.cgi?id=575859
-
-577301: [Sirius] create and init a new git org.eclipse.papyrus-sirius to host new Sirius Diagram code for Papyrus
-https://bugs.eclipse.org/bugs/show_bug.cgi?id=577301
 
