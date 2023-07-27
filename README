@@ -1,4 +1,0 @@
-# Papyrus Process Mining
-
-This is the adaptation of the process mining plugin (https://github.com/hadiDHD/ProcessMining) to capture event traces in Papyrus modeling editor.
-It uses another repo which integrates Sirius Diagrams into a Papyrus context (https://git.eclipse.org/c/papyrus/org.eclipse.papyrus-sirius.git)
